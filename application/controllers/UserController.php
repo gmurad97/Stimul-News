@@ -12,7 +12,7 @@ class UserController extends CI_Controller
 
     public function index()
     {
-        $data["page_title_name"] = "Home";
+        $data["page_name"] = "Home";
         $this->load->view("users/Index", $data);
     }
 }
