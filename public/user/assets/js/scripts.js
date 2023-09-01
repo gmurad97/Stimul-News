@@ -1,11 +1,11 @@
 /*===================================
-Author       : GMURAD97.
+Author       : GMURAD97
 Template Name: Stimul News - Personal Blog & Magazine HTML Template
-Version      : 1.0
+Version      : 5.6.7
 ===================================*/
 
 /*===================================*
-PAGE JS
+00. PAGE JS
 *===================================*/
 
 (function ($) {
@@ -14,6 +14,7 @@ PAGE JS
 	/*===================================*
 	01. LOADING JS
 	/*===================================*/
+
 	$(window).on('load', function () {
 		setTimeout(function () {
 			$("#preloader").delay(600).fadeOut(600).addClass('loaded');
@@ -23,55 +24,41 @@ PAGE JS
 	/*===================================*
 	02. MENU JS
 	*===================================*/
-	//Main navigation scroll spy for shadow
+
 	$(window).on('scroll', function () {
 		var scroll = $(window).scrollTop();
-
 		if (scroll >= 150) {
 			$('header.fixed-top').addClass('nav-fixed');
 		} else {
 			$('header.fixed-top').removeClass('nav-fixed');
 		}
-
 	});
 
-	//Show Hide dropdown-menu Main navigation 
 	$(document).on('ready', function () {
 		$('.dropdown-menu a.dropdown-toggler').on('click', function () {
-			//var $el = $( this );
-			//var $parent = $( this ).offsetParent( ".dropdown-menu" );
 			if (!$(this).next().hasClass('show')) {
 				$(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
 			}
 			var $subMenu = $(this).next(".dropdown-menu");
 			$subMenu.toggleClass('show');
-
 			$(this).parent("li").toggleClass('show');
-
 			$(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function () {
 				$('.dropdown-menu .show').removeClass("show");
 			});
-
 			return false;
 		});
 	});
 
-	//Hide Navbar Dropdown After Click On Links
 	var navBar = $(".header_wrap");
 	var navbarLinks = navBar.find(".navbar-collapse ul li a.page-scroll");
-
 	$.each(navbarLinks, function () {
-
 		var navbarLink = $(this);
-
 		navbarLink.on('click', function () {
 			navBar.find(".navbar-collapse").collapse('hide');
 			$("header").removeClass("active");
 		});
-
 	});
 
-	//Main navigation Active Class Add Remove
 	$('.navbar-toggler').on('click', function () {
 		$("header").toggleClass("active");
 		if ($('.search-overlay').hasClass('open')) {
@@ -88,15 +75,12 @@ PAGE JS
 
 	$(window).on('scroll', function () {
 		var scroll = $(window).scrollTop();
-
 		if (scroll >= 150) {
 			$('.header_sticky_bar').removeClass('d-none');
 			$('header.no-sticky').removeClass('nav-fixed');
-
 		} else {
 			$('.header_sticky_bar').addClass('d-none');
 		}
-
 	});
 
 	var setHeight = function () {
@@ -128,11 +112,10 @@ PAGE JS
 		});
 		return false;
 	});
+
 	/*===================================*
 	03. SMOOTH SCROLLING JS
 	*===================================*/
-	// Select all links with hashes
-
 
 	var topheaderHeight = $(".top-header").innerHeight();
 	var mainheaderHeight = $(".header_wrap").innerHeight();
@@ -147,9 +130,7 @@ PAGE JS
 				speed = $(this).data("speed") || 800;
 			target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
 
-			// Does a scroll target exist?
 			if (target.length) {
-				// Only prevent default if animation is actually gonna happen
 				event.preventDefault();
 				$('html, body').animate({
 					scrollTop: target.offset().top - headerHeight
@@ -157,33 +138,27 @@ PAGE JS
 			}
 		}
 	});
+
 	$(window).on('scroll', function () {
 		var lastId,
-			// All list items
 			menuItems = $(".header_wrap").find("a.page-scroll"),
 			topMenuHeight = $(".header_wrap").innerHeight() + 20,
-			// Anchors corresponding to menu items
 			scrollItems = menuItems.map(function () {
 				var items = $($(this).attr("href"));
 				if (items.length) { return items; }
 			});
 		var fromTop = $(this).scrollTop() + topMenuHeight;
-
-		// Get id of current scroll item
 		var cur = scrollItems.map(function () {
 			if ($(this).offset().top < fromTop)
 				return this;
 		});
-		// Get the id of the current element
 		cur = cur[cur.length - 1];
 		var id = cur && cur.length ? cur[0].id : "";
 
 		if (lastId !== id) {
 			lastId = id;
-			// Set/remove active class
 			menuItems.closest('.page-scroll').removeClass("active").end().filter("[href='#" + id + "']").closest('.page-scroll').addClass("active");
 		}
-
 	});
 
 	/*===================================*
@@ -207,9 +182,11 @@ PAGE JS
 			$(".navbar-toggler").attr("aria-expanded", false);
 		}
 	});
+
 	$(".search_wrap form").on('click', function () {
 		removeClass = false;
 	});
+
 	$("html").on('click', function () {
 		if (removeClass) {
 			$("body").removeClass('open');
@@ -222,6 +199,7 @@ PAGE JS
 	/*===================================*
 	05. SLIDER JS
 	*===================================*/
+
 	var owl = $('.owl-thumbs-slider');
 	owl.owlCarousel({
 		loop: false,
@@ -232,7 +210,6 @@ PAGE JS
 		thumbs: true,
 		navText: ['<i class="ion-ios-arrow-back"></i>', '<i class="ion-ios-arrow-forward"></i>'],
 	});
-
 	$(window).on("load", function () {
 		$('.carousel_slider').each(function () {
 			var $carousel = $(this);
@@ -256,13 +233,13 @@ PAGE JS
 				smartSpeed: $carousel.data("smart-speed"),
 				responsive: $carousel.data("responsive")
 			});
-
 		});
 	});
 
 	/*===================================*
 	06. PORTFOLIO JS
 	*===================================*/
+
 	$(window).on("load", function () {
 		var $grid_selectors = $(".grid_container");
 		var filter_selectors = ".grid_filter > li > a";
@@ -288,7 +265,6 @@ PAGE JS
 			});
 		}
 
-		//isotope filter
 		$(document).on("click", filter_selectors, function () {
 			$(filter_selectors).removeClass("current");
 			$(this).addClass("current");
@@ -340,41 +316,9 @@ PAGE JS
 	});
 
 	/*===================================*
-	07. CONTACT FORM JS
+	07. SCROLLUP JS
 	*===================================*/
-	$("#submitButton").on("click", function (event) {
-		event.preventDefault();
-		var mydata = $("form").serialize();
-		$.ajax({
-			type: "POST",
-			dataType: "json",
-			url: "contact.php",
-			data: mydata,
-			success: function (data) {
-				if (data.type === "error") {
-					$("#alert-msg").removeClass("alert, alert-success");
-					$("#alert-msg").addClass("alert, alert-danger");
-				} else {
-					$("#alert-msg").addClass("alert, alert-success");
-					$("#alert-msg").removeClass("alert, alert-danger");
-					$("#first-name").val("Enter Name");
-					$("#email").val("Enter Email");
-					$("#subject").val("Enter Subject");
-					$("#description").val("Enter Message");
 
-				}
-				$("#alert-msg").html(data.msg);
-				$("#alert-msg").show();
-			},
-			error: function (xhr, textStatus) {
-				alert(textStatus);
-			}
-		});
-	});
-
-	/*===================================*
-	08. SCROLLUP JS
-	*===================================*/
 	$(window).on('scroll', function () {
 		if ($(this).scrollTop() > 150) {
 			$('.scrollup').fadeIn();
@@ -391,27 +335,26 @@ PAGE JS
 		return false;
 	});
 
-
 	/*===================================*
-	09. POPUP JS
+	08. POPUP JS
 	*===================================*/
+
 	$('.content-popup').magnificPopup({
 		type: 'inline',
 		preloader: true,
 		mainClass: 'mfp-zoom',
 	});
 
-
-	$('.image_gallery').each(function () { // the containers for all your galleries
+	$('.image_gallery').each(function () {
 		$(this).magnificPopup({
-			delegate: 'a', // the selector for gallery item
+			delegate: 'a',
 			type: 'image',
 			gallery: {
 				enabled: true
 			},
 			zoom: {
 				enabled: true,
-				duration: 300, // don't foget to change the duration also in CSS
+				duration: 300,
 				opener: function (element) {
 					return element.find('img');
 				}
@@ -424,7 +367,6 @@ PAGE JS
 			type: 'ajax',
 		});
 	});
-
 
 	$('.portfolio_item .image_popup').on('click', function () {
 		$(this).find('.link_container').magnificPopup('open');
@@ -440,8 +382,9 @@ PAGE JS
 	});
 
 	/*==============================================================
-	10. VIDEO JS
+	9. VIDEO JS
 	==============================================================*/
+
 	$(document).on('ready', function () {
 		$('.video_popup, .iframe_popup').magnificPopup({
 			type: 'iframe',
@@ -453,16 +396,15 @@ PAGE JS
 	});
 
 	/*===================================*
-	11. ANIMATION JS
+	10. ANIMATION JS
 	*===================================*/
-	$(function () {
 
+	$(function () {
 		function ckScrollInit(items, trigger) {
 			items.each(function () {
 				var ckElement = $(this),
 					AnimationClass = ckElement.attr('data-animation'),
 					AnimationDelay = ckElement.attr('data-animation-delay');
-
 				ckElement.css({
 					'-webkit-animation-delay': AnimationDelay,
 					'-moz-animation-delay': AnimationDelay,
@@ -471,7 +413,6 @@ PAGE JS
 				});
 
 				var ckTrigger = (trigger) ? trigger : ckElement;
-
 				ckTrigger.waypoint(function () {
 					ckElement.addClass("animated").css("opacity", "1");
 					ckElement.addClass('animated').addClass(AnimationClass);
@@ -481,16 +422,14 @@ PAGE JS
 				});
 			});
 		}
-
 		ckScrollInit($('.animation'));
 		ckScrollInit($('.staggered-animation'), $('.staggered-animation-wrap'));
-
 	});
 
 	/*===================================*
-	12. BACKGROUND IMAGE JS
+	11. BACKGROUND IMAGE JS
 	*===================================*/
-	/*data image src*/
+
 	$(".background_bg").each(function () {
 		var attr = $(this).attr('data-img-src');
 		if (typeof attr !== typeof undefined && attr !== false) {
@@ -499,37 +438,12 @@ PAGE JS
 	});
 
 	/*===================================*
-	13.Current Date JS
+	12. Scroll To Fixed Item Js
 	*===================================*/
-	if ($("#current_time").length) {
-		var date = new Date();
-		var day = new Array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
-		var month = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
-		var datevalue = day[date.getDay()] + ', ' + month[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear();
-		$('#current_time').html(datevalue);
-	}
 
-	/* 	if ($("#current_time").length) {
-			let date = new Date();
-			let dateValue = `${date.getDate()}.${(date.getMonth()+1)}.${date.getFullYear()}`;
-			$("#current_time").html(dateValue);
-		} */
-
-	/*===================================*
-	14. Scroll To Fixed Item Js
-	*===================================*/
 	if ($(".custome_select").length > 0) {
 		$(document).on('ready', function () {
 			$(".custome_select").msDropdown();
-		});
-	}
-
-	/*==============================================================
-	15. FIT VIDEO JS
-	==============================================================*/
-	if ($(".fit-videos").length > 0) {
-		$(".fit-videos").fitVids({
-			customSelector: "iframe[src^='https://w.soundcloud.com']"
 		});
 	}
 

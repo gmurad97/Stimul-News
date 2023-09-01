@@ -1,3 +1,125 @@
+<div class="modal fade lr_popup" id="Login" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+        <div class="modal-content border-0">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <div class="row no-gutters">
+                    <div class="col-12">
+                        <div class="padding_eight_all">
+                            <div class="heading_s1">
+                                <h4>Login</h4>
+                            </div>
+                            <form method="post">
+                                <div class="form-group">
+                                    <input type="text" required="" class="form-control" name="email" placeholder="Your Email">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" required="" type="password" name="password" placeholder="Password">
+                                </div>
+                                <div class="login_footer form-group">
+                                    <div class="chek-form">
+                                        <div class="custome-checkbox">
+                                            <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox1" value="">
+                                            <label class="form-check-label" for="exampleCheckbox1"><span>Remember
+                                                    me</span></label>
+                                        </div>
+                                    </div>
+                                    <a href="#">Forgot password?</a>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-default btn-block" name="login">Log
+                                        in</button>
+                                </div>
+                            </form>
+                            <div class="different_login">
+                                <span> or</span>
+                            </div>
+                            <ul class="btn-login list_none text-center">
+                                <li><a href="#" class="btn btn-facebook rounded-0"><i class="ion-social-facebook"></i>Facebook</a></li>
+                                <li><a href="#" class="btn btn-google rounded-0"><i class="ion-social-googleplus"></i>Google</a></li>
+                            </ul>
+                            <div class="form-note text-center">Don't Have an Account? <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#SignUp">Sign up now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="modal fade lr_popup" id="SignUp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+        <div class="modal-content border-0">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <div class="row no-gutters">
+                    <div class="col-12">
+                        <div class="padding_eight_all">
+                            <div class="heading_s2">
+                                <h4>Sign Up</h4>
+                            </div>
+                            <form>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="First Name">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Last Name">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Username">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" required="" type="password" name="password" placeholder="Password">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" required="" type="password" name="password" placeholder="Confirm Password">
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-default btn-block" name="register">Register</button>
+                                </div>
+                            </form>
+                            <div class="form-note text-center">Already have an account? <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#Login">Login Here!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- START HEADER -->
 <header class="header_wrap dark_skin fixed-top">
     <div class="top-header bg_dark light_skin">
