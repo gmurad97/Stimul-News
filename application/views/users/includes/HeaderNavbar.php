@@ -16,9 +16,9 @@
                     <div class="d-flex align-items-center justify-content-center justify-content-md-end">
                         <div class="lng_dropdown mr-2">
                             <select name="countries" class="custome_select">
-                                <option value='en' data-title="English">English</option>
-                                <option value='fn' data-title="France">France</option>
-                                <option value='us' data-title="United States">United States</option>
+                                <option value='en' data-title="English">eng</option>
+                                <option value='fn' data-title="France">aze</option>
+                                <option value='us' data-title="United States">rus</option>
                             </select>
                         </div>
                         <ul class="social_icons social_white">
