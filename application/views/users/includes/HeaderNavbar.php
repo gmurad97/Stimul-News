@@ -8,39 +8,23 @@
                 <div class="row no-gutters">
                     <div class="col-12">
                         <div class="padding_eight_all">
-                            <div class="heading_s1">
+                            <div class="heading_s2">
                                 <h4>Login</h4>
                             </div>
-                            <form method="post">
+                            <form>
                                 <div class="form-group">
-                                    <input type="text" required="" class="form-control" name="email" placeholder="Your Email">
+                                    <input type="email" class="form-control" placeholder="Email or Username">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" required="" type="password" name="password" placeholder="Password">
-                                </div>
-                                <div class="login_footer form-group">
-                                    <div class="chek-form">
-                                        <div class="custome-checkbox">
-                                            <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox1" value="">
-                                            <label class="form-check-label" for="exampleCheckbox1"><span>Remember
-                                                    me</span></label>
-                                        </div>
-                                    </div>
-                                    <a href="#">Forgot password?</a>
+                                    <input type="password" class="form-control" placeholder="Password">
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-default btn-block" name="login">Log
-                                        in</button>
+                                    <button type="submit" class="btn btn-default btn-block" name="login">Login</button>
                                 </div>
                             </form>
-                            <div class="different_login">
-                                <span> or</span>
-                            </div>
-                            <ul class="btn-login list_none text-center">
-                                <li><a href="#" class="btn btn-facebook rounded-0"><i class="ion-social-facebook"></i>Facebook</a></li>
-                                <li><a href="#" class="btn btn-google rounded-0"><i class="ion-social-googleplus"></i>Google</a></li>
-                            </ul>
-                            <div class="form-note text-center">Don't Have an Account? <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#SignUp">Sign up now</a>
+                            <div class="form-note text-center">
+                                Don't Have an Account?
+                                <a href="javascript:void(0);" data-toggle="modal" data-dismiss="modal" data-target="#SignUp">Sign up now!</a>
                             </div>
                         </div>
                     </div>
@@ -49,14 +33,6 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
 <div class="modal fade lr_popup" id="SignUp" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-md modal-dialog-centered" role="document">
         <div class="modal-content border-0">
@@ -90,7 +66,9 @@
                                     <button type="submit" class="btn btn-default btn-block" name="register">Register</button>
                                 </div>
                             </form>
-                            <div class="form-note text-center">Already have an account? <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#Login">Login Here!</a>
+                            <div class="form-note text-center">
+                                Already have an account?
+                                <a href="javascript:void(0);" data-toggle="modal" data-dismiss="modal" data-target="#Login">Login Here!</a>
                             </div>
                         </div>
                     </div>
@@ -99,56 +77,43 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- START HEADER -->
 <header class="header_wrap dark_skin fixed-top">
     <div class="top-header bg_dark light_skin">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-7">
                     <ul class="header_list text-center text-md-left">
-                        <li><i class="far fa-clock"></i> <span id="current_time"></span></li>
-                        <li><i class="fas fa-cloud-sun-rain"></i> <span>C:32*</span></li>
-                        <li><span>F:86*</span></li>
-                        <li><a href="#" data-toggle="modal" data-target="#SignUp">Sign Up</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#Login">Login</a></li>
+                        <li>
+                            <i class="far fa-calendar-alt"></i>
+                            <span><?= $topbar_info["date"]; ?></span>
+                        </li>
+                        <li>
+                            <i class="far fa-clock"></i>
+                            <span><?= $topbar_info["time"]; ?></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-cloud-sun-rain"></i>
+                            <span><?= $topbar_info["weather"]; ?>℃</span>
+                        </li>
                     </ul>
                 </div>
                 <div class="col-md-5">
                     <div class="d-flex align-items-center justify-content-center justify-content-md-end">
-                        <div class="lng_dropdown mr-2">
+                        <ul class="header_list text-center text-md-left">
+                            <li>
+                                <a href="javascript:void(0);" data-toggle="modal" data-target="#SignUp">Sign Up</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" data-toggle="modal" data-target="#Login">Login</a>
+                            </li>
+                        </ul>
+                        <div class="lng_dropdown ml-2">
                             <select name="countries" class="custome_select">
-                                <option value='en' data-title="English">eng</option>
-                                <option value='fn' data-title="France">aze</option>
-                                <option value='us' data-title="United States">rus</option>
+                                <option value="en">EN</option>
+                                <option value="az">AZ</option>
+                                <option value='ru'>RU</option>
                             </select>
                         </div>
-                        <ul class="social_icons social_white">
-                            <li><a href="#"><i class="ion-social-facebook"></i></a></li>
-                            <li><a href="#"><i class="ion-social-twitter"></i></a></li>
-                            <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
-                            <li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -156,209 +121,74 @@
     </div>
     <div class="container">
         <nav class="navbar navbar-expand-lg">
-            <a class="navbar-brand" href="index.html">
-                <img class="logo_light" src="<?php echo base_url('public/user/assets/images/logo_white.png'); ?>" alt="logo" />
-                <img class="logo_dark" src="<?php echo base_url('public/user/assets/images/logo_dark.png'); ?>" alt="logo" />
+            <a class="navbar-brand" href="<?= base_url('home'); ?>">
+                <img class="logo_dark" src="<?= base_url('public/user/assets/images/logo/logo_dark.png'); ?>" alt="Logo">
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="ion-android-menu"></span> </button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="ion-android-menu"></span>
+            </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav">
+                    <li>
+                        <a href="<?= base_url('home'); ?>" class="nav-link nav_item active">
+                            Home
+                        </a>
+                    </li>
                     <li class="dropdown">
-                        <a data-toggle="dropdown" class="nav-link dropdown-toggle active" href="#">Home</a>
+                        <a href="javascript:void(0);" data-toggle="dropdown" class="nav-link dropdown-toggle">
+                            Categories
+                        </a>
                         <div class="dropdown-menu">
                             <ul>
-                                <li><a class="dropdown-item nav-link nav_item active" href="index.html">Homepage
-                                        1</a></li>
-                                <li><a class="dropdown-item nav-link nav_item" href="index-2.html">Homepage 2</a>
+                                <li>
+                                    <a href="#" class="dropdown-item nav-link nav_item">
+                                        Categories #1
+                                    </a>
                                 </li>
-                                <li><a class="dropdown-item nav-link nav_item" href="index-3.html">Homepage 3</a>
+                                <li>
+                                    <a href="#" class="dropdown-item nav-link nav_item">
+                                        Categories #2
+                                    </a>
                                 </li>
-                                <li><a class="dropdown-item nav-link nav_item" href="index-4.html">Homepage 4</a>
+                                <li>
+                                    <a href="#" class="dropdown-item nav-link nav_item">
+                                        Categories #3
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="dropdown-item nav-link nav_item">
+                                        Show All Categories
+                                    </a>
                                 </li>
                             </ul>
                         </div>
                     </li>
-                    <li class="dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">Pages</a>
-                        <div class="dropdown-menu">
-                            <ul>
-                                <li><a class="dropdown-item nav-link nav_item" href="about.html">About Us</a></li>
-                                <li><a class="dropdown-item nav-link nav_item" href="author-post.html">Author
-                                        Post</a></li>
-                                <li><a class="dropdown-item nav-link nav_item" href="404.html">404 Page</a></li>
-                            </ul>
-                        </div>
+                    <li>
+                        <a href="#" class="nav-link nav_item">
+                            About us
+                        </a>
                     </li>
-                    <li class="dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">Features</a>
-                        <div class="dropdown-menu dropdown-reverse">
-                            <ul>
-                                <li><a class="dropdown-item nav-link nav_item" href="blog-list.html">Blog List</a>
-                                </li>
-                                <li><a class="dropdown-item nav-link nav_item" href="blog-grid.html">Blog Grid</a>
-                                </li>
-                                <li><a class="dropdown-item nav-link nav_item" href="blog-masonry.html">Blog
-                                        Masonry</a></li>
-                                <li><a class="dropdown-item menu-link dropdown-toggler" href="#">Post Standard</a>
-                                    <div class="dropdown-menu">
-                                        <ul>
-                                            <li><a class="dropdown-item nav-link nav_item" href="blog-standard-right-sidebar.html">Right Sidebar</a></li>
-                                            <li><a class="dropdown-item nav-link nav_item" href="blog-without-sidebar.html">Without Sidebar</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li><a class="dropdown-item menu-link dropdown-toggler" href="#">Single Post</a>
-                                    <div class="dropdown-menu">
-                                        <ul>
-                                            <li><a class="dropdown-item nav-link nav_item" href="blog-single.html">Right Sidebar</a></li>
-                                            <li><a class="dropdown-item nav-link nav_item" href="blog-single-no-sidebar.html">Without Sidebar</a></li>
-                                            <li><a class="dropdown-item nav-link nav_item" href="blog-single-slider.html">Slider Post</a></li>
-                                            <li><a class="dropdown-item nav-link nav_item" href="blog-single-video.html">Video Post</a></li>
-                                            <li><a class="dropdown-item nav-link nav_item" href="blog-single-audio.html">Audio Post</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                    <li>
+                        <a href="#" class="nav-link nav_item">
+                            Contact
+                        </a>
                     </li>
-                    <li class="dropdown dropdown-mega-menu">
-                        <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">World</a>
-                        <div class="dropdown-menu">
-                            <ul class="post_nav_slider carousel_slider owl-carousel owl-theme" data-dots="false" data-margin="20" data-loop="true" data-autoplay="true" data-responsive='{"0":{"items": "1"}, "480":{"items": "2"}, "991":{"items": "3"}, "1199":{"items": "4"}}'>
-                                <li>
-                                    <div class="blog_post">
-                                        <div class="blog_img">
-                                            <a href="#">
-                                                <img src="<?php echo base_url('public/user/assets/images/nav_blog_img1.jpg'); ?>" alt="nav_blog_img1">
-                                            </a>
-                                        </div>
-                                        <div class="blog_content">
-                                            <div class="blog_text">
-                                                <div class="blog_tags">
-                                                    <a class="blog_tags_cat bg_danger" href="#">Lifestyle</a>
-                                                </div>
-                                                <h6 class="blog_heading"><a href="#">This Thing Is Strong And Make
-                                                        Your Job Good</a></h6>
-                                                <ul class="blog_meta">
-                                                    <li><a href="#"><i class="ti-calendar"></i> <span>April 14,
-                                                                2018</span></a></li>
-                                                    <li><a href="#"><i class="ti-comments"></i> <span>2</span></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="blog_post">
-                                        <div class="blog_img">
-                                            <a href="#">
-                                                <img src="<?php echo base_url('public/user/assets/images/nav_blog_img2.jpg'); ?>" alt="nav_blog_img2">
-                                                <div class="post_video_icon"><i class="fas fa-play"></i></div>
-                                            </a>
-                                        </div>
-                                        <div class="blog_content">
-                                            <div class="blog_text">
-                                                <div class="blog_tags">
-                                                    <a class="blog_tags_cat bg_warning" href="#">Travel</a>
-                                                </div>
-                                                <h6 class="blog_heading"><a href="#">Nice Photo Shooting With Hand
-                                                        Classic Style</a></h6>
-                                                <ul class="blog_meta">
-                                                    <li><a href="#"><i class="ti-calendar"></i> <span>April 14,
-                                                                2018</span></a></li>
-                                                    <li><a href="#"><i class="ti-comments"></i> <span>2</span></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="blog_post">
-                                        <div class="blog_img">
-                                            <a href="#">
-                                                <img src="<?php echo base_url('public/user/assets/images/nav_blog_img3.jpg'); ?>" alt="nav_blog_img3">
-                                            </a>
-                                        </div>
-                                        <div class="blog_content">
-                                            <div class="blog_text">
-                                                <div class="blog_tags">
-                                                    <a class="blog_tags_cat bg_blue" href="#">fashion</a>
-                                                </div>
-                                                <h6 class="blog_heading"><a href="#">This Guitar Sound Is So Good
-                                                        And I Need It More</a></h6>
-                                                <ul class="blog_meta">
-                                                    <li><a href="#"><i class="ti-calendar"></i> <span>April 14,
-                                                                2018</span></a></li>
-                                                    <li><a href="#"><i class="ti-comments"></i> <span>2</span></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="blog_post">
-                                        <div class="blog_img">
-                                            <a href="#">
-                                                <img src="<?php echo base_url('public/user/assets/images/nav_blog_img4.jpg'); ?>" alt="nav_blog_img4">
-                                                <div class="post_video_icon"><i class="fas fa-play"></i></div>
-                                            </a>
-                                        </div>
-                                        <div class="blog_content">
-                                            <div class="blog_text">
-                                                <div class="blog_tags">
-                                                    <a class="blog_tags_cat bg_purple" href="#">Photography</a>
-                                                </div>
-                                                <h6 class="blog_heading"><a href="#">Otter Surfboards in Pacific
-                                                        Ocean with friends</a></h6>
-                                                <ul class="blog_meta">
-                                                    <li><a href="#"><i class="ti-calendar"></i> <span>April 14,
-                                                                2018</span></a></li>
-                                                    <li><a href="#"><i class="ti-comments"></i> <span>2</span></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="blog_post">
-                                        <div class="blog_img">
-                                            <a href="#">
-                                                <img src="<?php echo base_url('public/user/assets/images/nav_blog_img5.jpg'); ?>" alt="nav_blog_img5">
-                                            </a>
-                                        </div>
-                                        <div class="blog_content">
-                                            <div class="blog_text">
-                                                <div class="blog_tags">
-                                                    <a class="blog_tags_cat bg_success" href="#">Music</a>
-                                                </div>
-                                                <h6 class="blog_heading"><a href="#">Having Fun With DJ And The Best
-                                                        Music Drop</a></h6>
-                                                <ul class="blog_meta">
-                                                    <li><a href="#"><i class="ti-calendar"></i> <span>April 14,
-                                                                2018</span></a></li>
-                                                    <li><a href="#"><i class="ti-comments"></i> <span>2</span></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li><a class="nav-link nav_item" href="travel.html">Travel</a></li>
-                    <li><a class="nav-link nav_item" href="contact.html">Contact</a></li>
                 </ul>
             </div>
             <ul class="navbar-nav attr-nav align-items-center">
-                <li><a href="javascript:void(0);" class="nav-link search_trigger"><i class="linearicons-magnifier"></i></a>
+                <li>
+                    <a href="javascript:void(0);" class="nav-link search_trigger">
+                        <i class="linearicons-magnifier"></i>
+                    </a>
                     <div class="search_wrap">
-                        <span class="close-search"><i class="ion-ios-close-empty"></i></span>
+                        <span class="close-search">
+                            <i class="ion-ios-close-empty"></i>
+                        </span>
                         <form>
-                            <input type="text" placeholder="Search" class="form-control" id="search_input">
-                            <button type="submit" class="search_icon"><i class="ion-ios-search-strong"></i></button>
+                            <input type="text" class="form-control" id="search_input" placeholder="Search">
+                            <button type="submit" class="search_icon">
+                                <i class="ion-ios-search-strong"></i>
+                            </button>
                         </form>
                     </div>
                 </li>
@@ -366,4 +196,3 @@
         </nav>
     </div>
 </header>
-<!-- START HEADER -->

@@ -230,8 +230,15 @@ Version      : 5.6.7
 				animateIn: $carousel.data("animate-in"),
 				animateOut: $carousel.data("animate-out"),
 				autoplayTimeout: $carousel.data("autoplay-timeout"),
+				autoplayHoverPause: $carousel.data("autoplay-hover-pause"),
 				smartSpeed: $carousel.data("smart-speed"),
 				responsive: $carousel.data("responsive")
+			});
+			$carousel.on('mouseleave', function () {
+				if ($carousel.data("autoplay")) {
+					$carousel.trigger('stop.owl.autoplay');
+					$carousel.trigger('play.owl.autoplay', [$carousel.data("autoplay-timeout")]);
+				}
 			});
 		});
 	});

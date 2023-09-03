@@ -1,63 +1,122 @@
 <?php $this->load->view("users/includes/HeadScripts"); ?>
 <?php $this->load->view("users/includes/PreLoader"); ?>
 <?php $this->load->view("users/includes/HeaderNavbar"); ?>
-
-
-
-
-
 <?php $this->load->view("users/includes/HeaderSlider"); ?>
 
 
 
 
-<!-- START BLOG SERVICES -->
+
+
 <div class="section">
     <div class="container">
+
+
+
+
+
+
         <div class="row">
             <div class="col-md-12">
                 <div class="heading_s2">
-                    <h4>CATEGORY DROPPER</h4>
+                    <h4>All categories</h4>
                 </div>
-                <div class="carousel_slider owl-carousel owl-theme nav_style4" data-margin="30" data-dots="false" data-nav="true" data-loop="true" data-autoplay="true" data-responsive='{"0":{"items": "1"}, "380":{"items": "2"}, "767":{"items": "3"}}'>
+                <div class="carousel_slider owl-carousel owl-theme nav_style4" data-margin="30" data-dots="false" data-nav="true" data-loop="true" data-autoplay="true" data-autoplay-timeout="3072" data-autoplay-hover-pause="true" data-responsive='{"0":{"items": "1"}, "380":{"items": "2"}, "767":{"items": "3"}}'>
                     <div class="item">
                         <div class="service_box">
                             <a href="#">
-                                <img src="<?php echo base_url('public/user/assets/images/service_img1.jpg'); ?>" alt="service_img" />
-                                <span class="lable">Lifstyle</span>
+                                <img src="<?= base_url('public/user/assets/images/categories/service_img1.jpg'); ?>" alt="Categories 1">
+                                <span class="lable">Categories 1</span>
                             </a>
                         </div>
                     </div>
                     <div class="item">
                         <div class="service_box">
                             <a href="#">
-                                <img src="<?php echo base_url('public/user/assets/images/service_img2.jpg'); ?>" alt="service_img" />
-                                <span class="lable">Fashion</span>
+                                <img src="<?= base_url('public/user/assets/images/categories/service_img2.jpg'); ?>" alt="Categories 2">
+                                <span class="lable">Categories 2</span>
                             </a>
                         </div>
                     </div>
                     <div class="item">
                         <div class="service_box">
                             <a href="#">
-                                <img src="<?php echo base_url('public/user/assets/images/service_img3.jpg'); ?>" alt="service_img" />
-                                <span class="lable">Travelling</span>
+                                <img src="<?= base_url('public/user/assets/images/categories/service_img3.jpg'); ?>" alt="Categories 3">
+                                <span class="lable">Categories 3</span>
                             </a>
                         </div>
                     </div>
                     <div class="item">
                         <div class="service_box">
                             <a href="#">
-                                <img src="<?php echo base_url('public/user/assets/images/service_img4.jpg'); ?>" alt="service_img" />
-                                <span class="lable">Photography</span>
+                                <img src="<?= base_url('public/user/assets/images/categories/service_img4.jpg'); ?>" alt="Categories 4">
+                                <span class="lable">Categories 4</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="service_box">
+                            <a href="#">
+                                <img src="<?= base_url('public/user/assets/images/categories/service_img1.jpg'); ?>" alt="Categories 5">
+                                <span class="lable">Categories 5</span>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+
+
+
+
+
+
+
+
+        <div class="row">
+            <div class="col-md-12 d-flex flex-row justify-content-center align-items-center my-4">
+                <a href="#" class="btn btn-dark btn-sm px-5">Show all category</a>
+            </div>
+        </div>
+
+
+
+
+
+
     </div>
 </div>
-<!-- END BLOG CATEGOREIS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -211,7 +270,6 @@
     </div>
 </div>
 <!-- END TRANDING POST -->
-
 
 
 <!-- START NEWS POST -->
@@ -715,6 +773,11 @@
     </div>
 </div>
 <!-- END SECTION INSTAGRAM IMAGE -->
+
+
+
+
+
 
 
 <?php $this->load->view("users/includes/Footer"); ?>

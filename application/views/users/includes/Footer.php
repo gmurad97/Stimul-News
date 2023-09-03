@@ -1,78 +1,78 @@
-<!-- START FOOTER SECTION -->
 <footer class="footer_dark bg_black">
     <div class="footer_top">
         <div class="container">
-            <div class="row">
+            <div class="row d-flex flex-row justify-content-between align-items-start">
                 <div class="col-xl-4 col-md-8 col-sm-12">
                     <div class="widget">
                         <div class="footer_logo">
-                            <a href="index-6.html"><img src="<?php echo base_url('public/user/assets/images/logo_white.png'); ?>" alt="logo"></a>
+                            <a href="<?= base_url('home'); ?>">
+                                <img src="<?= base_url('public/user/assets/images/logo/logo_white.png'); ?>" alt="Logo">
+                            </a>
                         </div>
-                        <p>If you are going to use a passage of Lorem Ipsum you need to be sure there isn't anything
-                            embarrassing hidden in the middle of text</p>
+                        <p>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            Minus corporis odio, repellat provident culpa error, ducimus asperiores fugiat iste natus ullam rem ea quis officiis praesentium quam reiciendis cumque!
+                            Asperiores, sit fuga.
+                        </p>
                     </div>
                     <div class="widget">
-                        <h6 class="widget_title">Popular Tag</h6>
+                        <h6 class="widget_title">Popular categories</h6>
                         <div class="tags">
-                            <a href="#">General</a>
-                            <a href="#">Design</a>
-                            <a href="#">jQuery</a>
-                            <a href="#">Branding</a>
-                            <a href="#">Modern</a>
-                            <a href="#">Blog</a>
-                            <a href="#">Quotes</a>
-                            <a href="#">Fashion</a>
+                            <a href="#">Categori1</a>
+                            <a href="#">Categori2</a>
+                            <a href="#">Categori3</a>
+                            <a href="#">Categori4</a>
+                            <a href="#">Categori5</a>
+                            <a href="#">Categori6</a>
                         </div>
-                    </div>
-                </div>
-                <div class="col-xl-2 col-md-4 col-sm-5">
-                    <div class="widget">
-                        <h6 class="widget_title">Useful Links</h6>
-                        <ul class="widget_links">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Features</a></li>
-                            <li><a href="#">Feedback</a></li>
-                            <li><a href="#">Support center</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Life Style</a></li>
-                            <li><a href="#">Business</a></li>
-                        </ul>
                     </div>
                 </div>
                 <div class="col-xl-3 col-md-6 col-sm-7">
                     <div class="widget">
-                        <h6 class="widget_title">Recent Posts</h6>
+                        <h6 class="widget_title">Recent News</h6>
                         <ul class="widget_recent_post">
                             <li>
                                 <div class="post_footer">
                                     <div class="post_img">
-                                        <a href="#"><img class="rounded-circle" src="<?php echo base_url('public/user/assets/images/letest_post1.jpg'); ?>" alt="letest_post1"></a>
+                                        <a href="#">
+                                            <img class="rounded-circle" src="<?= base_url('public/user/assets/images/letest_post1.jpg'); ?>" alt="Latest News #1">
+                                        </a>
                                     </div>
                                     <div class="post_content">
-                                        <h6><a href="#">Which Is The Saying From Toil And Pain</a></h6>
-                                        <p class="small m-0">April 14, 2018</p>
+                                        <h6>
+                                            <a href="#">Which Is The Saying From Toil And Pain</a>
+                                        </h6>
+                                        <p class="small m-0">01.01.1970</p>
                                     </div>
                                 </div>
                             </li>
                             <li>
                                 <div class="post_footer">
                                     <div class="post_img">
-                                        <a href="#"><img class="rounded-circle" src="<?php echo base_url('public/user/assets/images/letest_post2.jpg'); ?>" alt="letest_post2"></a>
+                                        <a href="#">
+                                            <img class="rounded-circle" src="<?= base_url('public/user/assets/images/letest_post2.jpg'); ?>" alt="Latest News #2">
+                                        </a>
                                     </div>
                                     <div class="post_content">
-                                        <h6><a href="#">Certain And Owing To The Claims Of Duty</a></h6>
-                                        <p class="small m-0">April 14, 2018</p>
+                                        <h6>
+                                            <a href="#">Which Is The Saying From Toil And Pain</a>
+                                        </h6>
+                                        <p class="small m-0">01.01.1970</p>
                                     </div>
                                 </div>
                             </li>
                             <li>
                                 <div class="post_footer">
                                     <div class="post_img">
-                                        <a href="#"><img class="rounded-circle" src="<?php echo base_url('public/user/assets/images/letest_post3.jpg'); ?>" alt="letest_post3"></a>
+                                        <a href="#">
+                                            <img class="rounded-circle" src="<?= base_url('public/user/assets/images/letest_post3.jpg'); ?>" alt="Latest News #3">
+                                        </a>
                                     </div>
                                     <div class="post_content">
-                                        <h6><a href="#">These Matters To This Principle Of Selection</a></h6>
-                                        <p class="small m-0">April 14, 2018</p>
+                                        <h6>
+                                            <a href="#">Which Is The Saying From Toil And Pain</a>
+                                        </h6>
+                                        <p class="small m-0">01.01.1970</p>
                                     </div>
                                 </div>
                             </li>
@@ -85,7 +85,7 @@
                         <ul class="contact_info contact_info_light">
                             <li>
                                 <i class="ti-location-pin"></i>
-                                <p>123 Street, Old Trafford, New South London , UK</p>
+                                <a href="#">Azerbaijan Baku, Caspian Plaza</a>
                             </li>
                             <li>
                                 <i class="ti-email"></i>
@@ -93,19 +93,41 @@
                             </li>
                             <li>
                                 <i class="ti-mobile"></i>
-                                <p>+ 457 789 789 65</p>
+                                <a href="tel:+12345678901">+ 123 456 789 01</a>
                             </li>
                         </ul>
                     </div>
                     <div class="widget">
                         <ul class="widget_social social_icons rounded_social">
-                            <li><a href="#" class="sc_facebook"><i class="ion-social-facebook"></i></a></li>
-                            <li><a href="#" class="sc_twitter"><i class="ion-social-twitter"></i></a></li>
-                            <li><a href="#" class="sc_gplus"><i class="ion-social-googleplus"></i></a></li>
-                            <li><a href="#" class="sc_youtube"><i class="ion-social-youtube-outline"></i></a></li>
-                            <li><a href="#" class="sc_instagram"><i class="ion-social-instagram-outline"></i></a>
+                            <li>
+                                <a href="#" class="sc_facebook">
+                                    <i class="ion-social-facebook"></i>
+                                </a>
                             </li>
-                            <li><a href="#" class="sc_pinterest"><i class="ion-social-pinterest-outline"></i></a>
+                            <li>
+                                <a href="#" class="sc_twitter">
+                                    <i class="ion-social-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="sc_gplus">
+                                    <i class="ion-social-googleplus"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="sc_youtube">
+                                    <i class="ion-social-youtube-outline"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="sc_instagram">
+                                    <i class="ion-social-instagram-outline"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="sc_pinterest">
+                                    <i class="ion-social-pinterest-outline"></i>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -117,12 +139,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <p class="copyright m-0 text-center">© 2020 All Rights Reserved By <a href="index.html" class="text_default">Morus.</a></p>
+                    <p class="copyright m-0 text-center">
+                        © 2023 All Rights Reserved By <a href="#" class="text_default">GMurad97</a>
+                    </p>
                 </div>
             </div>
         </div>
     </div>
 </footer>
-<!-- END FOOTER SECTION -->
-
-<a href="#" class="scrollup" style="display: none;"><i class="ion-ios-arrow-up"></i></a>
+<a href="javascript:void(0);" class="scrollup" style="display: none;">
+    <i class="ion-ios-arrow-up"></i>
+</a>

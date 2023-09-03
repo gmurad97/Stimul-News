@@ -1,7 +1,7 @@
 /*=========================================================
-Author       : Templatemanja.
-Template Name: Morus - Personal Blog & Magazine HTML Template
-Version      : 1.0
+Author       : GMURAD97
+Template Name: Stimul News - Personal Blog & Magazine HTML Template
+Version      : 5.6.7
 ==============================================================*/
 
 /*=============================================================
@@ -3102,6 +3102,11 @@ header.vertical_menu .navbar-collapse .navbar-nav {
 	transition: all 0.5s ease-in-out;
 }
 
+.owl-carousel {
+	-ms-touch-action: none;
+	touch-action: none;
+}
+
 .grid_container .owl-carousel.owl-theme .owl-dots {
 	margin: 0 !important;
 	position: absolute;
@@ -4322,7 +4327,7 @@ footer .widget_title {
 
 .lr_popup .close {
 	float: right;
-	font-size: 1.5rem;
+	font-size: 36px;
 	font-weight: 700;
 	line-height: 1;
 	color: #000;
