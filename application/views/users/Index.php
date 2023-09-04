@@ -2,26 +2,14 @@
 <?php $this->load->view("users/includes/PreLoader"); ?>
 <?php $this->load->view("users/includes/HeaderNavbar"); ?>
 <?php $this->load->view("users/includes/HeaderSlider"); ?>
-
-
-
-
-
-
-<div class="section">
+<div class="section pb-0">
     <div class="container">
-
-
-
-
-
-
         <div class="row">
             <div class="col-md-12">
                 <div class="heading_s2">
                     <h4>All categories</h4>
                 </div>
-                <div class="carousel_slider owl-carousel owl-theme nav_style4" data-margin="30" data-dots="false" data-nav="true" data-loop="true" data-autoplay="true" data-autoplay-timeout="3072" data-autoplay-hover-pause="true" data-responsive='{"0":{"items": "1"}, "380":{"items": "2"}, "767":{"items": "3"}}'>
+                <div class="carousel_slider owl-carousel owl-theme nav_style4" data-margin="20" data-smart-speed="1024" data-dots="false" data-nav="true" data-loop="true" data-autoplay="true" data-autoplay-timeout="3072" data-autoplay-hover-pause="true" data-responsive='{"0":{"items": "1"}, "380":{"items": "2"}, "767":{"items": "3"}}'>
                     <div class="item">
                         <div class="service_box">
                             <a href="#">
@@ -54,88 +42,17 @@
                             </a>
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="service_box">
-                            <a href="#">
-                                <img src="<?= base_url('public/user/assets/images/categories/service_img1.jpg'); ?>" alt="Categories 5">
-                                <span class="lable">Categories 5</span>
-                            </a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-        <div class="row">
-            <div class="col-md-12 d-flex flex-row justify-content-center align-items-center my-4">
-                <a href="#" class="btn btn-dark btn-sm px-5">Show all category</a>
-            </div>
-        </div>
-
-
-
-
-
-
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- START TRANDING POST -->
-<div class="section tranding_post pb_70">
+<div class="section tranding_post pb-0">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="heading_s2">
-                    <h4>Tranding Post</h4>
+                    <h4>Last news</h4>
                 </div>
             </div>
         </div>
@@ -144,18 +61,30 @@
                 <div class="blog_post blog_grid_overlay">
                     <div class="blog_img">
                         <a href="#">
-                            <img src="<?php echo base_url('public/user/assets/images/tranding_post_img1.jpg'); ?>" alt="tranding_post_img">
+                            <img src="<?= base_url('public/user/assets/images/last_news/tranding_post_img1.jpg'); ?>" alt="Last News 1">
                         </a>
                     </div>
                     <div class="blog_content">
                         <div class="blog_text">
                             <div class="blog_tags">
-                                <a class="blog_tags_cat bg_blue" href="#">fashion</a>
+                                <a class="blog_tags_cat bg_blue" href="#">Category</a>
                             </div>
-                            <h5 class="blog_heading"><a href="#">Which Of Us Ever Undertakes Physical </a></h5>
+                            <h5 class="blog_heading">
+                                <a href="#">Lorem ipsum dolor sit amet.</a>
+                            </h5>
                             <ul class="blog_meta">
-                                <li><a href="#"><i class="ti-calendar"></i> <span>April 14, 2018</span></a></li>
-                                <li><a href="#"><i class="ti-comments"></i> <span>2 Comments</span></a></li>
+                                <li>
+                                    <a href="#">
+                                        <i class="far fa-calendar-alt"></i>
+                                        <span>01.01.1970</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="far fa-comments"></i>
+                                        <span>99+ Comments</span>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -165,18 +94,30 @@
                 <div class="blog_post blog_grid_overlay">
                     <div class="blog_img">
                         <a href="#">
-                            <img src="<?php echo base_url('public/user/assets/images/tranding_post_img2.jpg'); ?>" alt="tranding_post_img">
+                            <img src="<?= base_url('public/user/assets/images/last_news/tranding_post_img1.jpg'); ?>" alt="Last News 1">
                         </a>
                     </div>
                     <div class="blog_content">
                         <div class="blog_text">
                             <div class="blog_tags">
-                                <a class="blog_tags_cat bg_warning" href="#">Travel</a>
+                                <a class="blog_tags_cat bg_blue" href="#">Category</a>
                             </div>
-                            <h5 class="blog_heading"><a href="#">Who Has Any Right To Find Fault With A Man</a></h5>
+                            <h5 class="blog_heading">
+                                <a href="#">Lorem ipsum dolor sit amet.</a>
+                            </h5>
                             <ul class="blog_meta">
-                                <li><a href="#"><i class="ti-calendar"></i> <span>April 14, 2018</span></a></li>
-                                <li><a href="#"><i class="ti-comments"></i> <span>2 Comments</span></a></li>
+                                <li>
+                                    <a href="#">
+                                        <i class="far fa-calendar-alt"></i>
+                                        <span>01.01.1970</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="far fa-comments"></i>
+                                        <span>99+ Comments</span>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -186,18 +127,30 @@
                 <div class="blog_post blog_grid_overlay">
                     <div class="blog_img">
                         <a href="#">
-                            <img src="<?php echo base_url('public/user/assets/images/tranding_post_img3.jpg'); ?>" alt="tranding_post_img">
+                            <img src="<?= base_url('public/user/assets/images/last_news/tranding_post_img1.jpg'); ?>" alt="Last News 1">
                         </a>
                     </div>
                     <div class="blog_content">
                         <div class="blog_text">
                             <div class="blog_tags">
-                                <a class="blog_tags_cat bg_danger" href="#">Lifestyle</a>
+                                <a class="blog_tags_cat bg_blue" href="#">Category</a>
                             </div>
-                            <h5 class="blog_heading"><a href="#">Who Choose To Enjoy A Pleasure</a></h5>
+                            <h5 class="blog_heading">
+                                <a href="#">Lorem ipsum dolor sit amet.</a>
+                            </h5>
                             <ul class="blog_meta">
-                                <li><a href="#"><i class="ti-calendar"></i> <span>April 14, 2018</span></a></li>
-                                <li><a href="#"><i class="ti-comments"></i> <span>2 Comments</span></a></li>
+                                <li>
+                                    <a href="#">
+                                        <i class="far fa-calendar-alt"></i>
+                                        <span>01.01.1970</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="far fa-comments"></i>
+                                        <span>99+ Comments</span>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -207,18 +160,30 @@
                 <div class="blog_post blog_grid_overlay">
                     <div class="blog_img">
                         <a href="#">
-                            <img src="<?php echo base_url('public/user/assets/images/tranding_post_img4.jpg'); ?>" alt="tranding_post_img">
+                            <img src="<?= base_url('public/user/assets/images/last_news/tranding_post_img1.jpg'); ?>" alt="Last News 1">
                         </a>
                     </div>
                     <div class="blog_content">
                         <div class="blog_text">
                             <div class="blog_tags">
-                                <a class="blog_tags_cat bg_success" href="#">Music</a>
+                                <a class="blog_tags_cat bg_blue" href="#">Category</a>
                             </div>
-                            <h5 class="blog_heading"><a href="#">Who Are So Beguiled And Demoralized</a></h5>
+                            <h5 class="blog_heading">
+                                <a href="#">Lorem ipsum dolor sit amet.</a>
+                            </h5>
                             <ul class="blog_meta">
-                                <li><a href="#"><i class="ti-calendar"></i> <span>April 14, 2018</span></a></li>
-                                <li><a href="#"><i class="ti-comments"></i> <span>2 Comments</span></a></li>
+                                <li>
+                                    <a href="#">
+                                        <i class="far fa-calendar-alt"></i>
+                                        <span>01.01.1970</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="far fa-comments"></i>
+                                        <span>99+ Comments</span>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -228,18 +193,30 @@
                 <div class="blog_post blog_grid_overlay">
                     <div class="blog_img">
                         <a href="#">
-                            <img src="<?php echo base_url('public/user/assets/images/tranding_post_img5.jpg'); ?>" alt="tranding_post_img">
+                            <img src="<?= base_url('public/user/assets/images/last_news/tranding_post_img1.jpg'); ?>" alt="Last News 1">
                         </a>
                     </div>
                     <div class="blog_content">
                         <div class="blog_text">
                             <div class="blog_tags">
-                                <a class="blog_tags_cat bg_purple" href="#">Photography</a>
+                                <a class="blog_tags_cat bg_blue" href="#">Category</a>
                             </div>
-                            <h5 class="blog_heading"><a href="#">Perfectly Simple And Easy To Distinguish</a></h5>
+                            <h5 class="blog_heading">
+                                <a href="#">Lorem ipsum dolor sit amet.</a>
+                            </h5>
                             <ul class="blog_meta">
-                                <li><a href="#"><i class="ti-calendar"></i> <span>April 14, 2018</span></a></li>
-                                <li><a href="#"><i class="ti-comments"></i> <span>2 Comments</span></a></li>
+                                <li>
+                                    <a href="#">
+                                        <i class="far fa-calendar-alt"></i>
+                                        <span>01.01.1970</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="far fa-comments"></i>
+                                        <span>99+ Comments</span>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -249,18 +226,30 @@
                 <div class="blog_post blog_grid_overlay">
                     <div class="blog_img">
                         <a href="#">
-                            <img src="<?php echo base_url('public/user/assets/images/tranding_post_img6.jpg'); ?>" alt="tranding_post_img">
+                            <img src="<?= base_url('public/user/assets/images/last_news/tranding_post_img1.jpg'); ?>" alt="Last News 1">
                         </a>
                     </div>
                     <div class="blog_content">
                         <div class="blog_text">
                             <div class="blog_tags">
-                                <a class="blog_tags_cat bg_light_green" href="#">Health</a>
+                                <a class="blog_tags_cat bg_blue" href="#">Category</a>
                             </div>
-                            <h5 class="blog_heading"><a href="#">Except To Obtain Some Advantage</a></h5>
+                            <h5 class="blog_heading">
+                                <a href="#">Lorem ipsum dolor sit amet.</a>
+                            </h5>
                             <ul class="blog_meta">
-                                <li><a href="#"><i class="ti-calendar"></i> <span>April 14, 2018</span></a></li>
-                                <li><a href="#"><i class="ti-comments"></i> <span>2 Comments</span></a></li>
+                                <li>
+                                    <a href="#">
+                                        <i class="far fa-calendar-alt"></i>
+                                        <span>01.01.1970</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="far fa-comments"></i>
+                                        <span>99+ Comments</span>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -269,501 +258,686 @@
         </div>
     </div>
 </div>
-<!-- END TRANDING POST -->
-
-
-<!-- START NEWS POST -->
-<div class="section m-3">
-    <div class="container p-0">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="heading_s2">
-                    <h4>NEWS CATEGORI DROPPER</h4>
-                </div>
-                <div class="carousel_slider owl-carousel owl-theme nav_style1" data-margin="15" data-loop="true" data-dots="false" data-center="true" data-nav="true" data-responsive='{"0":{"items": "1"}, "480":{"items": "2"}, "991":{"items": "3"}, "1199":{"items": "4"}}'>
-                    <div class="item">
-                        <div class="blog_post blog_grid_overlay">
-                            <div class="blog_img">
-                                <a href="#">
-                                    <img src="<?php echo base_url('public/user/assets/images/news_img1.jpg'); ?>" alt="news_img1">
-                                </a>
-                            </div>
-                            <div class="blog_content">
-                                <div class="blog_text">
-                                    <div class="blog_tags">
-                                        <a class="blog_tags_cat bg_blue" href="#">fashion</a>
-                                    </div>
-                                    <h5 class="blog_heading"><a href="#">They Cannot Foresee The Pain</a></h5>
-                                    <ul class="blog_meta">
-                                        <li><a href="#"><i class="ti-calendar"></i> <span>April 14, 2018</span></a>
-                                        </li>
-                                        <li><a href="#"><i class="ti-comments"></i> <span>2 Comments</span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="blog_post blog_grid_overlay">
-                            <div class="blog_img">
-                                <a href="#">
-                                    <img src="<?php echo base_url('public/user/assets/images/news_img2.jpg'); ?>" alt="news_img1">
-                                </a>
-                            </div>
-                            <div class="blog_content">
-                                <div class="blog_text">
-                                    <div class="blog_tags">
-                                        <a class="blog_tags_cat bg_warning" href="#">Travel</a>
-                                    </div>
-                                    <h5 class="blog_heading"><a href="#">Which Of Us Ever Undertakes</a></h5>
-                                    <ul class="blog_meta">
-                                        <li><a href="#"><i class="ti-calendar"></i> <span>April 14, 2018</span></a>
-                                        </li>
-                                        <li><a href="#"><i class="ti-comments"></i> <span>2 Comments</span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="blog_post blog_grid_overlay">
-                            <div class="blog_img">
-                                <a href="#">
-                                    <img src="<?php echo base_url('public/user/assets/images/news_img3.jpg'); ?>" alt="news_img1">
-                                </a>
-                            </div>
-                            <div class="blog_content">
-                                <div class="blog_text">
-                                    <div class="blog_tags">
-                                        <a class="blog_tags_cat bg_danger" href="#">Lifestyle</a>
-                                    </div>
-                                    <h5 class="blog_heading"><a href="#">Enjoy A Pleasure With Us</a></h5>
-                                    <ul class="blog_meta">
-                                        <li><a href="#"><i class="ti-calendar"></i> <span>April 14, 2018</span></a>
-                                        </li>
-                                        <li><a href="#"><i class="ti-comments"></i> <span>2 Comments</span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="blog_post blog_grid_overlay">
-                            <div class="blog_img">
-                                <a href="#">
-                                    <img src="<?php echo base_url('public/user/assets/images/news_img4.jpg'); ?>" alt="news_img1">
-                                </a>
-                            </div>
-                            <div class="blog_content">
-                                <div class="blog_text">
-                                    <div class="blog_tags">
-                                        <a class="blog_tags_cat bg_success" href="#">Music</a>
-                                    </div>
-                                    <h5 class="blog_heading"><a href="#">Except To Some Advantage</a></h5>
-                                    <ul class="blog_meta">
-                                        <li><a href="#"><i class="ti-calendar"></i> <span>April 14, 2018</span></a>
-                                        </li>
-                                        <li><a href="#"><i class="ti-comments"></i> <span>2 Comments</span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="blog_post blog_grid_overlay">
-                            <div class="blog_img">
-                                <a href="#">
-                                    <img src="<?php echo base_url('public/user/assets/images/news_img5.jpg'); ?>" alt="news_img1">
-                                </a>
-                            </div>
-                            <div class="blog_content">
-                                <div class="blog_text">
-                                    <div class="blog_tags">
-                                        <a class="blog_tags_cat bg_purple" href="#">Photography</a>
-                                    </div>
-                                    <h5 class="blog_heading"><a href="#">Great Explorer Of The Truth</a></h5>
-                                    <ul class="blog_meta">
-                                        <li><a href="#"><i class="ti-calendar"></i> <span>April 14, 2018</span></a>
-                                        </li>
-                                        <li><a href="#"><i class="ti-comments"></i> <span>2 Comments</span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="blog_post blog_grid_overlay">
-                            <div class="blog_img">
-                                <a href="#">
-                                    <img src="<?php echo base_url('public/user/assets/images/news_img6.jpg'); ?>" alt="news_img1">
-                                </a>
-                            </div>
-                            <div class="blog_content">
-                                <div class="blog_text">
-                                    <div class="blog_tags">
-                                        <a class="blog_tags_cat bg_light_green" href="#">Food</a>
-                                    </div>
-                                    <h5 class="blog_heading"><a href="#">The Master-Builder Of Human</a></h5>
-                                    <ul class="blog_meta">
-                                        <li><a href="#"><i class="ti-calendar"></i> <span>April 14, 2018</span></a>
-                                        </li>
-                                        <li><a href="#"><i class="ti-comments"></i> <span>2 Comments</span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- END NEWS POST -->
-
-<!-- START NEWS POST -->
-<div class="section m-3">
-    <div class="container p-0">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="heading_s2">
-                    <h4>NEWS CATEGORI DROPPER</h4>
-                </div>
-                <div class="carousel_slider owl-carousel owl-theme nav_style1" data-margin="15" data-loop="true" data-dots="false" data-center="true" data-nav="true" data-responsive='{"0":{"items": "1"}, "480":{"items": "2"}, "991":{"items": "3"}, "1199":{"items": "4"}}'>
-                    <div class="item">
-                        <div class="blog_post blog_grid_overlay">
-                            <div class="blog_img">
-                                <a href="#">
-                                    <img src="<?php echo base_url('public/user/assets/images/news_img1.jpg'); ?>" alt="news_img1">
-                                </a>
-                            </div>
-                            <div class="blog_content">
-                                <div class="blog_text">
-                                    <div class="blog_tags">
-                                        <a class="blog_tags_cat bg_blue" href="#">fashion</a>
-                                    </div>
-                                    <h5 class="blog_heading"><a href="#">They Cannot Foresee The Pain</a></h5>
-                                    <ul class="blog_meta">
-                                        <li><a href="#"><i class="ti-calendar"></i> <span>April 14, 2018</span></a>
-                                        </li>
-                                        <li><a href="#"><i class="ti-comments"></i> <span>2 Comments</span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="blog_post blog_grid_overlay">
-                            <div class="blog_img">
-                                <a href="#">
-                                    <img src="<?php echo base_url('public/user/assets/images/news_img2.jpg'); ?>" alt="news_img1">
-                                </a>
-                            </div>
-                            <div class="blog_content">
-                                <div class="blog_text">
-                                    <div class="blog_tags">
-                                        <a class="blog_tags_cat bg_warning" href="#">Travel</a>
-                                    </div>
-                                    <h5 class="blog_heading"><a href="#">Which Of Us Ever Undertakes</a></h5>
-                                    <ul class="blog_meta">
-                                        <li><a href="#"><i class="ti-calendar"></i> <span>April 14, 2018</span></a>
-                                        </li>
-                                        <li><a href="#"><i class="ti-comments"></i> <span>2 Comments</span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="blog_post blog_grid_overlay">
-                            <div class="blog_img">
-                                <a href="#">
-                                    <img src="<?php echo base_url('public/user/assets/images/news_img3.jpg'); ?>" alt="news_img1">
-                                </a>
-                            </div>
-                            <div class="blog_content">
-                                <div class="blog_text">
-                                    <div class="blog_tags">
-                                        <a class="blog_tags_cat bg_danger" href="#">Lifestyle</a>
-                                    </div>
-                                    <h5 class="blog_heading"><a href="#">Enjoy A Pleasure With Us</a></h5>
-                                    <ul class="blog_meta">
-                                        <li><a href="#"><i class="ti-calendar"></i> <span>April 14, 2018</span></a>
-                                        </li>
-                                        <li><a href="#"><i class="ti-comments"></i> <span>2 Comments</span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="blog_post blog_grid_overlay">
-                            <div class="blog_img">
-                                <a href="#">
-                                    <img src="<?php echo base_url('public/user/assets/images/news_img4.jpg'); ?>" alt="news_img1">
-                                </a>
-                            </div>
-                            <div class="blog_content">
-                                <div class="blog_text">
-                                    <div class="blog_tags">
-                                        <a class="blog_tags_cat bg_success" href="#">Music</a>
-                                    </div>
-                                    <h5 class="blog_heading"><a href="#">Except To Some Advantage</a></h5>
-                                    <ul class="blog_meta">
-                                        <li><a href="#"><i class="ti-calendar"></i> <span>April 14, 2018</span></a>
-                                        </li>
-                                        <li><a href="#"><i class="ti-comments"></i> <span>2 Comments</span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="blog_post blog_grid_overlay">
-                            <div class="blog_img">
-                                <a href="#">
-                                    <img src="<?php echo base_url('public/user/assets/images/news_img5.jpg'); ?>" alt="news_img1">
-                                </a>
-                            </div>
-                            <div class="blog_content">
-                                <div class="blog_text">
-                                    <div class="blog_tags">
-                                        <a class="blog_tags_cat bg_purple" href="#">Photography</a>
-                                    </div>
-                                    <h5 class="blog_heading"><a href="#">Great Explorer Of The Truth</a></h5>
-                                    <ul class="blog_meta">
-                                        <li><a href="#"><i class="ti-calendar"></i> <span>April 14, 2018</span></a>
-                                        </li>
-                                        <li><a href="#"><i class="ti-comments"></i> <span>2 Comments</span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="blog_post blog_grid_overlay">
-                            <div class="blog_img">
-                                <a href="#">
-                                    <img src="<?php echo base_url('public/user/assets/images/news_img6.jpg'); ?>" alt="news_img1">
-                                </a>
-                            </div>
-                            <div class="blog_content">
-                                <div class="blog_text">
-                                    <div class="blog_tags">
-                                        <a class="blog_tags_cat bg_light_green" href="#">Food</a>
-                                    </div>
-                                    <h5 class="blog_heading"><a href="#">The Master-Builder Of Human</a></h5>
-                                    <ul class="blog_meta">
-                                        <li><a href="#"><i class="ti-calendar"></i> <span>April 14, 2018</span></a>
-                                        </li>
-                                        <li><a href="#"><i class="ti-comments"></i> <span>2 Comments</span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- END NEWS POST -->
-
-<!-- START NEWS POST -->
-<div class="section m-3">
-    <div class="container p-0">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="heading_s2">
-                    <h4>NEWS CATEGORI DROPPER</h4>
-                </div>
-                <div class="carousel_slider owl-carousel owl-theme nav_style1" data-margin="15" data-loop="true" data-dots="false" data-center="true" data-nav="true" data-responsive='{"0":{"items": "1"}, "480":{"items": "2"}, "991":{"items": "3"}, "1199":{"items": "4"}}'>
-                    <div class="item">
-                        <div class="blog_post blog_grid_overlay">
-                            <div class="blog_img">
-                                <a href="#">
-                                    <img src="<?php echo base_url('public/user/assets/images/news_img1.jpg'); ?>" alt="news_img1">
-                                </a>
-                            </div>
-                            <div class="blog_content">
-                                <div class="blog_text">
-                                    <div class="blog_tags">
-                                        <a class="blog_tags_cat bg_blue" href="#">fashion</a>
-                                    </div>
-                                    <h5 class="blog_heading"><a href="#">They Cannot Foresee The Pain</a></h5>
-                                    <ul class="blog_meta">
-                                        <li><a href="#"><i class="ti-calendar"></i> <span>April 14, 2018</span></a>
-                                        </li>
-                                        <li><a href="#"><i class="ti-comments"></i> <span>2 Comments</span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="blog_post blog_grid_overlay">
-                            <div class="blog_img">
-                                <a href="#">
-                                    <img src="<?php echo base_url('public/user/assets/images/news_img2.jpg'); ?>" alt="news_img1">
-                                </a>
-                            </div>
-                            <div class="blog_content">
-                                <div class="blog_text">
-                                    <div class="blog_tags">
-                                        <a class="blog_tags_cat bg_warning" href="#">Travel</a>
-                                    </div>
-                                    <h5 class="blog_heading"><a href="#">Which Of Us Ever Undertakes</a></h5>
-                                    <ul class="blog_meta">
-                                        <li><a href="#"><i class="ti-calendar"></i> <span>April 14, 2018</span></a>
-                                        </li>
-                                        <li><a href="#"><i class="ti-comments"></i> <span>2 Comments</span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="blog_post blog_grid_overlay">
-                            <div class="blog_img">
-                                <a href="#">
-                                    <img src="<?php echo base_url('public/user/assets/images/news_img3.jpg'); ?>" alt="news_img1">
-                                </a>
-                            </div>
-                            <div class="blog_content">
-                                <div class="blog_text">
-                                    <div class="blog_tags">
-                                        <a class="blog_tags_cat bg_danger" href="#">Lifestyle</a>
-                                    </div>
-                                    <h5 class="blog_heading"><a href="#">Enjoy A Pleasure With Us</a></h5>
-                                    <ul class="blog_meta">
-                                        <li><a href="#"><i class="ti-calendar"></i> <span>April 14, 2018</span></a>
-                                        </li>
-                                        <li><a href="#"><i class="ti-comments"></i> <span>2 Comments</span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="blog_post blog_grid_overlay">
-                            <div class="blog_img">
-                                <a href="#">
-                                    <img src="<?php echo base_url('public/user/assets/images/news_img4.jpg'); ?>" alt="news_img1">
-                                </a>
-                            </div>
-                            <div class="blog_content">
-                                <div class="blog_text">
-                                    <div class="blog_tags">
-                                        <a class="blog_tags_cat bg_success" href="#">Music</a>
-                                    </div>
-                                    <h5 class="blog_heading"><a href="#">Except To Some Advantage</a></h5>
-                                    <ul class="blog_meta">
-                                        <li><a href="#"><i class="ti-calendar"></i> <span>April 14, 2018</span></a>
-                                        </li>
-                                        <li><a href="#"><i class="ti-comments"></i> <span>2 Comments</span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="blog_post blog_grid_overlay">
-                            <div class="blog_img">
-                                <a href="#">
-                                    <img src="<?php echo base_url('public/user/assets/images/news_img5.jpg'); ?>" alt="news_img1">
-                                </a>
-                            </div>
-                            <div class="blog_content">
-                                <div class="blog_text">
-                                    <div class="blog_tags">
-                                        <a class="blog_tags_cat bg_purple" href="#">Photography</a>
-                                    </div>
-                                    <h5 class="blog_heading"><a href="#">Great Explorer Of The Truth</a></h5>
-                                    <ul class="blog_meta">
-                                        <li><a href="#"><i class="ti-calendar"></i> <span>April 14, 2018</span></a>
-                                        </li>
-                                        <li><a href="#"><i class="ti-comments"></i> <span>2 Comments</span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="blog_post blog_grid_overlay">
-                            <div class="blog_img">
-                                <a href="#">
-                                    <img src="<?php echo base_url('public/user/assets/images/news_img6.jpg'); ?>" alt="news_img1">
-                                </a>
-                            </div>
-                            <div class="blog_content">
-                                <div class="blog_text">
-                                    <div class="blog_tags">
-                                        <a class="blog_tags_cat bg_light_green" href="#">Food</a>
-                                    </div>
-                                    <h5 class="blog_heading"><a href="#">The Master-Builder Of Human</a></h5>
-                                    <ul class="blog_meta">
-                                        <li><a href="#"><i class="ti-calendar"></i> <span>April 14, 2018</span></a>
-                                        </li>
-                                        <li><a href="#"><i class="ti-comments"></i> <span>2 Comments</span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- END NEWS POST -->
-
-<!-- START SECTION INSTAGRAM IMAGE -->
-<div class="section p-5 m-2">
+<div class="section pb-0">
     <div class="container">
-        <div class="row no-gutters">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading_s2">
+                    <h4>Category (Last 10 News)</h4>
+                </div>
+                <div class="carousel_slider owl-carousel owl-theme nav_style1" data-margin="15" data-loop="true" data-dots="false" data-nav="true" data-responsive='{"0":{"items": "1"}, "480":{"items": "2"}, "991":{"items": "3"}, "1199":{"items": "4"}}'>
+                    <div class="item">
+                        <div class="blog_post blog_grid_overlay">
+                            <div class="blog_img">
+                                <a href="#">
+                                    <img src="<?= base_url('public/user/assets/images/news/news_img1.jpg'); ?>" alt="News 1">
+                                </a>
+                            </div>
+                            <div class="blog_content">
+                                <div class="blog_text">
+                                    <div class="blog_tags">
+                                        <a class="blog_tags_cat bg_blue" href="#">Category</a>
+                                    </div>
+                                    <h5 class="blog_heading">
+                                        <a href="#">Lorem ipsum dolor sit amet.</a>
+                                    </h5>
+                                    <ul class="blog_meta">
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-calendar-alt"></i>
+                                                <span>01.01.1970</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-comments"></i>
+                                                <span>99+ Comments</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="blog_post blog_grid_overlay">
+                            <div class="blog_img">
+                                <a href="#">
+                                    <img src="<?= base_url('public/user/assets/images/news/news_img1.jpg'); ?>" alt="News 1">
+                                </a>
+                            </div>
+                            <div class="blog_content">
+                                <div class="blog_text">
+                                    <div class="blog_tags">
+                                        <a class="blog_tags_cat bg_blue" href="#">Category</a>
+                                    </div>
+                                    <h5 class="blog_heading">
+                                        <a href="#">Lorem ipsum dolor sit amet.</a>
+                                    </h5>
+                                    <ul class="blog_meta">
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-calendar-alt"></i>
+                                                <span>01.01.1970</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-comments"></i>
+                                                <span>99+ Comments</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="blog_post blog_grid_overlay">
+                            <div class="blog_img">
+                                <a href="#">
+                                    <img src="<?= base_url('public/user/assets/images/news/news_img1.jpg'); ?>" alt="News 1">
+                                </a>
+                            </div>
+                            <div class="blog_content">
+                                <div class="blog_text">
+                                    <div class="blog_tags">
+                                        <a class="blog_tags_cat bg_blue" href="#">Category</a>
+                                    </div>
+                                    <h5 class="blog_heading">
+                                        <a href="#">Lorem ipsum dolor sit amet.</a>
+                                    </h5>
+                                    <ul class="blog_meta">
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-calendar-alt"></i>
+                                                <span>01.01.1970</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-comments"></i>
+                                                <span>99+ Comments</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="blog_post blog_grid_overlay">
+                            <div class="blog_img">
+                                <a href="#">
+                                    <img src="<?= base_url('public/user/assets/images/news/news_img1.jpg'); ?>" alt="News 1">
+                                </a>
+                            </div>
+                            <div class="blog_content">
+                                <div class="blog_text">
+                                    <div class="blog_tags">
+                                        <a class="blog_tags_cat bg_blue" href="#">Category</a>
+                                    </div>
+                                    <h5 class="blog_heading">
+                                        <a href="#">Lorem ipsum dolor sit amet.</a>
+                                    </h5>
+                                    <ul class="blog_meta">
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-calendar-alt"></i>
+                                                <span>01.01.1970</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-comments"></i>
+                                                <span>99+ Comments</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="blog_post blog_grid_overlay">
+                            <div class="blog_img">
+                                <a href="#">
+                                    <img src="<?= base_url('public/user/assets/images/news/news_img1.jpg'); ?>" alt="News 1">
+                                </a>
+                            </div>
+                            <div class="blog_content">
+                                <div class="blog_text">
+                                    <div class="blog_tags">
+                                        <a class="blog_tags_cat bg_blue" href="#">Category</a>
+                                    </div>
+                                    <h5 class="blog_heading">
+                                        <a href="#">Lorem ipsum dolor sit amet.</a>
+                                    </h5>
+                                    <ul class="blog_meta">
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-calendar-alt"></i>
+                                                <span>01.01.1970</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-comments"></i>
+                                                <span>99+ Comments</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="blog_post blog_grid_overlay">
+                            <div class="blog_img">
+                                <a href="#">
+                                    <img src="<?= base_url('public/user/assets/images/news/news_img1.jpg'); ?>" alt="News 1">
+                                </a>
+                            </div>
+                            <div class="blog_content">
+                                <div class="blog_text">
+                                    <div class="blog_tags">
+                                        <a class="blog_tags_cat bg_blue" href="#">Category</a>
+                                    </div>
+                                    <h5 class="blog_heading">
+                                        <a href="#">Lorem ipsum dolor sit amet.</a>
+                                    </h5>
+                                    <ul class="blog_meta">
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-calendar-alt"></i>
+                                                <span>01.01.1970</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-comments"></i>
+                                                <span>99+ Comments</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading_s2">
+                    <h4>Category (Last 10 News)</h4>
+                </div>
+                <div class="carousel_slider owl-carousel owl-theme nav_style1" data-margin="15" data-loop="true" data-dots="false" data-nav="true" data-responsive='{"0":{"items": "1"}, "480":{"items": "2"}, "991":{"items": "3"}, "1199":{"items": "4"}}'>
+                    <div class="item">
+                        <div class="blog_post blog_grid_overlay">
+                            <div class="blog_img">
+                                <a href="#">
+                                    <img src="<?= base_url('public/user/assets/images/news/news_img1.jpg'); ?>" alt="News 1">
+                                </a>
+                            </div>
+                            <div class="blog_content">
+                                <div class="blog_text">
+                                    <div class="blog_tags">
+                                        <a class="blog_tags_cat bg_blue" href="#">Category</a>
+                                    </div>
+                                    <h5 class="blog_heading">
+                                        <a href="#">Lorem ipsum dolor sit amet.</a>
+                                    </h5>
+                                    <ul class="blog_meta">
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-calendar-alt"></i>
+                                                <span>01.01.1970</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-comments"></i>
+                                                <span>99+ Comments</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="blog_post blog_grid_overlay">
+                            <div class="blog_img">
+                                <a href="#">
+                                    <img src="<?= base_url('public/user/assets/images/news/news_img1.jpg'); ?>" alt="News 1">
+                                </a>
+                            </div>
+                            <div class="blog_content">
+                                <div class="blog_text">
+                                    <div class="blog_tags">
+                                        <a class="blog_tags_cat bg_blue" href="#">Category</a>
+                                    </div>
+                                    <h5 class="blog_heading">
+                                        <a href="#">Lorem ipsum dolor sit amet.</a>
+                                    </h5>
+                                    <ul class="blog_meta">
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-calendar-alt"></i>
+                                                <span>01.01.1970</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-comments"></i>
+                                                <span>99+ Comments</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="blog_post blog_grid_overlay">
+                            <div class="blog_img">
+                                <a href="#">
+                                    <img src="<?= base_url('public/user/assets/images/news/news_img1.jpg'); ?>" alt="News 1">
+                                </a>
+                            </div>
+                            <div class="blog_content">
+                                <div class="blog_text">
+                                    <div class="blog_tags">
+                                        <a class="blog_tags_cat bg_blue" href="#">Category</a>
+                                    </div>
+                                    <h5 class="blog_heading">
+                                        <a href="#">Lorem ipsum dolor sit amet.</a>
+                                    </h5>
+                                    <ul class="blog_meta">
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-calendar-alt"></i>
+                                                <span>01.01.1970</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-comments"></i>
+                                                <span>99+ Comments</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="blog_post blog_grid_overlay">
+                            <div class="blog_img">
+                                <a href="#">
+                                    <img src="<?= base_url('public/user/assets/images/news/news_img1.jpg'); ?>" alt="News 1">
+                                </a>
+                            </div>
+                            <div class="blog_content">
+                                <div class="blog_text">
+                                    <div class="blog_tags">
+                                        <a class="blog_tags_cat bg_blue" href="#">Category</a>
+                                    </div>
+                                    <h5 class="blog_heading">
+                                        <a href="#">Lorem ipsum dolor sit amet.</a>
+                                    </h5>
+                                    <ul class="blog_meta">
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-calendar-alt"></i>
+                                                <span>01.01.1970</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-comments"></i>
+                                                <span>99+ Comments</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="blog_post blog_grid_overlay">
+                            <div class="blog_img">
+                                <a href="#">
+                                    <img src="<?= base_url('public/user/assets/images/news/news_img1.jpg'); ?>" alt="News 1">
+                                </a>
+                            </div>
+                            <div class="blog_content">
+                                <div class="blog_text">
+                                    <div class="blog_tags">
+                                        <a class="blog_tags_cat bg_blue" href="#">Category</a>
+                                    </div>
+                                    <h5 class="blog_heading">
+                                        <a href="#">Lorem ipsum dolor sit amet.</a>
+                                    </h5>
+                                    <ul class="blog_meta">
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-calendar-alt"></i>
+                                                <span>01.01.1970</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-comments"></i>
+                                                <span>99+ Comments</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="blog_post blog_grid_overlay">
+                            <div class="blog_img">
+                                <a href="#">
+                                    <img src="<?= base_url('public/user/assets/images/news/news_img1.jpg'); ?>" alt="News 1">
+                                </a>
+                            </div>
+                            <div class="blog_content">
+                                <div class="blog_text">
+                                    <div class="blog_tags">
+                                        <a class="blog_tags_cat bg_blue" href="#">Category</a>
+                                    </div>
+                                    <h5 class="blog_heading">
+                                        <a href="#">Lorem ipsum dolor sit amet.</a>
+                                    </h5>
+                                    <ul class="blog_meta">
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-calendar-alt"></i>
+                                                <span>01.01.1970</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-comments"></i>
+                                                <span>99+ Comments</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading_s2">
+                    <h4>Category (Last 10 News)</h4>
+                </div>
+                <div class="carousel_slider owl-carousel owl-theme nav_style1" data-margin="15" data-loop="true" data-dots="false" data-nav="true" data-responsive='{"0":{"items": "1"}, "480":{"items": "2"}, "991":{"items": "3"}, "1199":{"items": "4"}}'>
+                    <div class="item">
+                        <div class="blog_post blog_grid_overlay">
+                            <div class="blog_img">
+                                <a href="#">
+                                    <img src="<?= base_url('public/user/assets/images/news/news_img1.jpg'); ?>" alt="News 1">
+                                </a>
+                            </div>
+                            <div class="blog_content">
+                                <div class="blog_text">
+                                    <div class="blog_tags">
+                                        <a class="blog_tags_cat bg_blue" href="#">Category</a>
+                                    </div>
+                                    <h5 class="blog_heading">
+                                        <a href="#">Lorem ipsum dolor sit amet.</a>
+                                    </h5>
+                                    <ul class="blog_meta">
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-calendar-alt"></i>
+                                                <span>01.01.1970</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-comments"></i>
+                                                <span>99+ Comments</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="blog_post blog_grid_overlay">
+                            <div class="blog_img">
+                                <a href="#">
+                                    <img src="<?= base_url('public/user/assets/images/news/news_img1.jpg'); ?>" alt="News 1">
+                                </a>
+                            </div>
+                            <div class="blog_content">
+                                <div class="blog_text">
+                                    <div class="blog_tags">
+                                        <a class="blog_tags_cat bg_blue" href="#">Category</a>
+                                    </div>
+                                    <h5 class="blog_heading">
+                                        <a href="#">Lorem ipsum dolor sit amet.</a>
+                                    </h5>
+                                    <ul class="blog_meta">
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-calendar-alt"></i>
+                                                <span>01.01.1970</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-comments"></i>
+                                                <span>99+ Comments</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="blog_post blog_grid_overlay">
+                            <div class="blog_img">
+                                <a href="#">
+                                    <img src="<?= base_url('public/user/assets/images/news/news_img1.jpg'); ?>" alt="News 1">
+                                </a>
+                            </div>
+                            <div class="blog_content">
+                                <div class="blog_text">
+                                    <div class="blog_tags">
+                                        <a class="blog_tags_cat bg_blue" href="#">Category</a>
+                                    </div>
+                                    <h5 class="blog_heading">
+                                        <a href="#">Lorem ipsum dolor sit amet.</a>
+                                    </h5>
+                                    <ul class="blog_meta">
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-calendar-alt"></i>
+                                                <span>01.01.1970</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-comments"></i>
+                                                <span>99+ Comments</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="blog_post blog_grid_overlay">
+                            <div class="blog_img">
+                                <a href="#">
+                                    <img src="<?= base_url('public/user/assets/images/news/news_img1.jpg'); ?>" alt="News 1">
+                                </a>
+                            </div>
+                            <div class="blog_content">
+                                <div class="blog_text">
+                                    <div class="blog_tags">
+                                        <a class="blog_tags_cat bg_blue" href="#">Category</a>
+                                    </div>
+                                    <h5 class="blog_heading">
+                                        <a href="#">Lorem ipsum dolor sit amet.</a>
+                                    </h5>
+                                    <ul class="blog_meta">
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-calendar-alt"></i>
+                                                <span>01.01.1970</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-comments"></i>
+                                                <span>99+ Comments</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="blog_post blog_grid_overlay">
+                            <div class="blog_img">
+                                <a href="#">
+                                    <img src="<?= base_url('public/user/assets/images/news/news_img1.jpg'); ?>" alt="News 1">
+                                </a>
+                            </div>
+                            <div class="blog_content">
+                                <div class="blog_text">
+                                    <div class="blog_tags">
+                                        <a class="blog_tags_cat bg_blue" href="#">Category</a>
+                                    </div>
+                                    <h5 class="blog_heading">
+                                        <a href="#">Lorem ipsum dolor sit amet.</a>
+                                    </h5>
+                                    <ul class="blog_meta">
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-calendar-alt"></i>
+                                                <span>01.01.1970</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-comments"></i>
+                                                <span>99+ Comments</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="blog_post blog_grid_overlay">
+                            <div class="blog_img">
+                                <a href="#">
+                                    <img src="<?= base_url('public/user/assets/images/news/news_img1.jpg'); ?>" alt="News 1">
+                                </a>
+                            </div>
+                            <div class="blog_content">
+                                <div class="blog_text">
+                                    <div class="blog_tags">
+                                        <a class="blog_tags_cat bg_blue" href="#">Category</a>
+                                    </div>
+                                    <h5 class="blog_heading">
+                                        <a href="#">Lorem ipsum dolor sit amet.</a>
+                                    </h5>
+                                    <ul class="blog_meta">
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-calendar-alt"></i>
+                                                <span>01.01.1970</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-comments"></i>
+                                                <span>99+ Comments</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section pt-0">
+    <div class="container">
+        <div class="row">
             <div class="col-12">
                 <div class="heading_s2">
-                    <h4>PARTHERS ALL TRVER</h4>
+                    <h4>Our partners</h4>
                 </div>
-                <div class="client_logo carousel_slider owl-carousel owl-theme" data-dots="true" data-margin="30" data-loop="true" data-autoplay="true" data-responsive='{"0":{"items": "2"}, "480":{"items": "3"}, "767":{"items": "4"}, "991":{"items": "4"}}'>
+                <div class="client_logo carousel_slider owl-carousel owl-theme" data-margin="15" data-dots="true" data-nav="false" data-loop="true" data-autoplay="true" data-autoplay-timeout="2048" data-autoplay-hover-pause="true" data-smart-speed="1024" data-responsive='{"0":{"items": "2"}, "480":{"items": "3"}, "767":{"items": "4"}, "991":{"items": "5"}}'>
                     <div class="item">
                         <div class="instafeed_box">
                             <a href="#">
-                                <img src="<?= base_url('public/user/assets/images/insta_img1.jpg'); ?>" alt="insta_img1" />
+                                <img height="100" src="<?= base_url('public/user/assets/images/partners/1.png'); ?>" alt="Partners">
                             </a>
                         </div>
                     </div>
                     <div class="item">
                         <div class="instafeed_box">
                             <a href="#">
-                                <img src="<?= base_url('public/user/assets/images/insta_img2.jpg'); ?>" alt="insta_img2" />
+                                <img height="100" src="<?= base_url('public/user/assets/images/partners/1.png'); ?>" alt="Partners">
                             </a>
                         </div>
                     </div>
                     <div class="item">
                         <div class="instafeed_box">
                             <a href="#">
-                                <img src="<?= base_url('public/user/assets/images/insta_img3.jpg'); ?>" alt="insta_img3" />
+                                <img height="100" src="<?= base_url('public/user/assets/images/partners/1.png'); ?>" alt="Partners">
                             </a>
                         </div>
                     </div>
                     <div class="item">
                         <div class="instafeed_box">
                             <a href="#">
-                                <img src="<?= base_url('public/user/assets/images/insta_img4.jpg'); ?>" alt="insta_img4" />
+                                <img height="100" src="<?= base_url('public/user/assets/images/partners/1.png'); ?>" alt="Partners">
                             </a>
                         </div>
                     </div>
                     <div class="item">
                         <div class="instafeed_box">
                             <a href="#">
-                                <img src="<?= base_url('public/user/assets/images/insta_img5.jpg'); ?>" alt="insta_img5" />
+                                <img height="100" src="<?= base_url('public/user/assets/images/partners/1.png'); ?>" alt="Partners">
                             </a>
                         </div>
                     </div>
                     <div class="item">
                         <div class="instafeed_box">
                             <a href="#">
-                                <img src="<?= base_url('public/user/assets/images/insta_img6.jpg'); ?>" alt="insta_img6" />
+                                <img height="100" src="<?= base_url('public/user/assets/images/partners/1.png'); ?>" alt="Partners">
                             </a>
                         </div>
                     </div>
@@ -772,13 +946,6 @@
         </div>
     </div>
 </div>
-<!-- END SECTION INSTAGRAM IMAGE -->
-
-
-
-
-
-
-
+<?php $this->load->view("users/includes/NewsSubscribe"); ?>
 <?php $this->load->view("users/includes/Footer"); ?>
 <?php $this->load->view("users/includes/FooterScripts"); ?>

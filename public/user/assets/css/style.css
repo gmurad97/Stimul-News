@@ -2894,6 +2894,12 @@ header.vertical_menu .navbar-collapse .navbar-nav {
 	transform: translateY(0);
 }
 
+.owl-stage {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .banner_section .owl-stage-outer {
 	width: 100%;
 }

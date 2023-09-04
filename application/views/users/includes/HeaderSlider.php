@@ -35,7 +35,7 @@
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <i class="far fa-hourglass"></i>
+                                            <i class="ion-android-stopwatch"></i>
                                             <span>10 min</span>
                                         </a>
                                     </li>
@@ -87,7 +87,7 @@
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <i class="far fa-hourglass"></i>
+                                            <i class="ion-android-stopwatch"></i>
                                             <span>10 min</span>
                                         </a>
                                     </li>
@@ -139,7 +139,7 @@
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <i class="far fa-hourglass"></i>
+                                            <i class="ion-android-stopwatch"></i>
                                             <span>10 min</span>
                                         </a>
                                     </li>
