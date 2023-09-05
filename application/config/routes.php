@@ -8,6 +8,10 @@ $route["translate_uri_dashes"]  = FALSE;
 
 /*=====USER CONTROLLER - START=====*/
 $route["home"] = "UserController/index";
+
+
+
+$route["404"] = "UserController/pageNotFound";
 /*=====USER CONTROLLER - ENDED=====*/
 
 

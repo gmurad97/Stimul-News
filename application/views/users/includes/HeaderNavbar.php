@@ -122,7 +122,7 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand" href="<?= base_url('home'); ?>">
-                <img class="logo_dark" src="<?= base_url('public/user/assets/images/logo/logo_dark.png'); ?>" alt="Logo">
+                <img class="logo_dark" src="<?= base_url('public/user/assets/images/logo/logo_dark.png'); ?>" width="200" alt="Logo">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="ion-android-menu"></span>

@@ -25,4 +25,11 @@ class UserController extends CI_Controller
         $data["topbar_info"] = $this->topbarInfo();
         $this->load->view("users/Index", $data);
     }
+
+    public function pageNotFound()
+    {
+        $data["page_name"] = "404NOT FOUD";
+        $data["topbar_info"] = $this->topbarInfo();
+        $this->load->view("users/contents/PageNotFound", $data);
+    }
 }

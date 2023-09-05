@@ -6,7 +6,7 @@
                     <div class="widget">
                         <div class="footer_logo">
                             <a href="<?= base_url('home'); ?>">
-                                <img src="<?= base_url('public/user/assets/images/logo/logo_white.png'); ?>" alt="Logo">
+                                <img src="<?= base_url('public/user/assets/images/logo/logo_white.png'); ?>" width="200" alt="Logo">
                             </a>
                         </div>
                         <p>
