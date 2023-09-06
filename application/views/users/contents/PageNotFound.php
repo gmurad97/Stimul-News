@@ -12,6 +12,7 @@
                     <div class="error_txt">404 Page Not Found</div>
                     <h5 class="sub_error_txt mb-2 mb-sm-4">The page you requested was not found!</h5>
                     <p>
+                        You may have mistyped the address or the page may have moved. Try searching below.
                         The page you are looking for was removed, renamed or might never existed.
                     </p>
                     <div class="search_form pb-3 pb-sm-4">
