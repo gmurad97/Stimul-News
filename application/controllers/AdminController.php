@@ -8,8 +8,8 @@ class AdminController extends CI_Controller
         parent::__construct();
     }
 
-    public function dashboard()
+    public function index()
     {
-        $this->load->view("temp/dashboard");
+        $this->load->view("admins/Index");
     }
 }

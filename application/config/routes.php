@@ -17,5 +17,5 @@ $route["404"] = "UserController/pageNotFound";
 
 
 /*=====ADMIN CONTROLLER - START=====*/
-
+$route["dashboard"] = "AdminController/index";
 /*=====ADMIN CONTROLLER - ENDED=====*/
