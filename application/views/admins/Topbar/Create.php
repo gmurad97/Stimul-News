@@ -8,7 +8,7 @@
             TOPBAR - CREATE
         </div>
         <div>
-            <button type="submit" form="topbar_form" class="btn btn-outline-success">Create Topbar</button>
+            <button type="submit" form="topbar_form" class="btn btn-outline-success">Topbar</button>
         </div>
     </div>
     <div class="card-body">

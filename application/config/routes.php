@@ -27,4 +27,8 @@ $route["topbar-edit-action"]            = "AdminController/crud_topbar_edit_acti
 $route["topbar-delete"]                 = "AdminController/crud_topbar_delete";
 /*=====TOPBAR CRUD - ENDED=====*/
 
+
+
+
+
 /*=====ADMIN CONTROLLER - ENDED=====*/
