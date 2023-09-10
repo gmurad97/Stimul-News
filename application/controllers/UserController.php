@@ -6,6 +6,7 @@ class UserController extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model("UserModel");
     }
 
     private function topbarInfo()
@@ -23,6 +24,7 @@ class UserController extends CI_Controller
     {
         $data["page_name"] = "Home";
         $data["topbar_info"] = $this->topbarInfo();
+        $data["topbar_options_json"] = $this->UserModel->topbar_user_db_get($this->UserModel->table_row_id("topbar","t_id"));
         $this->load->view("users/Index", $data);
     }
 

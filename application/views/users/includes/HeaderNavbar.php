@@ -78,47 +78,69 @@
     </div>
 </div>
 <header class="header_wrap dark_skin fixed-top">
-    <div class="top-header bg_dark light_skin">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-7">
-                    <ul class="header_list text-center text-md-left">
-                        <li>
-                            <i class="far fa-calendar-alt"></i>
-                            <span><?= $topbar_info["date"]; ?></span>
-                        </li>
-                        <li>
-                            <i class="far fa-clock"></i>
-                            <span><?= $topbar_info["time"]; ?></span>
-                        </li>
-                        <li>
-                            <i class="fas fa-cloud-sun-rain"></i>
-                            <span><?= $topbar_info["weather"]; ?>℃</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-5">
-                    <div class="d-flex align-items-center justify-content-center justify-content-md-end">
+
+
+
+    <?php
+    $topbar_options = json_decode($topbar_options_json["t_options"] ?? NULL);
+    if (!is_null($topbar_options) && $topbar_options->topbar_self) :
+    ?>
+        <div class="top-header bg_dark light_skin">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-7">
                         <ul class="header_list text-center text-md-left">
-                            <li>
-                                <a href="javascript:void(0);" data-toggle="modal" data-target="#SignUp">Sign Up</a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);" data-toggle="modal" data-target="#Login">Login</a>
-                            </li>
+                            <?php if ($topbar_options->topbar_date) : ?>
+                                <li>
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span><?= $topbar_info["date"]; ?></span>
+                                </li>
+                            <?php endif; ?>
+
+                            <?php if ($topbar_options->topbar_time) : ?>
+                                <li>
+                                    <i class="far fa-clock"></i>
+                                    <span><?= $topbar_info["time"]; ?></span>
+                                </li>
+                            <?php endif; ?>
+
+                            <?php if ($topbar_options->topbar_weather) : ?>
+                                <li>
+                                    <i class="fas fa-cloud-sun-rain"></i>
+                                    <span><?= $topbar_info["weather"]; ?>℃</span>
+                                </li>
+                            <?php endif; ?>
                         </ul>
-                        <div class="lng_dropdown ml-2">
-                            <select name="countries" class="custome_select">
-                                <option value="en">EN</option>
-                                <option value="az">AZ</option>
-                                <option value='ru'>RU</option>
-                            </select>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="d-flex align-items-center justify-content-center justify-content-md-end">
+                            <ul class="header_list text-center text-md-left">
+                                <li>
+                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#SignUp">Sign Up</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#Login">Login</a>
+                                </li>
+                            </ul>
+                            <div class="lng_dropdown ml-2">
+                                <select name="countries" class="custome_select">
+                                    <option value="en">EN</option>
+                                    <option value="az">AZ</option>
+                                    <option value='ru'>RU</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+
+    <?php endif; ?>
+
+
+
+
+
     <div class="container">
         <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand" href="<?= base_url('home'); ?>">

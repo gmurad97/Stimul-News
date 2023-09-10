@@ -21,6 +21,29 @@
                 </a>
             </div>
 
+            <div class="menu-item has-sub">
+                <a href="javascript:void(0);" class="menu-link">
+                    <span class="menu-icon">
+                        <i class="bi bi-images"></i>
+                    </span>
+                    <span class="menu-text">SLIDER</span>
+                    <span class="menu-caret">
+                        <b class="caret"></b>
+                    </span>
+                </a>
+                <div class="menu-submenu">
+                    <div class="menu-item">
+                        <a href="#" class="menu-link">
+                            <span class="menu-text">Adding</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="#" class="menu-link">
+                            <span class="menu-text">LIST</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
 
 

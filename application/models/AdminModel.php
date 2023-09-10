@@ -25,32 +25,27 @@ class AdminModel extends CI_Model
 
     /*=====TOPBAR MODEL - START=====*/
 
-    public function topbar_db_insert($data)
+    public function topbar_admin_db_insert($data)
     {
         $this->db->insert("topbar", $data);
     }
 
-    public function topbar_db_get($id)
+    public function topbar_admin_db_get($id)
     {
         return $this->db->where("t_id", $id)->get("topbar")->row_array();
     }
 
-
-
-
-    public function topbar_edit()
+    public function topbar_admin_db_edit($id, $data)
     {
+        $this->db->where("t_id", $id)->update("topbar", $data);
     }
 
-
-    public function topbar_db_delete($id)
+    public function topbar_admin_db_delete($id)
     {
-        $this->db->delete("topbar", "t_id=$id");
+        $this->db->where("t_id", $id)->delete("topbar");
     }
-
 
     /*=====TOPBAR MODEL - ENDED=====*/
 }
-
 
     /*=====CRUD MODEL - ENDED=====*/
