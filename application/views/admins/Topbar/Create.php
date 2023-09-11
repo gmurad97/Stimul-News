@@ -29,28 +29,28 @@
         <h1 class="h4 text-success">Visibility</h1>
         <form action="<?= base_url('topbar-create-action'); ?>" method="POST" enctype="application/json" id="topbar_form">
             <ul class="list-group list-group-flush mb-3">
-                <li class="list-group-item d-flex flex-row justify-content-between">
-                    <div>Topbar</div>
+                <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
+                    <label for="topbar_self_label">Topbar</label>
                     <div class="form-check form-switch">
-                        <input name="topbar_self" type="checkbox" class="form-check-input">
+                        <input name="topbar_self" type="checkbox" class="form-check-input" id="topbar_self_label">
                     </div>
                 </li>
-                <li class="list-group-item d-flex flex-row justify-content-between">
-                    <div>Date</div>
+                <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
+                    <label for="topbar_date_label">Date</label>
                     <div class="form-check form-switch">
-                        <input name="topbar_date" type="checkbox" class="form-check-input">
+                        <input name="topbar_date" type="checkbox" class="form-check-input" id="topbar_date_label">
                     </div>
                 </li>
-                <li class="list-group-item d-flex flex-row justify-content-between">
-                    <div>Time</div>
+                <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
+                    <label for="topbar_time_label">Time</label>
                     <div class="form-check form-switch">
-                        <input name="topbar_time" type="checkbox" class="form-check-input">
+                        <input name="topbar_time" type="checkbox" class="form-check-input" id="topbar_time_label">
                     </div>
                 </li>
-                <li class="list-group-item d-flex flex-row justify-content-between">
-                    <div>Weather</div>
+                <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
+                    <label for="topbar_weather_label">Weather</label>
                     <div class="form-check form-switch">
-                        <input name="topbar_weather" type="checkbox" class="form-check-input">
+                        <input name="topbar_weather" type="checkbox" class="form-check-input" id="topbar_weather_label">
                     </div>
                 </li>
             </ul>

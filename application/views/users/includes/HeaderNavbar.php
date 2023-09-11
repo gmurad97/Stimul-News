@@ -78,13 +78,7 @@
     </div>
 </div>
 <header class="header_wrap dark_skin fixed-top">
-
-
-
-    <?php
-    $topbar_options = json_decode($topbar_options_json["t_options"] ?? NULL);
-    if (!is_null($topbar_options) && $topbar_options->topbar_self) :
-    ?>
+    <?php if (!is_null($topbar_options) && $topbar_options->topbar_self) : ?>
         <div class="top-header bg_dark light_skin">
             <div class="container">
                 <div class="row align-items-center">
@@ -134,13 +128,7 @@
                 </div>
             </div>
         </div>
-
     <?php endif; ?>
-
-
-
-
-
     <div class="container">
         <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand" href="<?= base_url('home'); ?>">

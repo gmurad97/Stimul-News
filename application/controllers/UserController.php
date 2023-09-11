@@ -24,7 +24,7 @@ class UserController extends CI_Controller
     {
         $data["page_name"] = "Home";
         $data["topbar_info"] = $this->topbarInfo();
-        $data["topbar_options_json"] = $this->UserModel->topbar_user_db_get($this->UserModel->table_row_id("topbar","t_id"));
+        $data["topbar_options"] = json_decode($this->UserModel->topbar_user_db_get($this->UserModel->table_row_id("topbar","t_id"))["t_options"] ?? NULL);
         $this->load->view("users/Index", $data);
     }
 

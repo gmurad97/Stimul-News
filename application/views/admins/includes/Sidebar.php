@@ -20,33 +20,26 @@
                     <span class="menu-text">Topbar</span>
                 </a>
             </div>
-
-            <div class="menu-item has-sub">
-                <a href="javascript:void(0);" class="menu-link">
+            <div class="menu-item <?= str_contains($segment_name, 'logo') ? 'active' : ''; ?>">
+                <a href="<?= base_url('logo-create'); ?>" class="menu-link">
                     <span class="menu-icon">
-                        <i class="bi bi-images"></i>
+                        <i class="bi bi-flower1"></i>
                     </span>
-                    <span class="menu-text">SLIDER</span>
-                    <span class="menu-caret">
-                        <b class="caret"></b>
-                    </span>
+                    <span class="menu-text">Logo</span>
                 </a>
-                <div class="menu-submenu">
-                    <div class="menu-item">
-                        <a href="#" class="menu-link">
-                            <span class="menu-text">Adding</span>
-                        </a>
-                    </div>
-                    <div class="menu-item">
-                        <a href="#" class="menu-link">
-                            <span class="menu-text">LIST</span>
-                        </a>
-                    </div>
-                </div>
             </div>
 
 
 
+
+
+
+
+
+
+
+
+        
 
             <!-- <div class="menu-item has-sub">
                 <a href="javascript:void(0);" class="menu-link">

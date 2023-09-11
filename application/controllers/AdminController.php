@@ -147,4 +147,69 @@ class AdminController extends CI_Controller
     }
 
     /*=====TOPBAR CRUD - ENDED=====*/
+
+    /*=====LOGO CRUD - START=====*/
+
+    public function crud_logo_create()
+    {
+        $logo_db_row = $this->AdminModel->table_row_id("logo", "l_id");
+        if ($logo_db_row == -1) {
+            $data["admin_page_name"] = "Logo Create";
+            $this->load->view("admins/Logo/Create", $data);
+        } else {
+            redirect(base_url("logo-edit"));
+        }
+    }
+
+    public function crud_logo_create_action()
+    {
+        $logo_dark_visibility  = $this->input->post("logo_dark_visibility",  TRUE);
+        $logo_light_visibility = $this->input->post("logo_light_visibility", TRUE);
+
+        $logo_img_config["upload_path"]      = "./file_manager/logo/";
+        $logo_img_config["allowed_types"]    = "jpeg|jpg|png|svg|JPEG|JPG|PNG|SVG";
+        $logo_img_config["file_ext_tolower"] = TRUE;
+        $logo_img_config["remove_spaces"]    = TRUE;
+        $logo_img_config["encrypt_name"]     = TRUE;
+
+        $this->load->library("upload", $logo_img_config);
+
+        $json_data_decoded = [
+            "logo_dark" => [
+                "file_name"  => $this->upload->do_upload("logo_dark_img")  ? $this->upload->data()["file_name"] : NULL,
+                "visibility" => str_contains($logo_dark_visibility,  "on") ? TRUE : FALSE
+            ],
+            "logo_light" => [
+                "file_name"  => $this->upload->do_upload("logo_light_img") ? $this->upload->data()["file_name"] : NULL,
+                "visibility" => str_contains($logo_light_visibility, "on") ? TRUE : FALSE
+            ],
+        ];
+
+        $json_data_encoded = json_encode($json_data_decoded);
+
+        $data = [
+            "l_options" => $json_data_encoded
+        ];
+
+        $this->db->insert("logo",$data);
+
+        print_r("refurbished");
+
+
+
+    }
+
+    public function crud_logo_edit()
+    {
+    }
+
+    public function crud_logo_edit_action()
+    {
+    }
+
+    public function crud_logo_delete()
+    {
+    }
+
+    /*=====LOGO CRUD - ENDED=====*/
 }
