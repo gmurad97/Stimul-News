@@ -3,8 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class AdminModel extends CI_Model
 {
-    /*=====GLOBAL MODEL - START=====*/
-
+    /*==========GLOBAL MODEL - START==========*/
     public function table_row_id($tableName, $idName)
     {
         $rows_count = $this->db->count_all_results($tableName, TRUE);
@@ -17,14 +16,14 @@ class AdminModel extends CI_Model
         }
     }
 
-    /*=====GLOBAL MODEL - ENDED=====*/
+    public function logo_current()
+    {
+    }
+    /*==========GLOBAL MODEL - ENDED==========*/
 
-
-
-    /*=====CRUD MODEL - START=====*/
+    /*==========CRUD MODEL - START==========*/
 
     /*=====TOPBAR MODEL - START=====*/
-
     public function topbar_admin_db_insert($data)
     {
         $this->db->insert("topbar", $data);
@@ -32,7 +31,7 @@ class AdminModel extends CI_Model
 
     public function topbar_admin_db_get($id)
     {
-        return $this->db->where("t_id", $id)->get("topbar")->row_array();
+        return $this->db->where("t_id", $id)->get("topbar", 1)->row_array();
     }
 
     public function topbar_admin_db_edit($id, $data)
@@ -44,8 +43,26 @@ class AdminModel extends CI_Model
     {
         $this->db->where("t_id", $id)->delete("topbar");
     }
-
     /*=====TOPBAR MODEL - ENDED=====*/
-}
 
-    /*=====CRUD MODEL - ENDED=====*/
+    /*=====BRANDING MODEL - START=====*/
+    public function branding_admin_db_insert($data)
+    {
+        $this->db->insert("branding", $data);
+    }
+
+    public function branding_admin_db_get($id)
+    {
+        return $this->db->where("b_id", $id)->get("branding", 1)->row_array();
+    }
+
+    public function rot2()
+    {
+    }
+
+    public function rot3()
+    {
+    }
+    /*=====BRANDING MODEL - ENDED=====*/
+}
+    /*==========CRUD MODEL - ENDED==========*/

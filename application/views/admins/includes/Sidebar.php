@@ -20,12 +20,12 @@
                     <span class="menu-text">Topbar</span>
                 </a>
             </div>
-            <div class="menu-item <?= str_contains($segment_name, 'logo') ? 'active' : ''; ?>">
-                <a href="<?= base_url('logo-create'); ?>" class="menu-link">
+            <div class="menu-item <?= str_contains($segment_name, 'branding') ? 'active' : ''; ?>">
+                <a href="<?= base_url('branding-create'); ?>" class="menu-link">
                     <span class="menu-icon">
                         <i class="bi bi-flower1"></i>
                     </span>
-                    <span class="menu-text">Logo</span>
+                    <span class="menu-text">Branding</span>
                 </a>
             </div>
 
@@ -39,7 +39,7 @@
 
 
 
-        
+
 
             <!-- <div class="menu-item has-sub">
                 <a href="javascript:void(0);" class="menu-link">
