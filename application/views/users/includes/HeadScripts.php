@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stimul News - <?= $page_name; ?></title>
+
+    <title><?= $branding_options->title_prefix ?? "GMurad97"; ?> - <?= $page_name; ?></title>
+
     <link rel="shortcut icon" href="<?= base_url('public/user/assets/images/logo/favicon.ico'); ?>" type="image/x-icon">
     <link rel="stylesheet" href="<?= base_url('public/user/assets/css/animate.css'); ?>">
     <link rel="stylesheet" href="<?= base_url('public/user/assets/bootstrap/css/bootstrap.min.css'); ?>">

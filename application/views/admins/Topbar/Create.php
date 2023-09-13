@@ -3,12 +3,13 @@
 <?php $this->load->view("admins/includes/Sidebar"); ?>
 
 <div class="card">
-    <div class="card-header text-success fw-bold d-flex flex-row justify-content-between align-items-center">
+    <div class="card-header fw-bold d-flex flex-row justify-content-between align-items-center">
+        <div class="h5 text-success m-0">TOPBAR</div>
         <div>
-            TOPBAR
-        </div>
-        <div>
-            <button type="submit" form="topbar_form" class="btn btn-outline-success">Create</button>
+            <button type="submit" form="topbar_form" class="btn btn-outline-success">
+                <i class="bi bi-plus-circle me-1"></i>
+                Create
+            </button>
         </div>
     </div>
     <div class="card-body">
@@ -26,7 +27,7 @@
                 </p>
             </div>
         <?php endif; ?>
-        <h1 class="h4 text-success">Visibility</h1>
+        <h1 class="h5 text-success mb-3">Visibility</h1>
         <form action="<?= base_url('topbar-create-action'); ?>" method="POST" enctype="application/json" id="topbar_form">
             <ul class="list-group list-group-flush mb-3">
                 <li class="list-group-item d-flex flex-row justify-content-between align-items-center">

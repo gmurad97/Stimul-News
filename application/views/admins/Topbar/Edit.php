@@ -3,11 +3,17 @@
 <?php $this->load->view("admins/includes/Sidebar"); ?>
 
 <div class="card">
-    <div class="card-header text-success fw-bold d-flex flex-row justify-content-between align-items-center">
-        <div class="text-warning">TOPBAR</div>
+    <div class="card-header fw-bold d-flex flex-row justify-content-between align-items-center">
+        <div class="h5 text-warning m-0">TOPBAR</div>
         <div>
-            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#topbar_modal_delete">Remove</button>
-            <button type="submit" form="topbar_form" class="btn btn-outline-warning">Edit</button>
+            <button type="submit" form="topbar_form" class="btn btn-outline-warning">
+                <i class="bi bi-pencil-square me-1"></i>
+                Edit
+            </button>
+            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#topbar_modal_delete">
+                <i class="bi bi-trash me-1"></i>
+                Remove
+            </button>
         </div>
     </div>
     <div class="card-body">
@@ -25,7 +31,7 @@
                 </p>
             </div>
         <?php endif; ?>
-        <h1 class="h4 text-warning">Visibility</h1>
+        <h1 class="h5 text-warning mb-3">Visibility</h1>
         <form action="<?= base_url('topbar-edit-action'); ?>" method="POST" enctype="application/json" id="topbar_form">
             <?php
             $admin_topbar_decoded = json_decode($admin_topbar_encoded["t_options"]);

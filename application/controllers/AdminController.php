@@ -164,7 +164,7 @@ class AdminController extends CI_Controller
             $logo_light_visibility = $this->input->post("logo_light_visibility", TRUE);
             $site_title_prefix     = $this->input->post("site_title_prefix",     TRUE);
 
-            $branding_config["upload_path"]      = "./file_manager/logo/";
+            $branding_config["upload_path"]      = "./file_manager/branding/";
             $branding_config["allowed_types"]    = "ico|jpeg|jpg|png|svg|ICO|JPEG|JPG|PNG|SVG";
             $branding_config["file_ext_tolower"] = TRUE;
             $branding_config["remove_spaces"]    = TRUE;
@@ -221,6 +221,7 @@ class AdminController extends CI_Controller
             redirect(base_url("branding-create"));
         } else {
             $data["admin_page_name"] = "Branding Edit";
+            $data["admin_branding_encoded"] = $this->AdminModel->branding_admin_db_get($branding_db_row);
             $this->load->view("admins/Branding/Edit", $data);
         }
     }
@@ -235,7 +236,7 @@ class AdminController extends CI_Controller
             $logo_light_visibility = $this->input->post("logo_light_visibility", TRUE);
             $site_title_prefix     = $this->input->post("site_title_prefix",     TRUE);
 
-            $branding_config["upload_path"]      = "./file_manager/logo/";
+            $branding_config["upload_path"]      = "./file_manager/branding/";
             $branding_config["allowed_types"]    = "ico|jpeg|jpg|png|svg|ICO|JPEG|JPG|PNG|SVG";
             $branding_config["file_ext_tolower"] = TRUE;
             $branding_config["remove_spaces"]    = TRUE;
@@ -244,18 +245,18 @@ class AdminController extends CI_Controller
             $this->load->library("upload");
             $this->upload->initialize($branding_config);
 
+            $old_data = json_decode($this->AdminModel->branding_admin_db_get($branding_db_row)["b_options"], TRUE);
+
             $uploadResults = [
-                "logo_dark_img"  => $this->upload->do_upload("logo_dark_img")  ? $this->upload->data() : NULL,
-                "logo_light_img" => $this->upload->do_upload("logo_light_img") ? $this->upload->data() : NULL,
-                "favicon_img"    => $this->upload->do_upload("favicon_img")    ? $this->upload->data() : NULL
+                "logo_dark_img" => ($this->upload->do_upload("logo_dark_img") && unlink("./file_manager/branding/" . $old_data["logo_dark"]["file_name"])) ?
+                    $this->upload->data() : $old_data["logo_dark"] ?? NULL,
+
+                "logo_light_img" => ($this->upload->do_upload("logo_light_img") && unlink("./file_manager/branding/" . $old_data["logo_light"]["file_name"])) ?
+                    $this->upload->data() : $old_data["logo_light"] ?? NULL,
+
+                "favicon_img" => ($this->upload->do_upload("favicon_img") && unlink("./file_manager/branding/" . $old_data["favicon"]["file_name"])) ?
+                    $this->upload->data() : $old_data["favicon"] ?? NULL
             ];
-        
-            $old_data = $this->AdminModel->branding_admin_db_get($branding_db_row);
-
-            if(!is_null($uploadResults["logo_dark_img"]["file_name"])){
-
-            }
-
 
             $json_data_decoded = [
                 "logo_dark" => [
@@ -284,7 +285,7 @@ class AdminController extends CI_Controller
                 "b_options" => $json_data_encoded
             ];
 
-            $this->AdminModel->branding_admin_db_insert($data);
+            $this->AdminModel->branding_admin_db_update($branding_db_row, $data);
 
             redirect(base_url("branding-edit"));
         }
@@ -292,8 +293,10 @@ class AdminController extends CI_Controller
 
     public function crud_branding_delete()
     {
-
+        $branding_db_row = $this->AdminModel->table_row_id("branding", "b_id");
+        $this->AdminModel->branding_admin_db_delete($branding_db_row);
+        array_map("unlink", array_filter((array) glob("./file_manager/branding/*"), "file_exists"));
+        redirect(base_url("branding-create"));
     }
-
     /*=====BRANDING CRUD - ENDED=====*/
 }

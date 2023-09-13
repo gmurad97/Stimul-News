@@ -56,12 +56,14 @@ class AdminModel extends CI_Model
         return $this->db->where("b_id", $id)->get("branding", 1)->row_array();
     }
 
-    public function rot2()
+    public function branding_admin_db_update($id, $data)
     {
+        $this->db->where("b_id", $id)->update("branding", $data);
     }
 
-    public function rot3()
+    public function branding_admin_db_delete($id)
     {
+        $this->db->where("b_id", $id)->delete("branding");
     }
     /*=====BRANDING MODEL - ENDED=====*/
 }

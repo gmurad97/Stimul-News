@@ -3,53 +3,101 @@
 <?php $this->load->view("admins/includes/Sidebar"); ?>
 
 <div class="card">
-    <div class="card-header text-success fw-bold d-flex flex-row justify-content-between align-items-center">
-        <div class="text-warning">Branding</div>
+    <div class="card-header fw-bold d-flex flex-row justify-content-between align-items-center">
+        <div class="h5 text-warning m-0">Branding</div>
         <div>
-        <button type="submit" form="topbar_form" class="btn btn-outline-warning">Edit</button>
-            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#topbar_modal_delete">Remove</button>
+            <button type="submit" form="branding_form" class="btn btn-outline-warning">
+                <i class="bi bi-pencil-square me-1"></i>
+                Edit
+            </button>
+            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#branding_modal_delete">
+                <i class="bi bi-trash me-1"></i>
+                Remove
+            </button>
         </div>
     </div>
     <div class="card-body">
-        <h1 class="h4 text-success">Image</h1>
-        <form action="<?= base_url('branding-create-action'); ?>" method="POST" enctype="multipart/form-data" id="logo_form">
+        <?php $admin_branding_decoded = json_decode($admin_branding_encoded["b_options"]); ?>
+        <?php if (!is_null($admin_branding_decoded->logo_dark->file_name) || !is_null($admin_branding_decoded->logo_light->file_name) || !is_null($admin_branding_decoded->favicon->file_name)) : ?>
+            <h1 class="h5 text-warning mb-3">Current image</h1>
+            <div class="row mb-3">
+                <?php if (!is_null($admin_branding_decoded->logo_dark->file_name)) : ?>
+                    <div class="col-md-4 d-flex flex-column justify-content-center align-items-center">
+                        <h1 class="h5 text-info mb-3">Logo Dark</h1>
+                        <img src="<?= base_url("file_manager/branding/") . $admin_branding_decoded->logo_dark->file_name; ?>" width="128px" height="64px" style="object-fit: contain;" alt="Logo_Dark">
+                    </div>
+                <?php endif; ?>
+
+                <?php if (!is_null($admin_branding_decoded->logo_light->file_name)) : ?>
+                    <div class="col-md-4 d-flex flex-column justify-content-center align-items-center">
+                        <h1 class="h5 text-info mb-3">Logo Light</h1>
+                        <img src="<?= base_url("file_manager/branding/") . $admin_branding_decoded->logo_light->file_name; ?>" width="128px" height="64px" style="object-fit: contain;" alt="Logo_Light">
+                    </div>
+                <?php endif; ?>
+
+                <?php if (!is_null($admin_branding_decoded->favicon->file_name)) : ?>
+                    <div class="col-md-4 d-flex flex-column justify-content-center align-items-center">
+                        <h1 class="h5 text-info mb-3">Favicon</h1>
+                        <img src="<?= base_url("file_manager/branding/") . $admin_branding_decoded->favicon->file_name; ?>" width="128px" height="64px" style="object-fit: contain;" alt="Favicon">
+                    </div>
+                <?php endif; ?>
+            </div>
+        <?php endif; ?>
+        <h1 class="h5 text-warning mb-3">Image</h1>
+        <form action="<?= base_url('branding-edit-action'); ?>" method="POST" enctype="multipart/form-data" id="branding_form">
             <ul class="list-group list-group-flush mb-3">
-                <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
-                    <label for="logo_dark_img_label">Logo Dark</label>
-                    <div class="col-md-4">
-                        <input name="logo_dark_img" type="file" class="form-control form-control-sm" id="logo_dark_img_label">
+                <li class="list-group-item">
+                    <div class="row d-flex flex-row justify-content-between align-items-center">
+                        <div class="col-md-3">
+                            <label for="logo_dark_img_label">Logo Dark</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input name="logo_dark_img" type="file" class="form-control form-control-sm" id="logo_dark_img_label">
+                        </div>
                     </div>
                 </li>
-                <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
-                    <label for="logo_light_img_label">Logo Light</label>
-                    <div class="col-md-4">
-                        <input name="logo_light_img" type="file" class="form-control form-control-sm" id="logo_light_img_label">
+                <li class="list-group-item">
+                    <div class="row d-flex flex-row justify-content-between align-items-center">
+                        <div class="col-md-3">
+                            <label for="logo_light_img_label">Logo Light</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input name="logo_light_img" type="file" class="form-control form-control-sm" id="logo_light_img_label">
+                        </div>
                     </div>
                 </li>
-                <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
-                    <label for="favicon_img_label">Favicon</label>
-                    <div class="col-md-4">
-                        <input name="favicon_img" type="file" class="form-control form-control-sm" id="favicon_img_label">
+                <li class="list-group-item">
+                    <div class="row d-flex flex-row justify-content-between align-items-center">
+                        <div class="col-md-3">
+                            <label for="favicon_img_label">Favicon</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input name="favicon_img" type="file" class="form-control form-control-sm" id="favicon_img_label">
+                        </div>
                     </div>
                 </li>
-                <h1 class="h4 text-success mt-3">Visibility</h1>
+                <h1 class="h5 text-warning mb-3 mt-3">Visibility</h1>
                 <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
                     <label for="logo_dark_visibility_label">Logo Dark</label>
                     <div class="form-check form-switch">
-                        <input name="logo_dark_visibility" type="checkbox" class="form-check-input" id="logo_dark_visibility_label">
+                        <input name="logo_dark_visibility" type="checkbox" class="form-check-input" id="logo_dark_visibility_label" <?= $admin_branding_decoded->logo_dark->visibility ? "checked" : ""; ?>>
                     </div>
                 </li>
                 <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
                     <label for="logo_light_visibility_label">Logo Light</label>
                     <div class="form-check form-switch">
-                        <input name="logo_light_visibility" type="checkbox" class="form-check-input" id="logo_light_visibility_label">
+                        <input name="logo_light_visibility" type="checkbox" class="form-check-input" id="logo_light_visibility_label" <?= $admin_branding_decoded->logo_light->visibility ? "checked" : ""; ?>>
                     </div>
                 </li>
-                <h1 class="h4 text-success mt-3">Other</h1>
-                <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
-                    <label for="site_title_prefix_label">Title Prefix</label>
-                    <div class="col-md-4">
-                        <input name="site_title_prefix" type="text" class="form-control form-control-sm" id="site_title_prefix_label">
+                <h1 class="h5 text-warning mb-3 mt-3">Other</h1>
+                <li class="list-group-item">
+                    <div class="row d-flex flex-row justify-content-between align-items-center">
+                        <div class="col-md-3">
+                            <label for="site_title_prefix_label">Title Prefix</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input name="site_title_prefix" type="text" class="form-control form-control-sm" id="site_title_prefix_label" placeholder="Stimul News" value="<?= $admin_branding_decoded->title_prefix; ?>">
+                        </div>
                     </div>
                 </li>
             </ul>
@@ -60,6 +108,19 @@
         <div class="card-arrow-top-right"></div>
         <div class="card-arrow-bottom-left"></div>
         <div class="card-arrow-bottom-right"></div>
+    </div>
+</div>
+<div class="modal fade text-center" id="branding_modal_delete">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content rounded">
+            <div class="modal-body py-3">
+                <p class="h5 text-danger">Do you really want to remove the branding?</p>
+            </div>
+            <div class="modal-footer py-1">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a href="<?= base_url('branding-delete'); ?>" class="btn btn-outline-danger">Remove</a>
+            </div>
+        </div>
     </div>
 </div>
 
