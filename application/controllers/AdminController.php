@@ -208,6 +208,18 @@ class AdminController extends CI_Controller
 
             $this->AdminModel->branding_admin_db_insert($data);
 
+            $this->session->set_flashdata(
+                "branding_alert",
+                [
+                    "alert_type"            => "success",
+                    "alert_icon"            => "fa-solid fa-circle-check",
+                    "alert_bg_color"        => "background-color: rgba(4, 27, 7, 0.32);",
+                    "alert_heading_message" => "Create",
+                    "alert_short_message"   => "Success!",
+                    "alert_long_message"    => "The branding has been successfully created."
+                ]
+            );
+
             redirect(base_url("branding-edit"));
         } else {
             redirect(base_url("branding-edit"));
@@ -248,14 +260,18 @@ class AdminController extends CI_Controller
             $old_data = json_decode($this->AdminModel->branding_admin_db_get($branding_db_row)["b_options"], TRUE);
 
             $uploadResults = [
-                "logo_dark_img" => ($this->upload->do_upload("logo_dark_img") && unlink("./file_manager/branding/" . $old_data["logo_dark"]["file_name"])) ?
-                    $this->upload->data() : $old_data["logo_dark"] ?? NULL,
+                "logo_dark_img" =>
+                $this->upload->do_upload("logo_dark_img") ?
+                    (!is_dir($branding_config["upload_path"] . $old_data["logo_dark"]["file_name"]) ? (file_exists($branding_config["upload_path"] . $old_data["logo_dark"]["file_name"]) ? unlink($branding_config["upload_path"] . $old_data["logo_dark"]["file_name"]) : $this->upload->data()) : $this->upload->data())
+                    : ($old_data["logo_dark"] ?? NULL),
 
-                "logo_light_img" => ($this->upload->do_upload("logo_light_img") && unlink("./file_manager/branding/" . $old_data["logo_light"]["file_name"])) ?
-                    $this->upload->data() : $old_data["logo_light"] ?? NULL,
+                "logo_light_img" => $this->upload->do_upload("logo_light_img") ?
+                    (!is_dir($branding_config["upload_path"] . $old_data["logo_light"]["file_name"]) ? (file_exists($branding_config["upload_path"] . $old_data["logo_light"]["file_name"]) ? unlink($branding_config["upload_path"] . $old_data["logo_light"]["file_name"]) : $this->upload->data()) : $this->upload->data())
+                    : ($old_data["logo_light"] ?? NULL),
 
-                "favicon_img" => ($this->upload->do_upload("favicon_img") && unlink("./file_manager/branding/" . $old_data["favicon"]["file_name"])) ?
-                    $this->upload->data() : $old_data["favicon"] ?? NULL
+                "favicon_img" => $this->upload->do_upload("favicon_img") ?
+                    (!is_dir($branding_config["upload_path"] . $old_data["favicon"]["file_name"]) ? (file_exists($branding_config["upload_path"] . $old_data["favicon"]["file_name"]) ? unlink($branding_config["upload_path"] . $old_data["favicon"]["file_name"]) : $this->upload->data()) : $this->upload->data())
+                    : ($old_data["favicon"] ?? NULL),
             ];
 
             $json_data_decoded = [
@@ -287,6 +303,18 @@ class AdminController extends CI_Controller
 
             $this->AdminModel->branding_admin_db_update($branding_db_row, $data);
 
+            $this->session->set_flashdata(
+                "branding_alert",
+                [
+                    "alert_type"            => "success",
+                    "alert_icon"            => "fa-solid fa-circle-check",
+                    "alert_bg_color"        => "background-color: rgba(4, 27, 7, 0.32);",
+                    "alert_heading_message" => "Edit",
+                    "alert_short_message"   => "Success!",
+                    "alert_long_message"    => "The branding has been successfully edited."
+                ]
+            );
+
             redirect(base_url("branding-edit"));
         }
     }
@@ -296,6 +324,17 @@ class AdminController extends CI_Controller
         $branding_db_row = $this->AdminModel->table_row_id("branding", "b_id");
         $this->AdminModel->branding_admin_db_delete($branding_db_row);
         array_map("unlink", array_filter((array) glob("./file_manager/branding/*"), "file_exists"));
+        $this->session->set_flashdata(
+            "branding_alert",
+            [
+                "alert_type"            => "success",
+                "alert_icon"            => "fa-solid fa-circle-check",
+                "alert_bg_color"        => "background-color: rgba(4, 27, 7, 0.32);",
+                "alert_heading_message" => "Remove",
+                "alert_short_message"   => "Success!",
+                "alert_long_message"    => "The branding has been successfully removed."
+            ]
+        );
         redirect(base_url("branding-create"));
     }
     /*=====BRANDING CRUD - ENDED=====*/

@@ -131,9 +131,11 @@
     <?php endif; ?>
     <div class="container">
         <nav class="navbar navbar-expand-lg">
-            <a class="navbar-brand" href="<?= base_url('home'); ?>">
-                <img class="logo_dark" src="<?= base_url('public/user/assets/images/logo/logo_dark.png'); ?>" width="200" alt="Logo">
-            </a>
+            <?php if (!is_null($branding_options->logo_dark->file_name) && $branding_options->logo_dark->visibility) : ?>
+                <a class="navbar-brand" href="<?= base_url('home'); ?>">
+                    <img class="logo_dark" src="<?= base_url('file_manager/branding/') . $branding_options->logo_dark->file_name; ?>" width="200" alt="Logo">
+                </a>
+            <?php endif; ?>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="ion-android-menu"></span>
             </button>

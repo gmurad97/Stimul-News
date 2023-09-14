@@ -4,11 +4,16 @@
             <div class="row d-flex flex-row justify-content-between align-items-start">
                 <div class="col-xl-4 col-md-8 col-sm-12">
                     <div class="widget">
-                        <div class="footer_logo">
-                            <a href="<?= base_url('home'); ?>">
-                                <img src="<?= base_url('public/user/assets/images/logo/logo_white.png'); ?>" width="200" alt="Logo">
-                            </a>
-                        </div>
+
+                        <?php if (!is_null($branding_options->logo_light->file_name) && $branding_options->logo_light->visibility) : ?>
+                            <div class="footer_logo">
+                                <a href="<?= base_url('home'); ?>">
+                                    <img src="<?= base_url('file_manager/branding/').$branding_options->logo_light->file_name; ?>" width="200" alt="Logo">
+                                </a>
+                            </div>
+                        <?php endif; ?>
+
+
                         <p>
                             Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                             Minus corporis odio, repellat provident culpa error, ducimus asperiores fugiat iste natus ullam rem ea quis officiis praesentium quam reiciendis cumque!

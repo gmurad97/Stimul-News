@@ -17,6 +17,20 @@
         </div>
     </div>
     <div class="card-body">
+        <?php if ($this->session->flashdata("branding_alert")) : ?>
+            <div class="alert alert-<?= $this->session->flashdata('branding_alert')['alert_type']; ?> alert-dismissable fade show p-3" style="<?= $this->session->flashdata('branding_alert')['alert_bg_color']; ?>">
+                <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+                <h4 class="alert-heading">
+                    <i class="fa-solid fa-circle-check me-2"></i>
+                    <?= $this->session->flashdata('branding_alert')['alert_heading_message']; ?>
+                </h4>
+                <hr>
+                <p class="mb-0">
+                    <strong class="fw-bold"><?= $this->session->flashdata('branding_alert')['alert_short_message']; ?> </strong>
+                    <?= $this->session->flashdata('branding_alert')['alert_long_message']; ?>
+                </p>
+            </div>
+        <?php endif; ?>
         <?php $admin_branding_decoded = json_decode($admin_branding_encoded["b_options"]); ?>
         <?php if (!is_null($admin_branding_decoded->logo_dark->file_name) || !is_null($admin_branding_decoded->logo_light->file_name) || !is_null($admin_branding_decoded->favicon->file_name)) : ?>
             <h1 class="h5 text-warning mb-3">Current image</h1>
@@ -96,7 +110,7 @@
                             <label for="site_title_prefix_label">Title Prefix</label>
                         </div>
                         <div class="col-md-9">
-                            <input name="site_title_prefix" type="text" class="form-control form-control-sm" id="site_title_prefix_label" placeholder="Stimul News" value="<?= $admin_branding_decoded->title_prefix; ?>">
+                            <input required name="site_title_prefix" type="text" class="form-control form-control-sm" id="site_title_prefix_label" placeholder="Stimul News" value="<?= $admin_branding_decoded->title_prefix; ?>">
                         </div>
                     </div>
                 </li>
