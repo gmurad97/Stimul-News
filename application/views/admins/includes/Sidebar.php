@@ -3,6 +3,9 @@
         <div class="menu">
             <?php $segment_name = $this->uri->segment(1); ?>
             <div class="menu-header">Navigation</div>
+
+
+            <!--DASHBOARD - START-->
             <div class="menu-item <?= str_contains($segment_name, 'dashboard') ? 'active' : ''; ?>">
                 <a href="<?= base_url('dashboard'); ?>" class="menu-link">
                     <span class="menu-icon">
@@ -11,7 +14,11 @@
                     <span class="menu-text">Dashboard</span>
                 </a>
             </div>
+            <!--DASHBOARD - ENDED-->
+
             <div class="menu-header">Content Manager</div>
+
+            <!--TOPBAR - START-->
             <div class="menu-item <?= str_contains($segment_name, 'topbar') ? 'active' : ''; ?>">
                 <a href="<?= base_url('topbar-create'); ?>" class="menu-link">
                     <span class="menu-icon">
@@ -20,6 +27,9 @@
                     <span class="menu-text">Topbar</span>
                 </a>
             </div>
+            <!--TOPBAR - ENDED-->
+
+            <!--BRANDING - START-->
             <div class="menu-item <?= str_contains($segment_name, 'branding') ? 'active' : ''; ?>">
                 <a href="<?= base_url('branding-create'); ?>" class="menu-link">
                     <span class="menu-icon">
@@ -28,8 +38,42 @@
                     <span class="menu-text">Branding</span>
                 </a>
             </div>
+            <!--BRANDING - ENDED-->
 
 
+
+
+
+            <!--PARTNERS - START-->
+            <div class="menu-item has-sub">
+                <a href="javascript:void(0);" class="menu-link">
+                    <span class="menu-icon">
+                        <i class="bi bi-people"></i>
+
+                    </span>
+                    <span class="menu-text">Partners</span>
+                    <span class="menu-caret">
+                        <b class="caret"></b>
+                    </span>
+                </a>
+                <div class="menu-submenu">
+
+                    <div class="menu-item">
+                        <a href="#" class="menu-link">
+                            <span class="menu-text">Create / Add</span>
+                        </a>
+                    </div>
+
+                    <div class="menu-item">
+                        <a href="#" class="menu-link">
+                            <span class="menu-text">List / View</span>
+                        </a>
+                    </div>
+
+
+                </div>
+            </div>
+            <!--PARTNERS - END-->
 
 
 

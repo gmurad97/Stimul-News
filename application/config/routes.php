@@ -35,7 +35,14 @@ $route["branding-edit-action"]          = "AdminController/crud_branding_edit_ac
 $route["branding-delete"]               = "AdminController/crud_branding_delete";
 /*=====LOGO CRUD - ENDED=====*/
 
-
+/*=====PARTNERS CRUD - START=====*/
+$route["partners-create"]               = "AdminController/crud_partners_create";
+$route["partners-create-action"]        = "AdminController/crud_partners_create_action";
+$route["partners-list"]                 = "AdminController/crud_partners_list";
+$route["partners-edit/(.*)"]            = "AdminController/crud_partners_edit/$1";
+$route["partners-edit-action/(.*)"]     = "AdminController/crud_partners_edit_action/$1";
+$route["partners-delete/(.*)"]          = "AdminController/crud_partners_delete/$1";
+/*=====PARTNERS CRUD - ENDED=====*/
 
 
 /*=====ADMIN CONTROLLER - ENDED=====*/
