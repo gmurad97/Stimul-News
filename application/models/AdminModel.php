@@ -68,7 +68,6 @@ class AdminModel extends CI_Model
     /*=====BRANDING MODEL - ENDED=====*/
 
     /*=====PARTNERS MODEL - START=====*/
-
     public function partners_admin_db_insert($data)
     {
         $this->db->insert("partners", $data);
@@ -77,6 +76,21 @@ class AdminModel extends CI_Model
     public function partners_admin_db_get_results()
     {
         return $this->db->get("partners")->result_array();
+    }
+
+    public function partners_admin_db_get($id)
+    {
+        return $this->db->where("p_id", $id)->get("partners")->row_array();
+    }
+
+    public function partners_admin_db_update($id, $data)
+    {
+        $this->db->where("p_id", $id)->update("partners", $data);
+    }
+
+    public function partners_admin_db_delete($id)
+    {
+        $this->db->where("p_id", $id)->delete("partners");
     }
 
     /*=====PARTNERS MODEL - ENDED=====*/

@@ -395,11 +395,31 @@ class AdminController extends CI_Controller
 
             $this->AdminModel->partners_admin_db_insert($data);
 
-            //session success with image
+            $this->session->set_flashdata(
+                "partners_alert",
+                [
+                    "alert_type"            => "success",
+                    "alert_icon"            => "fa-solid fa-circle-check",
+                    "alert_bg_color"        => "background-color: rgba(4, 27, 7, 0.32);",
+                    "alert_heading_message" => "Remove",
+                    "alert_short_message"   => "Success!",
+                    "alert_long_message"    => "Partner was added successfully"
+                ]
+            );
+
             redirect(base_url("partners-list"));
         } else {
-
-            //session error without image
+            $this->session->set_flashdata(
+                "partners_alert",
+                [
+                    "alert_type"            => "warning",
+                    "alert_icon"            => "bi bi-exclamation-triangle",
+                    "alert_bg_color"        => "background-color: rgba(50, 46, 3, 0.32);",
+                    "alert_heading_message" => "Create",
+                    "alert_short_message"   => "Warning!",
+                    "alert_long_message"    => "Please upload an image."
+                ]
+            );
             redirect(base_url("partners-create"));
         }
     }
@@ -408,14 +428,21 @@ class AdminController extends CI_Controller
     {
         $data["admin_page_name"] = "Partners List";
         $data["partners_data"] = $this->AdminModel->partners_admin_db_get_results();
-        $this->load->view("admins/Partners/List",$data);
+        $this->load->view("admins/Partners/List", $data);
     }
 
-    public function crud_partners_edit()
+    public function crud_partners_edit($id)
+    {
+        $data["admin_page_name"] = "Partmers EDITOR";
+        $data["partner_data"] = $this->AdminModel->partners_admin_db_get($id);
+        $this->load->view("admin/Partners/Edit", $data);
+    }
+
+    public function crud_partners_edit_action($id)
     {
     }
 
-    public function crud_partners_edit_action()
+    public function crud_partners_delete($id)
     {
     }
 

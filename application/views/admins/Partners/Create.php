@@ -13,6 +13,21 @@
         </div>
     </div>
     <div class="card-body">
+        
+        <?php if ($this->session->flashdata("partners_alert")) : ?>
+            <div class="alert alert-<?= $this->session->flashdata('partners_alert')['alert_type']; ?> alert-dismissable fade show p-3" style="<?= $this->session->flashdata('partners_alert')['alert_bg_color']; ?>">
+                <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+                <h4 class="alert-heading">
+                    <i class="<?= $this->session->flashdata('partners_alert')['alert_icon']; ?> me-2"></i>
+                    <?= $this->session->flashdata('partners_alert')['alert_heading_message']; ?>
+                </h4>
+                <hr>
+                <p class="mb-0">
+                    <strong class="fw-bold"><?= $this->session->flashdata('partners_alert')['alert_short_message']; ?> </strong>
+                    <?= $this->session->flashdata('partners_alert')['alert_long_message']; ?>
+                </p>
+            </div>
+        <?php endif; ?>
         <form action="<?= base_url('partners-create-action'); ?>" method="POST" enctype="multipart/form-data" id="partners_form">
             <ul class="list-group list-group-flush mb-3">
                 <li class="list-group-item">
