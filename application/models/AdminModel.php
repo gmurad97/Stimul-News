@@ -66,5 +66,19 @@ class AdminModel extends CI_Model
         $this->db->where("b_id", $id)->delete("branding");
     }
     /*=====BRANDING MODEL - ENDED=====*/
+
+    /*=====PARTNERS MODEL - START=====*/
+
+    public function partners_admin_db_insert($data)
+    {
+        $this->db->insert("partners", $data);
+    }
+
+    public function partners_admin_db_get_results()
+    {
+        return $this->db->get("partners")->result_array();
+    }
+
+    /*=====PARTNERS MODEL - ENDED=====*/
 }
     /*==========CRUD MODEL - ENDED==========*/

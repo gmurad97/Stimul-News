@@ -110,7 +110,7 @@
                             <label for="site_title_prefix_label">Title Prefix</label>
                         </div>
                         <div class="col-md-9">
-                            <input required name="site_title_prefix" type="text" class="form-control form-control-sm" id="site_title_prefix_label" placeholder="Stimul News" value="<?= $admin_branding_decoded->title_prefix; ?>">
+                            <input name="site_title_prefix" type="text" class="form-control form-control-sm" id="site_title_prefix_label" placeholder="Stimul News" value="<?= $admin_branding_decoded->title_prefix; ?>">
                         </div>
                     </div>
                 </li>

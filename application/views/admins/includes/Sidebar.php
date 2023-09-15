@@ -40,16 +40,11 @@
             </div>
             <!--BRANDING - ENDED-->
 
-
-
-
-
             <!--PARTNERS - START-->
             <div class="menu-item has-sub">
                 <a href="javascript:void(0);" class="menu-link">
                     <span class="menu-icon">
                         <i class="bi bi-people"></i>
-
                     </span>
                     <span class="menu-text">Partners</span>
                     <span class="menu-caret">
@@ -57,20 +52,16 @@
                     </span>
                 </a>
                 <div class="menu-submenu">
-
                     <div class="menu-item">
-                        <a href="#" class="menu-link">
-                            <span class="menu-text">Create / Add</span>
+                        <a href="<?= base_url('partners-create'); ?>" class="menu-link">
+                            <span class="menu-text">Create</span>
                         </a>
                     </div>
-
                     <div class="menu-item">
-                        <a href="#" class="menu-link">
-                            <span class="menu-text">List / View</span>
+                        <a href="<?= base_url('partners-list'); ?>" class="menu-link">
+                            <span class="menu-text">List</span>
                         </a>
                     </div>
-
-
                 </div>
             </div>
             <!--PARTNERS - END-->

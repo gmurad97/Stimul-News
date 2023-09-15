@@ -15,6 +15,21 @@ class AdminController extends CI_Controller
         $this->load->view("admins/Index", $data);
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /*=====TOPBAR CRUD - START=====*/
     public function crud_topbar_create()
     {
@@ -338,4 +353,71 @@ class AdminController extends CI_Controller
         redirect(base_url("branding-create"));
     }
     /*=====BRANDING CRUD - ENDED=====*/
+
+    /*=====PARTNERS CRUD - START=====*/
+
+    public function crud_partners_create()
+    {
+        $data["admin_page_name"] = "Partners";
+        $this->load->view("admins/Partners/Create", $data);
+    }
+
+    public function crud_partners_create_action()
+    {
+        $partner_link   = $this->input->post("partner_link",   TRUE);
+        $partner_title  = $this->input->post("partner_title",  TRUE);
+        $partner_status = $this->input->post("partner_status", TRUE);
+
+        $partners_config["upload_path"]      = "./file_manager/partners/";
+        $partners_config["allowed_types"]    = "ico|jpeg|jpg|png|svg|ICO|JPEG|JPG|PNG|SVG";
+        $partners_config["file_ext_tolower"] = TRUE;
+        $partners_config["remove_spaces"]    = TRUE;
+        $partners_config["encrypt_name"]     = TRUE;
+
+        $this->load->library("upload");
+        $this->upload->initialize($partners_config);
+
+        if ($this->upload->do_upload("partner_img")) {
+            $partner_img = $this->upload->data();
+
+            $json_data_decoded = [
+                "partner_img"    => $partner_img["file_name"],
+                "partner_link"   => $partner_link,
+                "partner_title"  => $partner_title,
+                "partner_status" => str_contains($partner_status, "on") ? TRUE : FALSE
+            ];
+
+            $json_data_encoded = json_encode($json_data_decoded);
+
+            $data = [
+                "p_options" => $json_data_encoded
+            ];
+
+            $this->AdminModel->partners_admin_db_insert($data);
+
+            //session success with image
+            redirect(base_url("partners-list"));
+        } else {
+
+            //session error without image
+            redirect(base_url("partners-create"));
+        }
+    }
+
+    public function crud_partners_list()
+    {
+        $data["admin_page_name"] = "Partners List";
+        $data["partners_data"] = $this->AdminModel->partners_admin_db_get_results();
+        $this->load->view("admins/Partners/List",$data);
+    }
+
+    public function crud_partners_edit()
+    {
+    }
+
+    public function crud_partners_edit_action()
+    {
+    }
+
+    /*=====PARTNERS CRUD - ENDED=====*/
 }

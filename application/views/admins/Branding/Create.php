@@ -80,7 +80,7 @@
                             <label for="site_title_prefix_label">Title Prefix</label>
                         </div>
                         <div class="col-md-9">
-                            <input required name="site_title_prefix" type="text" class="form-control form-control-sm" id="site_title_prefix_label" placeholder="Stimul News">
+                            <input name="site_title_prefix" type="text" class="form-control form-control-sm" id="site_title_prefix_label" placeholder="Stimul News">
                         </div>
                     </div>
                 </li>

@@ -1,0 +1,4 @@
+ERROR - 2023-09-15 05:43:35 --> Severity: error --> Exception: json_decode(): Argument #1 ($json) must be of type string, array given C:\OSPanel\domains\stimul.news\application\views\admins\Partners\List.php 31
+ERROR - 2023-09-15 05:46:24 --> Severity: Warning --> Undefined property: stdClass::$partner_title1 C:\OSPanel\domains\stimul.news\application\views\admins\Partners\List.php 40
+ERROR - 2023-09-15 05:46:24 --> Severity: Warning --> Undefined property: stdClass::$partner_title1 C:\OSPanel\domains\stimul.news\application\views\admins\Partners\List.php 40
+ERROR - 2023-09-15 05:46:24 --> Severity: Warning --> Undefined property: stdClass::$partner_title1 C:\OSPanel\domains\stimul.news\application\views\admins\Partners\List.php 40
