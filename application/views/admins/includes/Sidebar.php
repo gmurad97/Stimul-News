@@ -4,7 +4,6 @@
             <?php $segment_name = $this->uri->segment(1); ?>
             <div class="menu-header">Navigation</div>
 
-
             <!--DASHBOARD - START-->
             <div class="menu-item <?= str_contains($segment_name, 'dashboard') ? 'active' : ''; ?>">
                 <a href="<?= base_url('dashboard'); ?>" class="menu-link">
@@ -59,7 +58,7 @@
                     </div>
                     <div class="menu-item">
                         <a href="<?= base_url('partners-list'); ?>" class="menu-link">
-                            <span class="menu-text">List</span>
+                            <span class="menu-text">Table List</span>
                         </a>
                     </div>
                 </div>

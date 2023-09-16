@@ -1,7 +1,6 @@
 <?php $this->load->view("admins/includes/HeadScripts"); ?>
 <?php $this->load->view("admins/includes/Navbar"); ?>
 <?php $this->load->view("admins/includes/Sidebar"); ?>
-
 <div class="card">
     <div class="card-header fw-bold d-flex flex-row justify-content-between align-items-center">
         <div class="h5 text-warning m-0">TOPBAR</div>
@@ -84,5 +83,4 @@
         </div>
     </div>
 </div>
-
 <?php $this->load->view("admins/includes/FooterScripts"); ?>

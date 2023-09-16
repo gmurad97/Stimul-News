@@ -1,10 +1,9 @@
 <?php $this->load->view("admins/includes/HeadScripts"); ?>
 <?php $this->load->view("admins/includes/Navbar"); ?>
 <?php $this->load->view("admins/includes/Sidebar"); ?>
-
 <div class="card">
     <div class="card-header fw-bold d-flex flex-row justify-content-between align-items-center">
-        <div class="h5 text-success m-0">PARTNERS</div>
+        <div class="h5 text-success m-0">PARTNERS TABLE LIST</div>
         <div>
             <button type="submit" form="partners_form" class="btn btn-outline-success">
                 <i class="bi bi-plus-circle me-1"></i>
@@ -50,8 +49,8 @@
                         <td>
                             <img width="128" src="<?= base_url('file_manager/partners/') . $partners_data_item_options->partner_img; ?>" title="<?= $partners_data_item_options->partner_title; ?>" alt="<?= $partners_data_item_options->partner_title; ?>">
                         </td>
-                        <td><?= $partners_data_item_options->partner_link; ?></td>
-                        <td><?= $partners_data_item_options->partner_title; ?></td>
+                        <td><?= (is_null($partners_data_item_options->partner_link) || empty($partners_data_item_options->partner_link)) ? "NULL" : $partners_data_item_options->partner_link; ?></td>
+                        <td><?= (is_null($partners_data_item_options->partner_title) || empty($partners_data_item_options->partner_title)) ? "NULL" : $partners_data_item_options->partner_title; ?></td>
                         <td>
                             <?php if ($partners_data_item_options->partner_status) : ?>
                                 <span class="badge bg-success p-2">Active</span>
@@ -60,9 +59,8 @@
                             <?php endif; ?>
                         </td>
                         <td>
-
                             <nav class="nav flex-row justify-content-between">
-                                <a href="javascript:void(0);" class="nav-link theme-info p-0">
+                                <a href="javascript:void(0);" class="nav-link disabled theme-info p-0">
                                     <i class="bi bi-eye fs-5"></i>
                                 </a>
                                 <a href="<?= base_url('partners-edit/') . $partners_data_item_id; ?>" class="nav-link theme-warning p-0">
@@ -72,14 +70,9 @@
                                     <i class="bi bi-trash fs-5"></i>
                                 </a>
                             </nav>
-
-
                         </td>
                     </tr>
-
                 <?php endforeach; ?>
-
-
             </tbody>
             <tfoot>
                 <tr>
@@ -92,6 +85,7 @@
                 </tr>
             </tfoot>
         </table>
+
         <!--DATA TABLE SCRIPTS & STYLES - START-->
         <link rel="stylesheet" href="<?= base_url('public/admin/assets/plugins/datatable/css/buttons.bootstrap5.min.css'); ?>">
         <link rel="stylesheet" href="<?= base_url('public/admin/assets/plugins/datatable/css/dataTables.bootstrap5.min.css'); ?>">
@@ -130,6 +124,7 @@
             });
         </script>
         <!--DATA TABLE SCRIPTS & STYLES - ENDED-->
+
     </div>
     <div class="card-arrow">
         <div class="card-arrow-top-left"></div>
@@ -138,5 +133,17 @@
         <div class="card-arrow-bottom-right"></div>
     </div>
 </div>
-
+<div class="modal fade text-center" id="branding_modal_delete">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content rounded">
+            <div class="modal-body py-3">
+                <p class="h5 text-danger">Do you really want to remove the branding?</p>
+            </div>
+            <div class="modal-footer py-1">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a href="<?= base_url('branding-delete'); ?>" class="btn btn-outline-danger">Remove</a>
+            </div>
+        </div>
+    </div>
+</div>
 <?php $this->load->view("admins/includes/FooterScripts"); ?>

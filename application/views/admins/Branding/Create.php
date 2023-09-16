@@ -1,7 +1,6 @@
 <?php $this->load->view("admins/includes/HeadScripts"); ?>
 <?php $this->load->view("admins/includes/Navbar"); ?>
 <?php $this->load->view("admins/includes/Sidebar"); ?>
-
 <div class="card">
     <div class="card-header fw-bold d-flex flex-row justify-content-between align-items-center">
         <div class="h5 text-success m-0">Branding</div>
@@ -94,5 +93,4 @@
         <div class="card-arrow-bottom-right"></div>
     </div>
 </div>
-
 <?php $this->load->view("admins/includes/FooterScripts"); ?>

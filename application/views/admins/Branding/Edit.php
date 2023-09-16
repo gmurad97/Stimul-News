@@ -1,7 +1,6 @@
 <?php $this->load->view("admins/includes/HeadScripts"); ?>
 <?php $this->load->view("admins/includes/Navbar"); ?>
 <?php $this->load->view("admins/includes/Sidebar"); ?>
-
 <div class="card">
     <div class="card-header fw-bold d-flex flex-row justify-content-between align-items-center">
         <div class="h5 text-warning m-0">Branding</div>
@@ -21,7 +20,7 @@
             <div class="alert alert-<?= $this->session->flashdata('branding_alert')['alert_type']; ?> alert-dismissable fade show p-3" style="<?= $this->session->flashdata('branding_alert')['alert_bg_color']; ?>">
                 <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
                 <h4 class="alert-heading">
-                    <i class="<?= $this->session->flashdata('partners_alert')['alert_icon']; ?> me-2"></i>
+                    <i class="<?= $this->session->flashdata('branding_alert')['alert_icon']; ?> me-2"></i>
                     <?= $this->session->flashdata('branding_alert')['alert_heading_message']; ?>
                 </h4>
                 <hr>
@@ -41,14 +40,12 @@
                         <img src="<?= base_url("file_manager/branding/") . $admin_branding_decoded->logo_dark->file_name; ?>" width="128px" height="64px" style="object-fit: contain;" alt="Logo_Dark">
                     </div>
                 <?php endif; ?>
-
                 <?php if (!is_null($admin_branding_decoded->logo_light->file_name)) : ?>
                     <div class="col-md-4 d-flex flex-column justify-content-center align-items-center">
                         <h1 class="h5 text-info mb-3">Logo Light</h1>
                         <img src="<?= base_url("file_manager/branding/") . $admin_branding_decoded->logo_light->file_name; ?>" width="128px" height="64px" style="object-fit: contain;" alt="Logo_Light">
                     </div>
                 <?php endif; ?>
-
                 <?php if (!is_null($admin_branding_decoded->favicon->file_name)) : ?>
                     <div class="col-md-4 d-flex flex-column justify-content-center align-items-center">
                         <h1 class="h5 text-info mb-3">Favicon</h1>
@@ -137,5 +134,4 @@
         </div>
     </div>
 </div>
-
 <?php $this->load->view("admins/includes/FooterScripts"); ?>

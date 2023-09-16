@@ -15,21 +15,6 @@ class AdminController extends CI_Controller
         $this->load->view("admins/Index", $data);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /*=====TOPBAR CRUD - START=====*/
     public function crud_topbar_create()
     {
@@ -355,10 +340,9 @@ class AdminController extends CI_Controller
     /*=====BRANDING CRUD - ENDED=====*/
 
     /*=====PARTNERS CRUD - START=====*/
-
     public function crud_partners_create()
     {
-        $data["admin_page_name"] = "Partners";
+        $data["admin_page_name"] = "Partners Create";
         $this->load->view("admins/Partners/Create", $data);
     }
 
@@ -403,7 +387,7 @@ class AdminController extends CI_Controller
                     "alert_bg_color"        => "background-color: rgba(4, 27, 7, 0.32);",
                     "alert_heading_message" => "Remove",
                     "alert_short_message"   => "Success!",
-                    "alert_long_message"    => "Partner was added successfully"
+                    "alert_long_message"    => "Partner has been successfully added."
                 ]
             );
 
@@ -417,7 +401,7 @@ class AdminController extends CI_Controller
                     "alert_bg_color"        => "background-color: rgba(50, 46, 3, 0.32);",
                     "alert_heading_message" => "Create",
                     "alert_short_message"   => "Warning!",
-                    "alert_long_message"    => "Please upload an image."
+                    "alert_long_message"    => "Please upload the partner's image."
                 ]
             );
             redirect(base_url("partners-create"));
@@ -426,24 +410,107 @@ class AdminController extends CI_Controller
 
     public function crud_partners_list()
     {
-        $data["admin_page_name"] = "Partners List";
+        $data["admin_page_name"] = "Partners Table List";
         $data["partners_data"] = $this->AdminModel->partners_admin_db_get_results();
         $this->load->view("admins/Partners/List", $data);
     }
 
     public function crud_partners_edit($id)
     {
-        $data["admin_page_name"] = "Partmers EDITOR";
+        $data["admin_page_name"] = "Partners Edit";
         $data["partner_data"] = $this->AdminModel->partners_admin_db_get($id);
-        $this->load->view("admin/Partners/Edit", $data);
+        $this->load->view("admins/Partners/Edit", $data);
     }
 
     public function crud_partners_edit_action($id)
     {
+        $old_partner_options = json_decode($this->AdminModel->partners_admin_db_get($id), TRUE)["p_options"];
+        $partner_img_path = "./file_manager/partners/" . $old_partner_options["partner_img"];
+
+        $partner_link   = $this->input->post("partner_link",   TRUE);
+        $partner_title  = $this->input->post("partner_title",  TRUE);
+        $partner_status = $this->input->post("partner_status", TRUE);
+
+        $partners_config["upload_path"]      = "./file_manager/partners/";
+        $partners_config["allowed_types"]    = "ico|jpeg|jpg|png|svg|ICO|JPEG|JPG|PNG|SVG";
+        $partners_config["file_ext_tolower"] = TRUE;
+        $partners_config["remove_spaces"]    = TRUE;
+        $partners_config["encrypt_name"]     = TRUE;
+
+        $this->load->library("upload");
+        $this->upload->initialize($partners_config);
+
+        if ($this->upload->do_upload("partner_img") && !is_dir($partner_img_path) && file_exists($partner_img_path)) {
+            unlink($partner_img_path);
+
+            $partner_img = $this->upload->data();
+
+            $json_data_decoded = [
+                "partner_img"    => $partner_img["file_name"],
+                "partner_link"   => $partner_link,
+                "partner_title"  => $partner_title,
+                "partner_status" => str_contains($partner_status, "on") ? TRUE : FALSE
+            ];
+
+            $json_data_encoded = json_encode($json_data_decoded);
+
+            $data = [
+                "p_options" => $json_data_encoded
+            ];
+
+            $this->AdminModel->partners_admin_db_insert($data);
+
+            $this->session->set_flashdata(
+                "partners_alert",
+                [
+                    "alert_type"            => "success",
+                    "alert_icon"            => "fa-solid fa-circle-check",
+                    "alert_bg_color"        => "background-color: rgba(4, 27, 7, 0.32);",
+                    "alert_heading_message" => "Remove",
+                    "alert_short_message"   => "Success!",
+                    "alert_long_message"    => "Partner has been successfully added."
+                ]
+            );
+
+            redirect(base_url("partners-list"));
+        } else {
+            $this->session->set_flashdata(
+                "partners_alert",
+                [
+                    "alert_type"            => "warning",
+                    "alert_icon"            => "bi bi-exclamation-triangle",
+                    "alert_bg_color"        => "background-color: rgba(50, 46, 3, 0.32);",
+                    "alert_heading_message" => "Create",
+                    "alert_short_message"   => "Warning!",
+                    "alert_long_message"    => "Please upload the partner's image."
+                ]
+            );
+            redirect(base_url("partners-create"));
+        }
     }
 
     public function crud_partners_delete($id)
     {
+        $partner_data = json_decode($this->AdminModel->partners_admin_db_get($id)["p_options"], TRUE);
+        $partner_img_path = "./file_manager/partners/" . $partner_data["partner_img"];
+        if (!is_dir($partner_img_path) && file_exists($partner_img_path)) {
+            unlink($partner_img_path);
+        }
+        $this->AdminModel->partners_admin_db_delete($id);
+
+        $this->session->set_flashdata(
+            "partners_alert",
+            [
+                "alert_type"            => "success",
+                "alert_icon"            => "fa-solid fa-circle-check",
+                "alert_bg_color"        => "background-color: rgba(4, 27, 7, 0.32);",
+                "alert_heading_message" => "Edit",
+                "alert_short_message"   => "Success!",
+                "alert_long_message"    => "The partner has been successfully edited."
+            ]
+        );
+
+        redirect(base_url("partners-list"));
     }
 
     /*=====PARTNERS CRUD - ENDED=====*/

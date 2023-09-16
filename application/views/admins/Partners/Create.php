@@ -1,10 +1,9 @@
 <?php $this->load->view("admins/includes/HeadScripts"); ?>
 <?php $this->load->view("admins/includes/Navbar"); ?>
 <?php $this->load->view("admins/includes/Sidebar"); ?>
-
 <div class="card">
     <div class="card-header fw-bold d-flex flex-row justify-content-between align-items-center">
-        <div class="h5 text-success m-0">PARTNERS</div>
+        <div class="h5 text-success m-0">PARTNERS CREATE</div>
         <div>
             <button type="submit" form="partners_form" class="btn btn-outline-success">
                 <i class="bi bi-plus-circle me-1"></i>
@@ -13,7 +12,6 @@
         </div>
     </div>
     <div class="card-body">
-        
         <?php if ($this->session->flashdata("partners_alert")) : ?>
             <div class="alert alert-<?= $this->session->flashdata('partners_alert')['alert_type']; ?> alert-dismissable fade show p-3" style="<?= $this->session->flashdata('partners_alert')['alert_bg_color']; ?>">
                 <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
@@ -48,7 +46,7 @@
                         <div class="col-md-9">
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text">URL</span>
-                                <input name="partner_link" type="text" class="form-control" placeholder="https://example.com/" id="partner_link_label">
+                                <input name="partner_link" type="url" class="form-control" placeholder="https://example.com/" id="partner_link_label">
                             </div>
                         </div>
                     </div>
