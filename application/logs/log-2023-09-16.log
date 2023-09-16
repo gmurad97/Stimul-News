@@ -18,3 +18,15 @@ ERROR - 2023-09-16 04:23:05 --> Severity: Warning --> Attempt to read property "
 ERROR - 2023-09-16 04:23:05 --> Severity: Warning --> Undefined variable $admin_branding_decoded C:\OSPanel\domains\stimul.news\application\views\admins\Partners\Edit.php 41
 ERROR - 2023-09-16 04:23:05 --> Severity: Warning --> Attempt to read property "favicon" on null C:\OSPanel\domains\stimul.news\application\views\admins\Partners\Edit.php 41
 ERROR - 2023-09-16 04:23:05 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\admins\Partners\Edit.php 41
+ERROR - 2023-09-16 18:42:17 --> Severity: error --> Exception: json_decode(): Argument #1 ($json) must be of type string, array given C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 427
+ERROR - 2023-09-16 18:46:48 --> Severity: Warning --> Undefined array key "p_options" C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 427
+ERROR - 2023-09-16 18:46:48 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 428
+ERROR - 2023-09-16 18:46:48 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 481
+ERROR - 2023-09-16 18:47:17 --> Severity: Warning --> Undefined array key "p_options" C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 427
+ERROR - 2023-09-16 18:47:17 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 428
+ERROR - 2023-09-16 18:47:17 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 481
+ERROR - 2023-09-16 18:49:13 --> Severity: Warning --> Undefined array key "p_options" C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 427
+ERROR - 2023-09-16 18:49:13 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 428
+ERROR - 2023-09-16 18:49:21 --> Severity: Warning --> Undefined array key "p_option" C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 427
+ERROR - 2023-09-16 18:49:21 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 427
+ERROR - 2023-09-16 18:49:21 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 428

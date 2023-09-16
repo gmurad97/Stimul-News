@@ -404,6 +404,7 @@ class AdminController extends CI_Controller
                     "alert_long_message"    => "Please upload the partner's image."
                 ]
             );
+
             redirect(base_url("partners-create"));
         }
     }
@@ -424,7 +425,7 @@ class AdminController extends CI_Controller
 
     public function crud_partners_edit_action($id)
     {
-        $old_partner_options = json_decode($this->AdminModel->partners_admin_db_get($id), TRUE)["p_options"];
+        $old_partner_options = json_decode($this->AdminModel->partners_admin_db_get($id)["p_options"], TRUE);
         $partner_img_path = "./file_manager/partners/" . $old_partner_options["partner_img"];
 
         $partner_link   = $this->input->post("partner_link",   TRUE);
@@ -440,8 +441,11 @@ class AdminController extends CI_Controller
         $this->load->library("upload");
         $this->upload->initialize($partners_config);
 
-        if ($this->upload->do_upload("partner_img") && !is_dir($partner_img_path) && file_exists($partner_img_path)) {
-            unlink($partner_img_path);
+        if ($this->upload->do_upload("partner_img")) {
+
+            if (!is_dir($partner_img_path) && file_exists($partner_img_path)) {
+                unlink($partner_img_path);
+            }
 
             $partner_img = $this->upload->data();
 
@@ -458,7 +462,7 @@ class AdminController extends CI_Controller
                 "p_options" => $json_data_encoded
             ];
 
-            $this->AdminModel->partners_admin_db_insert($data);
+            $this->AdminModel->partners_admin_db_update($id, $data);
 
             $this->session->set_flashdata(
                 "partners_alert",
@@ -466,26 +470,42 @@ class AdminController extends CI_Controller
                     "alert_type"            => "success",
                     "alert_icon"            => "fa-solid fa-circle-check",
                     "alert_bg_color"        => "background-color: rgba(4, 27, 7, 0.32);",
-                    "alert_heading_message" => "Remove",
+                    "alert_heading_message" => "Edit",
                     "alert_short_message"   => "Success!",
-                    "alert_long_message"    => "Partner has been successfully added."
+                    "alert_long_message"    => "The partner has been successfully edited."
                 ]
             );
 
             redirect(base_url("partners-list"));
         } else {
+            $json_data_decoded = [
+                "partner_img"    => $old_partner_options["partner_img"],
+                "partner_link"   => $partner_link,
+                "partner_title"  => $partner_title,
+                "partner_status" => str_contains($partner_status, "on") ? TRUE : FALSE
+            ];
+
+            $json_data_encoded = json_encode($json_data_decoded);
+
+            $data = [
+                "p_options" => $json_data_encoded
+            ];
+
+            $this->AdminModel->partners_admin_db_update($id, $data);
+
             $this->session->set_flashdata(
                 "partners_alert",
                 [
-                    "alert_type"            => "warning",
-                    "alert_icon"            => "bi bi-exclamation-triangle",
-                    "alert_bg_color"        => "background-color: rgba(50, 46, 3, 0.32);",
-                    "alert_heading_message" => "Create",
-                    "alert_short_message"   => "Warning!",
-                    "alert_long_message"    => "Please upload the partner's image."
+                    "alert_type"            => "success",
+                    "alert_icon"            => "fa-solid fa-circle-check",
+                    "alert_bg_color"        => "background-color: rgba(4, 27, 7, 0.32);",
+                    "alert_heading_message" => "Edit",
+                    "alert_short_message"   => "Success!",
+                    "alert_long_message"    => "The partner has been successfully edited."
                 ]
             );
-            redirect(base_url("partners-create"));
+
+            redirect(base_url("partners-list"));
         }
     }
 
@@ -504,9 +524,9 @@ class AdminController extends CI_Controller
                 "alert_type"            => "success",
                 "alert_icon"            => "fa-solid fa-circle-check",
                 "alert_bg_color"        => "background-color: rgba(4, 27, 7, 0.32);",
-                "alert_heading_message" => "Edit",
+                "alert_heading_message" => "Remove",
                 "alert_short_message"   => "Success!",
-                "alert_long_message"    => "The partner has been successfully edited."
+                "alert_long_message"    => "The partner has been successfully removed."
             ]
         );
 

@@ -5,10 +5,10 @@
     <div class="card-header fw-bold d-flex flex-row justify-content-between align-items-center">
         <div class="h5 text-success m-0">PARTNERS TABLE LIST</div>
         <div>
-            <button type="submit" form="partners_form" class="btn btn-outline-success">
+            <a href="<?= base_url('partners-create'); ?>" class="btn btn-outline-success">
                 <i class="bi bi-plus-circle me-1"></i>
                 Create
-            </button>
+            </a>
         </div>
     </div>
     <div class="card-body">
@@ -66,7 +66,7 @@
                                 <a href="<?= base_url('partners-edit/') . $partners_data_item_id; ?>" class="nav-link theme-warning p-0">
                                     <i class="bi bi-pencil-square fs-5"></i>
                                 </a>
-                                <a href="<?= base_url('partners-delete/') . $partners_data_item_id; ?>" class="nav-link theme-danger p-0">
+                                <a href="javascript:void(0);" class="nav-link theme-danger p-0" data-bs-toggle="modal" data-bs-target="#partner_modal_delete">
                                     <i class="bi bi-trash fs-5"></i>
                                 </a>
                             </nav>
@@ -85,7 +85,6 @@
                 </tr>
             </tfoot>
         </table>
-
         <!--DATA TABLE SCRIPTS & STYLES - START-->
         <link rel="stylesheet" href="<?= base_url('public/admin/assets/plugins/datatable/css/buttons.bootstrap5.min.css'); ?>">
         <link rel="stylesheet" href="<?= base_url('public/admin/assets/plugins/datatable/css/dataTables.bootstrap5.min.css'); ?>">
@@ -124,7 +123,6 @@
             });
         </script>
         <!--DATA TABLE SCRIPTS & STYLES - ENDED-->
-
     </div>
     <div class="card-arrow">
         <div class="card-arrow-top-left"></div>
@@ -133,15 +131,15 @@
         <div class="card-arrow-bottom-right"></div>
     </div>
 </div>
-<div class="modal fade text-center" id="branding_modal_delete">
+<div class="modal fade text-center" id="partner_modal_delete">
     <div class="modal-dialog modal-sm">
         <div class="modal-content rounded">
             <div class="modal-body py-3">
-                <p class="h5 text-danger">Do you really want to remove the branding?</p>
+                <p class="h5 text-danger">Do you really want to remove the partner?</p>
             </div>
             <div class="modal-footer py-1">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <a href="<?= base_url('branding-delete'); ?>" class="btn btn-outline-danger">Remove</a>
+                <a href="<?= base_url('partners-delete/') . $partners_data_item_id; ?>" class="btn btn-outline-danger">Remove</a>
             </div>
         </div>
     </div>
