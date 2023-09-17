@@ -534,4 +534,36 @@ class AdminController extends CI_Controller
     }
 
     /*=====PARTNERS CRUD - ENDED=====*/
+
+    /*=====CATEGORIES CRUD - START=====*/
+    public function crud_categories_create()
+    {
+        $data["admin_page_name"] = "Categories Create";
+        $this->load->view("admins/Categories/Create", $data);
+    }
+
+    public function crud_categories_create_action()
+    {
+    }
+
+    public function crud_categories_edit()
+    {
+        $data["admin_page_name"] = "Categories Edit";
+        $this->load->view("admins/Categories/Edit", $data);
+    }
+
+    public function crud_categories_edit_action()
+    {
+    }
+
+    public function crud_categories_list()
+    {
+        $data["admin_page_name"] = "Categories List";
+        $this->load->view("admins/Categories/List", $data);
+    }
+
+    public function crud_categories_delete()
+    {
+    }
+    /*=====CATEGORIES CRUD - ENDED=====*/
 }

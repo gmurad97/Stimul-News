@@ -44,5 +44,14 @@ $route["partners-edit-action/(.*)"]     = "AdminController/crud_partners_edit_ac
 $route["partners-delete/(.*)"]          = "AdminController/crud_partners_delete/$1";
 /*=====PARTNERS CRUD - ENDED=====*/
 
+/*=====CATEGORIES CRUD - START=====*/
+$route["categories-create"]               = "AdminController/crud_categories_create";
+$route["categories-create-action"]        = "AdminController/crud_categories_create_action";
+$route["categories-list"]                 = "AdminController/crud_categories_list";
+$route["categories-edit/(.*)"]            = "AdminController/crud_categories_edit/$1";
+$route["categories-edit-action/(.*)"]     = "AdminController/crud_categories_edit_action/$1";
+$route["categories-delete/(.*)"]          = "AdminController/crud_categories_delete/$1";
+/*=====CATEGORIES CRUD - ENDED=====*/
+
 
 /*=====ADMIN CONTROLLER - ENDED=====*/

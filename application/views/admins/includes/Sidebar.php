@@ -40,7 +40,7 @@
             <!--BRANDING - ENDED-->
 
             <!--PARTNERS - START-->
-            <div class="menu-item has-sub">
+            <div class="menu-item has-sub <?= str_contains($segment_name, 'partners') ? 'active' : ''; ?>">
                 <a href="javascript:void(0);" class="menu-link">
                     <span class="menu-icon">
                         <i class="bi bi-people"></i>
@@ -51,12 +51,12 @@
                     </span>
                 </a>
                 <div class="menu-submenu">
-                    <div class="menu-item">
+                    <div class="menu-item <?= str_contains($segment_name, 'partners-create') ? 'active' : ''; ?>">
                         <a href="<?= base_url('partners-create'); ?>" class="menu-link">
                             <span class="menu-text">Create</span>
                         </a>
                     </div>
-                    <div class="menu-item">
+                    <div class="menu-item <?= str_contains($segment_name, 'partners-list') ? 'active' : ''; ?>">
                         <a href="<?= base_url('partners-list'); ?>" class="menu-link">
                             <span class="menu-text">Table List</span>
                         </a>
@@ -64,6 +64,32 @@
                 </div>
             </div>
             <!--PARTNERS - END-->
+
+            <!--CATEGORIES - START-->
+            <div class="menu-item has-sub <?= str_contains($segment_name, 'categories') ? 'active' : ''; ?>">
+                <a href="javascript:void(0);" class="menu-link">
+                    <span class="menu-icon">
+                        <i class="bi bi-tags"></i>
+                    </span>
+                    <span class="menu-text">Categories</span>
+                    <span class="menu-caret">
+                        <b class="caret"></b>
+                    </span>
+                </a>
+                <div class="menu-submenu">
+                    <div class="menu-item <?= str_contains($segment_name, 'categories-create') ? 'active' : ''; ?>">
+                        <a href="<?= base_url('categories-create'); ?>" class="menu-link">
+                            <span class="menu-text">Create</span>
+                        </a>
+                    </div>
+                    <div class="menu-item <?= str_contains($segment_name, 'categories-list') ? 'active' : ''; ?>">
+                        <a href="<?= base_url('categories-list'); ?>" class="menu-link">
+                            <span class="menu-text">Table List</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--CATEGORIES - END-->
 
 
 
