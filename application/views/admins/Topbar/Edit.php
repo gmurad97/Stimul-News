@@ -20,7 +20,7 @@
             <div class="alert alert-<?= $this->session->flashdata('topbar_alert')['alert_type']; ?> alert-dismissable fade show p-3" style="<?= $this->session->flashdata('topbar_alert')['alert_bg_color']; ?>">
                 <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
                 <h4 class="alert-heading">
-                    <i class="<?= $this->session->flashdata('partners_alert')['alert_icon']; ?> me-2"></i>
+                    <i class="<?= $this->session->flashdata('topbar_alert')['alert_icon']; ?> me-2"></i>
                     <?= $this->session->flashdata('topbar_alert')['alert_heading_message']; ?>
                 </h4>
                 <hr>

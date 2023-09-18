@@ -15,33 +15,32 @@ class AdminModel extends CI_Model
             return -1;
         }
     }
-
-    public function logo_current()
-    {
-    }
     /*==========GLOBAL MODEL - ENDED==========*/
 
     /*==========CRUD MODEL - START==========*/
 
     /*=====TOPBAR MODEL - START=====*/
+    private const TOPBAR_TABLE_NAME = "topbar";
+    private const TOPBAR_ID_NAME = "t_id";
+
     public function topbar_admin_db_insert($data)
     {
-        $this->db->insert("topbar", $data);
+        $this->db->insert(self::TOPBAR_TABLE_NAME, $data);
     }
 
     public function topbar_admin_db_get($id)
     {
-        return $this->db->where("t_id", $id)->get("topbar", 1)->row_array();
+        return $this->db->where(self::TOPBAR_ID_NAME, $id)->get(self::TOPBAR_TABLE_NAME, 1)->row_array();
     }
 
     public function topbar_admin_db_edit($id, $data)
     {
-        $this->db->where("t_id", $id)->update("topbar", $data);
+        $this->db->update(self::TOPBAR_TABLE_NAME, $data, self::TOPBAR_ID_NAME . "=" . $id);
     }
 
     public function topbar_admin_db_delete($id)
     {
-        $this->db->where("t_id", $id)->delete("topbar");
+        $this->db->delete(self::TOPBAR_TABLE_NAME, self::TOPBAR_ID_NAME . "=" . $id);
     }
     /*=====TOPBAR MODEL - ENDED=====*/
 
@@ -91,6 +90,41 @@ class AdminModel extends CI_Model
     public function partners_admin_db_delete($id)
     {
         $this->db->where("p_id", $id)->delete("partners");
+    }
+
+    /*=====PARTNERS MODEL - ENDED=====*/
+
+
+
+
+
+
+
+
+    /*=====PARTNERS MODEL - START=====*/
+    public function categories_admin_db_insert($data)
+    {
+        $this->db->insert("categories", $data);
+    }
+
+    public function categories_admin_db_get_results()
+    {
+        return $this->db->get("categories")->result_array();
+    }
+
+    public function categories_admin_db_get($id)
+    {
+        return $this->db->where("c_id", $id)->get("categories")->row_array();
+    }
+
+    public function categories_admin_db_update($id, $data)
+    {
+        $this->db->where("c_id", $id)->update("categories", $data);
+    }
+
+    public function categories_admin_db_delete($id)
+    {
+        $this->db->where("c_id", $id)->delete("categories");
     }
 
     /*=====PARTNERS MODEL - ENDED=====*/

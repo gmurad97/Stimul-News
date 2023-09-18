@@ -1,3 +1,0 @@
-ERROR - 2023-09-17 05:49:13 --> Severity: Warning --> Undefined variable $partners_data C:\OSPanel\domains\stimul.news\application\views\admins\Categories\List.php 43
-ERROR - 2023-09-17 05:49:13 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\admins\Categories\List.php 43
-ERROR - 2023-09-17 05:49:13 --> Severity: Warning --> Undefined variable $partners_data_item_id C:\OSPanel\domains\stimul.news\application\views\admins\Categories\List.php 142

@@ -9,13 +9,35 @@ class AdminController extends CI_Controller
         $this->load->model("AdminModel");
     }
 
+    private function automatic_alert()
+    {
+    }
+
     public function index()
     {
         $data["admin_page_name"] = "Dashboard";
         $this->load->view("admins/Index", $data);
     }
 
+
+
+
+
+
+
+
     /*=====TOPBAR CRUD - START=====*/
+
+
+
+
+
+
+
+
+
+
+
     public function crud_topbar_create()
     {
         $topbar_db_row = $this->AdminModel->table_row_id("topbar", "t_id");
@@ -142,7 +164,46 @@ class AdminController extends CI_Controller
 
         redirect(base_url("topbar-create"));
     }
+
+
+
+
+
+
+
+
+
+
     /*=====TOPBAR CRUD - ENDED=====*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /*=====BRANDING CRUD - START=====*/
     public function crud_branding_create()
