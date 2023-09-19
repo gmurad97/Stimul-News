@@ -30,26 +30,25 @@
                 </p>
             </div>
         <?php endif; ?>
-        <?php $admin_branding_decoded = json_decode($admin_branding_encoded["b_options"]); ?>
-        <?php if (!is_null($admin_branding_decoded->logo_dark->file_name) || !is_null($admin_branding_decoded->logo_light->file_name) || !is_null($admin_branding_decoded->favicon->file_name)) : ?>
+        <?php if (!is_null($admin_branding->logo_dark->file_name) || !is_null($admin_branding->logo_light->file_name) || !is_null($admin_branding->favicon->file_name)) : ?>
             <h1 class="h5 text-warning mb-3">Current image</h1>
             <div class="row mb-3">
-                <?php if (!is_null($admin_branding_decoded->logo_dark->file_name)) : ?>
+                <?php if (!is_null($admin_branding->logo_dark->file_name)) : ?>
                     <div class="col-md-4 d-flex flex-column justify-content-center align-items-center">
                         <h1 class="h5 text-info mb-3">Logo Dark</h1>
-                        <img src="<?= base_url("file_manager/branding/") . $admin_branding_decoded->logo_dark->file_name; ?>" width="128px" height="64px" style="object-fit: contain;" alt="Logo_Dark">
+                        <img src="<?= base_url("file_manager/branding/") . $admin_branding->logo_dark->file_name; ?>" width="128px" height="64px" style="object-fit: contain;" alt="Logo_Dark">
                     </div>
                 <?php endif; ?>
-                <?php if (!is_null($admin_branding_decoded->logo_light->file_name)) : ?>
+                <?php if (!is_null($admin_branding->logo_light->file_name)) : ?>
                     <div class="col-md-4 d-flex flex-column justify-content-center align-items-center">
                         <h1 class="h5 text-info mb-3">Logo Light</h1>
-                        <img src="<?= base_url("file_manager/branding/") . $admin_branding_decoded->logo_light->file_name; ?>" width="128px" height="64px" style="object-fit: contain;" alt="Logo_Light">
+                        <img src="<?= base_url("file_manager/branding/") . $admin_branding->logo_light->file_name; ?>" width="128px" height="64px" style="object-fit: contain;" alt="Logo_Light">
                     </div>
                 <?php endif; ?>
-                <?php if (!is_null($admin_branding_decoded->favicon->file_name)) : ?>
+                <?php if (!is_null($admin_branding->favicon->file_name)) : ?>
                     <div class="col-md-4 d-flex flex-column justify-content-center align-items-center">
                         <h1 class="h5 text-info mb-3">Favicon</h1>
-                        <img src="<?= base_url("file_manager/branding/") . $admin_branding_decoded->favicon->file_name; ?>" width="128px" height="64px" style="object-fit: contain;" alt="Favicon">
+                        <img src="<?= base_url("file_manager/branding/") . $admin_branding->favicon->file_name; ?>" width="128px" height="64px" style="object-fit: contain;" alt="Favicon">
                     </div>
                 <?php endif; ?>
             </div>
@@ -91,13 +90,13 @@
                 <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
                     <label for="logo_dark_visibility_label">Logo Dark</label>
                     <div class="form-check form-switch">
-                        <input name="logo_dark_visibility" type="checkbox" class="form-check-input" id="logo_dark_visibility_label" <?= $admin_branding_decoded->logo_dark->visibility ? "checked" : ""; ?>>
+                        <input name="logo_dark_visibility" type="checkbox" class="form-check-input" id="logo_dark_visibility_label" <?= $admin_branding->logo_dark->visibility ? "checked" : ""; ?>>
                     </div>
                 </li>
                 <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
                     <label for="logo_light_visibility_label">Logo Light</label>
                     <div class="form-check form-switch">
-                        <input name="logo_light_visibility" type="checkbox" class="form-check-input" id="logo_light_visibility_label" <?= $admin_branding_decoded->logo_light->visibility ? "checked" : ""; ?>>
+                        <input name="logo_light_visibility" type="checkbox" class="form-check-input" id="logo_light_visibility_label" <?= $admin_branding->logo_light->visibility ? "checked" : ""; ?>>
                     </div>
                 </li>
                 <h1 class="h5 text-warning mb-3 mt-3">Other</h1>
@@ -107,7 +106,7 @@
                             <label for="site_title_prefix_label">Title Prefix</label>
                         </div>
                         <div class="col-md-9">
-                            <input name="site_title_prefix" type="text" class="form-control form-control-sm" id="site_title_prefix_label" placeholder="Stimul News" value="<?= $admin_branding_decoded->title_prefix; ?>">
+                            <input name="site_title_prefix" type="text" class="form-control form-control-sm" id="site_title_prefix_label" placeholder="Stimul News" value="<?= $admin_branding->title_prefix; ?>">
                         </div>
                     </div>
                 </li>

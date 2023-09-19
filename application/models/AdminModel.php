@@ -21,7 +21,7 @@ class AdminModel extends CI_Model
 
     /*=====TOPBAR MODEL - START=====*/
     private const TOPBAR_TABLE_NAME = "topbar";
-    private const TOPBAR_ID_NAME = "t_id";
+    private const TOPBAR_ID_NAME = "t_uid";
 
     public function topbar_admin_db_insert($data)
     {
@@ -45,54 +45,64 @@ class AdminModel extends CI_Model
     /*=====TOPBAR MODEL - ENDED=====*/
 
     /*=====BRANDING MODEL - START=====*/
+    private const BRANDING_TABLE_NAME = "branding";
+    private const BRANDING_ID_NAME = "b_uid";
+
     public function branding_admin_db_insert($data)
     {
-        $this->db->insert("branding", $data);
+        $this->db->insert(self::BRANDING_TABLE_NAME, $data);
     }
 
     public function branding_admin_db_get($id)
     {
-        return $this->db->where("b_id", $id)->get("branding", 1)->row_array();
+        return $this->db->where(self::BRANDING_ID_NAME, $id)->get(self::BRANDING_TABLE_NAME, 1)->row_array();
     }
 
     public function branding_admin_db_update($id, $data)
     {
-        $this->db->where("b_id", $id)->update("branding", $data);
+        $this->db->update(self::BRANDING_TABLE_NAME, $data, self::BRANDING_ID_NAME . "=" . $id);
     }
 
     public function branding_admin_db_delete($id)
     {
-        $this->db->where("b_id", $id)->delete("branding");
+        $this->db->delete(self::BRANDING_TABLE_NAME, self::BRANDING_ID_NAME . "=" . $id);
     }
     /*=====BRANDING MODEL - ENDED=====*/
 
     /*=====PARTNERS MODEL - START=====*/
+    private const PARTNERS_TABLE_NAME = "partners";
+    private const PARTNERS_ID_NAME = "p_uid";
+
     public function partners_admin_db_insert($data)
     {
-        $this->db->insert("partners", $data);
+        $this->db->insert(self::PARTNERS_TABLE_NAME, $data);
     }
 
     public function partners_admin_db_get_results()
     {
-        return $this->db->get("partners")->result_array();
+        return $this->db->get(self::PARTNERS_TABLE_NAME)->result_array();
     }
 
     public function partners_admin_db_get($id)
     {
-        return $this->db->where("p_id", $id)->get("partners")->row_array();
+        return $this->db->where(self::PARTNERS_ID_NAME, $id)->get(self::PARTNERS_TABLE_NAME)->row_array();
     }
 
     public function partners_admin_db_update($id, $data)
     {
-        $this->db->where("p_id", $id)->update("partners", $data);
+        $this->db->update(self::PARTNERS_TABLE_NAME, $data, self::PARTNERS_ID_NAME . "=" . $id);
     }
 
     public function partners_admin_db_delete($id)
     {
-        $this->db->where("p_id", $id)->delete("partners");
+        $this->db->delete("partners", self::PARTNERS_ID_NAME . "=" . $id);
     }
-
     /*=====PARTNERS MODEL - ENDED=====*/
+
+
+
+
+
 
 
 

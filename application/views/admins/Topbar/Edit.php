@@ -32,32 +32,29 @@
         <?php endif; ?>
         <h1 class="h5 text-warning mb-3">Visibility</h1>
         <form action="<?= base_url('topbar-edit-action'); ?>" method="POST" enctype="application/json" id="topbar_form">
-            <?php
-            $admin_topbar_decoded = json_decode($admin_topbar_encoded["t_options"]);
-            ?>
             <ul class="list-group list-group-flush mb-3">
                 <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
                     <label for="topbar_self_label">Topbar</label>
                     <div class="form-check form-switch">
-                        <input name="topbar_self" type="checkbox" class="form-check-input" id="topbar_self_label" <?= $admin_topbar_decoded->topbar_self ? "checked" : ""; ?>>
+                        <input name="topbar_self" type="checkbox" class="form-check-input" id="topbar_self_label" <?= $admin_topbar->topbar_self ? "checked" : ""; ?>>
                     </div>
                 </li>
                 <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
                     <label for="topbar_date_label">Date</label>
                     <div class="form-check form-switch">
-                        <input name="topbar_date" type="checkbox" class="form-check-input" id="topbar_date_label" <?= $admin_topbar_decoded->topbar_date ? "checked" : ""; ?>>
+                        <input name="topbar_date" type="checkbox" class="form-check-input" id="topbar_date_label" <?= $admin_topbar->topbar_date ? "checked" : ""; ?>>
                     </div>
                 </li>
                 <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
                     <label for="topbar_time_label">Time</label>
                     <div class="form-check form-switch">
-                        <input name="topbar_time" type="checkbox" class="form-check-input" id="topbar_time_label" <?= $admin_topbar_decoded->topbar_time ? "checked" : ""; ?>>
+                        <input name="topbar_time" type="checkbox" class="form-check-input" id="topbar_time_label" <?= $admin_topbar->topbar_time ? "checked" : ""; ?>>
                     </div>
                 </li>
                 <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
                     <label for="topbar_weather_label">Weather</label>
                     <div class="form-check form-switch">
-                        <input name="topbar_weather" type="checkbox" class="form-check-input" id="topbar_weather_label" <?= $admin_topbar_decoded->topbar_weather ? "checked" : ""; ?>>
+                        <input name="topbar_weather" type="checkbox" class="form-check-input" id="topbar_weather_label" <?= $admin_topbar->topbar_weather ? "checked" : ""; ?>>
                     </div>
                 </li>
             </ul>

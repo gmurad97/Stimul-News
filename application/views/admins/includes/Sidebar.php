@@ -93,6 +93,27 @@
 
 
 
+            <div class="menu-item">
+                <a href="index.html" class="menu-link">
+                    <span class="menu-icon"><i class="bi bi-cpu"></i></span>
+                    <span class="menu-text">MENU DROP</span>
+                </a>
+            </div>
+
+            <div class="menu-item">
+                <a href="index.html" class="menu-link">
+                    <span class="menu-icon"><i class="bi bi-cpu"></i></span>
+                    <span class="menu-text">TEST</span>
+                </a>
+            </div>
+
+            <div class="menu-item">
+                <a href="index.html" class="menu-link">
+                    <span class="menu-icon"><i class="bi bi-cpu"></i></span>
+                    <span class="menu-text">PENTEST</span>
+                </a>
+            </div>
+
 
 
 

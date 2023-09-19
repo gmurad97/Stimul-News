@@ -9,38 +9,53 @@ class AdminController extends CI_Controller
         $this->load->model("AdminModel");
     }
 
-    private function automatic_alert()
+    /*LOCAL ADMIN CONTROLLER FUNCTION - START*/
+    public function AlertFlashData($alertType, $alertName, $alertHeadMessage, $alertShortMessage, $alertLongMessage)
     {
-    }
+        $alert_type     = strtolower($alertType);
+        $alert_bg_color = "rgba(0, 23, 51, 0.32)";
+        $alert_icon     = "bi bi-info-circle";
 
+        if ($alert_type === "info") {
+            $alert_bg_color = "rgba(0, 23, 51, 0.32)";
+            $alert_icon     = "bi bi-info-circle";
+        } elseif ($alert_type === "success") {
+            $alert_bg_color = "rgba(4, 27, 7, 0.32)";
+            $alert_icon = "bi bi-check-circle";
+        } elseif ($alert_type === "warning") {
+            $alert_bg_color = "rgba(50, 46, 3, 0.32)";
+            $alert_icon = "bi bi-exclamation-triangle";
+        } elseif ($alert_type === "danger") {
+            $alert_bg_color = "rgba(45, 0, 0, 0.32)";
+            $alert_icon = "bi bi-exclamation-octagon";
+        }
+
+        $this->session->set_flashdata(
+            $alertName,
+            [
+                "alert_type"            => $alert_type,
+                "alert_icon"            => $alert_icon,
+                "alert_bg_color"        => "background-color:" . $alert_bg_color,
+                "alert_heading_message" => $alertHeadMessage,
+                "alert_short_message"   => $alertShortMessage,
+                "alert_long_message"    => $alertLongMessage
+            ]
+        );
+    }
+    /*LOCAL ADMIN CONTROLLER FUNCTION - ENDED*/
+
+    /*=====DASHBOARD - START=====*/
     public function index()
     {
         $data["admin_page_name"] = "Dashboard";
         $this->load->view("admins/Index", $data);
     }
-
-
-
-
-
-
-
+    /*=====DASHBOARD - ENDED=====*/
 
     /*=====TOPBAR CRUD - START=====*/
-
-
-
-
-
-
-
-
-
-
-
     public function crud_topbar_create()
     {
-        $topbar_db_row = $this->AdminModel->table_row_id("topbar", "t_id");
+        $topbar_db_row = $this->AdminModel->table_row_id("topbar", "t_uid");
         if ($topbar_db_row == -1) {
             $data["admin_page_name"] = "Topbar Create";
             $this->load->view("admins/Topbar/Create", $data);
@@ -51,7 +66,7 @@ class AdminController extends CI_Controller
 
     public function crud_topbar_create_action()
     {
-        $topbar_db_row = $this->AdminModel->table_row_id("topbar", "t_id");
+        $topbar_db_row = $this->AdminModel->table_row_id("topbar", "t_uid");
         if ($topbar_db_row == -1) {
             $topbar_self    = $this->input->post("topbar_self",    TRUE);
             $topbar_date    = $this->input->post("topbar_date",    TRUE);
@@ -68,21 +83,17 @@ class AdminController extends CI_Controller
             $json_data_encoded = json_encode($json_data_decoded);
 
             $data = [
-                "t_options" => $json_data_encoded
+                "t_data" => $json_data_encoded
             ];
 
             $this->AdminModel->topbar_admin_db_insert($data);
 
-            $this->session->set_flashdata(
+            $this->AlertFlashData(
+                "success",
                 "topbar_alert",
-                [
-                    "alert_type"            => "success",
-                    "alert_icon"            => "fa-solid fa-circle-check",
-                    "alert_bg_color"        => "background-color: rgba(4, 27, 7, 0.32);",
-                    "alert_heading_message" => "Create",
-                    "alert_short_message"   => "Success!",
-                    "alert_long_message"    => "The topbar has been successfully created."
-                ]
+                "Create",
+                "Success!",
+                "The topbar has been successfully created."
             );
 
             redirect(base_url("topbar-edit"));
@@ -93,19 +104,19 @@ class AdminController extends CI_Controller
 
     public function crud_topbar_edit()
     {
-        $topbar_db_row = $this->AdminModel->table_row_id("topbar", "t_id");
+        $topbar_db_row = $this->AdminModel->table_row_id("topbar", "t_uid");
         if ($topbar_db_row == -1) {
             redirect(base_url("topbar-create"));
         } else {
             $data["admin_page_name"] = "Topbar Edit";
-            $data["admin_topbar_encoded"] = $this->AdminModel->topbar_admin_db_get($topbar_db_row);
+            $data["admin_topbar"] = json_decode($this->AdminModel->topbar_admin_db_get($topbar_db_row)["t_data"]);
             $this->load->view("admins/Topbar/Edit", $data);
         }
     }
 
     public function crud_topbar_edit_action()
     {
-        $topbar_db_row = $this->AdminModel->table_row_id("topbar", "t_id");
+        $topbar_db_row = $this->AdminModel->table_row_id("topbar", "t_uid");
         if ($topbar_db_row == -1) {
             redirect(base_url("topbar-create"));
         } else {
@@ -124,21 +135,17 @@ class AdminController extends CI_Controller
             $json_data_encoded = json_encode($json_data_decoded);
 
             $data = [
-                "t_options" => $json_data_encoded
+                "t_data" => $json_data_encoded
             ];
 
             $this->AdminModel->topbar_admin_db_edit($topbar_db_row, $data);
 
-            $this->session->set_flashdata(
+            $this->AlertFlashData(
+                "success",
                 "topbar_alert",
-                [
-                    "alert_type"            => "success",
-                    "alert_icon"            => "fa-solid fa-circle-check",
-                    "alert_bg_color"        => "background-color: rgba(4, 27, 7, 0.32);",
-                    "alert_heading_message" => "Edit",
-                    "alert_short_message"   => "Success!",
-                    "alert_long_message"    => "The topbar has been successfully edited."
-                ]
+                "Edit",
+                "Success!",
+                "The topbar has been successfully edited."
             );
 
             redirect(base_url("topbar-edit"));
@@ -147,68 +154,25 @@ class AdminController extends CI_Controller
 
     public function crud_topbar_delete()
     {
-        $topbar_db_row = $this->AdminModel->table_row_id("topbar", "t_id");
+        $topbar_db_row = $this->AdminModel->table_row_id("topbar", "t_uid");
         $this->AdminModel->topbar_admin_db_delete($topbar_db_row);
 
-        $this->session->set_flashdata(
+        $this->AlertFlashData(
+            "success",
             "topbar_alert",
-            [
-                "alert_type"            => "success",
-                "alert_icon"            => "fa-solid fa-circle-check",
-                "alert_bg_color"        => "background-color: rgba(4, 27, 7, 0.32);",
-                "alert_heading_message" => "Remove",
-                "alert_short_message"   => "Success!",
-                "alert_long_message"    => "The topbar has been successfully removed."
-            ]
+            "Remove",
+            "Success!",
+            "The topbar has been successfully removed."
         );
 
         redirect(base_url("topbar-create"));
     }
-
-
-
-
-
-
-
-
-
-
     /*=====TOPBAR CRUD - ENDED=====*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     /*=====BRANDING CRUD - START=====*/
     public function crud_branding_create()
     {
-        $branding_db_row = $this->AdminModel->table_row_id("branding", "b_id");
+        $branding_db_row = $this->AdminModel->table_row_id("branding", "b_uid");
         if ($branding_db_row == -1) {
             $data["admin_page_name"] = "Branding Create";
             $this->load->view("admins/Branding/Create", $data);
@@ -219,7 +183,7 @@ class AdminController extends CI_Controller
 
     public function crud_branding_create_action()
     {
-        $branding_db_row = $this->AdminModel->table_row_id("branding", "b_id");
+        $branding_db_row = $this->AdminModel->table_row_id("branding", "b_uid");
         if ($branding_db_row == -1) {
             $logo_dark_visibility  = $this->input->post("logo_dark_visibility",  TRUE);
             $logo_light_visibility = $this->input->post("logo_light_visibility", TRUE);
@@ -264,21 +228,17 @@ class AdminController extends CI_Controller
             $json_data_encoded = json_encode($json_data_decoded);
 
             $data = [
-                "b_options" => $json_data_encoded
+                "b_data" => $json_data_encoded
             ];
 
             $this->AdminModel->branding_admin_db_insert($data);
 
-            $this->session->set_flashdata(
+            $this->AlertFlashData(
+                "success",
                 "branding_alert",
-                [
-                    "alert_type"            => "success",
-                    "alert_icon"            => "fa-solid fa-circle-check",
-                    "alert_bg_color"        => "background-color: rgba(4, 27, 7, 0.32);",
-                    "alert_heading_message" => "Create",
-                    "alert_short_message"   => "Success!",
-                    "alert_long_message"    => "The branding has been successfully created."
-                ]
+                "Create",
+                "Success!",
+                "The branding has been successfully created."
             );
 
             redirect(base_url("branding-edit"));
@@ -289,19 +249,19 @@ class AdminController extends CI_Controller
 
     public function crud_branding_edit()
     {
-        $branding_db_row = $this->AdminModel->table_row_id("branding", "b_id");
+        $branding_db_row = $this->AdminModel->table_row_id("branding", "b_uid");
         if ($branding_db_row == -1) {
             redirect(base_url("branding-create"));
         } else {
             $data["admin_page_name"] = "Branding Edit";
-            $data["admin_branding_encoded"] = $this->AdminModel->branding_admin_db_get($branding_db_row);
+            $data["admin_branding"] = json_decode($this->AdminModel->branding_admin_db_get($branding_db_row)["b_data"]);
             $this->load->view("admins/Branding/Edit", $data);
         }
     }
 
     public function crud_branding_edit_action()
     {
-        $branding_db_row = $this->AdminModel->table_row_id("branding", "b_id");
+        $branding_db_row = $this->AdminModel->table_row_id("branding", "b_uid");
         if ($branding_db_row == -1) {
             redirect(base_url("branding-create"));
         } else {
@@ -318,40 +278,46 @@ class AdminController extends CI_Controller
             $this->load->library("upload");
             $this->upload->initialize($branding_config);
 
-            $old_data = json_decode($this->AdminModel->branding_admin_db_get($branding_db_row)["b_options"], TRUE);
+            $old_branding_data = json_decode($this->AdminModel->branding_admin_db_get($branding_db_row)["b_data"], TRUE);
 
-            $uploadResults = [
-                "logo_dark_img" =>
-                $this->upload->do_upload("logo_dark_img") ?
-                    (!is_dir($branding_config["upload_path"] . $old_data["logo_dark"]["file_name"]) ? (file_exists($branding_config["upload_path"] . $old_data["logo_dark"]["file_name"]) ? unlink($branding_config["upload_path"] . $old_data["logo_dark"]["file_name"]) : $this->upload->data()) : $this->upload->data())
-                    : ($old_data["logo_dark"] ?? NULL),
+            $logo_dark_img  = $old_branding_data["logo_dark"];
+            $logo_light_img = $old_branding_data["logo_light"];
+            $favicon_img    = $old_branding_data["favicon"];
 
-                "logo_light_img" => $this->upload->do_upload("logo_light_img") ?
-                    (!is_dir($branding_config["upload_path"] . $old_data["logo_light"]["file_name"]) ? (file_exists($branding_config["upload_path"] . $old_data["logo_light"]["file_name"]) ? unlink($branding_config["upload_path"] . $old_data["logo_light"]["file_name"]) : $this->upload->data()) : $this->upload->data())
-                    : ($old_data["logo_light"] ?? NULL),
-
-                "favicon_img" => $this->upload->do_upload("favicon_img") ?
-                    (!is_dir($branding_config["upload_path"] . $old_data["favicon"]["file_name"]) ? (file_exists($branding_config["upload_path"] . $old_data["favicon"]["file_name"]) ? unlink($branding_config["upload_path"] . $old_data["favicon"]["file_name"]) : $this->upload->data()) : $this->upload->data())
-                    : ($old_data["favicon"] ?? NULL),
-            ];
+            if ($this->upload->do_upload("logo_dark_img")) {
+                if (isset($logo_dark_img["file_name"]) && file_exists($branding_config["upload_path"] . $logo_dark_img["file_name"])) {
+                    unlink($branding_config["upload_path"] . $logo_dark_img["file_name"]);
+                }
+                $logo_dark_img = $this->upload->data();
+            } elseif ($this->upload->do_upload("logo_light_img")) {
+                if (isset($logo_light_img["file_name"]) && file_exists($branding_config["upload_path"] . $logo_light_img["file_name"])) {
+                    unlink($branding_config["upload_path"] . $logo_light_img["file_name"]);
+                }
+                $logo_light_img = $this->upload->data();
+            } elseif ($this->upload->do_upload("favicon_img")) {
+                if (isset($favicon_img["file_name"]) && file_exists($branding_config["upload_path"] . $favicon_img["file_name"])) {
+                    unlink($branding_config["upload_path"] . $favicon_img["file_name"]);
+                }
+                $favicon_img = $this->upload->data();
+            }
 
             $json_data_decoded = [
                 "logo_dark" => [
-                    "file_name"  => $uploadResults["logo_dark_img"]["file_name"] ?? NULL,
-                    "file_type"  => $uploadResults["logo_dark_img"]["file_type"] ?? NULL,
-                    "file_ext"   => $uploadResults["logo_dark_img"]["file_ext"]  ?? NULL,
+                    "file_name"  => $logo_dark_img["file_name"] ?? NULL,
+                    "file_type"  => $logo_dark_img["file_type"] ?? NULL,
+                    "file_ext"   => $logo_dark_img["file_ext"]  ?? NULL,
                     "visibility" => str_contains($logo_dark_visibility, "on") ? TRUE : FALSE
                 ],
                 "logo_light" => [
-                    "file_name"  => $uploadResults["logo_light_img"]["file_name"] ?? NULL,
-                    "file_type"  => $uploadResults["logo_light_img"]["file_type"] ?? NULL,
-                    "file_ext"   => $uploadResults["logo_light_img"]["file_ext"]  ?? NULL,
+                    "file_name"  => $logo_light_img["file_name"] ?? NULL,
+                    "file_type"  => $logo_light_img["file_type"] ?? NULL,
+                    "file_ext"   => $logo_light_img["file_ext"]  ?? NULL,
                     "visibility" => str_contains($logo_light_visibility, "on") ? TRUE : FALSE
                 ],
                 "favicon" => [
-                    "file_name"  => $uploadResults["favicon_img"]["file_name"] ?? NULL,
-                    "file_type"  => $uploadResults["favicon_img"]["file_type"] ?? NULL,
-                    "file_ext"   => $uploadResults["favicon_img"]["file_ext"]  ?? NULL
+                    "file_name"  => $favicon_img["file_name"] ?? NULL,
+                    "file_type"  => $favicon_img["file_type"] ?? NULL,
+                    "file_ext"   => $favicon_img["file_ext"]  ?? NULL
                 ],
                 "title_prefix" => $site_title_prefix
             ];
@@ -359,21 +325,17 @@ class AdminController extends CI_Controller
             $json_data_encoded = json_encode($json_data_decoded);
 
             $data = [
-                "b_options" => $json_data_encoded
+                "b_data" => $json_data_encoded
             ];
 
             $this->AdminModel->branding_admin_db_update($branding_db_row, $data);
 
-            $this->session->set_flashdata(
+            $this->AlertFlashData(
+                "success",
                 "branding_alert",
-                [
-                    "alert_type"            => "success",
-                    "alert_icon"            => "fa-solid fa-circle-check",
-                    "alert_bg_color"        => "background-color: rgba(4, 27, 7, 0.32);",
-                    "alert_heading_message" => "Edit",
-                    "alert_short_message"   => "Success!",
-                    "alert_long_message"    => "The branding has been successfully edited."
-                ]
+                "Edit",
+                "Success!",
+                "The branding has been successfully edited."
             );
 
             redirect(base_url("branding-edit"));
@@ -382,23 +344,37 @@ class AdminController extends CI_Controller
 
     public function crud_branding_delete()
     {
-        $branding_db_row = $this->AdminModel->table_row_id("branding", "b_id");
+        $branding_db_row = $this->AdminModel->table_row_id("branding", "b_uid");
         $this->AdminModel->branding_admin_db_delete($branding_db_row);
         array_map("unlink", array_filter((array) glob("./file_manager/branding/*"), "file_exists"));
-        $this->session->set_flashdata(
+
+        $this->AlertFlashData(
+            "success",
             "branding_alert",
-            [
-                "alert_type"            => "success",
-                "alert_icon"            => "fa-solid fa-circle-check",
-                "alert_bg_color"        => "background-color: rgba(4, 27, 7, 0.32);",
-                "alert_heading_message" => "Remove",
-                "alert_short_message"   => "Success!",
-                "alert_long_message"    => "The branding has been successfully removed."
-            ]
+            "Remove",
+            "Success!",
+            "The branding has been successfully removed."
         );
+
         redirect(base_url("branding-create"));
     }
     /*=====BRANDING CRUD - ENDED=====*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /*=====PARTNERS CRUD - START=====*/
     public function crud_partners_create()
@@ -435,35 +411,27 @@ class AdminController extends CI_Controller
             $json_data_encoded = json_encode($json_data_decoded);
 
             $data = [
-                "p_options" => $json_data_encoded
+                "p_data" => $json_data_encoded
             ];
 
             $this->AdminModel->partners_admin_db_insert($data);
 
-            $this->session->set_flashdata(
+            $this->AlertFlashData(
+                "success",
                 "partners_alert",
-                [
-                    "alert_type"            => "success",
-                    "alert_icon"            => "fa-solid fa-circle-check",
-                    "alert_bg_color"        => "background-color: rgba(4, 27, 7, 0.32);",
-                    "alert_heading_message" => "Remove",
-                    "alert_short_message"   => "Success!",
-                    "alert_long_message"    => "Partner has been successfully added."
-                ]
+                "Create",
+                "Success!",
+                "The partner has been successfully added."
             );
 
             redirect(base_url("partners-list"));
         } else {
-            $this->session->set_flashdata(
+            $this->AlertFlashData(
+                "warning",
                 "partners_alert",
-                [
-                    "alert_type"            => "warning",
-                    "alert_icon"            => "bi bi-exclamation-triangle",
-                    "alert_bg_color"        => "background-color: rgba(50, 46, 3, 0.32);",
-                    "alert_heading_message" => "Create",
-                    "alert_short_message"   => "Warning!",
-                    "alert_long_message"    => "Please upload the partner's image."
-                ]
+                "Create",
+                "Warning!",
+                "Please upload the partner's image."
             );
 
             redirect(base_url("partners-create"));
@@ -476,6 +444,11 @@ class AdminController extends CI_Controller
         $data["partners_data"] = $this->AdminModel->partners_admin_db_get_results();
         $this->load->view("admins/Partners/List", $data);
     }
+
+
+
+
+
 
     public function crud_partners_edit($id)
     {
@@ -595,6 +568,23 @@ class AdminController extends CI_Controller
     }
 
     /*=====PARTNERS CRUD - ENDED=====*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /*=====CATEGORIES CRUD - START=====*/
     public function crud_categories_create()
