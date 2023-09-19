@@ -7,7 +7,7 @@
         <div>
             <a href="<?= base_url('partners-list'); ?>" class="btn btn-outline-info">
                 <i class="bi bi-list-nested me-1"></i>
-                Table List
+                Partners List
             </a>
             <button type="submit" form="partners_form" class="btn btn-outline-success">
                 <i class="bi bi-plus-circle me-1"></i>

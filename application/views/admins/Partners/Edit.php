@@ -5,13 +5,13 @@
     <div class="card-header fw-bold d-flex flex-row justify-content-between align-items-center">
         <div class="h5 text-warning m-0">PARTNERS EDIT</div>
         <div>
+            <a href="<?= base_url('partners-list'); ?>" class="btn btn-outline-info">
+                <i class="bi bi-list-nested me-1"></i>
+                Partners List
+            </a>
             <button type="submit" form="partners_form" class="btn btn-outline-warning">
                 <i class="bi bi-pencil-square me-1"></i>
                 Edit
-            </button>
-            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#partners_modal_delete">
-                <i class="bi bi-trash me-1"></i>
-                Remove
             </button>
         </div>
     </div>
@@ -31,8 +31,8 @@
             </div>
         <?php endif; ?>
         <?php
-        $partner_id = $partner_data["p_id"];
-        $partner_options = json_decode($partner_data["p_options"]);
+        $partner_id = $partner_data["p_uid"];
+        $partner_options = json_decode($partner_data["p_data"]);
         ?>
         <form action="<?= base_url('partners-edit-action/') . $partner_id; ?>" method="POST" enctype="multipart/form-data" id="partners_form">
             <h1 class="h5 text-warning mb-3">Current image</h1>

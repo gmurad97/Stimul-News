@@ -360,22 +360,6 @@ class AdminController extends CI_Controller
     }
     /*=====BRANDING CRUD - ENDED=====*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /*=====PARTNERS CRUD - START=====*/
     public function crud_partners_create()
     {
@@ -445,11 +429,6 @@ class AdminController extends CI_Controller
         $this->load->view("admins/Partners/List", $data);
     }
 
-
-
-
-
-
     public function crud_partners_edit($id)
     {
         $data["admin_page_name"] = "Partners Edit";
@@ -459,8 +438,8 @@ class AdminController extends CI_Controller
 
     public function crud_partners_edit_action($id)
     {
-        $old_partner_options = json_decode($this->AdminModel->partners_admin_db_get($id)["p_options"], TRUE);
-        $partner_img_path = "./file_manager/partners/" . $old_partner_options["partner_img"];
+        $old_partner_data = json_decode($this->AdminModel->partners_admin_db_get($id)["p_data"], TRUE);
+        $partner_img_path = "./file_manager/partners/" . $old_partner_data["partner_img"];
 
         $partner_link   = $this->input->post("partner_link",   TRUE);
         $partner_title  = $this->input->post("partner_title",  TRUE);
@@ -493,27 +472,23 @@ class AdminController extends CI_Controller
             $json_data_encoded = json_encode($json_data_decoded);
 
             $data = [
-                "p_options" => $json_data_encoded
+                "p_data" => $json_data_encoded
             ];
 
             $this->AdminModel->partners_admin_db_update($id, $data);
 
-            $this->session->set_flashdata(
+            $this->AlertFlashData(
+                "success",
                 "partners_alert",
-                [
-                    "alert_type"            => "success",
-                    "alert_icon"            => "fa-solid fa-circle-check",
-                    "alert_bg_color"        => "background-color: rgba(4, 27, 7, 0.32);",
-                    "alert_heading_message" => "Edit",
-                    "alert_short_message"   => "Success!",
-                    "alert_long_message"    => "The partner has been successfully edited."
-                ]
+                "Edit",
+                "Success!",
+                "The partner has been successfully edited."
             );
 
             redirect(base_url("partners-list"));
         } else {
             $json_data_decoded = [
-                "partner_img"    => $old_partner_options["partner_img"],
+                "partner_img"    => $old_partner_data["partner_img"],
                 "partner_link"   => $partner_link,
                 "partner_title"  => $partner_title,
                 "partner_status" => str_contains($partner_status, "on") ? TRUE : FALSE
@@ -522,21 +497,17 @@ class AdminController extends CI_Controller
             $json_data_encoded = json_encode($json_data_decoded);
 
             $data = [
-                "p_options" => $json_data_encoded
+                "p_data" => $json_data_encoded
             ];
 
             $this->AdminModel->partners_admin_db_update($id, $data);
 
-            $this->session->set_flashdata(
+            $this->AlertFlashData(
+                "success",
                 "partners_alert",
-                [
-                    "alert_type"            => "success",
-                    "alert_icon"            => "fa-solid fa-circle-check",
-                    "alert_bg_color"        => "background-color: rgba(4, 27, 7, 0.32);",
-                    "alert_heading_message" => "Edit",
-                    "alert_short_message"   => "Success!",
-                    "alert_long_message"    => "The partner has been successfully edited."
-                ]
+                "Edit",
+                "Success!",
+                "The partner has been successfully edited."
             );
 
             redirect(base_url("partners-list"));
@@ -545,46 +516,24 @@ class AdminController extends CI_Controller
 
     public function crud_partners_delete($id)
     {
-        $partner_data = json_decode($this->AdminModel->partners_admin_db_get($id)["p_options"], TRUE);
+        $partner_data = json_decode($this->AdminModel->partners_admin_db_get($id)["p_data"], TRUE);
         $partner_img_path = "./file_manager/partners/" . $partner_data["partner_img"];
         if (!is_dir($partner_img_path) && file_exists($partner_img_path)) {
             unlink($partner_img_path);
         }
         $this->AdminModel->partners_admin_db_delete($id);
 
-        $this->session->set_flashdata(
-            "partners_alert",
-            [
-                "alert_type"            => "success",
-                "alert_icon"            => "fa-solid fa-circle-check",
-                "alert_bg_color"        => "background-color: rgba(4, 27, 7, 0.32);",
-                "alert_heading_message" => "Remove",
-                "alert_short_message"   => "Success!",
-                "alert_long_message"    => "The partner has been successfully removed."
-            ]
+        $this->AlertFlashData(
+            "success",
+            "topbar_alert",
+            "Remove",
+            "Success!",
+            "The partner has been successfully removed."
         );
 
         redirect(base_url("partners-list"));
     }
-
     /*=====PARTNERS CRUD - ENDED=====*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     /*=====CATEGORIES CRUD - START=====*/
     public function crud_categories_create()
@@ -592,6 +541,22 @@ class AdminController extends CI_Controller
         $data["admin_page_name"] = "Categories Create";
         $this->load->view("admins/Categories/Create", $data);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function crud_categories_create_action()
     {

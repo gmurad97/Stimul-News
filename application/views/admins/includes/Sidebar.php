@@ -58,7 +58,7 @@
                     </div>
                     <div class="menu-item <?= str_contains($segment_name, 'partners-list') ? 'active' : ''; ?>">
                         <a href="<?= base_url('partners-list'); ?>" class="menu-link">
-                            <span class="menu-text">Table List</span>
+                            <span class="menu-text">List</span>
                         </a>
                     </div>
                 </div>
@@ -93,10 +93,24 @@
 
 
 
+            <!-- <div class="menu-item">
+                <a href="index.html" class="menu-link">
+                    <span class="menu-icon"><i class="bi bi-cpu"></i></span>
+                    <span class="menu-text">Administrators</span>
+                </a>
+            </div>
+
             <div class="menu-item">
                 <a href="index.html" class="menu-link">
                     <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                    <span class="menu-text">MENU DROP</span>
+                    <span class="menu-text">Users</span>
+                </a>
+            </div>
+
+            <div class="menu-item">
+                <a href="index.html" class="menu-link">
+                    <span class="menu-icon"><i class="bi bi-cpu"></i></span>
+                    <span class="menu-text">Redactors only</span>
                 </a>
             </div>
 
@@ -109,11 +123,11 @@
 
             <div class="menu-item">
                 <a href="index.html" class="menu-link">
-                    <span class="menu-icon"><i class="bi bi-cpu"></i></span>
+                    <span class="menu-icon"><i class="bi bi-gear"></i></span>
                     <span class="menu-text">PENTEST</span>
                 </a>
             </div>
-
+ -->
 
 
 
