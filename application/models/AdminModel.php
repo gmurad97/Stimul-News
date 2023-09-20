@@ -99,44 +99,34 @@ class AdminModel extends CI_Model
     }
     /*=====PARTNERS MODEL - ENDED=====*/
 
+    /*=====CATEGORIES MODEL - START=====*/
+    private const CATEGORIES_TABLE_NAME = "categories";
+    private const CATEGORIES_ID_NAME = "c_uid";
 
-
-
-
-
-
-
-
-
-
-
-
-    /*=====PARTNERS MODEL - START=====*/
     public function categories_admin_db_insert($data)
     {
-        $this->db->insert("categories", $data);
+        $this->db->insert(self::CATEGORIES_TABLE_NAME, $data);
     }
 
     public function categories_admin_db_get_results()
     {
-        return $this->db->get("categories")->result_array();
+        return $this->db->get(self::CATEGORIES_TABLE_NAME)->result_array();
     }
 
     public function categories_admin_db_get($id)
     {
-        return $this->db->where("c_id", $id)->get("categories")->row_array();
+        return $this->db->where(self::CATEGORIES_ID_NAME, $id)->get(self::CATEGORIES_TABLE_NAME)->row_array();
     }
 
     public function categories_admin_db_update($id, $data)
     {
-        $this->db->where("c_id", $id)->update("categories", $data);
+        $this->db->update(self::CATEGORIES_TABLE_NAME, $data, self::CATEGORIES_ID_NAME . "=" . $id);
     }
 
     public function categories_admin_db_delete($id)
     {
-        $this->db->where("c_id", $id)->delete("categories");
+        $this->db->delete(self::CATEGORIES_TABLE_NAME, self::CATEGORIES_ID_NAME . "=" . $id);
     }
-
-    /*=====PARTNERS MODEL - ENDED=====*/
+    /*=====CATEGORIES MODEL - ENDED=====*/
 }
     /*==========CRUD MODEL - ENDED==========*/

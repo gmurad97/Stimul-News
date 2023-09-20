@@ -42,6 +42,24 @@ class AdminController extends CI_Controller
             ]
         );
     }
+
+    public function compressImage()
+    {
+        $config['image_library'] = 'gd2'; // Выберите библиотеку для обработки изображений (например, GD2).
+        $config['source_image'] = '/путь/к/исходному/изображению.jpg'; // Путь к исходному изображению.
+        $config['maintain_ratio'] = TRUE; // Сохранять пропорции изображения.
+
+        $this->load->library('image_lib');
+        $this->load->initialize($config);
+
+        if (!$this->image_lib->resize()) {
+            echo $this->image_lib->display_errors();
+        } else {
+            echo 'Изображение успешно сжато!';
+        }
+    }
+
+
     /*LOCAL ADMIN CONTROLLER FUNCTION - ENDED*/
 
     /*=====DASHBOARD - START=====*/
@@ -195,7 +213,7 @@ class AdminController extends CI_Controller
             $branding_config["remove_spaces"]    = TRUE;
             $branding_config["encrypt_name"]     = TRUE;
 
-            $this->load->library("upload");
+            $this->load->library("upload", $branding_config);
             $this->upload->initialize($branding_config);
 
             $uploadResults = [
@@ -275,7 +293,7 @@ class AdminController extends CI_Controller
             $branding_config["remove_spaces"]    = TRUE;
             $branding_config["encrypt_name"]     = TRUE;
 
-            $this->load->library("upload");
+            $this->load->library("upload", $branding_config);
             $this->upload->initialize($branding_config);
 
             $old_branding_data = json_decode($this->AdminModel->branding_admin_db_get($branding_db_row)["b_data"], TRUE);
@@ -379,10 +397,10 @@ class AdminController extends CI_Controller
         $partners_config["remove_spaces"]    = TRUE;
         $partners_config["encrypt_name"]     = TRUE;
 
-        $this->load->library("upload");
+        $this->load->library("upload", $partners_config);
         $this->upload->initialize($partners_config);
 
-        if ($this->upload->do_upload("partner_img")) {
+        if ($this->upload->do_upload("partner_img") && !empty($partner_link) && !empty($partner_title)) {
             $partner_img = $this->upload->data();
 
             $json_data_decoded = [
@@ -415,7 +433,7 @@ class AdminController extends CI_Controller
                 "partners_alert",
                 "Create",
                 "Warning!",
-                "Please upload the partner's image."
+                "Please, fill in all the fields."
             );
 
             redirect(base_url("partners-create"));
@@ -451,11 +469,10 @@ class AdminController extends CI_Controller
         $partners_config["remove_spaces"]    = TRUE;
         $partners_config["encrypt_name"]     = TRUE;
 
-        $this->load->library("upload");
+        $this->load->library("upload", $partners_config);
         $this->upload->initialize($partners_config);
 
-        if ($this->upload->do_upload("partner_img")) {
-
+        if ($this->upload->do_upload("partner_img") && !empty($partner_link) && !empty($partner_title)) {
             if (!is_dir($partner_img_path) && file_exists($partner_img_path)) {
                 unlink($partner_img_path);
             }
@@ -486,7 +503,7 @@ class AdminController extends CI_Controller
             );
 
             redirect(base_url("partners-list"));
-        } else {
+        } elseif (!empty($partner_link) && !empty($partner_title)) {
             $json_data_decoded = [
                 "partner_img"    => $old_partner_data["partner_img"],
                 "partner_link"   => $partner_link,
@@ -511,6 +528,16 @@ class AdminController extends CI_Controller
             );
 
             redirect(base_url("partners-list"));
+        } else {
+            $this->AlertFlashData(
+                "warning",
+                "partners_alert",
+                "Edit",
+                "Warning!",
+                "Please, fill in all the fields."
+            );
+
+            redirect($_SERVER["HTTP_REFERER"]);
         }
     }
 
@@ -535,6 +562,21 @@ class AdminController extends CI_Controller
     }
     /*=====PARTNERS CRUD - ENDED=====*/
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /*=====CATEGORIES CRUD - START=====*/
     public function crud_categories_create()
     {
@@ -542,25 +584,77 @@ class AdminController extends CI_Controller
         $this->load->view("admins/Categories/Create", $data);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function crud_categories_create_action()
     {
+        $category_name   = $this->input->post("category_name", TRUE);
+        $category_status = $this->input->post("category_status", TRUE);
+
+        $categories_config["upload_path"]      = "./file_manager/categories/";
+        $categories_config["allowed_types"]    = "ico|jpeg|jpg|png|svg|ICO|JPEG|JPG|PNG|SVG";
+        $categories_config["file_ext_tolower"] = TRUE;
+        $categories_config["remove_spaces"]    = TRUE;
+        $categories_config["encrypt_name"]     = TRUE;
+
+        $this->load->library("upload", $categories_config);
+        $this->upload->initialize($categories_config);
+
+        if ($this->upload->do_upload("category_img") && !empty($category_name)) {
+            $category_img = $this->upload->data();
+
+            $breadcrumb_img_config["image_library"] = "gd2";
+            $breadcrumb_img_config["source_image"] = $categories_config["upload_path"] . $category_img["file_name"];
+            $breadcrumb_img_config["maintain_ratio"] = FALSE;
+            $breadcrumb_img_config["width"] = 1920;
+            $breadcrumb_img_config["height"] = 1080;
+
+            $this->load->library("image_lib", $breadcrumb_img_config);
+            $this->load->initialize($breadcrumb_img_config);
+
+            $this->image_lib->resize();
+
+            $json_data_decoded = [
+                "category_img"    => $category_img["file_name"],
+                "category_name"   => $category_name,
+                "category_status" => $category_status
+            ];
+
+            $json_data_encoded = json_encode($json_data_decoded);
+
+            $data = [
+                "c_data" => $json_data_encoded
+            ];
+
+            $this->AdminModel->categories_admin_db_insert($data);
+
+            $this->AlertFlashData(
+                "success",
+                "categories_alert",
+                "Create",
+                "Success!",
+                "The category has been successfully added."
+            );
+
+            redirect(base_url("categories-list"));
+        } else {
+            $this->AlertFlashData(
+                "warning",
+                "categories_alert",
+                "Create",
+                "Warning!",
+                "Please, fill in all the fields."
+            );
+
+            redirect(base_url("categories-create"));
+        }
     }
+
+
+
+
+
+
+
+
 
     public function crud_categories_edit()
     {

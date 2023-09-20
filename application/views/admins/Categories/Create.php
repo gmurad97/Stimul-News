@@ -32,41 +32,32 @@
         <?php endif; ?>
         <form action="<?= base_url('categories-create-action'); ?>" method="POST" enctype="multipart/form-data" id="categories_form">
             <ul class="list-group list-group-flush mb-3">
-
-
                 <li class="list-group-item">
                     <div class="row d-flex flex-row justify-content-between align-items-center">
                         <div class="col-md-3">
                             <label for="category_img_label">Breadcrumb Image</label>
                         </div>
                         <div class="col-md-9">
-                            <input name="category_img" type="file" class="form-control form-control-sm" id="category_img_label">
+                            <input required name="category_img" type="file" class="form-control form-control-sm" id="category_img_label">
                         </div>
                     </div>
                 </li>
-
                 <li class="list-group-item">
                     <div class="row d-flex flex-row justify-content-between align-items-center">
                         <div class="col-md-3">
-                            <label for="category_title_label">Name</label>
+                            <label for="category_name_label">Name</label>
                         </div>
                         <div class="col-md-9">
-                            <input name="category_title" type="text" class="form-control form-control-sm" id="category_title_label" placeholder="Business">
+                            <input required name="category_name" type="text" class="form-control form-control-sm" id="category_name_label" placeholder="Business">
                         </div>
                     </div>
                 </li>
-
-
-
                 <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
                     <label for="category_status_label">Status</label>
                     <div class="form-check form-switch">
                         <input name="category_status" type="checkbox" class="form-check-input" id="category_status_label">
                     </div>
                 </li>
-
-
-
             </ul>
         </form>
     </div>
@@ -77,5 +68,4 @@
         <div class="card-arrow-bottom-right"></div>
     </div>
 </div>
-
 <?php $this->load->view("admins/includes/FooterScripts"); ?>

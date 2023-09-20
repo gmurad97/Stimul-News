@@ -1,0 +1,10 @@
+ERROR - 2023-09-20 06:00:41 --> Severity: Warning --> Undefined variable $partners_data C:\OSPanel\domains\stimul.news\application\views\admins\Categories\List.php 43
+ERROR - 2023-09-20 06:00:41 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\admins\Categories\List.php 43
+ERROR - 2023-09-20 06:00:41 --> Severity: Warning --> Undefined variable $partners_data_item_id C:\OSPanel\domains\stimul.news\application\views\admins\Categories\List.php 142
+ERROR - 2023-09-20 06:00:54 --> Severity: Warning --> Undefined variable $partners_data C:\OSPanel\domains\stimul.news\application\views\admins\Categories\List.php 43
+ERROR - 2023-09-20 06:00:54 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\admins\Categories\List.php 43
+ERROR - 2023-09-20 06:00:54 --> Severity: Warning --> Undefined variable $partners_data_item_id C:\OSPanel\domains\stimul.news\application\views\admins\Categories\List.php 142
+ERROR - 2023-09-20 06:26:48 --> Query error: Unknown column 'p_data' in 'field list' - Invalid query: INSERT INTO `categories` (`p_data`) VALUES ('{\"category_img\":\"66886613f00e312345ae8ac88fc97526.jpg\",\"category_name\":\"Business\",\"category_status\":\"on\"}')
+ERROR - 2023-09-20 06:28:13 --> Severity: Warning --> Undefined variable $partners_data C:\OSPanel\domains\stimul.news\application\views\admins\Categories\List.php 43
+ERROR - 2023-09-20 06:28:13 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\admins\Categories\List.php 43
+ERROR - 2023-09-20 06:28:13 --> Severity: Warning --> Undefined variable $partners_data_item_id C:\OSPanel\domains\stimul.news\application\views\admins\Categories\List.php 142

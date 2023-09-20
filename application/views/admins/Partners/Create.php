@@ -38,7 +38,7 @@
                             <label for="partner_img_label">Image</label>
                         </div>
                         <div class="col-md-9">
-                            <input name="partner_img" type="file" class="form-control form-control-sm" id="partner_img_label">
+                            <input required name="partner_img" type="file" class="form-control form-control-sm" id="partner_img_label">
                         </div>
                     </div>
                 </li>
@@ -50,7 +50,7 @@
                         <div class="col-md-9">
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text">URL</span>
-                                <input name="partner_link" type="url" class="form-control" placeholder="https://example.com/" id="partner_link_label">
+                                <input required name="partner_link" type="url" class="form-control" placeholder="https://example.com/" id="partner_link_label">
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                             <label for="partner_title_label">Title</label>
                         </div>
                         <div class="col-md-9">
-                            <input name="partner_title" type="text" class="form-control form-control-sm" id="partner_title_label" placeholder="Stimul News">
+                            <input required name="partner_title" type="text" class="form-control form-control-sm" id="partner_title_label" placeholder="Stimul News">
                         </div>
                     </div>
                 </li>
