@@ -648,14 +648,6 @@ class AdminController extends CI_Controller
         }
     }
 
-
-
-
-
-
-
-
-
     public function crud_categories_edit()
     {
         $data["admin_page_name"] = "Categories Edit";
@@ -664,11 +656,21 @@ class AdminController extends CI_Controller
 
     public function crud_categories_edit_action()
     {
+
     }
+
+
+
+
+
+
+
+
 
     public function crud_categories_list()
     {
         $data["admin_page_name"] = "Categories List";
+        $data["categories_data"] = $this->AdminModel->categories_admin_db_get_results();
         $this->load->view("admins/Categories/List", $data);
     }
 

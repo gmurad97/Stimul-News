@@ -67,8 +67,8 @@
                                     <a href="<?= base_url('partners-edit/') . $partners_data_item_id; ?>" class="nav-link theme-warning p-0">
                                         <i class="bi bi-pencil-square fs-5"></i>
                                     </a>
-                                    <a href="javascript:void(0);" class="nav-link theme-danger p-0" data-bs-toggle="modal" data-bs-target="#partner_modal_delete">
-                                        <i class="bi bi-trash fs-5"></i>
+                                    <a href="javascript:void(0);" class="nav-link theme-danger p-0" data-link="<?= base_url('partners-delete/') . $partners_data_item_id; ?>" data-bs-toggle="modal" data-bs-target="#partner_modal_delete">
+                                        <i class=" bi bi-trash fs-5"></i>
                                     </a>
                                 </nav>
                             </td>
@@ -141,9 +141,15 @@
             </div>
             <div class="modal-footer py-1">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <a href="<?= (!empty($partners_data)) ? (base_url('partners-delete/') . $partners_data_item_id) : 'javascript:void(0);'; ?>" class="btn btn-outline-danger">Remove</a>
+                <a href="javascript:void(0);" class="btn btn-outline-danger" id="partner_modal_delete_link">Remove</a>
             </div>
         </div>
     </div>
 </div>
+<script>
+    $(document).on("focus", "[data-link]", function() {
+        var link = $(this).data("link");
+        $("#partner_modal_delete_link").attr("href", link);
+    });
+</script>
 <?php $this->load->view("admins/includes/FooterScripts"); ?>

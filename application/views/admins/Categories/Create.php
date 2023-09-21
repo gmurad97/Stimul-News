@@ -43,14 +43,38 @@
                     </div>
                 </li>
                 <li class="list-group-item">
-                    <div class="row d-flex flex-row justify-content-between align-items-center">
+
+
+                    <!--                     <div class="row d-flex flex-row justify-content-between align-items-center">
                         <div class="col-md-3">
-                            <label for="category_name_label">Name</label>
+                            <label for="category_name_label">Name1</label>
                         </div>
                         <div class="col-md-9">
                             <input required name="category_name" type="text" class="form-control form-control-sm" id="category_name_label" placeholder="Business">
                         </div>
+                    </div> -->
+
+
+
+                    <ul class="nav nav-tabs nav-tabs-v2">
+
+
+                        <li class="nav-item me-3">
+                            <a href="#homev2WithCard" class="nav-link active" data-bs-toggle="tab">
+                                Home
+                            </a>
+                        </li>
+
+
+
+
+                    </ul>
+                    <div class="tab-content py-4">
+                        <div class="tab-pane fade show active" id="homev2WithCard">...</div>
                     </div>
+
+
+
                 </li>
                 <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
                     <label for="category_status_label">Status</label>
