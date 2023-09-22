@@ -80,7 +80,7 @@ class AdminModel extends CI_Model
 
     public function partners_admin_db_get_results()
     {
-        return $this->db->get(self::PARTNERS_TABLE_NAME)->result_array();
+        return $this->db->order_by(self::PARTNERS_ID_NAME, "DESC")->get(self::PARTNERS_TABLE_NAME)->result_array();
     }
 
     public function partners_admin_db_get($id)
@@ -110,7 +110,7 @@ class AdminModel extends CI_Model
 
     public function categories_admin_db_get_results()
     {
-        return $this->db->get(self::CATEGORIES_TABLE_NAME)->result_array();
+        return $this->db->order_by(self::CATEGORIES_ID_NAME, "DESC")->get(self::CATEGORIES_TABLE_NAME)->result_array();
     }
 
     public function categories_admin_db_get($id)

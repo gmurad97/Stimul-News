@@ -26,68 +26,66 @@
                 </p>
             </div>
         <?php endif; ?>
-        <table class="table table-hover text-nowrap w-100" id="partners-datatable">
+        <table class="table table-hover text-nowrap w-100" id="categories-datatable">
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Partner Image</th>
-                    <th>Partner Link</th>
-                    <th>Partner Title</th>
-                    <th>Partner Status</th>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Status</th>
                     <th>Control</th>
                 </tr>
             </thead>
             <tbody>
-
-
-                <?php
-                $id_counter = 1;
-                foreach ($categories_data as $categories_data_item) :
-                    $categories_data_item_id = $categories_data_item["c_uid"];
-                    $categories_data_item_options = json_decode($categories_data_item["c_data"]);
-                ?>
-                    <tr>
-                        <td><?= $id_counter++; ?></td>
-                        <td>
-                            <img width="128" src="<?= base_url('file_manager/categories/') . $categories_data_item_options->partner_img; ?>" title="<?= $categories_data_item_options->partner_title; ?>" alt="<?= $categories_data_item_options->partner_title; ?>">
-                        </td>
-                        <td><?= (is_null($categories_data_item_options->partner_link) || empty($categories_data_item_options->partner_link)) ? "NULL" : $categories_data_item_options->partner_link; ?></td>
-                        <td><?= (is_null($categories_data_item_options->partner_title) || empty($categories_data_item_options->partner_title)) ? "NULL" : $categories_data_item_options->partner_title; ?></td>
-                        <td>
-                            <?php if ($categories_data_item_options->partner_status) : ?>
-                                <span class="badge bg-success p-2">Active</span>
-                            <?php else : ?>
-                                <span class="badge bg-danger p-2">Deactive</span>
-                            <?php endif; ?>
-                        </td>
-                        <td>
-                            <nav class="nav flex-row justify-content-between">
-                                <a href="javascript:void(0);" class="nav-link disabled theme-info p-0">
-                                    <i class="bi bi-eye fs-5"></i>
+                <?php if (!empty($categories_data)) : ?>
+                    <?php
+                    $id_counter = 1;
+                    foreach ($categories_data as $category_data_item) :
+                        $category_data_item_id = $category_data_item["c_uid"];
+                        $category_data_item_data = json_decode($category_data_item["c_data"]);
+                    ?>
+                        <tr>
+                            <td><?= $id_counter++; ?></td>
+                            <td>
+                                <a href="<?= base_url('file_manager/categories/') . $category_data_item_data->category_img; ?>" data-lity>
+                                    <img width="64" height="64" style="object-fit: cover;" class="rounded-circle bg-white" src="<?= base_url('file_manager/categories/') . $category_data_item_data->category_img; ?>" title="<?= $category_data_item_data->category_name->en; ?>" alt="<?= $category_data_item_data->category_name->en; ?>">
                                 </a>
-                                <a href="<?= base_url('partners-edit/') . $categories_data_item_id; ?>" class="nav-link theme-warning p-0">
-                                    <i class="bi bi-pencil-square fs-5"></i>
-                                </a>
-                                <a href="javascript:void(0);" class="nav-link theme-danger p-0" data-bs-toggle="modal" data-bs-target="#partner_modal_delete">
-                                    <i class="bi bi-trash fs-5"></i>
-                                </a>
-                            </nav>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-
-
-
-
-
+                            </td>
+                            <td>
+                                <?= (is_null($category_data_item_data->category_name->en) || empty($category_data_item_data->category_name->en)) ? "NULL" : "<span class='fw-bold text-info'>[EN]</span> " . $category_data_item_data->category_name->en . "<br>"; ?>
+                                <?= (is_null($category_data_item_data->category_name->ru) || empty($category_data_item_data->category_name->ru)) ? "NULL" : "<span class='fw-bold text-info'>[RU]</span> " . $category_data_item_data->category_name->ru . "<br>"; ?>
+                                <?= (is_null($category_data_item_data->category_name->az) || empty($category_data_item_data->category_name->az)) ? "NULL" : "<span class='fw-bold text-info'>[AZ]</span> " . $category_data_item_data->category_name->az . "<br>"; ?>
+                            </td>
+                            <td>
+                                <?php if ($category_data_item_data->category_status) : ?>
+                                    <span class="badge bg-success p-2 w-75px text-uppercase">Active</span>
+                                <?php else : ?>
+                                    <span class="badge bg-danger p-2 w-75px text-uppercase">Inactive</span>
+                                <?php endif; ?>
+                            </td>
+                            <td>
+                                <nav class="nav flex-row">
+                                    <a href="javascript:void(0);" class="nav-link disabled theme-info p-0">
+                                        <i class="bi bi-eye fs-5"></i>
+                                    </a>
+                                    <a href="<?= base_url('categories-edit/') . $category_data_item_id; ?>" class="nav-link theme-warning p-0 mx-3">
+                                        <i class="bi bi-pencil-square fs-5"></i>
+                                    </a>
+                                    <a href="javascript:void(0);" class="nav-link theme-danger p-0" data-link="<?= base_url('categories-delete/') . $category_data_item_id; ?>" data-bs-toggle="modal" data-bs-target="#category_modal_delete">
+                                        <i class=" bi bi-trash fs-5"></i>
+                                    </a>
+                                </nav>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </tbody>
             <tfoot>
                 <tr>
                     <th>#</th>
-                    <th>Partner Image</th>
-                    <th>Partner Link</th>
-                    <th>Partner Title</th>
-                    <th>Partner Status</th>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Status</th>
                     <th>Control</th>
                 </tr>
             </tfoot>
@@ -108,7 +106,7 @@
         <script src="<?= base_url('public/admin/assets/plugins/datatable/js/dataTables.responsive.min.js'); ?>"></script>
         <script src="<?= base_url('public/admin/assets/plugins/datatable/js/responsive.bootstrap5.min.js'); ?>"></script>
         <script>
-            $("#partners-datatable").DataTable({
+            $("#categories-datatable").DataTable({
                 dom: "<'row mb-3'<'col-sm-4'l><'col-sm-8 text-end'<'d-flex justify-content-end align-items-center'fB>>>t<'d-flex align-items-center'<'me-auto'i><'mb-0'p>>",
                 lengthMenu: [10, 20, 30, 40, 50],
                 responsive: true,
@@ -138,7 +136,7 @@
         <div class="card-arrow-bottom-right"></div>
     </div>
 </div>
-<div class="modal fade text-center" id="partner_modal_delete">
+<div class="modal fade text-center" id="category_modal_delete">
     <div class="modal-dialog modal-sm">
         <div class="modal-content rounded">
             <div class="modal-body py-3">
@@ -146,9 +144,15 @@
             </div>
             <div class="modal-footer py-1">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <a href="<?= (!empty($categories_data)) ? base_url('partners-delete/') . $categories_data_item_id : 'javascript:void(0);'; ?>" class="btn btn-outline-danger">Remove</a>
+                <a href="javascript:void(0);" class="btn btn-outline-danger" id="category_modal_delete_link">Remove</a>
             </div>
         </div>
     </div>
 </div>
+<script>
+    $(document).on("focus", "[data-link]", function() {
+        var link = $(this).data("link");
+        $("#category_modal_delete_link").attr("href", link);
+    });
+</script>
 <?php $this->load->view("admins/includes/FooterScripts"); ?>

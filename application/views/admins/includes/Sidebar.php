@@ -84,7 +84,7 @@
                     </div>
                     <div class="menu-item <?= str_contains($segment_name, 'categories-list') ? 'active' : ''; ?>">
                         <a href="<?= base_url('categories-list'); ?>" class="menu-link">
-                            <span class="menu-text">Table List</span>
+                            <span class="menu-text">List</span>
                         </a>
                     </div>
                 </div>

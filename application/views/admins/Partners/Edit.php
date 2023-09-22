@@ -7,7 +7,7 @@
         <div>
             <a href="<?= base_url('partners-list'); ?>" class="btn btn-outline-info">
                 <i class="bi bi-list-nested me-1"></i>
-                Partners List
+                List
             </a>
             <button type="submit" form="partners_form" class="btn btn-outline-warning">
                 <i class="bi bi-pencil-square me-1"></i>
@@ -32,16 +32,19 @@
         <?php endif; ?>
         <?php
         $partner_id = $partner_data["p_uid"];
-        $partner_options = json_decode($partner_data["p_data"]);
+        $partner_info = json_decode($partner_data["p_data"]);
         ?>
         <form action="<?= base_url('partners-edit-action/') . $partner_id; ?>" method="POST" enctype="multipart/form-data" id="partners_form">
-            <h1 class="h5 text-warning mb-3">Current image</h1>
-            <div class="row mb-3">
-                <div class="col-md-4 d-flex flex-column justify-content-center align-items-start ps-3">
-                    <img src="<?= base_url('file_manager/partners/') . $partner_options->partner_img; ?>" width="128px" style="object-fit: contain;" alt="<?= $partner_options->partner_title; ?>">
-                </div>
-            </div>
             <ul class="list-group list-group-flush mb-3">
+                <li class="list-group-item">
+                    <div class="d-flex flex-row justify-content-between align-items-center">
+                        <label class="fw-bold text-warning">Current Image</label>
+                        <a href="<?= base_url('file_manager/partners/') . $partner_info->partner_img; ?>" class="btn btn-outline-yellow" data-lity>
+                            Show Image
+                            <span class="img" style="background-image: url(<?= base_url('file_manager/partners/') . $partner_info->partner_img; ?>)"></span>
+                        </a>
+                    </div>
+                </li>
                 <li class="list-group-item">
                     <div class="row d-flex flex-row justify-content-between align-items-center">
                         <div class="col-md-3">
@@ -60,7 +63,7 @@
                         <div class="col-md-9">
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text">URL</span>
-                                <input required name="partner_link" type="url" class="form-control" placeholder="https://example.com/" id="partner_link_label" value="<?= $partner_options->partner_link; ?>">
+                                <input required name="partner_link" type="url" class="form-control" placeholder="https://example.com/" id="partner_link_label" value="<?= $partner_info->partner_link; ?>">
                             </div>
                         </div>
                     </div>
@@ -71,14 +74,14 @@
                             <label for="partner_title_label">Title</label>
                         </div>
                         <div class="col-md-9">
-                            <input required name="partner_title" type="text" class="form-control form-control-sm" id="partner_title_label" placeholder="Stimul News" value="<?= $partner_options->partner_title; ?>">
+                            <input required name="partner_title" type="text" class="form-control form-control-sm" id="partner_title_label" placeholder="Stimul News" value="<?= $partner_info->partner_title; ?>">
                         </div>
                     </div>
                 </li>
                 <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
                     <label for="partner_status_label">Status</label>
                     <div class="form-check form-switch">
-                        <input name="partner_status" type="checkbox" class="form-check-input" id="partner_status_label" <?= $partner_options->partner_status ? "checked" : "" ?>>
+                        <input name="partner_status" type="checkbox" class="form-check-input" id="partner_status_label" <?= $partner_info->partner_status ? "checked" : "" ?>>
                     </div>
                 </li>
             </ul>

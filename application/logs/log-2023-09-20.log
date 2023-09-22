@@ -1,6 +1,0 @@
-ERROR - 2023-09-20 19:03:40 --> Severity: Warning --> Undefined variable $partners_data_item_id C:\OSPanel\domains\stimul.news\application\views\admins\Categories\List.php 149
-ERROR - 2023-09-20 19:39:59 --> Severity: Warning --> Undefined variable $partners_data_item_id C:\OSPanel\domains\stimul.news\application\views\admins\Partners\List.php 12
-ERROR - 2023-09-20 19:40:01 --> Severity: Warning --> Undefined variable $partners_data_item_id C:\OSPanel\domains\stimul.news\application\views\admins\Partners\List.php 12
-ERROR - 2023-09-20 19:40:09 --> Severity: Warning --> Undefined variable $partners_data_item_id C:\OSPanel\domains\stimul.news\application\views\admins\Partners\List.php 12
-ERROR - 2023-09-20 19:40:24 --> Severity: Warning --> Undefined variable $partners_data_item_id C:\OSPanel\domains\stimul.news\application\views\admins\Partners\List.php 24
-ERROR - 2023-09-20 19:40:30 --> Severity: Warning --> Undefined variable $partners_data_item_id C:\OSPanel\domains\stimul.news\application\views\admins\Partners\List.php 24

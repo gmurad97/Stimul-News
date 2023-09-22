@@ -30,10 +30,10 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Partner Image</th>
-                    <th>Partner Link</th>
-                    <th>Partner Title</th>
-                    <th>Partner Status</th>
+                    <th>Image</th>
+                    <th>Link</th>
+                    <th>Title</th>
+                    <th>Status</th>
                     <th>Control</th>
                 </tr>
             </thead>
@@ -43,28 +43,30 @@
                     $id_counter = 1;
                     foreach ($partners_data as $partners_data_item) :
                         $partners_data_item_id = $partners_data_item["p_uid"];
-                        $partners_data_item_options = json_decode($partners_data_item["p_data"]);
+                        $partners_data_item_data = json_decode($partners_data_item["p_data"]);
                     ?>
                         <tr>
                             <td><?= $id_counter++; ?></td>
                             <td>
-                                <img width="128" class="rounded" style="aspect-ratio: 2/1; object-fit:cover;" src="<?= base_url('file_manager/partners/') . $partners_data_item_options->partner_img; ?>" title="<?= $partners_data_item_options->partner_title; ?>" alt="<?= $partners_data_item_options->partner_title; ?>">
+                                <a href="<?= base_url('file_manager/partners/') . $partners_data_item_data->partner_img; ?>" data-lity>
+                                    <img width="64" height="64" style="object-fit: cover;" class="rounded-circle bg-white" src="<?= base_url('file_manager/partners/') . $partners_data_item_data->partner_img; ?>" title="<?= $partners_data_item_data->partner_title; ?>" alt="<?= $partners_data_item_data->partner_title; ?>">
+                                </a>
                             </td>
-                            <td><?= (is_null($partners_data_item_options->partner_link) || empty($partners_data_item_options->partner_link)) ? "NULL" : $partners_data_item_options->partner_link; ?></td>
-                            <td><?= (is_null($partners_data_item_options->partner_title) || empty($partners_data_item_options->partner_title)) ? "NULL" : $partners_data_item_options->partner_title; ?></td>
+                            <td><?= (is_null($partners_data_item_data->partner_link) || empty($partners_data_item_data->partner_link)) ? "NULL" : $partners_data_item_data->partner_link; ?></td>
+                            <td><?= (is_null($partners_data_item_data->partner_title) || empty($partners_data_item_data->partner_title)) ? "NULL" : $partners_data_item_data->partner_title; ?></td>
                             <td>
-                                <?php if ($partners_data_item_options->partner_status) : ?>
-                                    <span class="badge bg-success p-2">Active</span>
+                                <?php if ($partners_data_item_data->partner_status) : ?>
+                                    <span class="badge bg-success p-2 w-75px text-uppercase">Active</span>
                                 <?php else : ?>
-                                    <span class="badge bg-danger p-2">Deactive</span>
+                                    <span class="badge bg-danger p-2 w-75px text-uppercase">Inactive</span>
                                 <?php endif; ?>
                             </td>
                             <td>
-                                <nav class="nav flex-row justify-content-between">
+                                <nav class="nav flex-row">
                                     <a href="javascript:void(0);" class="nav-link disabled theme-info p-0">
                                         <i class="bi bi-eye fs-5"></i>
                                     </a>
-                                    <a href="<?= base_url('partners-edit/') . $partners_data_item_id; ?>" class="nav-link theme-warning p-0">
+                                    <a href="<?= base_url('partners-edit/') . $partners_data_item_id; ?>" class="nav-link theme-warning p-0 mx-3">
                                         <i class="bi bi-pencil-square fs-5"></i>
                                     </a>
                                     <a href="javascript:void(0);" class="nav-link theme-danger p-0" data-link="<?= base_url('partners-delete/') . $partners_data_item_id; ?>" data-bs-toggle="modal" data-bs-target="#partner_modal_delete">
@@ -79,10 +81,10 @@
             <tfoot>
                 <tr>
                     <th>#</th>
-                    <th>Partner Image</th>
-                    <th>Partner Link</th>
-                    <th>Partner Title</th>
-                    <th>Partner Status</th>
+                    <th>Image</th>
+                    <th>Link</th>
+                    <th>Title</th>
+                    <th>Status</th>
                     <th>Control</th>
                 </tr>
             </tfoot>
