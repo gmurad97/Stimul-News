@@ -128,7 +128,7 @@
             </div>
             <div class="modal-footer py-1">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <a href="<?= base_url('branding-delete'); ?>" class="btn btn-outline-danger">Remove</a>
+                <a href="<?= base_url('admin/branding-delete'); ?>" class="btn btn-outline-danger">Remove</a>
             </div>
         </div>
     </div>

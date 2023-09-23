@@ -5,7 +5,7 @@
     <div class="card-header fw-bold d-flex flex-row justify-content-between align-items-center">
         <div class="h5 text-success m-0">PARTNERS CREATE</div>
         <div>
-            <a href="<?= base_url('partners-list'); ?>" class="btn btn-outline-info">
+            <a href="<?= base_url('admin/partners-list'); ?>" class="btn btn-outline-info">
                 <i class="bi bi-list-nested me-1"></i>
                 Partners List
             </a>

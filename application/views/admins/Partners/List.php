@@ -5,7 +5,7 @@
     <div class="card-header fw-bold d-flex flex-row justify-content-between align-items-center">
         <div class="h5 text-success m-0">PARTNERS LIST</div>
         <div>
-            <a href="<?= base_url('partners-create'); ?>" class="btn btn-outline-success">
+            <a href="<?= base_url('admin/partners-create'); ?>" class="btn btn-outline-success">
                 <i class="bi bi-plus-circle me-1"></i>
                 Create
             </a>
@@ -66,10 +66,10 @@
                                     <a href="javascript:void(0);" class="nav-link disabled theme-info p-0">
                                         <i class="bi bi-eye fs-5"></i>
                                     </a>
-                                    <a href="<?= base_url('partners-edit/') . $partners_data_item_id; ?>" class="nav-link theme-warning p-0 mx-3">
+                                    <a href="<?= base_url('admin/partners-edit/') . $partners_data_item_id; ?>" class="nav-link theme-warning p-0 mx-3">
                                         <i class="bi bi-pencil-square fs-5"></i>
                                     </a>
-                                    <a href="javascript:void(0);" class="nav-link theme-danger p-0" data-link="<?= base_url('partners-delete/') . $partners_data_item_id; ?>" data-bs-toggle="modal" data-bs-target="#partner_modal_delete">
+                                    <a href="javascript:void(0);" class="nav-link theme-danger p-0" data-link="<?= base_url('admin/partners-delete/') . $partners_data_item_id; ?>" data-bs-toggle="modal" data-bs-target="#partner_modal_delete">
                                         <i class=" bi bi-trash fs-5"></i>
                                     </a>
                                 </nav>

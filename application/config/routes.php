@@ -17,7 +17,7 @@ $route["404"] = "UserController/pageNotFound";
 
 
 /*=====ADMIN CONTROLLER - START=====*/
-$route["admin/dashboard"]                     = "AdminController/index";
+$route["admin/dashboard"]                     = "AdminController/dashboard";
 
 /*=====TOPBAR CRUD - START=====*/
 $route["admin/topbar-create"]                 = "AdminController/crud_topbar_create";

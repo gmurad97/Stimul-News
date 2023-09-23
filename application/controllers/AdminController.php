@@ -9,7 +9,7 @@ class AdminController extends CI_Controller
         $this->load->model("AdminModel");
     }
 
-    /*LOCAL ADMIN CONTROLLER FUNCTION - START*/
+    /*=====LOCAL ADMIN CONTROLLER FUNCTION - START=====*/
     public function AlertFlashData(string $alertType, string $alertName, string $alertHeadMessage, string $alertShortMessage, string $alertLongMessage): void
     {
         $alert_type     = strtolower($alertType);
@@ -42,10 +42,17 @@ class AdminController extends CI_Controller
             ]
         );
     }
-    /*LOCAL ADMIN CONTROLLER FUNCTION - ENDED*/
+    /*=====LOCAL ADMIN CONTROLLER FUNCTION - ENDED=====*/
+
+
+
+
+
+
+
 
     /*=====DASHBOARD - START=====*/
-    public function index()
+    public function dashboard()
     {
         $data["admin_page_name"] = "Dashboard";
         $this->load->view("admins/Index", $data);
@@ -795,7 +802,7 @@ class AdminController extends CI_Controller
     public function crud_news_create()
     {
         $data["admin_page_name"] = "News Create";
-        $this->load->view("admins/News/Create",$data);
+        $this->load->view("admins/News/Create", $data);
     }
 
 

@@ -5,7 +5,7 @@
     <div class="card-header fw-bold d-flex flex-row justify-content-between align-items-center">
         <div class="h5 text-success m-0">СATEGORIES CREATE</div>
         <div>
-            <a href="<?= base_url('categories-list'); ?>" class="btn btn-outline-info">
+            <a href="<?= base_url('admin/categories-list'); ?>" class="btn btn-outline-info">
                 <i class="bi bi-list-nested me-1"></i>
                 Table List
             </a>
