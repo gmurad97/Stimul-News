@@ -1,12 +1,12 @@
 <div id="sidebar" class="app-sidebar">
     <div class="app-sidebar-content" data-scrollbar="true" data-height="100%">
         <div class="menu">
-            <?php $segment_name = $this->uri->segment(1); ?>
+            <?php $segment_name = $this->uri->segment(2); ?>
             <div class="menu-header">Navigation</div>
 
             <!--DASHBOARD - START-->
             <div class="menu-item <?= str_contains($segment_name, 'dashboard') ? 'active' : ''; ?>">
-                <a href="<?= base_url('dashboard'); ?>" class="menu-link">
+                <a href="<?= base_url('admin/dashboard'); ?>" class="menu-link">
                     <span class="menu-icon">
                         <i class="bi bi-cpu"></i>
                     </span>
@@ -19,7 +19,7 @@
 
             <!--TOPBAR - START-->
             <div class="menu-item <?= str_contains($segment_name, 'topbar') ? 'active' : ''; ?>">
-                <a href="<?= base_url('topbar-create'); ?>" class="menu-link">
+                <a href="<?= base_url('admin/topbar-create'); ?>" class="menu-link">
                     <span class="menu-icon">
                         <i class="bi bi-distribute-vertical"></i>
                     </span>
@@ -30,7 +30,7 @@
 
             <!--BRANDING - START-->
             <div class="menu-item <?= str_contains($segment_name, 'branding') ? 'active' : ''; ?>">
-                <a href="<?= base_url('branding-create'); ?>" class="menu-link">
+                <a href="<?= base_url('admin/branding-create'); ?>" class="menu-link">
                     <span class="menu-icon">
                         <i class="bi bi-flower1"></i>
                     </span>
@@ -52,12 +52,12 @@
                 </a>
                 <div class="menu-submenu">
                     <div class="menu-item <?= str_contains($segment_name, 'partners-create') ? 'active' : ''; ?>">
-                        <a href="<?= base_url('partners-create'); ?>" class="menu-link">
+                        <a href="<?= base_url('admin/partners-create'); ?>" class="menu-link">
                             <span class="menu-text">Create</span>
                         </a>
                     </div>
                     <div class="menu-item <?= str_contains($segment_name, 'partners-list') ? 'active' : ''; ?>">
-                        <a href="<?= base_url('partners-list'); ?>" class="menu-link">
+                        <a href="<?= base_url('admin/partners-list'); ?>" class="menu-link">
                             <span class="menu-text">List</span>
                         </a>
                     </div>
@@ -78,18 +78,63 @@
                 </a>
                 <div class="menu-submenu">
                     <div class="menu-item <?= str_contains($segment_name, 'categories-create') ? 'active' : ''; ?>">
-                        <a href="<?= base_url('categories-create'); ?>" class="menu-link">
+                        <a href="<?= base_url('admin/categories-create'); ?>" class="menu-link">
                             <span class="menu-text">Create</span>
                         </a>
                     </div>
                     <div class="menu-item <?= str_contains($segment_name, 'categories-list') ? 'active' : ''; ?>">
-                        <a href="<?= base_url('categories-list'); ?>" class="menu-link">
+                        <a href="<?= base_url('admin/categories-list'); ?>" class="menu-link">
                             <span class="menu-text">List</span>
                         </a>
                     </div>
                 </div>
             </div>
             <!--CATEGORIES - END-->
+
+
+
+
+
+
+
+
+            <!--NEWS - START-->
+            <div class="menu-item has-sub <?= str_contains($segment_name, 'news') ? 'active' : ''; ?>">
+                <a href="javascript:void(0);" class="menu-link">
+                    <span class="menu-icon">
+                        <i class="bi bi-newspaper"></i>
+                    </span>
+                    <span class="menu-text">News</span>
+                    <span class="menu-caret">
+                        <b class="caret"></b>
+                    </span>
+                </a>
+                <div class="menu-submenu">
+                    <div class="menu-item <?= str_contains($segment_name, 'news-create') ? 'active' : ''; ?>">
+                        <a href="<?= base_url('admin/news-create'); ?>" class="menu-link">
+                            <span class="menu-text">Create</span>
+                        </a>
+                    </div>
+                    <div class="menu-item <?= str_contains($segment_name, 'news-list') ? 'active' : ''; ?>">
+                        <a href="<?= base_url('admin/news-list'); ?>" class="menu-link">
+                            <span class="menu-text">List</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--NEWS - END-->
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

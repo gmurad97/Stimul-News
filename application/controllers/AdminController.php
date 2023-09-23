@@ -60,7 +60,7 @@ class AdminController extends CI_Controller
             $data["admin_page_name"] = "Topbar Create";
             $this->load->view("admins/Topbar/Create", $data);
         } else {
-            redirect(base_url("topbar-edit"));
+            redirect(base_url("admin/topbar-edit"));
         }
     }
 
@@ -96,9 +96,9 @@ class AdminController extends CI_Controller
                 "The topbar has been successfully created."
             );
 
-            redirect(base_url("topbar-edit"));
+            redirect(base_url("admin/topbar-edit"));
         } else {
-            redirect(base_url("topbar-edit"));
+            redirect(base_url("admin/topbar-edit"));
         }
     }
 
@@ -106,7 +106,7 @@ class AdminController extends CI_Controller
     {
         $topbar_db_row = $this->AdminModel->table_row_id("topbar", "t_uid");
         if ($topbar_db_row == -1) {
-            redirect(base_url("topbar-create"));
+            redirect(base_url("admin/topbar-create"));
         } else {
             $data["admin_page_name"] = "Topbar Edit";
             $data["admin_topbar"] = json_decode($this->AdminModel->topbar_admin_db_get($topbar_db_row)["t_data"]);
@@ -118,7 +118,7 @@ class AdminController extends CI_Controller
     {
         $topbar_db_row = $this->AdminModel->table_row_id("topbar", "t_uid");
         if ($topbar_db_row == -1) {
-            redirect(base_url("topbar-create"));
+            redirect(base_url("admin/topbar-create"));
         } else {
             $topbar_self    = $this->input->post("topbar_self",    TRUE);
             $topbar_date    = $this->input->post("topbar_date",    TRUE);
@@ -148,7 +148,7 @@ class AdminController extends CI_Controller
                 "The topbar has been successfully edited."
             );
 
-            redirect(base_url("topbar-edit"));
+            redirect(base_url("admin/topbar-edit"));
         }
     }
 
@@ -165,7 +165,7 @@ class AdminController extends CI_Controller
             "The topbar has been successfully removed."
         );
 
-        redirect(base_url("topbar-create"));
+        redirect(base_url("admin/topbar-create"));
     }
     /*=====TOPBAR CRUD - ENDED=====*/
 
@@ -177,7 +177,7 @@ class AdminController extends CI_Controller
             $data["admin_page_name"] = "Branding Create";
             $this->load->view("admins/Branding/Create", $data);
         } else {
-            redirect(base_url("branding-edit"));
+            redirect(base_url("admin/branding-edit"));
         }
     }
 
@@ -241,9 +241,9 @@ class AdminController extends CI_Controller
                 "The branding has been successfully created."
             );
 
-            redirect(base_url("branding-edit"));
+            redirect(base_url("admin/branding-edit"));
         } else {
-            redirect(base_url("branding-edit"));
+            redirect(base_url("admin/branding-edit"));
         }
     }
 
@@ -251,7 +251,7 @@ class AdminController extends CI_Controller
     {
         $branding_db_row = $this->AdminModel->table_row_id("branding", "b_uid");
         if ($branding_db_row == -1) {
-            redirect(base_url("branding-create"));
+            redirect(base_url("admin/branding-create"));
         } else {
             $data["admin_page_name"] = "Branding Edit";
             $data["admin_branding"] = json_decode($this->AdminModel->branding_admin_db_get($branding_db_row)["b_data"]);
@@ -263,7 +263,7 @@ class AdminController extends CI_Controller
     {
         $branding_db_row = $this->AdminModel->table_row_id("branding", "b_uid");
         if ($branding_db_row == -1) {
-            redirect(base_url("branding-create"));
+            redirect(base_url("admin/branding-create"));
         } else {
             $logo_dark_visibility  = $this->input->post("logo_dark_visibility",  TRUE);
             $logo_light_visibility = $this->input->post("logo_light_visibility", TRUE);
@@ -338,7 +338,7 @@ class AdminController extends CI_Controller
                 "The branding has been successfully edited."
             );
 
-            redirect(base_url("branding-edit"));
+            redirect(base_url("admin/branding-edit"));
         }
     }
 
@@ -356,7 +356,7 @@ class AdminController extends CI_Controller
             "The branding has been successfully removed."
         );
 
-        redirect(base_url("branding-create"));
+        redirect(base_url("admin/branding-create"));
     }
     /*=====BRANDING CRUD - ENDED=====*/
 
@@ -419,7 +419,7 @@ class AdminController extends CI_Controller
                 "The partner has been successfully added."
             );
 
-            redirect(base_url("partners-list"));
+            redirect(base_url("admin/partners-list"));
         } else {
             $this->AlertFlashData(
                 "warning",
@@ -429,7 +429,7 @@ class AdminController extends CI_Controller
                 "Please, fill in all the fields."
             );
 
-            redirect(base_url("partners-create"));
+            redirect(base_url("admin/partners-create"));
         }
     }
 
@@ -506,7 +506,7 @@ class AdminController extends CI_Controller
                 "The partner has been successfully edited."
             );
 
-            redirect(base_url("partners-list"));
+            redirect(base_url("admin/partners-list"));
         } elseif (!empty($partner_link) && !empty($partner_title)) {
             $json_data_decoded = [
                 "partner_img"    => $old_partner_data["partner_img"],
@@ -531,7 +531,7 @@ class AdminController extends CI_Controller
                 "The partner has been successfully edited."
             );
 
-            redirect(base_url("partners-list"));
+            redirect(base_url("admin/partners-list"));
         } else {
             $this->AlertFlashData(
                 "warning",
@@ -562,7 +562,7 @@ class AdminController extends CI_Controller
             "The partner has been successfully removed."
         );
 
-        redirect(base_url("partners-list"));
+        redirect(base_url("admin/partners-list"));
     }
     /*=====PARTNERS CRUD - ENDED=====*/
 
@@ -629,7 +629,7 @@ class AdminController extends CI_Controller
                 "The category has been successfully added."
             );
 
-            redirect(base_url("categories-list"));
+            redirect(base_url("admin/categories-list"));
         } else {
             $this->AlertFlashData(
                 "warning",
@@ -639,7 +639,7 @@ class AdminController extends CI_Controller
                 "Please, fill in all the fields."
             );
 
-            redirect(base_url("categories-create"));
+            redirect(base_url("admin/categories-create"));
         }
     }
 
@@ -720,7 +720,7 @@ class AdminController extends CI_Controller
                 "The category has been successfully edited."
             );
 
-            redirect(base_url("categories-list"));
+            redirect(base_url("admin/categories-list"));
         } else if (!empty($category_en_name) && !empty($category_ru_name) && !empty($category_az_name)) {
             $json_data_decoded = [
                 "category_img"     => $old_category_data["category_img"],
@@ -748,7 +748,7 @@ class AdminController extends CI_Controller
                 "The category has been successfully edited."
             );
 
-            redirect(base_url("categories-list"));
+            redirect(base_url("admin/categories-list"));
         } else {
             $this->AlertFlashData(
                 "warning",
@@ -780,7 +780,109 @@ class AdminController extends CI_Controller
             "The category has been successfully removed."
         );
 
-        redirect(base_url("categories-list"));
+        redirect(base_url("admin/categories-list"));
     }
     /*=====CATEGORIES CRUD - ENDED=====*/
+
+
+
+
+
+
+
+    /*=====NEWS CRUD - START=====*/
+
+    public function crud_news_create()
+    {
+        $data["admin_page_name"] = "News Create";
+        $this->load->view("admins/News/Create",$data);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function crud_news_create_action()
+    {
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    public function crud_news_list()
+    {
+    }
+
+
+
+
+
+
+
+
+
+
+    public function crud_news_edit($id)
+    {
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function crud_news_edit_action($id)
+    {
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    public function crud_news_delete($id)
+    {
+    }
+
+
+
+
+
+
+
+
+
+    /*=====NEWS CRUD - ENDED=====*/
 }

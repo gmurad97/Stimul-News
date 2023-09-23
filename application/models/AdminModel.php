@@ -128,5 +128,42 @@ class AdminModel extends CI_Model
         $this->db->delete(self::CATEGORIES_TABLE_NAME, self::CATEGORIES_ID_NAME . "=" . $id);
     }
     /*=====CATEGORIES MODEL - ENDED=====*/
+
+
+
+
+
+
+
+
+    /*=====NEWS MODEL - START=====*/
+    private const NEWS_TABLE_NAME = "news";
+    private const NEWS_ID_NAME = "n_uid";
+
+    public function news_admin_db_insert($data)
+    {
+        $this->db->insert(self::NEWS_TABLE_NAME, $data);
+    }
+
+    public function news_admin_db_get_results()
+    {
+        return $this->db->order_by(self::NEWS_ID_NAME, "DESC")->get(self::NEWS_TABLE_NAME)->result_array();
+    }
+
+    public function news_admin_db_get($id)
+    {
+        return $this->db->where(self::NEWS_ID_NAME, $id)->get(self::NEWS_TABLE_NAME)->row_array();
+    }
+
+    public function news_admin_db_update($id, $data)
+    {
+        $this->db->update(self::NEWS_TABLE_NAME, $data, self::NEWS_ID_NAME . "=" . $id);
+    }
+
+    public function news_admin_db_delete($id)
+    {
+        $this->db->delete(self::NEWS_TABLE_NAME, self::NEWS_ID_NAME . "=" . $id);
+    }
+    /*=====CATEGORIES MODEL - ENDED=====*/
 }
     /*==========CRUD MODEL - ENDED==========*/

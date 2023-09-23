@@ -27,7 +27,7 @@
             </div>
         <?php endif; ?>
         <h1 class="h5 text-success mb-3">Visibility</h1>
-        <form action="<?= base_url('topbar-create-action'); ?>" method="POST" enctype="application/json" id="topbar_form">
+        <form action="<?= base_url('admin/topbar-create-action'); ?>" method="POST" enctype="application/json" id="topbar_form">
             <ul class="list-group list-group-flush mb-3">
                 <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
                     <label for="topbar_self_label">Topbar</label>

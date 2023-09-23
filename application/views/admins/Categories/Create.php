@@ -30,7 +30,7 @@
                 </p>
             </div>
         <?php endif; ?>
-        <form action="<?= base_url('categories-create-action'); ?>" method="POST" enctype="multipart/form-data" id="categories_form">
+        <form action="<?= base_url('admin/categories-create-action'); ?>" method="POST" enctype="multipart/form-data" id="categories_form">
             <ul class="list-group list-group-flush mb-3">
                 <li class="list-group-item">
                     <div class="row d-flex flex-row justify-content-between align-items-center">

@@ -34,7 +34,7 @@
         $category_id = $category_data["c_uid"];
         $category_info = json_decode($category_data["c_data"]);
         ?>
-        <form action="<?= base_url('categories-edit-action/') . $category_id; ?>" method="POST" enctype="multipart/form-data" id="categories_form">
+        <form action="<?= base_url('admin/categories-edit-action/') . $category_id; ?>" method="POST" enctype="multipart/form-data" id="categories_form">
             <ul class="list-group list-group-flush mb-3">
                 <li class="list-group-item">
                     <div class="d-flex flex-row justify-content-between align-items-center">

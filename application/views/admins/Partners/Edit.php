@@ -34,7 +34,7 @@
         $partner_id = $partner_data["p_uid"];
         $partner_info = json_decode($partner_data["p_data"]);
         ?>
-        <form action="<?= base_url('partners-edit-action/') . $partner_id; ?>" method="POST" enctype="multipart/form-data" id="partners_form">
+        <form action="<?= base_url('admin/partners-edit-action/') . $partner_id; ?>" method="POST" enctype="multipart/form-data" id="partners_form">
             <ul class="list-group list-group-flush mb-3">
                 <li class="list-group-item">
                     <div class="d-flex flex-row justify-content-between align-items-center">
