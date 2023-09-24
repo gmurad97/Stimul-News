@@ -30,48 +30,56 @@
             <ul class="list-group list-group-flush mb-3">
 
 
-
                 <li class="list-group-item">
-                    <label for="news_title_label">Title</label>
-                    <input required name="news_title" type="text" class="form-control form-control-sm my-2" id="news_title_label" placeholder="News Title">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="news_title_label">Category</label>
+                            <select class="form-select form-select-sm my-2">
+                                <?php foreach ($categories_list as $categories_list_item) : ?>
+                                    <?php $categories_list_item_info = json_decode($categories_list_item["c_data"]); ?>
+                                    <?php if ($categories_list_item_info->category_status) : ?>
+                                        <option value="<?= $categories_list_item_info->category_name->en; ?>"><?= $categories_list_item_info->category_name->en; ?></option>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="news_title_label">Title</label>
+                            <input required name="news_title" type="text" class="form-control form-control-sm my-2" id="news_title_label" placeholder="News Title">
+                        </div>
+                    </div>
                 </li>
+
 
                 <li class="list-group-item">
                     <label for="news_short_description_label">Short Description</label>
-                    <textarea required rows="3" name="news_short_description" class="form-control my-2" id="news_short_description_label"></textarea>
+                    <input required name="news_short_description" type="text" class="form-control form-control-sm my-2" id="news_short_description_label" placeholder="Short Description" maxlength="118">
                 </li>
 
 
-
-
-                <li class="list-group-item">
-                    <label for="news_title_label">Title</label>
-                    <input required name="news_title" type="text" class="form-control form-control-sm mt-2" id="news_title_label" placeholder="Busines crashes">
-                </li>
 
 
 
 
                 <li class="list-group-item">
                     <div class="row">
-                        <div class="col-md-4">
-                            <label for="news_title_label">Title</label>
-                            <select class="form-select">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+
+
+
+                        <div class="col-md-6">
+                            <label for="news_title_label">Category</label>
+                            <select class="form-select my-2">
+                                <?php foreach ($categories_list as $categories_list_item) : ?>
+                                    <?php $categories_list_item_info = json_decode($categories_list_item["c_data"]); ?>
+                                    <?php if ($categories_list_item_info->category_status) : ?>
+                                        <option value="<?= $categories_list_item_info->category_name->en; ?>"><?= $categories_list_item_info->category_name->en; ?></option>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
                             </select>
                         </div>
-                        <div class="col-md-4">
-                            <label for="news_title_label">Title</label>
-                            <select class="form-select">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
+
+
+
                     </div>
                 </li>
 
@@ -82,7 +90,7 @@
                     }
                 </style>
                 <li class="list-group-item d-flex flex-column">
-                    <label for="news_title_label">Title</label>
+                    <label for="news_title_label">Short Description</label>
 
                     <!-- Подключение библиотеки CKEditor 4 из CDN -->
                     <script src="//cdn.ckeditor.com/4.22.1/full/ckeditor.js"></script>
@@ -91,7 +99,18 @@
 
                     <script>
                         // Инициализация редактора CKEditor 4
-                        CKEDITOR.replace('ckeditor-editor');
+                        CKEDITOR.replace('ckeditor-editor', {
+                            // Другие настройки...
+                            customConfig: '',
+                            bodyClass: 'cke_editable cke_editable_themed cke_contents_ltr',
+                            contentsCss: ['body { background-color: transparent !important; }'],
+                            bodyId: 'editor',
+                            on: {
+                                instanceReady: function(ev) {
+                                    ev.editor.document.getBody().setStyle('background-color', 'transparent');
+                                }
+                            }
+                        });
                     </script>
                 </li>
 

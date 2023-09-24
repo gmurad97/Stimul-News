@@ -93,6 +93,20 @@
                         </div>
                     </div>
                 </li>
+                <script src="<?= base_url('public/admin/assets/js/jquery-3.7.1.min.js'); ?>"></script>
+                <link rel="stylesheet" href="<?= base_url('public/admin/assets/plugins/spectrum/css/spectrum.min.css'); ?>">
+                <script src="<?= base_url('public/admin/assets/plugins/spectrum/js/spectrum.min.js'); ?>"></script>
+                <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
+                    <label for="category_colorpicker">Background Color</label>
+                    <div class="form-check form-switch">
+                        <input required name="category_bg_color" type="text" value="#00AA00" class="form-control" id="category_colorpicker">
+                    </div>
+                </li>
+                <script>
+                    $('#category_colorpicker').spectrum({
+                        "showInput": true
+                    });
+                </script>
                 <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
                     <label for="category_status_label">Status</label>
                     <div class="form-check form-switch">

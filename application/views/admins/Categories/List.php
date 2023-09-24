@@ -32,6 +32,7 @@
                     <th>#</th>
                     <th>Image</th>
                     <th>Name</th>
+                    <th>BG Color</th>
                     <th>Status</th>
                     <th>Control</th>
                 </tr>
@@ -55,6 +56,9 @@
                                 <?= (is_null($category_data_item_data->category_name->en) || empty($category_data_item_data->category_name->en)) ? "NULL" : "<span class='fw-bold text-info'>[EN]</span> " . $category_data_item_data->category_name->en . "<br>"; ?>
                                 <?= (is_null($category_data_item_data->category_name->ru) || empty($category_data_item_data->category_name->ru)) ? "NULL" : "<span class='fw-bold text-info'>[RU]</span> " . $category_data_item_data->category_name->ru . "<br>"; ?>
                                 <?= (is_null($category_data_item_data->category_name->az) || empty($category_data_item_data->category_name->az)) ? "NULL" : "<span class='fw-bold text-info'>[AZ]</span> " . $category_data_item_data->category_name->az . "<br>"; ?>
+                            </td>
+                            <td>
+                                <div class="rounded-circle w-25px h-25px" style="background-color: <?= $category_data_item_data->category_bg_color; ?> ;"></div>
                             </td>
                             <td>
                                 <?php if ($category_data_item_data->category_status) : ?>
@@ -85,6 +89,7 @@
                     <th>#</th>
                     <th>Image</th>
                     <th>Name</th>
+                    <th>BG Color</th>
                     <th>Status</th>
                     <th>Control</th>
                 </tr>

@@ -582,10 +582,11 @@ class AdminController extends CI_Controller
 
     public function crud_categories_create_action()
     {
-        $category_en_name = $this->input->post("category_en_name", TRUE);
-        $category_ru_name = $this->input->post("category_ru_name", TRUE);
-        $category_az_name = $this->input->post("category_az_name", TRUE);
-        $category_status  = $this->input->post("category_status", TRUE);
+        $category_en_name  = $this->input->post("category_en_name", TRUE);
+        $category_ru_name  = $this->input->post("category_ru_name", TRUE);
+        $category_az_name  = $this->input->post("category_az_name", TRUE);
+        $category_bg_color = $this->input->post("category_bg_color", TRUE);
+        $category_status   = $this->input->post("category_status", TRUE);
 
         $categories_config["upload_path"]      = "./file_manager/categories/";
         $categories_config["allowed_types"]    = "ico|jpeg|jpg|png|svg|ICO|JPEG|JPG|PNG|SVG";
@@ -596,7 +597,7 @@ class AdminController extends CI_Controller
         $this->load->library("upload", $categories_config);
         $this->upload->initialize($categories_config);
 
-        if ($this->upload->do_upload("category_img") && !empty($category_en_name) && !empty($category_ru_name) && !empty($category_az_name)) {
+        if ($this->upload->do_upload("category_img") && !empty($category_en_name) && !empty($category_ru_name) && !empty($category_az_name) && !empty($category_bg_color)) {
             $category_img = $this->upload->data();
 
             $breadcrumb_img_config["image_library"] = "gd2";
@@ -617,6 +618,7 @@ class AdminController extends CI_Controller
                     "ru" => $category_ru_name,
                     "az" => $category_az_name,
                 ],
+                "category_bg_color" => $category_bg_color,
                 "category_status"  => str_contains($category_status, "on") ? TRUE : FALSE
             ];
 
@@ -669,10 +671,11 @@ class AdminController extends CI_Controller
         $old_category_data = json_decode($this->AdminModel->categories_admin_db_get($id)["c_data"], TRUE);
         $category_img_path = "./file_manager/partners/" . $old_category_data["category_img"];
 
-        $category_en_name = $this->input->post("category_en_name", TRUE);
-        $category_ru_name = $this->input->post("category_ru_name", TRUE);
-        $category_az_name = $this->input->post("category_az_name", TRUE);
-        $category_status  = $this->input->post("category_status", TRUE);
+        $category_en_name  = $this->input->post("category_en_name", TRUE);
+        $category_ru_name  = $this->input->post("category_ru_name", TRUE);
+        $category_az_name  = $this->input->post("category_az_name", TRUE);
+        $category_bg_color = $this->input->post("category_bg_color", TRUE);
+        $category_status   = $this->input->post("category_status", TRUE);
 
         $categories_config["upload_path"]      = "./file_manager/categories/";
         $categories_config["allowed_types"]    = "ico|jpeg|jpg|png|svg|ICO|JPEG|JPG|PNG|SVG";
@@ -683,7 +686,7 @@ class AdminController extends CI_Controller
         $this->load->library("upload", $categories_config);
         $this->upload->initialize($categories_config);
 
-        if ($this->upload->do_upload("category_img") && !empty($category_en_name) && !empty($category_ru_name) && !empty($category_az_name)) {
+        if ($this->upload->do_upload("category_img") && !empty($category_en_name) && !empty($category_ru_name) && !empty($category_az_name) && !empty($category_bg_color)) {
             if (!is_dir($category_img_path) && file_exists($category_img_path)) {
                 unlink($category_img_path);
             }
@@ -708,6 +711,7 @@ class AdminController extends CI_Controller
                     "ru" => $category_ru_name,
                     "az" => $category_az_name,
                 ],
+                "category_bg_color" => $category_bg_color,
                 "category_status"  => str_contains($category_status, "on") ? TRUE : FALSE
             ];
 
@@ -728,7 +732,7 @@ class AdminController extends CI_Controller
             );
 
             redirect(base_url("admin/categories-list"));
-        } else if (!empty($category_en_name) && !empty($category_ru_name) && !empty($category_az_name)) {
+        } else if (!empty($category_en_name) && !empty($category_ru_name) && !empty($category_az_name) && !empty($category_bg_color)) {
             $json_data_decoded = [
                 "category_img"     => $old_category_data["category_img"],
                 "category_name"    => [
@@ -736,6 +740,7 @@ class AdminController extends CI_Controller
                     "ru" => $category_ru_name,
                     "az" => $category_az_name,
                 ],
+                "category_bg_color" => $category_bg_color,
                 "category_status"  => str_contains($category_status, "on") ? TRUE : FALSE
             ];
 
@@ -802,6 +807,7 @@ class AdminController extends CI_Controller
     public function crud_news_create()
     {
         $data["admin_page_name"] = "News Create";
+        $data["categories_list"] = $this->AdminModel->categories_admin_db_get_results();
         $this->load->view("admins/News/Create", $data);
     }
 
