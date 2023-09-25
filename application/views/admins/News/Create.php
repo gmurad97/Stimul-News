@@ -29,6 +29,10 @@
         <form action="<?= base_url('admin/news-create-action'); ?>" method="POST" enctype="multipart/form-data" id="news_form">
             <ul class="list-group list-group-flush mb-3">
 
+                <li class="list-group-item">
+                    <label for="news_title_label">Title</label>
+                    <input required name="news_title" type="text" class="form-control form-control-sm my-2" id="news_title_label" placeholder="News Title">
+                </li>
 
                 <li class="list-group-item">
                     <div class="row">

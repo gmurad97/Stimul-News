@@ -10,7 +10,21 @@ class AdminController extends CI_Controller
     }
 
     /*=====LOCAL ADMIN CONTROLLER FUNCTION - START=====*/
-    public function AlertFlashData(string $alertType, string $alertName, string $alertHeadMessage, string $alertShortMessage, string $alertLongMessage): void
+    private function SendEmail(array $eTo, string $eSubject, string $eMessage): bool
+    {
+        $eFrom = "stimul.news@flash.az";
+        $eFromName = "STIMUL NEWS";
+
+        $this->email->clear();
+        $this->email->from($eFrom, $eFromName);
+        $this->email->to($eTo);
+        $this->email->subject($eSubject);
+        $this->email->message($eMessage);
+
+        return $this->email->send() ? true : false;
+    }
+
+    private function AlertFlashData(string $alertType, string $alertName, string $alertHeadMessage, string $alertShortMessage, string $alertLongMessage): void
     {
         $alert_type     = strtolower($alertType);
         $alert_bg_color = "rgba(0, 23, 51, 0.32)";
@@ -806,6 +820,17 @@ class AdminController extends CI_Controller
 
     public function crud_news_create()
     {
+
+
+
+
+
+
+
+
+
+
+        die();
         $data["admin_page_name"] = "News Create";
         $data["categories_list"] = $this->AdminModel->categories_admin_db_get_results();
         $this->load->view("admins/News/Create", $data);
