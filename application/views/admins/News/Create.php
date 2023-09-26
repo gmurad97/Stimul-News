@@ -5,6 +5,10 @@
     <div class="card-header fw-bold d-flex flex-row justify-content-between align-items-center">
         <div class="h5 text-success m-0">NEWS CREATE</div>
         <div>
+            <a href="<?= base_url('admin/news-list'); ?>" class="btn btn-outline-info">
+                <i class="bi bi-list-nested me-1"></i>
+                News List
+            </a>
             <button type="submit" form="news_form" class="btn btn-outline-success">
                 <i class="bi bi-plus-circle me-1"></i>
                 Create
@@ -28,17 +32,19 @@
         <?php endif; ?>
         <form action="<?= base_url('admin/news-create-action'); ?>" method="POST" enctype="multipart/form-data" id="news_form">
             <ul class="list-group list-group-flush mb-3">
-
-                <li class="list-group-item">
-                    <label for="news_title_label">Title</label>
-                    <input required name="news_title" type="text" class="form-control form-control-sm my-2" id="news_title_label" placeholder="News Title">
-                </li>
-
+                <h1 class="h5 text-success mb-3">Base Settings</h1>
                 <li class="list-group-item">
                     <div class="row">
-                        <div class="col-md-6">
-                            <label for="news_title_label">Category</label>
-                            <select class="form-select form-select-sm my-2">
+                        <div class="col-md-8">
+                            <label for="news_title_label" class="d-flex flex-row justify-content-start align-items-center">
+                                Title
+                                <span class="badge bg-dark ms-1">Max Length - 40 chars</span>
+                            </label>
+                            <input required name="news_title" type="text" class="form-control form-control-sm my-2" id="news_title_label" maxlength="40" placeholder="News Title">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="news_category_label">Category</label>
+                            <select required name="news_category" class="form-select form-select-sm my-2" id="news_category_label">
                                 <?php foreach ($categories_list as $categories_list_item) : ?>
                                     <?php $categories_list_item_info = json_decode($categories_list_item["c_data"]); ?>
                                     <?php if ($categories_list_item_info->category_status) : ?>
@@ -47,92 +53,51 @@
                                 <?php endforeach; ?>
                             </select>
                         </div>
-                        <div class="col-md-6">
-                            <label for="news_title_label">Title</label>
-                            <input required name="news_title" type="text" class="form-control form-control-sm my-2" id="news_title_label" placeholder="News Title">
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row d-flex flex-row justify-content-between align-items-center">
+                        <div class="col-md-3">
+                            <label for="news_preview_img_label">Preview</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input required name="news_preview_img" type="file" class="form-control form-control-sm my-2" id="news_preview_img_label">
                         </div>
                     </div>
                 </li>
-
-
                 <li class="list-group-item">
-                    <label for="news_short_description_label">Short Description</label>
-                    <input required name="news_short_description" type="text" class="form-control form-control-sm my-2" id="news_short_description_label" placeholder="Short Description" maxlength="118">
+                    <label for="news_short_description_label">
+                        Short Description
+                        <span class="badge bg-dark ms-1">Max Length - 118 chars</span>
+                    </label>
+                    <input required name="news_short_description" type="text" class="form-control form-control-sm my-2" id="news_short_description_label" maxlength="118" placeholder="Short Description">
                 </li>
-
-
-
-
-
-
-                <li class="list-group-item">
-                    <div class="row">
-
-
-
-                        <div class="col-md-6">
-                            <label for="news_title_label">Category</label>
-                            <select class="form-select my-2">
-                                <?php foreach ($categories_list as $categories_list_item) : ?>
-                                    <?php $categories_list_item_info = json_decode($categories_list_item["c_data"]); ?>
-                                    <?php if ($categories_list_item_info->category_status) : ?>
-                                        <option value="<?= $categories_list_item_info->category_name->en; ?>"><?= $categories_list_item_info->category_name->en; ?></option>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            </select>
-                        </div>
-
-
-
-                    </div>
-                </li>
-
-
-                <style>
-                    .cke_contents {
-                        background-color: rgba(255, 0, 255, 0.5);
-                    }
-                </style>
                 <li class="list-group-item d-flex flex-column">
-                    <label for="news_title_label">Short Description</label>
-
-                    <!-- Подключение библиотеки CKEditor 4 из CDN -->
-                    <script src="//cdn.ckeditor.com/4.22.1/full/ckeditor.js"></script>
-                    <!-- Элемент, который будет заменен редактором CKEditor 4 -->
-                    <textarea id="ckeditor-editor"></textarea>
-
+                    <label>Full Description</label>
+                    <script src="<?= base_url('public/admin/assets/plugins/ckeditor/ckeditor.js'); ?>"></script>
+                    <textarea required name="news_full_description" id="news-editor"></textarea>
                     <script>
-                        // Инициализация редактора CKEditor 4
-                        CKEDITOR.replace('ckeditor-editor', {
-                            // Другие настройки...
-                            customConfig: '',
-                            bodyClass: 'cke_editable cke_editable_themed cke_contents_ltr',
-                            contentsCss: ['body { background-color: transparent !important; }'],
-                            bodyId: 'editor',
+                        CKEDITOR.replace("news-editor", {
                             on: {
-                                instanceReady: function(ev) {
-                                    ev.editor.document.getBody().setStyle('background-color', 'transparent');
+                                instanceReady: function(e) {
+                                    let editorElement = e.editor.container.$;
+                                    editorElement.style.marginTop = "0.5rem";
+                                    editorElement.style.marginBottom = "0.5rem";
+                                    editorElement.style.boxShadow = "none";
                                 }
                             }
                         });
                     </script>
                 </li>
-
-
-
-
-
-
-
+                <h1 class="h5 text-success mt-3">Other Settings</h1>
+                <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
+                    <label for="news_status_label">Status</label>
+                    <div class="form-check form-switch">
+                        <input name="news_status" type="checkbox" class="form-check-input" id="news_status_label">
+                    </div>
+                </li>
             </ul>
-
-
-
         </form>
-
-
-
-
     </div>
     <div class="card-arrow">
         <div class="card-arrow-top-left"></div>

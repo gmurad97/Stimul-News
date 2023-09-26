@@ -56,6 +56,17 @@ class AdminController extends CI_Controller
             ]
         );
     }
+
+    private function RandomUID(int $uidLength): string
+    {
+        $uid_chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        $uid_chars_shuffled = str_shuffle($uid_chars);
+        $uid_str = "";
+        for ($x = 0; $x < $uidLength; $x++) {
+            $uid_str .= $uid_chars_shuffled[rand(0, strlen($uid_chars_shuffled) - 1)];
+        }
+        return $uid_str;
+    }
     /*=====LOCAL ADMIN CONTROLLER FUNCTION - ENDED=====*/
 
 
@@ -817,43 +828,70 @@ class AdminController extends CI_Controller
 
 
     /*=====NEWS CRUD - START=====*/
-
     public function crud_news_create()
     {
-
-
-
-
-
-
-
-
-
-
-        die();
         $data["admin_page_name"] = "News Create";
         $data["categories_list"] = $this->AdminModel->categories_admin_db_get_results();
         $this->load->view("admins/News/Create", $data);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function crud_news_create_action()
     {
+        print_r($this->RandomUID(16));
+        die();
+        $categories_list_data = $this->AdminModel->categories_admin_db_get_results();
+        $categories_list = array_map(function ($category_item) {
+            return json_decode($category_item["c_data"], TRUE)["category_name"]["en"];
+        }, $categories_list_data);
+
+        $news_title              = substr($this->input->post("news_title", TRUE), 0, 40);
+        $news_category           = $this->input->post("news_category", TRUE);
+        $news_short_description  = substr($this->input->post("news_short_description", TRUE), 0, 118);
+        $news_full_description   = $this->input->post("news_full_description", FALSE);
+        $news_status             = $this->input->post("news_status", TRUE);
+
+        if (!in_array($news_category, $categories_list)) {
+            $this->AlertFlashData(
+                "danger",
+                "news_alert",
+                "Create",
+                "Danger!",
+                "Unknown error."
+            );
+            redirect(base_url("admin/news-create"));
+        }
+
+
+
+        die();
+
+        $news_config["upload_path"]      = "./file_manager/news/";
+        $news_config["allowed_types"]    = "ico|jpeg|jpg|png|svg|ICO|JPEG|JPG|PNG|SVG";
+        $news_config["file_ext_tolower"] = TRUE;
+        $news_config["remove_spaces"]    = TRUE;
+        $news_config["encrypt_name"]     = TRUE;
+
+        $this->load->library("upload", $news_category);
+        $this->upload->initialize($categories_config);
+
+        if ($this->upload->do_upload("news_preview_img") && !empty($news_title) && !empty($news_category) && !empty($news_short_description) && !empty($news_full_description)) {
+            $news_preview = $this->upload->data();
+
+            $breadcrumb_img_config["image_library"] = "gd2";
+            $breadcrumb_img_config["source_image"] = $categories_config["upload_path"] . $category_img["file_name"];
+            $breadcrumb_img_config["maintain_ratio"] = FALSE;
+            $breadcrumb_img_config["width"] = 1920;
+            $breadcrumb_img_config["height"] = 1080;
+
+            $this->load->library("image_lib", $breadcrumb_img_config);
+            $this->load->initialize($breadcrumb_img_config);
+
+            $this->image_lib->resize();
+        }
     }
+
+
+
 
 
 
@@ -881,6 +919,7 @@ class AdminController extends CI_Controller
 
     public function crud_news_edit($id)
     {
+        $this->load->view("admins/News/Edit");
     }
 
 
