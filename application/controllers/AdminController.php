@@ -837,8 +837,6 @@ class AdminController extends CI_Controller
 
     public function crud_news_create_action()
     {
-        print_r($this->RandomUID(16));
-        die();
         $categories_list_data = $this->AdminModel->categories_admin_db_get_results();
         $categories_list = array_map(function ($category_item) {
             return json_decode($category_item["c_data"], TRUE)["category_name"]["en"];
@@ -861,32 +859,61 @@ class AdminController extends CI_Controller
             redirect(base_url("admin/news-create"));
         }
 
-
-
-        die();
+        $news_full_description xss stopper func
 
         $news_config["upload_path"]      = "./file_manager/news/";
         $news_config["allowed_types"]    = "ico|jpeg|jpg|png|svg|ICO|JPEG|JPG|PNG|SVG";
         $news_config["file_ext_tolower"] = TRUE;
         $news_config["remove_spaces"]    = TRUE;
         $news_config["encrypt_name"]     = TRUE;
+        $this->load->library("upload", $news_config);
+        $this->upload->initialize($news_config);
 
-        $this->load->library("upload", $news_category);
-        $this->upload->initialize($categories_config);
 
         if ($this->upload->do_upload("news_preview_img") && !empty($news_title) && !empty($news_category) && !empty($news_short_description) && !empty($news_full_description)) {
             $news_preview = $this->upload->data();
 
-            $breadcrumb_img_config["image_library"] = "gd2";
-            $breadcrumb_img_config["source_image"] = $categories_config["upload_path"] . $category_img["file_name"];
-            $breadcrumb_img_config["maintain_ratio"] = FALSE;
-            $breadcrumb_img_config["width"] = 1920;
-            $breadcrumb_img_config["height"] = 1080;
+            $preview_img_config["image_library"] = "gd2";
+            $preview_img_config["source_image"] = $news_config["upload_path"] . $news_preview["file_name"];
+            $preview_img_config["maintain_ratio"] = FALSE;
+            $preview_img_config["width"] = 1920;
+            $preview_img_config["height"] = 1080;
 
-            $this->load->library("image_lib", $breadcrumb_img_config);
-            $this->load->initialize($breadcrumb_img_config);
+            $this->load->library("image_lib", $preview_img_config);
+            $this->load->initialize($preview_img_config);
 
             $this->image_lib->resize();
+
+            $json_data_decoded = [
+                "news_title" => $news_title,
+                "news_category" => $news_category,
+                "news" => [
+                    "short" => $news_short_description,
+                    "full" => $news_full_description
+                ],
+                "news_created_date" => date("d.m.Y"),
+                "news_created_time" => date("H:i"),
+                "news_status" => str_contains($news_status, "on") ? TRUE : FALSE
+            ];
+
+            $json_data_encoded = json_encode($json_data_decoded);
+
+            $data = [
+                "n_data" => $json_data_encoded
+            ];
+
+            $this->AdminModel->print_r($json_data_decoded);
+
+            redirect(base_url("admin/news-list"));
+        } else {
+            $this->AlertFlashData(
+                "warning",
+                "news_alert",
+                "Create",
+                "Warning!",
+                "Please, fill in all the fields."
+            );
+            redirect(base_url("admin/news-create"));
         }
     }
 
@@ -906,6 +933,8 @@ class AdminController extends CI_Controller
 
     public function crud_news_list()
     {
+        $data["news_data"] = $this->AdminModel->news_admin_db_get_results();
+        $this->load->view("admins/News/List", $data);
     }
 
 

@@ -75,7 +75,7 @@
                 <li class="list-group-item d-flex flex-column">
                     <label>Full Description</label>
                     <script src="<?= base_url('public/admin/assets/plugins/ckeditor/ckeditor.js'); ?>"></script>
-                    <textarea required name="news_full_description" id="news-editor"></textarea>
+                    <textarea required name="news_full_description" id="news-editor">9</textarea>
                     <script>
                         CKEDITOR.replace("news-editor", {
                             on: {

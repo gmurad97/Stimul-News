@@ -129,13 +129,6 @@ class AdminModel extends CI_Model
     }
     /*=====CATEGORIES MODEL - ENDED=====*/
 
-
-
-
-
-
-
-
     /*=====NEWS MODEL - START=====*/
     private const NEWS_TABLE_NAME = "news";
     private const NEWS_ID_NAME = "n_uid";

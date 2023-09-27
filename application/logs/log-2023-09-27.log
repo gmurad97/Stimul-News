@@ -1,0 +1,3 @@
+ERROR - 2023-09-27 01:33:33 --> Severity: Warning --> mkdir(): No such file or directory C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 863
+ERROR - 2023-09-27 01:33:33 --> The upload path does not appear to be valid.
+ERROR - 2023-09-27 01:34:14 --> The upload path does not appear to be valid.
