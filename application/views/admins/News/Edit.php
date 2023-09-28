@@ -9,9 +9,9 @@
                 <i class="bi bi-list-nested me-1"></i>
                 News List
             </a>
-            <button type="submit" form="news_form" class="btn btn-outline-success">
-                <i class="bi bi-plus-circle me-1"></i>
-                Create
+            <button type="submit" form="news_form" class="btn btn-outline-warning">
+                <i class="bi bi-pencil-square me-1"></i>
+                Edit
             </button>
         </div>
     </div>
@@ -30,11 +30,21 @@
                 </p>
             </div>
         <?php endif; ?>
-        <form action="<?= base_url('admin/news-create-action'); ?>" method="POST" enctype="multipart/form-data" id="news_form">
+        <?php
+        $news_id = $news_data["n_uid"];
+        $news_info = json_decode($news_data["n_data"]);
+        ?>
+        <form action="<?= base_url('admin/news-edit-action/') . $news_id; ?>" method="POST" enctype="multipart/form-data" id="news_form">
             <ul class="list-group list-group-flush mb-3">
-
-
-
+                <li class="list-group-item mb-3">
+                    <div class="d-flex flex-row justify-content-between align-items-center">
+                        <label class="fw-bold text-warning">Current Preview</label>
+                        <a href="<?= base_url('file_manager/news/') . $news_info->news_preview; ?>" class="btn btn-outline-yellow" data-lity>
+                            Show Image
+                            <span class="img" style="background-image: url(<?= base_url('file_manager/news/') . $news_info->news_preview; ?>)"></span>
+                        </a>
+                    </div>
+                </li>
                 <h1 class="h5 text-warning mb-3">Base Text</h1>
                 <ul class="nav nav-tabs nav-tabs-v2 ps-4">
                     <li class="nav-item me-3">
@@ -53,32 +63,31 @@
                         </a>
                     </li>
                 </ul>
-
                 <div class="tab-content p-4">
                     <div class="tab-pane active" id="news_menu_en">
                         <div class="row mb-2">
                             <div class="col-md-12">
                                 <label for="news_title_label" class="d-flex flex-row justify-content-start align-items-center">
                                     Title
-                                    <span class="badge bg-dark ms-1">Max Length - 40</span>
+                                    <span class="badge bg-dark ms-1">Max Length - 50</span>
                                 </label>
-                                <input required name="news_title_en" type="text" class="form-control form-control-sm my-2" id="news_title_label" maxlength="40" placeholder="News Title">
+                                <input required name="news_title_en" type="text" class="form-control form-control-sm my-2" id="news_title_label" maxlength="50" value="<?= $news_info->news_title->en; ?>" placeholder="News Title">
                             </div>
                         </div>
                         <div class="row mb-2">
                             <div class="col-md-12">
                                 <label for="news_short_description_label">
                                     Short Description
-                                    <span class="badge bg-dark ms-1">Max Length - 118</span>
+                                    <span class="badge bg-dark ms-1">Max Length - 120</span>
                                 </label>
-                                <input required name="news_short_description_en" type="text" class="form-control form-control-sm my-2" id="news_short_description_label" maxlength="118" placeholder="Short Description">
+                                <input required name="news_short_description_en" type="text" class="form-control form-control-sm my-2" id="news_short_description_label" maxlength="120" value="<?= $news_info->news_short->en; ?>" placeholder="Short Description">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <label>Full Description</label>
                                 <script src="<?= base_url('public/admin/assets/plugins/ckeditor/ckeditor.js'); ?>"></script>
-                                <textarea required name="news_full_description_en" id="news-editor-en"></textarea>
+                                <textarea required name="news_full_description_en" id="news-editor-en"><?= htmlspecialchars($news_info->news_full->en); ?></textarea>
                                 <script>
                                     CKEDITOR.replace("news-editor-en", {
                                         on: {
@@ -99,25 +108,25 @@
                             <div class="col-md-12">
                                 <label for="news_title_label" class="d-flex flex-row justify-content-start align-items-center">
                                     Title
-                                    <span class="badge bg-dark ms-1">Max Length - 40</span>
+                                    <span class="badge bg-dark ms-1">Max Length - 50</span>
                                 </label>
-                                <input required name="news_title_ru" type="text" class="form-control form-control-sm my-2" id="news_title_label" maxlength="40" placeholder="News Title">
+                                <input required name="news_title_ru" type="text" class="form-control form-control-sm my-2" id="news_title_label" maxlength="50" value="<?= $news_info->news_title->ru; ?>" placeholder="News Title">
                             </div>
                         </div>
                         <div class="row mb-2">
                             <div class="col-md-12">
                                 <label for="news_short_description_label">
                                     Short Description
-                                    <span class="badge bg-dark ms-1">Max Length - 118</span>
+                                    <span class="badge bg-dark ms-1">Max Length - 120</span>
                                 </label>
-                                <input required name="news_short_description_ru" type="text" class="form-control form-control-sm my-2" id="news_short_description_label" maxlength="118" placeholder="Short Description">
+                                <input required name="news_short_description_ru" type="text" class="form-control form-control-sm my-2" id="news_short_description_label" maxlength="120" value="<?= $news_info->news_short->ru; ?>" placeholder="Short Description">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <label>Full Description</label>
                                 <script src="<?= base_url('public/admin/assets/plugins/ckeditor/ckeditor.js'); ?>"></script>
-                                <textarea required name="news_full_description_ru" id="news-editor-ru"></textarea>
+                                <textarea required name="news_full_description_ru" id="news-editor-ru"><?= htmlspecialchars($news_info->news_full->ru); ?></textarea>
                                 <script>
                                     CKEDITOR.replace("news-editor-ru", {
                                         on: {
@@ -138,25 +147,25 @@
                             <div class="col-md-12">
                                 <label for="news_title_label" class="d-flex flex-row justify-content-start align-items-center">
                                     Title
-                                    <span class="badge bg-dark ms-1">Max Length - 40</span>
+                                    <span class="badge bg-dark ms-1">Max Length - 50</span>
                                 </label>
-                                <input required name="news_title_az" type="text" class="form-control form-control-sm my-2" id="news_title_label" maxlength="40" placeholder="News Title">
+                                <input required name="news_title_az" type="text" class="form-control form-control-sm my-2" id="news_title_label" maxlength="50" value="<?= $news_info->news_title->az; ?>" placeholder="News Title">
                             </div>
                         </div>
                         <div class="row mb-2">
                             <div class="col-md-12">
                                 <label for="news_short_description_label">
                                     Short Description
-                                    <span class="badge bg-dark ms-1">Max Length - 118</span>
+                                    <span class="badge bg-dark ms-1">Max Length - 120</span>
                                 </label>
-                                <input required name="news_short_description_az" type="text" class="form-control form-control-sm my-2" id="news_short_description_label" maxlength="118" placeholder="Short Description">
+                                <input required name="news_short_description_az" type="text" class="form-control form-control-sm my-2" id="news_short_description_label" maxlength="120" value="<?= $news_info->news_short->az; ?>" placeholder="Short Description">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <label>Full Description</label>
                                 <script src="<?= base_url('public/admin/assets/plugins/ckeditor/ckeditor.js'); ?>"></script>
-                                <textarea required name="news_full_description_az" id="news-editor-az"></textarea>
+                                <textarea required name="news_full_description_az" id="news-editor-az"><?= htmlspecialchars($news_info->news_full->az); ?></textarea>
                                 <script>
                                     CKEDITOR.replace("news-editor-az", {
                                         on: {
@@ -182,7 +191,7 @@
                                 <?php foreach ($categories_list as $categories_list_item) : ?>
                                     <?php $categories_list_item_info = json_decode($categories_list_item["c_data"]); ?>
                                     <?php if ($categories_list_item_info->category_status) : ?>
-                                        <option value="<?= $categories_list_item_info->category_name->en; ?>"><?= $categories_list_item_info->category_name->en; ?></option>
+                                        <option value="<?= $categories_list_item_info->category_name->en; ?>" <?= $news_info->news_category == $categories_list_item_info->category_name->en ? "selected" : ""; ?>><?= $categories_list_item_info->category_name->en; ?></option>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
                             </select>
@@ -192,14 +201,14 @@
                                 Preview
                                 <span class="badge bg-dark ms-1">1920x1080</span>
                             </label>
-                            <input required name="news_preview_img" type="file" class="form-control form-control-sm my-2" id="news_preview_img_label">
+                            <input name="news_preview_img" type="file" class="form-control form-control-sm my-2" id="news_preview_img_label">
                         </div>
                     </div>
                 </li>
                 <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
                     <label for="news_status_label">Status</label>
                     <div class="form-check form-switch">
-                        <input name="news_status" type="checkbox" class="form-check-input" id="news_status_label">
+                        <input name="news_status" type="checkbox" class="form-check-input" id="news_status_label" <?= $news_info->news_status ? "checked" : "" ?>>
                     </div>
                 </li>
             </ul>

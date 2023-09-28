@@ -56,18 +56,18 @@
                             <div class="col-md-12">
                                 <label for="news_title_label" class="d-flex flex-row justify-content-start align-items-center">
                                     Title
-                                    <span class="badge bg-dark ms-1">Max Length - 40</span>
+                                    <span class="badge bg-dark ms-1">Max Length - 50</span>
                                 </label>
-                                <input required name="news_title_en" type="text" class="form-control form-control-sm my-2" id="news_title_label" maxlength="40" placeholder="News Title">
+                                <input required name="news_title_en" type="text" class="form-control form-control-sm my-2" id="news_title_label" maxlength="50" placeholder="News Title">
                             </div>
                         </div>
                         <div class="row mb-2">
                             <div class="col-md-12">
                                 <label for="news_short_description_label">
                                     Short Description
-                                    <span class="badge bg-dark ms-1">Max Length - 118</span>
+                                    <span class="badge bg-dark ms-1">Max Length - 120</span>
                                 </label>
-                                <input required name="news_short_description_en" type="text" class="form-control form-control-sm my-2" id="news_short_description_label" maxlength="118" placeholder="Short Description">
+                                <input required name="news_short_description_en" type="text" class="form-control form-control-sm my-2" id="news_short_description_label" maxlength="120" placeholder="Short Description">
                             </div>
                         </div>
                         <div class="row">
@@ -95,18 +95,18 @@
                             <div class="col-md-12">
                                 <label for="news_title_label" class="d-flex flex-row justify-content-start align-items-center">
                                     Title
-                                    <span class="badge bg-dark ms-1">Max Length - 40</span>
+                                    <span class="badge bg-dark ms-1">Max Length - 50</span>
                                 </label>
-                                <input required name="news_title_ru" type="text" class="form-control form-control-sm my-2" id="news_title_label" maxlength="40" placeholder="News Title">
+                                <input required name="news_title_ru" type="text" class="form-control form-control-sm my-2" id="news_title_label" maxlength="50" placeholder="News Title">
                             </div>
                         </div>
                         <div class="row mb-2">
                             <div class="col-md-12">
                                 <label for="news_short_description_label">
                                     Short Description
-                                    <span class="badge bg-dark ms-1">Max Length - 118</span>
+                                    <span class="badge bg-dark ms-1">Max Length - 120</span>
                                 </label>
-                                <input required name="news_short_description_ru" type="text" class="form-control form-control-sm my-2" id="news_short_description_label" maxlength="118" placeholder="Short Description">
+                                <input required name="news_short_description_ru" type="text" class="form-control form-control-sm my-2" id="news_short_description_label" maxlength="120" placeholder="Short Description">
                             </div>
                         </div>
                         <div class="row">
@@ -134,18 +134,18 @@
                             <div class="col-md-12">
                                 <label for="news_title_label" class="d-flex flex-row justify-content-start align-items-center">
                                     Title
-                                    <span class="badge bg-dark ms-1">Max Length - 40</span>
+                                    <span class="badge bg-dark ms-1">Max Length - 50</span>
                                 </label>
-                                <input required name="news_title_az" type="text" class="form-control form-control-sm my-2" id="news_title_label" maxlength="40" placeholder="News Title">
+                                <input required name="news_title_az" type="text" class="form-control form-control-sm my-2" id="news_title_label" maxlength="50" placeholder="News Title">
                             </div>
                         </div>
                         <div class="row mb-2">
                             <div class="col-md-12">
                                 <label for="news_short_description_label">
                                     Short Description
-                                    <span class="badge bg-dark ms-1">Max Length - 118</span>
+                                    <span class="badge bg-dark ms-1">Max Length - 120</span>
                                 </label>
-                                <input required name="news_short_description_az" type="text" class="form-control form-control-sm my-2" id="news_short_description_label" maxlength="118" placeholder="Short Description">
+                                <input required name="news_short_description_az" type="text" class="form-control form-control-sm my-2" id="news_short_description_label" maxlength="120" placeholder="Short Description">
                             </div>
                         </div>
                         <div class="row">

@@ -55,15 +55,9 @@
                             <td>
                                 <?= (is_null($news_data_item_data->news_title->en) || empty($news_data_item_data->news_title->en)) ? "NULL" : $news_data_item_data->news_title->en; ?>
                             </td>
-
-
-
                             <td>
                                 <?= $news_data_item_data->news_category; ?>
                             </td>
-
-
-
                             <td>
                                 <?php if ($news_data_item_data->news_status) : ?>
                                     <span class="badge bg-success p-2 w-75px text-uppercase">Active</span>
@@ -79,7 +73,7 @@
                                     <a href="<?= base_url('admin/news-edit/') . $news_data_item_id; ?>" class="nav-link theme-warning p-0 mx-3">
                                         <i class="bi bi-pencil-square fs-5"></i>
                                     </a>
-                                    <a href="javascript:void(0);" class="nav-link theme-danger p-0" data-link="<?= base_url('admin/categories-delete/') . $news_data_item_id; ?>" data-bs-toggle="modal" data-bs-target="#news_modal_delete">
+                                    <a href="javascript:void(0);" class="nav-link theme-danger p-0" data-link="<?= base_url('admin/news-delete/') . $news_data_item_id; ?>" data-bs-toggle="modal" data-bs-target="#news_modal_delete">
                                         <i class=" bi bi-trash fs-5"></i>
                                     </a>
                                 </nav>

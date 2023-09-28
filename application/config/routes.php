@@ -53,14 +53,14 @@ $route["admin/categories-edit-action/(.*)"]   = "AdminController/crud_categories
 $route["admin/categories-delete/(.*)"]        = "AdminController/crud_categories_delete/$1";
 /*=====CATEGORIES CRUD - ENDED=====*/
 
-/*=====CATEGORIES CRUD - START=====*/
+/*=====NEWS CRUD - START=====*/
 $route["admin/news-create"]                   = "AdminController/crud_news_create";
 $route["admin/news-create-action"]            = "AdminController/crud_news_create_action";
 $route["admin/news-list"]                     = "AdminController/crud_news_list";
 $route["admin/news-edit/(.*)"]                = "AdminController/crud_news_edit/$1";
 $route["admin/news-edit-action/(.*)"]         = "AdminController/crud_news_edit_action/$1";
 $route["admin/news-delete/(.*)"]              = "AdminController/crud_news_delete/$1";
-/*=====CATEGORIES CRUD - ENDED=====*/
+/*=====NEWS CRUD - ENDED=====*/
 
 
 /*=====ADMIN CONTROLLER - ENDED=====*/

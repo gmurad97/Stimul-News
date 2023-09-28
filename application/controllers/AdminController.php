@@ -927,6 +927,14 @@ class AdminController extends CI_Controller
 
             $this->AdminModel->news_admin_db_insert($data);
 
+            $this->AlertFlashData(
+                "success",
+                "news_alert",
+                "Create",
+                "Success!",
+                "The news has been successfully created."
+            );
+
             redirect(base_url("admin/news-list"));
         } else {
             $this->AlertFlashData(
@@ -950,6 +958,7 @@ class AdminController extends CI_Controller
     public function crud_news_edit($id)
     {
         $data["admin_page_name"] = "News Edit";
+        $data["categories_list"] = $this->AdminModel->categories_admin_db_get_results();
         $data["news_data"] = $this->AdminModel->news_admin_db_get($id);
         $this->load->view("admins/News/Edit", $data);
     }
@@ -959,18 +968,17 @@ class AdminController extends CI_Controller
         $old_news_data = json_decode($this->AdminModel->news_admin_db_get($id)["n_data"], TRUE);
         $news_img_path = "./file_manager/news/" . $old_news_data["news_preview"];
 
-
         $categories_list_data = $this->AdminModel->categories_admin_db_get_results();
         $categories_list = array_map(function ($category_item) {
             return json_decode($category_item["c_data"], TRUE)["category_name"]["en"];
         }, $categories_list_data);
 
-        $news_title_en             = substr($this->input->post("news_title_en", TRUE), 0, 40);
-        $news_title_ru             = substr($this->input->post("news_title_ru", TRUE), 0, 40);
-        $news_title_az             = substr($this->input->post("news_title_az", TRUE), 0, 40);
-        $news_short_description_en = substr($this->input->post("news_short_description_en", TRUE), 0, 118);
-        $news_short_description_ru = substr($this->input->post("news_short_description_ru", TRUE), 0, 118);
-        $news_short_description_az = substr($this->input->post("news_short_description_az", TRUE), 0, 118);
+        $news_title_en             = substr($this->input->post("news_title_en", TRUE), 0, 50);
+        $news_title_ru             = substr($this->input->post("news_title_ru", TRUE), 0, 50);
+        $news_title_az             = substr($this->input->post("news_title_az", TRUE), 0, 50);
+        $news_short_description_en = substr($this->input->post("news_short_description_en", TRUE), 0, 120);
+        $news_short_description_ru = substr($this->input->post("news_short_description_ru", TRUE), 0, 120);
+        $news_short_description_az = substr($this->input->post("news_short_description_az", TRUE), 0, 120);
         $news_full_description_en  = $this->input->post("news_full_description_en", FALSE);
         $news_full_description_ru  = $this->input->post("news_full_description_ru", FALSE);
         $news_full_description_az  = $this->input->post("news_full_description_az", FALSE);
@@ -995,7 +1003,6 @@ class AdminController extends CI_Controller
         $news_config["encrypt_name"]     = TRUE;
         $this->load->library("upload", $news_config);
         $this->upload->initialize($news_config);
-
 
         if (
             $this->upload->do_upload("news_preview_img")
@@ -1060,6 +1067,14 @@ class AdminController extends CI_Controller
 
             $this->AdminModel->news_admin_db_update($id, $data);
 
+            $this->AlertFlashData(
+                "success",
+                "news_alert",
+                "Edit",
+                "Success!",
+                "The news has been successfully edited."
+            );
+
             redirect(base_url("admin/news-list"));
         } else if (
             !empty($news_title_en)
@@ -1106,6 +1121,14 @@ class AdminController extends CI_Controller
 
             $this->AdminModel->news_admin_db_update($id, $data);
 
+            $this->AlertFlashData(
+                "success",
+                "news_alert",
+                "Edit",
+                "Success!",
+                "The news has been successfully edited."
+            );
+
             redirect(base_url("admin/news-list"));
         } else {
             $this->AlertFlashData(
@@ -1115,7 +1138,7 @@ class AdminController extends CI_Controller
                 "Warning!",
                 "Please, fill in all the fields."
             );
-            redirect(base_url("admin/news-create"));
+            redirect($_SERVER["HTTP_REFERER"]);
         }
     }
 
