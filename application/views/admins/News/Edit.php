@@ -5,6 +5,10 @@
     <div class="card-header fw-bold d-flex flex-row justify-content-between align-items-center">
         <div class="h5 text-warning m-0">NEWS EDIT</div>
         <div>
+            <a href="<?= base_url('admin/news-list'); ?>" class="btn btn-outline-info">
+                <i class="bi bi-list-nested me-1"></i>
+                News List
+            </a>
             <button type="submit" form="news_form" class="btn btn-outline-success">
                 <i class="bi bi-plus-circle me-1"></i>
                 Create
@@ -28,19 +32,153 @@
         <?php endif; ?>
         <form action="<?= base_url('admin/news-create-action'); ?>" method="POST" enctype="multipart/form-data" id="news_form">
             <ul class="list-group list-group-flush mb-3">
-                <h1 class="h5 text-success mb-3">Base Settings</h1>
+
+
+
+                <h1 class="h5 text-warning mb-3">Base Text</h1>
+                <ul class="nav nav-tabs nav-tabs-v2 ps-4">
+                    <li class="nav-item me-3">
+                        <a href="#news_menu_en" class="nav-link active" data-bs-toggle="tab">
+                            News-EN
+                        </a>
+                    </li>
+                    <li class="nav-item me-3">
+                        <a href="#news_menu_ru" class="nav-link" data-bs-toggle="tab">
+                            News-RU
+                        </a>
+                    </li>
+                    <li class="nav-item me-3">
+                        <a href="#news_menu_az" class="nav-link" data-bs-toggle="tab">
+                            News-AZ
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="tab-content p-4">
+                    <div class="tab-pane active" id="news_menu_en">
+                        <div class="row mb-2">
+                            <div class="col-md-12">
+                                <label for="news_title_label" class="d-flex flex-row justify-content-start align-items-center">
+                                    Title
+                                    <span class="badge bg-dark ms-1">Max Length - 40</span>
+                                </label>
+                                <input required name="news_title_en" type="text" class="form-control form-control-sm my-2" id="news_title_label" maxlength="40" placeholder="News Title">
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-12">
+                                <label for="news_short_description_label">
+                                    Short Description
+                                    <span class="badge bg-dark ms-1">Max Length - 118</span>
+                                </label>
+                                <input required name="news_short_description_en" type="text" class="form-control form-control-sm my-2" id="news_short_description_label" maxlength="118" placeholder="Short Description">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>Full Description</label>
+                                <script src="<?= base_url('public/admin/assets/plugins/ckeditor/ckeditor.js'); ?>"></script>
+                                <textarea required name="news_full_description_en" id="news-editor-en"></textarea>
+                                <script>
+                                    CKEDITOR.replace("news-editor-en", {
+                                        on: {
+                                            instanceReady: function(e) {
+                                                let editorElement = e.editor.container.$;
+                                                editorElement.style.marginTop = "0.5rem";
+                                                editorElement.style.marginBottom = "0.5rem";
+                                                editorElement.style.boxShadow = "none";
+                                            }
+                                        }
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="news_menu_ru">
+                        <div class="row mb-2">
+                            <div class="col-md-12">
+                                <label for="news_title_label" class="d-flex flex-row justify-content-start align-items-center">
+                                    Title
+                                    <span class="badge bg-dark ms-1">Max Length - 40</span>
+                                </label>
+                                <input required name="news_title_ru" type="text" class="form-control form-control-sm my-2" id="news_title_label" maxlength="40" placeholder="News Title">
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-12">
+                                <label for="news_short_description_label">
+                                    Short Description
+                                    <span class="badge bg-dark ms-1">Max Length - 118</span>
+                                </label>
+                                <input required name="news_short_description_ru" type="text" class="form-control form-control-sm my-2" id="news_short_description_label" maxlength="118" placeholder="Short Description">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>Full Description</label>
+                                <script src="<?= base_url('public/admin/assets/plugins/ckeditor/ckeditor.js'); ?>"></script>
+                                <textarea required name="news_full_description_ru" id="news-editor-ru"></textarea>
+                                <script>
+                                    CKEDITOR.replace("news-editor-ru", {
+                                        on: {
+                                            instanceReady: function(e) {
+                                                let editorElement = e.editor.container.$;
+                                                editorElement.style.marginTop = "0.5rem";
+                                                editorElement.style.marginBottom = "0.5rem";
+                                                editorElement.style.boxShadow = "none";
+                                            }
+                                        }
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="news_menu_az">
+                        <div class="row mb-2">
+                            <div class="col-md-12">
+                                <label for="news_title_label" class="d-flex flex-row justify-content-start align-items-center">
+                                    Title
+                                    <span class="badge bg-dark ms-1">Max Length - 40</span>
+                                </label>
+                                <input required name="news_title_az" type="text" class="form-control form-control-sm my-2" id="news_title_label" maxlength="40" placeholder="News Title">
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-12">
+                                <label for="news_short_description_label">
+                                    Short Description
+                                    <span class="badge bg-dark ms-1">Max Length - 118</span>
+                                </label>
+                                <input required name="news_short_description_az" type="text" class="form-control form-control-sm my-2" id="news_short_description_label" maxlength="118" placeholder="Short Description">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>Full Description</label>
+                                <script src="<?= base_url('public/admin/assets/plugins/ckeditor/ckeditor.js'); ?>"></script>
+                                <textarea required name="news_full_description_az" id="news-editor-az"></textarea>
+                                <script>
+                                    CKEDITOR.replace("news-editor-az", {
+                                        on: {
+                                            instanceReady: function(e) {
+                                                let editorElement = e.editor.container.$;
+                                                editorElement.style.marginTop = "0.5rem";
+                                                editorElement.style.marginBottom = "0.5rem";
+                                                editorElement.style.boxShadow = "none";
+                                            }
+                                        }
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="h5 text-warning mt-3">Settings</h1>
                 <li class="list-group-item">
                     <div class="row">
-                        <div class="col-md-8">
-                            <label for="news_title_label" class="d-flex flex-row justify-content-start align-items-center">
-                                Title
-                                <span class="badge bg-dark ms-1">Max Length - 40</span>
-                            </label>
-                            <input required name="news_title" type="text" class="form-control form-control-sm my-2" id="news_title_label" maxlength="40" placeholder="News Title">
-                        </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <label for="news_category_label">Category</label>
-                            <select required class="form-select form-select-sm my-2" id="news_category_label">
+                            <select required name="news_category" class="form-select form-select-sm my-2" id="news_category_label">
                                 <?php foreach ($categories_list as $categories_list_item) : ?>
                                     <?php $categories_list_item_info = json_decode($categories_list_item["c_data"]); ?>
                                     <?php if ($categories_list_item_info->category_status) : ?>
@@ -49,43 +187,15 @@
                                 <?php endforeach; ?>
                             </select>
                         </div>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="row d-flex flex-row justify-content-between align-items-center">
-                        <div class="col-md-3">
-                            <label for="news_preview_img_label">Preview</label>
-                        </div>
-                        <div class="col-md-9">
+                        <div class="col-md-6">
+                            <label for="news_preview_img_label">
+                                Preview
+                                <span class="badge bg-dark ms-1">1920x1080</span>
+                            </label>
                             <input required name="news_preview_img" type="file" class="form-control form-control-sm my-2" id="news_preview_img_label">
                         </div>
                     </div>
                 </li>
-                <li class="list-group-item">
-                    <label for="news_short_description_label">
-                        Short Description
-                        <span class="badge bg-dark ms-1">Max Length - 118</span>
-                    </label>
-                    <input required name="news_short_description" type="text" class="form-control form-control-sm my-2" id="news_short_description_label" maxlength="118" placeholder="Short Description">
-                </li>
-                <li class="list-group-item d-flex flex-column">
-                    <label>Full Description</label>
-                    <script src="<?= base_url('public/admin/assets/plugins/ckeditor/ckeditor.js'); ?>"></script>
-                    <textarea required name="news_full_description" id="news-editor"></textarea>
-                    <script>
-                        CKEDITOR.replace("news-editor", {
-                            on: {
-                                instanceReady: function(e) {
-                                    let editorElement = e.editor.container.$;
-                                    editorElement.style.marginTop = "0.5rem";
-                                    editorElement.style.marginBottom = "0.5rem";
-                                    editorElement.style.boxShadow = "none";
-                                }
-                            }
-                        });
-                    </script>
-                </li>
-                <h1 class="h5 text-success mt-3">Other Settings</h1>
                 <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
                     <label for="news_status_label">Status</label>
                     <div class="form-check form-switch">
