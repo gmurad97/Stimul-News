@@ -33,6 +33,7 @@
                     <th>Preview</th>
                     <th>Title</th>
                     <th>Category</th>
+                    <th>Date</th>
                     <th>Status</th>
                     <th>Control</th>
                 </tr>
@@ -53,10 +54,15 @@
                                 </a>
                             </td>
                             <td>
-                                <?= (is_null($news_data_item_data->news_title->en) || empty($news_data_item_data->news_title->en)) ? "NULL" : $news_data_item_data->news_title->en; ?>
+                                <p class="text-truncate p-0 m-0" style="max-width:200px;">
+                                    <?= (is_null($news_data_item_data->news_title->en) || empty($news_data_item_data->news_title->en)) ? "NULL" : $news_data_item_data->news_title->en; ?>
+                                </p>
                             </td>
                             <td>
                                 <?= $news_data_item_data->news_category; ?>
+                            </td>
+                            <td>
+                                <?= $news_data_item_data->news_created_date . " " . $news_data_item_data->news_created_time; ?>
                             </td>
                             <td>
                                 <?php if ($news_data_item_data->news_status) : ?>
@@ -88,6 +94,7 @@
                     <th>Preview</th>
                     <th>Title</th>
                     <th>Category</th>
+                    <th>Date</th>
                     <th>Status</th>
                     <th>Control</th>
                 </tr>

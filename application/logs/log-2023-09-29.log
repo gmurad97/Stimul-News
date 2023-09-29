@@ -1,1 +1,40 @@
 ERROR - 2023-09-29 02:50:49 --> 404 Page Not Found: Admin/news-detail
+ERROR - 2023-09-29 04:11:14 --> 404 Page Not Found: Admin/news-detail
+ERROR - 2023-09-29 04:12:18 --> 404 Page Not Found: Admin/news-detail
+ERROR - 2023-09-29 04:13:51 --> 404 Page Not Found: AdminController/crud_news_detail(.*)
+ERROR - 2023-09-29 04:13:52 --> 404 Page Not Found: AdminController/crud_news_detail(.*)
+ERROR - 2023-09-29 04:13:57 --> 404 Page Not Found: AdminController/crud_news_detail(.*)
+ERROR - 2023-09-29 05:06:11 --> Severity: Warning --> Attempt to read property "news_preview" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\Detail.php 42
+ERROR - 2023-09-29 05:06:58 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\News\Detail.php 15
+ERROR - 2023-09-29 05:06:58 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\News\Detail.php 16
+ERROR - 2023-09-29 05:06:58 --> Severity: Warning --> Attempt to read property "news_preview" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\Detail.php 46
+ERROR - 2023-09-29 05:07:50 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\News\Detail.php 15
+ERROR - 2023-09-29 05:07:50 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\News\Detail.php 16
+ERROR - 2023-09-29 05:08:05 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\News\Detail.php 16
+ERROR - 2023-09-29 05:09:01 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\News\Detail.php 15
+ERROR - 2023-09-29 05:09:01 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\News\Detail.php 16
+ERROR - 2023-09-29 05:12:52 --> Severity: Warning --> Undefined variable $data C:\OSPanel\domains\stimul.news\application\views\admins\News\Detail.php 15
+ERROR - 2023-09-29 05:41:32 --> Severity: Warning --> Undefined variable $news_info C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 67
+ERROR - 2023-09-29 05:41:32 --> Severity: Warning --> Attempt to read property "news_created_date" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 67
+ERROR - 2023-09-29 05:41:32 --> Severity: Warning --> Undefined variable $news_info C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 67
+ERROR - 2023-09-29 05:41:32 --> Severity: Warning --> Attempt to read property "news_created_time" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 67
+ERROR - 2023-09-29 05:41:32 --> Severity: Warning --> Undefined variable $news_info C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 67
+ERROR - 2023-09-29 05:41:32 --> Severity: Warning --> Attempt to read property "news_created_date" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 67
+ERROR - 2023-09-29 05:41:32 --> Severity: Warning --> Undefined variable $news_info C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 67
+ERROR - 2023-09-29 05:41:32 --> Severity: Warning --> Attempt to read property "news_created_time" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 67
+ERROR - 2023-09-29 05:41:32 --> Severity: Warning --> Undefined variable $news_info C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 67
+ERROR - 2023-09-29 05:41:32 --> Severity: Warning --> Attempt to read property "news_created_date" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 67
+ERROR - 2023-09-29 05:41:32 --> Severity: Warning --> Undefined variable $news_info C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 67
+ERROR - 2023-09-29 05:41:32 --> Severity: Warning --> Attempt to read property "news_created_time" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 67
+ERROR - 2023-09-29 05:41:32 --> Severity: Warning --> Undefined variable $news_info C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 67
+ERROR - 2023-09-29 05:41:32 --> Severity: Warning --> Attempt to read property "news_created_date" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 67
+ERROR - 2023-09-29 05:41:32 --> Severity: Warning --> Undefined variable $news_info C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 67
+ERROR - 2023-09-29 05:41:32 --> Severity: Warning --> Attempt to read property "news_created_time" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 67
+ERROR - 2023-09-29 05:41:32 --> Severity: Warning --> Undefined variable $news_info C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 67
+ERROR - 2023-09-29 05:41:32 --> Severity: Warning --> Attempt to read property "news_created_date" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 67
+ERROR - 2023-09-29 05:41:32 --> Severity: Warning --> Undefined variable $news_info C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 67
+ERROR - 2023-09-29 05:41:32 --> Severity: Warning --> Attempt to read property "news_created_time" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 67
+ERROR - 2023-09-29 05:41:32 --> Severity: Warning --> Undefined variable $news_info C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 67
+ERROR - 2023-09-29 05:41:32 --> Severity: Warning --> Attempt to read property "news_created_date" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 67
+ERROR - 2023-09-29 05:41:32 --> Severity: Warning --> Undefined variable $news_info C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 67
+ERROR - 2023-09-29 05:41:32 --> Severity: Warning --> Attempt to read property "news_created_time" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 67

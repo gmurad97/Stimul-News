@@ -827,6 +827,7 @@ class AdminController extends CI_Controller
         $data["admin_page_name"] = "News Create";
         $data["categories_list"] = $this->AdminModel->categories_admin_db_get_results();
         $this->load->view("admins/News/Create", $data);
+        
     }
 
     public function crud_news_create_action()
@@ -953,6 +954,14 @@ class AdminController extends CI_Controller
         $data["admin_page_name"] = "News Create";
         $data["news_data"] = $this->AdminModel->news_admin_db_get_results();
         $this->load->view("admins/News/List", $data);
+    }
+
+    public function crud_news_detail($id)
+    {
+        $data["admin_page_name"] = "News Detail";
+        $data["categories_data"] = $this->AdminModel->categories_admin_db_get_results();
+        $data["news_data"] = $this->AdminModel->news_admin_db_get($id);
+        $this->load->view("admins/News/Detail", $data);
     }
 
     public function crud_news_edit($id)
