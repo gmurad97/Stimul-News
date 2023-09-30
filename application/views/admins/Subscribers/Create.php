@@ -3,11 +3,11 @@
 <?php $this->load->view("admins/includes/Sidebar"); ?>
 <div class="card">
     <div class="card-header fw-bold d-flex flex-row justify-content-between align-items-center">
-        <div class="h5 text-success m-0">PARTNERS CREATE</div>
+        <div class="h5 text-success m-0">SUBSCRIBERS CREATE</div>
         <div>
             <a href="<?= base_url('admin/partners-list'); ?>" class="btn btn-outline-info">
                 <i class="bi bi-list-nested me-1"></i>
-                List
+                Subscribers List
             </a>
             <button type="submit" form="partners_form" class="btn btn-outline-success">
                 <i class="bi bi-plus-circle me-1"></i>

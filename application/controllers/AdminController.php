@@ -57,30 +57,32 @@ class AdminController extends CI_Controller
         );
     }
 
-    private function RandomUID(int $uidLength): string
+    private function CryptoPrice($cryptoLimit)
     {
-        $uid_chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        $uid_chars_shuffled = str_shuffle($uid_chars);
-        $uid_str = "";
-        for ($x = 0; $x < $uidLength; $x++) {
-            $uid_str .= $uid_chars_shuffled[rand(0, strlen($uid_chars_shuffled) - 1)];
-        }
-        return $uid_str;
+        $json_data = json_decode(file_get_contents("https://api.binance.com/api/v3/ticker/price"), FALSE);
+        $crypto_pair_usdt = array_values(array_filter($json_data, function ($cryptoPair) {
+            if (str_ends_with($cryptoPair->symbol, "USDT")) {
+                return $cryptoPair->symbol;
+            }
+        }));
+        return array_slice($crypto_pair_usdt, 0, $cryptoLimit);
+    }
+
+    private function FiatPrice($fromFiatName, $fiatName)
+    {
+        //http://apilayer.net/api/live?access_key=fe5846bdd06207a77f1865b04022e68f&currencies=AZN,EUR,RUB&source=USD&format=1
     }
     /*=====LOCAL ADMIN CONTROLLER FUNCTION - ENDED=====*/
-
-
-
-
-
-
-
 
     /*=====DASHBOARD - START=====*/
     public function dashboard()
     {
+
+        /* print_r($this->db->get("news")->insert_id());
+        die(); */
         $data["admin_page_name"] = "Dashboard";
-        $this->load->view("admins/Index", $data);
+        $data["crypto_price"] = $this->CryptoPrice(3);
+        $this->load->view("admins/Dashboard", $data);
     }
     /*=====DASHBOARD - ENDED=====*/
 
@@ -827,7 +829,6 @@ class AdminController extends CI_Controller
         $data["admin_page_name"] = "News Create";
         $data["categories_list"] = $this->AdminModel->categories_admin_db_get_results();
         $this->load->view("admins/News/Create", $data);
-        
     }
 
     public function crud_news_create_action()
@@ -927,6 +928,7 @@ class AdminController extends CI_Controller
             ];
 
             $this->AdminModel->news_admin_db_insert($data);
+            //$inserted_id = $this->db->insert_id();
 
             $this->AlertFlashData(
                 "success",
@@ -1172,4 +1174,12 @@ class AdminController extends CI_Controller
         redirect(base_url("admin/news-list"));
     }
     /*=====NEWS CRUD - ENDED=====*/
+
+    /*=====SUBSCRIBERS CRUD - START=====*/
+    public function crud_subscribers_create()
+    {
+        $data["admin_page_name"] = "Subscribers Create";
+        $this->load->view("admins/Subscribers/Create", $data);
+    }
+    /*=====SUBSCRIBERS CRUD - ENDED=====*/
 }

@@ -1,17 +1,12 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-
 $route["default_controller"]    = "UserController/index";
 $route["404_override"]          = "";
 $route["translate_uri_dashes"]  = FALSE;
 
 /*=====USER CONTROLLER - START=====*/
 $route["home"] = "UserController/index";
-
-
-
-$route["404"] = "UserController/pageNotFound";
 /*=====USER CONTROLLER - ENDED=====*/
 
 
@@ -27,13 +22,13 @@ $route["admin/topbar-edit-action"]            = "AdminController/crud_topbar_edi
 $route["admin/topbar-delete"]                 = "AdminController/crud_topbar_delete";
 /*=====TOPBAR CRUD - ENDED=====*/
 
-/*=====LOGO CRUD - START=====*/
+/*=====BRANDING CRUD - START=====*/
 $route["admin/branding-create"]               = "AdminController/crud_branding_create";
 $route["admin/branding-create-action"]        = "AdminController/crud_branding_create_action";
 $route["admin/branding-edit"]                 = "AdminController/crud_branding_edit";
 $route["admin/branding-edit-action"]          = "AdminController/crud_branding_edit_action";
 $route["admin/branding-delete"]               = "AdminController/crud_branding_delete";
-/*=====LOGO CRUD - ENDED=====*/
+/*=====BRANDING CRUD - ENDED=====*/
 
 /*=====PARTNERS CRUD - START=====*/
 $route["admin/partners-create"]               = "AdminController/crud_partners_create";
@@ -63,5 +58,53 @@ $route["admin/news-edit-action/(.*)"]         = "AdminController/crud_news_edit_
 $route["admin/news-delete/(.*)"]              = "AdminController/crud_news_delete/$1";
 /*=====NEWS CRUD - ENDED=====*/
 
+/*=====SLIDER CRUD - START=====*/
+$route["admin/slider-create"]                 = "AdminController/crud_slider_create";
+$route["admin/slider-create-action"]          = "AdminController/crud_slider_create_action";
+$route["admin/slider-list"]                   = "AdminController/crud_slider_list";
+$route["admin/slider-detail/(.*)"]            = "AdminController/crud_slider_detail/$1";
+$route["admin/slider-edit/(.*)"]              = "AdminController/crud_slider_edit/$1";
+$route["admin/slider-edit-action/(.*)"]       = "AdminController/crud_slider_edit_action/$1";
+$route["admin/slider-delete/(.*)"]            = "AdminController/crud_slider_delete/$1";
+/*=====SLIDER CRUD - ENDED=====*/
+
+/*=====GALLERY CRUD - START=====*/
+$route["admin/gallery-create"]             = "AdminController/crud_gallery_create";
+$route["admin/gallery-create-action"]      = "AdminController/crud_gallery_create_action";
+$route["admin/gallery-list"]               = "AdminController/crud_gallery_list";
+$route["admin/gallery-edit/(.*)"]          = "AdminController/crud_gallery_edit/$1";
+$route["admin/gallery-edit-action/(.*)"]   = "AdminController/crud_gallery_edit_action/$1";
+$route["admin/gallery-delete/(.*)"]        = "AdminController/crud_gallery_delete/$1";
+/*=====GALLERY CRUD - ENDED=====*/
+
+/*=====SUBSCRIBERS CRUD - START=====*/
+$route["admin/subscribers-create"]            = "AdminController/crud_subscribers_create";
+$route["admin/subscribers-list"]              = "AdminController/crud_subscribers_list";
+$route["admin/subscribers-delete"]            = "AdminController/crud_subscribers_delete";
+/*=====SUBSCRIBERS CRUD - ENDED=====*/
+
+/*=====ABOUT-US CRUD - START=====*/
+$route["admin/about-us-create"]               = "AdminController/crud_about_us_create";
+$route["admin/about-us-create-action"]        = "AdminController/crud_about_us_create_action";
+$route["admin/about-us-edit"]                 = "AdminController/crud_about_us_edit";
+$route["admin/about-us-edit-action"]          = "AdminController/crud_about_us_edit_action";
+$route["admin/about-us-delete"]               = "AdminController/crud_about_us_delete";
+/*=====ABOUT-US CRUD - ENDED=====*/
+
+/*=====CONTACTS CRUD - START=====*/
+$route["admin/contacts-create"]               = "AdminController/crud_contacts_create";
+$route["admin/contacts-create-action"]        = "AdminController/crud_contacts_create_action";
+$route["admin/contacts-edit"]                 = "AdminController/crud_contacts_edit";
+$route["admin/contacts-edit-action"]          = "AdminController/crud_contacts_edit_action";
+$route["admin/contacts-delete"]               = "AdminController/crud_contacts_delete";
+/*=====CONTACTS CRUD - ENDED=====*/
+
+/*=====SETTINGS CRUD - START=====*/
+$route["admin/settings-create"]               = "AdminController/crud_settings_create";
+$route["admin/settings-create-action"]        = "AdminController/crud_settings_create_action";
+$route["admin/settings-edit"]                 = "AdminController/crud_settings_edit";
+$route["admin/settings-edit-action"]          = "AdminController/crud_settings_edit_action";
+$route["admin/settings-delete"]               = "AdminController/crud_settings_delete";
+/*=====SETTINGS CRUD - ENDED=====*/
 
 /*=====ADMIN CONTROLLER - ENDED=====*/

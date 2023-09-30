@@ -3,8 +3,7 @@
         <div class="menu">
             <?php $segment_name = $this->uri->segment(2); ?>
             <div class="menu-header">Navigation</div>
-
-            <!--DASHBOARD - START-->
+            <!--=====DASHBOARD - START=====-->
             <div class="menu-item <?= str_contains($segment_name, 'dashboard') ? 'active' : ''; ?>">
                 <a href="<?= base_url('admin/dashboard'); ?>" class="menu-link">
                     <span class="menu-icon">
@@ -13,11 +12,12 @@
                     <span class="menu-text">Dashboard</span>
                 </a>
             </div>
-            <!--DASHBOARD - ENDED-->
+            <!--=====DASHBOARD - ENDED=====-->
 
             <div class="menu-header">Content Manager</div>
 
-            <!--TOPBAR - START-->
+
+            <!--=====TOPBAR - START=====-->
             <div class="menu-item <?= str_contains($segment_name, 'topbar') ? 'active' : ''; ?>">
                 <a href="<?= base_url('admin/topbar-create'); ?>" class="menu-link">
                     <span class="menu-icon">
@@ -26,9 +26,9 @@
                     <span class="menu-text">Topbar</span>
                 </a>
             </div>
-            <!--TOPBAR - ENDED-->
+            <!--=====TOPBAR - ENDED=====-->
 
-            <!--BRANDING - START-->
+            <!--=====BRANDING - START=====-->
             <div class="menu-item <?= str_contains($segment_name, 'branding') ? 'active' : ''; ?>">
                 <a href="<?= base_url('admin/branding-create'); ?>" class="menu-link">
                     <span class="menu-icon">
@@ -37,9 +37,9 @@
                     <span class="menu-text">Branding</span>
                 </a>
             </div>
-            <!--BRANDING - ENDED-->
+            <!--=====BRANDING - ENDED=====-->
 
-            <!--PARTNERS - START-->
+            <!--=====PARTNERS - START=====-->
             <div class="menu-item has-sub <?= str_contains($segment_name, 'partners') ? 'active' : ''; ?>">
                 <a href="javascript:void(0);" class="menu-link">
                     <span class="menu-icon">
@@ -63,9 +63,9 @@
                     </div>
                 </div>
             </div>
-            <!--PARTNERS - END-->
+            <!--=====PARTNERS - ENDED=====-->
 
-            <!--CATEGORIES - START-->
+            <!--=====CATEGORIES - START=====-->
             <div class="menu-item has-sub <?= str_contains($segment_name, 'categories') ? 'active' : ''; ?>">
                 <a href="javascript:void(0);" class="menu-link">
                     <span class="menu-icon">
@@ -89,16 +89,9 @@
                     </div>
                 </div>
             </div>
-            <!--CATEGORIES - END-->
+            <!--=====CATEGORIES - ENDED=====-->
 
-
-
-
-
-
-
-
-            <!--NEWS - START-->
+            <!--=====NEWS - START=====-->
             <div class="menu-item has-sub <?= str_contains($segment_name, 'news') ? 'active' : ''; ?>">
                 <a href="javascript:void(0);" class="menu-link">
                     <span class="menu-icon">
@@ -122,177 +115,126 @@
                     </div>
                 </div>
             </div>
-            <!--NEWS - END-->
+            <!--=====NEWS - ENDED=====-->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <!-- <div class="menu-item">
-                <a href="index.html" class="menu-link">
-                    <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                    <span class="menu-text">Administrators</span>
-                </a>
-            </div>
-
-            <div class="menu-item">
-                <a href="index.html" class="menu-link">
-                    <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                    <span class="menu-text">Users</span>
-                </a>
-            </div>
-
-            <div class="menu-item">
-                <a href="index.html" class="menu-link">
-                    <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                    <span class="menu-text">Redactors only</span>
-                </a>
-            </div>
-
-            <div class="menu-item">
-                <a href="index.html" class="menu-link">
-                    <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                    <span class="menu-text">TEST</span>
-                </a>
-            </div>
-
-            <div class="menu-item">
-                <a href="index.html" class="menu-link">
-                    <span class="menu-icon"><i class="bi bi-gear"></i></span>
-                    <span class="menu-text">PENTEST</span>
-                </a>
-            </div>
- -->
-
-
-
-
-
-
-
-
-            <!-- <div class="menu-item has-sub">
+            <!--=====SLIDER - START=====-->
+            <div class="menu-item has-sub <?= str_contains($segment_name, 'slider') ? 'active' : ''; ?>">
                 <a href="javascript:void(0);" class="menu-link">
                     <span class="menu-icon">
-                        <i class="bi bi-distribute-vertical"></i>
+                        <i class="bi bi-bezier"></i>
                     </span>
-                    <span class="menu-text">Topbar</span>
+                    <span class="menu-text">Slider</span>
                     <span class="menu-caret">
                         <b class="caret"></b>
                     </span>
                 </a>
                 <div class="menu-submenu">
-                    <div class="menu-item">
-                        <a href="#" class="menu-link">
-                            <span class="menu-text">Editing</span>
+                    <div class="menu-item <?= str_contains($segment_name, 'slider-create') ? 'active' : ''; ?>">
+                        <a href="<?= base_url('admin/slider-create'); ?>" class="menu-link">
+                            <span class="menu-text">Create</span>
                         </a>
                     </div>
-                </div>
-            </div> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <!-- <div class="menu-header">Navigation</div> -->
-
-
-
-            <!-- <div class="menu-item">
-                <a href="index.html" class="menu-link">
-                    <span class="menu-icon"><i class="bi bi-cpu"></i></span>
-                    <span class="menu-text">test</span>
-                </a>
-            </div> -->
-
-
-
-
-            <!-- <div class="menu-item has-sub">
-                <a href="#" class="menu-link">
-                    <span class="menu-icon">
-                        <i class="bi bi-envelope"></i>
-                    </span>
-                    <span class="menu-text">test2</span>
-                    <span class="menu-caret"><b class="caret"></b></span>
-                </a>
-                <div class="menu-submenu">
-                    <div class="menu-item">
-                        <a href="email_inbox.html" class="menu-link">
-                            <span class="menu-text">Inbox</span>
-                        </a>
-                    </div>
-                    <div class="menu-item">
-                        <a href="email_compose.html" class="menu-link">
-                            <span class="menu-text">Compose</span>
-                        </a>
-                    </div>
-                    <div class="menu-item">
-                        <a href="email_detail.html" class="menu-link">
-                            <span class="menu-text">Detail</span>
+                    <div class="menu-item <?= str_contains($segment_name, 'slider-list') ? 'active' : ''; ?>">
+                        <a href="<?= base_url('admin/slider-list'); ?>" class="menu-link">
+                            <span class="menu-text">List</span>
                         </a>
                     </div>
                 </div>
             </div>
+            <!--=====SLIDER - ENDED=====-->
 
-            <div class="menu-divider"></div> -->
+            <!--=====SUBSCRIBERS - START=====-->
+            <div class="menu-item has-sub <?= str_contains($segment_name, 'subscribers') ? 'active' : ''; ?>">
+                <a href="javascript:void(0);" class="menu-link">
+                    <span class="menu-icon">
+                        <i class="fa-solid fa-people-group"></i>
+                    </span>
+                    <span class="menu-text">Subscribers</span>
+                    <span class="menu-caret">
+                        <b class="caret"></b>
+                    </span>
+                </a>
+                <div class="menu-submenu">
+                    <div class="menu-item <?= str_contains($segment_name, 'subscribers-create') ? 'active' : ''; ?>">
+                        <a href="<?= base_url('admin/subscribers-create'); ?>" class="menu-link">
+                            <span class="menu-text">Create</span>
+                        </a>
+                    </div>
+                    <div class="menu-item <?= str_contains($segment_name, 'subscribers-list') ? 'active' : ''; ?>">
+                        <a href="<?= base_url('admin/subscribers-list'); ?>" class="menu-link">
+                            <span class="menu-text">List</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--=====SUBSCRIBERS - ENDED=====-->
 
+            <!--=====ABOUT-US - START=====-->
+            <div class="menu-item <?= str_contains($segment_name, 'about-us') ? 'active' : ''; ?>">
+                <a href="<?= base_url('admin/about-us-create'); ?>" class="menu-link">
+                    <span class="menu-icon">
+                        <i class="fa-regular fa-address-card"></i>
+                    </span>
+                    <span class="menu-text">About Us</span>
+                </a>
+            </div>
+            <!--=====ABOUT-US - ENDED=====-->
+
+            <!--=====CONTACTS - START=====-->
+            <div class="menu-item <?= str_contains($segment_name, 'contacts') ? 'active' : ''; ?>">
+                <a href="<?= base_url('admin/contacts-create'); ?>" class="menu-link">
+                    <span class="menu-icon">
+                        <i class="bi bi-headset"></i>
+                    </span>
+                    <span class="menu-text">Contacts</span>
+                </a>
+            </div>
+            <!--=====CONTACTS - ENDED=====-->
+
+            <!--=====GALLERY - START=====-->
+            <div class="menu-item has-sub <?= str_contains($segment_name, 'gallery') ? 'active' : ''; ?>">
+                <a href="javascript:void(0);" class="menu-link">
+                    <span class="menu-icon">
+                        <i class="bi bi-card-image"></i>
+                    </span>
+                    <span class="menu-text">Gallery</span>
+                    <span class="menu-caret">
+                        <b class="caret"></b>
+                    </span>
+                </a>
+                <div class="menu-submenu">
+                    <div class="menu-item <?= str_contains($segment_name, 'gallery-create') ? 'active' : ''; ?>">
+                        <a href="<?= base_url('admin/gallery-create'); ?>" class="menu-link">
+                            <span class="menu-text">Create</span>
+                        </a>
+                    </div>
+                    <div class="menu-item <?= str_contains($segment_name, 'gallery-list') ? 'active' : ''; ?>">
+                        <a href="<?= base_url('admin/gallery-list'); ?>" class="menu-link">
+                            <span class="menu-text">List</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--=====GALLERY - ENDED=====-->
+
+            <!--=====SETTINGS - START=====-->
+            <div class="menu-item <?= str_contains($segment_name, 'settings') ? 'active' : ''; ?>">
+                <a href="<?= base_url('admin/settings-create'); ?>" class="menu-link">
+                    <span class="menu-icon">
+                        <i class="bi bi-gear"></i>
+                    </span>
+                    <span class="menu-text">Settings</span>
+                </a>
+            </div>
+            <!--=====SETTINGS - ENDED=====-->
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <div class="p-3 px-4 mt-auto">
             <a href="https://github.com/gmurad97" target="_blank" class="btn d-block btn-outline-success fw-bold">
                 <i class="bi bi-github me-2 ms-n2 opacity-8"></i>
                 GMURAD97
             </a>
-
-
-
-
         </div>
-
-
-
     </div>
-
 </div>
-
 <button class="app-sidebar-mobile-backdrop" data-toggle-target=".app" data-toggle-class="app-sidebar-mobile-toggled"></button>
-
 <div id="content" class="app-content">
