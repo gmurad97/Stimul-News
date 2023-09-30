@@ -157,6 +157,36 @@ class AdminModel extends CI_Model
     {
         $this->db->delete(self::NEWS_TABLE_NAME, self::NEWS_ID_NAME . "=" . $id);
     }
-    /*=====CATEGORIES MODEL - ENDED=====*/
+    /*=====NEWS MODEL - ENDED=====*/
+
+    /*=====NEWS MODEL - START=====*/
+    private const SUBSCRIBERS_TABLE_NAME = "subscribers";
+    private const SUBSCRIBERS_ID_NAME = "s_uid";
+
+    public function subscribers_admin_db_insert($data)
+    {
+        $this->db->insert(self::SUBSCRIBERS_TABLE_NAME, $data);
+    }
+
+    public function subscribers_admin_db_get_results()
+    {
+        return $this->db->order_by(self::SUBSCRIBERS_ID_NAME, "DESC")->get(self::SUBSCRIBERS_TABLE_NAME)->result_array();
+    }
+
+    public function subscribers_admin_db_get($id)
+    {
+        return $this->db->where(self::SUBSCRIBERS_ID_NAME, $id)->get(self::SUBSCRIBERS_TABLE_NAME)->row_array();
+    }
+
+    public function subscribers_admin_db_update($id, $data)
+    {
+        $this->db->update(self::SUBSCRIBERS_TABLE_NAME, $data, self::SUBSCRIBERS_ID_NAME . "=" . $id);
+    }
+
+    public function subscribers_admin_db_delete($id)
+    {
+        $this->db->delete(self::SUBSCRIBERS_TABLE_NAME, self::SUBSCRIBERS_ID_NAME . "=" . $id);
+    }
+    /*=====NEWS MODEL - ENDED=====*/
 }
     /*==========CRUD MODEL - ENDED==========*/

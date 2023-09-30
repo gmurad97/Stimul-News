@@ -23,7 +23,7 @@
                     <span class="menu-icon">
                         <i class="bi bi-distribute-vertical"></i>
                     </span>
-                    <span class="menu-text">Topbar</span>
+                    <span class="menu-text">Topbar*</span>
                 </a>
             </div>
             <!--=====TOPBAR - ENDED=====-->
@@ -34,7 +34,7 @@
                     <span class="menu-icon">
                         <i class="bi bi-flower1"></i>
                     </span>
-                    <span class="menu-text">Branding</span>
+                    <span class="menu-text">Branding*</span>
                 </a>
             </div>
             <!--=====BRANDING - ENDED=====-->
@@ -45,7 +45,7 @@
                     <span class="menu-icon">
                         <i class="bi bi-people"></i>
                     </span>
-                    <span class="menu-text">Partners</span>
+                    <span class="menu-text">Partners*</span>
                     <span class="menu-caret">
                         <b class="caret"></b>
                     </span>
@@ -71,7 +71,7 @@
                     <span class="menu-icon">
                         <i class="bi bi-tags"></i>
                     </span>
-                    <span class="menu-text">Categories</span>
+                    <span class="menu-text">Categories*</span>
                     <span class="menu-caret">
                         <b class="caret"></b>
                     </span>
@@ -97,7 +97,7 @@
                     <span class="menu-icon">
                         <i class="bi bi-newspaper"></i>
                     </span>
-                    <span class="menu-text">News</span>
+                    <span class="menu-text">News*</span>
                     <span class="menu-caret">
                         <b class="caret"></b>
                     </span>
@@ -149,7 +149,7 @@
                     <span class="menu-icon">
                         <i class="fa-solid fa-people-group"></i>
                     </span>
-                    <span class="menu-text">Subscribers</span>
+                    <span class="menu-text">Subscribers*</span>
                     <span class="menu-caret">
                         <b class="caret"></b>
                     </span>

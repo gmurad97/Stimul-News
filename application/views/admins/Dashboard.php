@@ -59,14 +59,14 @@
             <div class="card-body">
 
                 <div class="d-flex fw-bold small mb-3">
-                    <span class="flex-grow-1">STORE SALES</span>
+                    <span class="flex-grow-1">FIAT</span>
                     <a href="#" data-toggle="card-expand" class="text-inverse text-opacity-50 text-decoration-none"><i class="bi bi-fullscreen"></i></a>
                 </div>
 
 
                 <div class="row align-items-center mb-2">
                     <div class="col-7">
-                        <h3 class="mb-0">$35.2K</h3>
+<!--                         <h3 class="mb-0">TEST EXAMPLE FIAT</h3> -->
                     </div>
                     <div class="col-5">
                         <div class="mt-n2" data-render="apexchart" data-type="line" data-title="Visitors" data-height="30"></div>
@@ -75,9 +75,22 @@
 
 
                 <div class="small text-inverse text-opacity-50 text-truncate">
-                    <i class="fa fa-chevron-up fa-fw me-1"></i> 20.4% more than last week<br>
-                    <i class="fa fa-shopping-bag fa-fw me-1"></i> 33.5% new orders<br>
-                    <i class="fa fa-dollar-sign fa-fw me-1"></i> 6.21% conversion rate
+                <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Pairs</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($fiat_price as $pricekey => $price) : ?>
+                                <tr>
+                                    <td><?= $pricekey; ?></td>
+                                    <td><?= $price; ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
                 </div>
 
             </div>

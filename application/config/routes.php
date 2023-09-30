@@ -69,18 +69,21 @@ $route["admin/slider-delete/(.*)"]            = "AdminController/crud_slider_del
 /*=====SLIDER CRUD - ENDED=====*/
 
 /*=====GALLERY CRUD - START=====*/
-$route["admin/gallery-create"]             = "AdminController/crud_gallery_create";
-$route["admin/gallery-create-action"]      = "AdminController/crud_gallery_create_action";
-$route["admin/gallery-list"]               = "AdminController/crud_gallery_list";
-$route["admin/gallery-edit/(.*)"]          = "AdminController/crud_gallery_edit/$1";
-$route["admin/gallery-edit-action/(.*)"]   = "AdminController/crud_gallery_edit_action/$1";
-$route["admin/gallery-delete/(.*)"]        = "AdminController/crud_gallery_delete/$1";
+$route["admin/gallery-create"]                = "AdminController/crud_gallery_create";
+$route["admin/gallery-create-action"]         = "AdminController/crud_gallery_create_action";
+$route["admin/gallery-list"]                  = "AdminController/crud_gallery_list";
+$route["admin/gallery-edit/(.*)"]             = "AdminController/crud_gallery_edit/$1";
+$route["admin/gallery-edit-action/(.*)"]      = "AdminController/crud_gallery_edit_action/$1";
+$route["admin/gallery-delete/(.*)"]           = "AdminController/crud_gallery_delete/$1";
 /*=====GALLERY CRUD - ENDED=====*/
 
 /*=====SUBSCRIBERS CRUD - START=====*/
 $route["admin/subscribers-create"]            = "AdminController/crud_subscribers_create";
+$route["admin/subscribers-create-action"]     = "AdminController/crud_subscribers_create_action";
+$route["admin/subscribers-edit/(.*)"]         = "AdminController/crud_subscribers_edit/$1";
+$route["admin/subscribers-edit-action/(.*)"]  = "AdminController/crud_subscribers_edit_action/$1";
 $route["admin/subscribers-list"]              = "AdminController/crud_subscribers_list";
-$route["admin/subscribers-delete"]            = "AdminController/crud_subscribers_delete";
+$route["admin/subscribers-delete/(.*)"]       = "AdminController/crud_subscribers_delete/$1";
 /*=====SUBSCRIBERS CRUD - ENDED=====*/
 
 /*=====ABOUT-US CRUD - START=====*/

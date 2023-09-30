@@ -1,6 +1,14 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+/**
+ * AUTHOR: Murad Gazymagomedov
+ * USERNAME: gmurad97 || ASProgerHack
+ * USER TEMPLATE: MORUS NEWS (Dump&Crack FrontEnd Pages)
+ * ADMIN TEMPLATE: HUD ADMIN (Dump&Crack FrontEnd Pages)
+ * VERSION: 1.0
+ */
+
 class AdminController extends CI_Controller
 {
     public function __construct()
@@ -8,6 +16,7 @@ class AdminController extends CI_Controller
         parent::__construct();
         $this->load->model("AdminModel");
     }
+    /*=====ADMIN CONTROLLER SELECT OPTION ENUMERATOR=====*/
 
     /*=====LOCAL ADMIN CONTROLLER FUNCTION - START=====*/
     private function SendEmail(array $eTo, string $eSubject, string $eMessage): bool
@@ -59,29 +68,35 @@ class AdminController extends CI_Controller
 
     private function CryptoPrice($cryptoLimit)
     {
-        $json_data = json_decode(file_get_contents("https://api.binance.com/api/v3/ticker/price"), FALSE);
-        $crypto_pair_usdt = array_values(array_filter($json_data, function ($cryptoPair) {
+        $curl_crypto_price = curl_init("https://api.binance.com/api/v3/ticker/price");
+        curl_setopt($curl_crypto_price, CURLOPT_USERAGENT, "StimulNewsClient-v1.0");
+        curl_setopt($curl_crypto_price, CURLOPT_RETURNTRANSFER, TRUE);
+        $response_result = array_values(array_filter(json_decode(curl_exec($curl_crypto_price), FALSE), function ($cryptoPair) {
             if (str_ends_with($cryptoPair->symbol, "USDT")) {
                 return $cryptoPair->symbol;
             }
         }));
-        return array_slice($crypto_pair_usdt, 0, $cryptoLimit);
+        curl_close($curl_crypto_price);
+        return array_splice($response_result, 0, $cryptoLimit);
     }
 
-    private function FiatPrice($fromFiatName, $fiatName)
+    private function FiatPrice($sourceFiat, array $currencyFiat)
     {
-        //http://apilayer.net/api/live?access_key=fe5846bdd06207a77f1865b04022e68f&currencies=AZN,EUR,RUB&source=USD&format=1
+        $curl_fiat_price = curl_init("http://apilayer.net/api/live?access_key=fe5846bdd06207a77f1865b04022e68f&currencies=" . join(",", $currencyFiat) . "&source=" . $sourceFiat . "&format=1");
+        curl_setopt($curl_fiat_price, CURLOPT_USERAGENT, "StimulNewsClient-v1.0");
+        curl_setopt($curl_fiat_price, CURLOPT_RETURNTRANSFER, TRUE);
+        $response_result = curl_exec($curl_fiat_price);
+        curl_close($curl_fiat_price);
+        return json_decode($response_result, TRUE)["quotes"];
     }
     /*=====LOCAL ADMIN CONTROLLER FUNCTION - ENDED=====*/
 
     /*=====DASHBOARD - START=====*/
     public function dashboard()
     {
-
-        /* print_r($this->db->get("news")->insert_id());
-        die(); */
         $data["admin_page_name"] = "Dashboard";
         $data["crypto_price"] = $this->CryptoPrice(3);
+        $data["fiat_price"] = $this->FiatPrice("USD", ["AZN", "RUB", "EUR"]);
         $this->load->view("admins/Dashboard", $data);
     }
     /*=====DASHBOARD - ENDED=====*/
@@ -1181,5 +1196,137 @@ class AdminController extends CI_Controller
         $data["admin_page_name"] = "Subscribers Create";
         $this->load->view("admins/Subscribers/Create", $data);
     }
+
+    public function crud_subscribers_create_action()
+    {
+        $subscriber_email = $this->input->post("subscriber_email", TRUE);
+        $subscriber_status = $this->input->post("subscriber_status", TRUE);
+
+        if (!empty($subscriber_email)) {
+            $json_data = [
+                "subscriber" => [
+                    "email" => strtolower($subscriber_email),
+                    "status" => str_contains($subscriber_status, "on") ? TRUE : FALSE
+                ]
+            ];
+
+            $json_data_encoded = json_encode($json_data);
+
+            $data = [
+                "s_data" => $json_data_encoded
+            ];
+
+            $this->AdminModel->subscribers_admin_db_insert($data);
+
+            $this->AlertFlashData(
+                "success",
+                "subscribers_alert",
+                "Create",
+                "Success!",
+                "The subscriber has been successfully added."
+            );
+
+            redirect(base_url("admin/subscribers-list"));
+        } else {
+            $this->AlertFlashData(
+                "warning",
+                "subscribers_alert",
+                "Create",
+                "Warning!",
+                "Please, fill in all the fields."
+            );
+
+            redirect($_SERVER["HTTP_REFERER"]);
+        }
+    }
+
+    public function crud_subscribers_edit($id)
+    {
+        $data["admin_page_name"] = "Subscribers Edit";
+        $data["subscriber_info"] = $this->AdminModel->subscribers_admin_db_get($id);
+        $this->load->view("admins/Subscribers/Edit", $data);
+    }
+
+    public function crud_subscribers_edit_action() //ТЩЕУ
+    {
+        $subscriber_email = $this->input->post("subscriber_email", TRUE);
+        $subscriber_status = $this->input->post("subscriber_status", TRUE);
+
+        if (!empty($subscriber_email)) {
+            $json_data = [
+                "subscriber" => [
+                    "email" => strtolower($subscriber_email),
+                    "status" => str_contains($subscriber_status, "on") ? TRUE : FALSE
+                ]
+            ];
+
+            $json_data_encoded = json_encode($json_data);
+
+            $data = [
+                "s_data" => $json_data_encoded
+            ];
+
+            $this->AdminModel->subscribers_admin_db_insert($data);
+
+            $this->AlertFlashData(
+                "success",
+                "subscribers_alert",
+                "Create",
+                "Success!",
+                "The subscriber has been successfully added."
+            );
+
+            redirect(base_url("admin/subscribers-list"));
+        } else {
+            $this->AlertFlashData(
+                "warning",
+                "subscribers_alert",
+                "Create",
+                "Warning!",
+                "Please, fill in all the fields."
+            );
+
+            redirect($_SERVER["HTTP_REFERER"]);
+        }
+    }
+
+    public function crud_subscribers_list()
+    {
+        $data["admin_page_name"] = "Subscribers List";
+        $data["subscribers_list"] = $this->AdminModel->subscribers_admin_db_get_results();
+        $this->load->view("admins/Subscribers/List", $data);
+    }
+
+    public function crud_subscribers_delete($id)
+    {
+        $this->AdminModel->subscribers_admin_db_delete($id);
+
+        $this->AlertFlashData(
+            "success",
+            "subscribers_alert",
+            "Remove",
+            "Success!",
+            "The subscriber has been successfully removed."
+        );
+
+        redirect(base_url("admin/subscribers-list"));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /*=====SUBSCRIBERS CRUD - ENDED=====*/
 }
