@@ -188,5 +188,37 @@ class AdminModel extends CI_Model
         $this->db->delete(self::SUBSCRIBERS_TABLE_NAME, self::SUBSCRIBERS_ID_NAME . "=" . $id);
     }
     /*=====NEWS MODEL - ENDED=====*/
+
+
+
+    /*=====SLIDER MODEL - START=====*/
+    private const SLIDER_TABLE_NAME = "slider";
+    private const SLIDER_ID_NAME = "s_uid";
+
+    public function slider_admin_db_insert($data)
+    {
+        $this->db->insert(self::SLIDER_TABLE_NAME, $data);
+    }
+
+    public function slider_admin_db_get_results()
+    {
+        return $this->db->order_by(self::SLIDER_ID_NAME, "DESC")->get(self::SLIDER_TABLE_NAME)->result_array();
+    }
+
+    public function slider_admin_db_get($id)
+    {
+        return $this->db->where(self::SLIDER_ID_NAME, $id)->get(self::SLIDER_TABLE_NAME)->row_array();
+    }
+
+    public function slider_admin_db_update($id, $data)
+    {
+        $this->db->update(self::SLIDER_TABLE_NAME, $data, self::SLIDER_ID_NAME . "=" . $id);
+    }
+
+    public function slider_admin_db_delete($id)
+    {
+        $this->db->delete(self::SLIDER_TABLE_NAME, self::SLIDER_ID_NAME . "=" . $id);
+    }
+    /*=====SLIDER MODEL - ENDED=====*/
 }
     /*==========CRUD MODEL - ENDED==========*/

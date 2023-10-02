@@ -16,10 +16,35 @@ class AdminController extends CI_Controller
         parent::__construct();
         $this->load->model("AdminModel");
     }
-    /*=====ADMIN CONTROLLER SELECT OPTION ENUMERATOR=====*/
+
+    /*=====ADMIN CONTROLLER SELECT OPTION ENUMERATE - START=====*/
+    private $AdminRole = [
+        "root" => [
+            "access" => [
+                "create" => "1",
+                "edit"   => "1",
+                "delete" => "1",
+            ]
+        ],
+        "admin" => [
+            "access" => [
+                "create" => "1",
+                "edit"   => "1",
+                "delete" => "1"
+            ]
+        ],
+        "redactor" => [
+            "access" => [
+                "create" => "1",
+                "edit"   => "1",
+                "delete" => "0"
+            ]
+        ],
+    ];
+    /*=====ADMIN CONTROLLER SELECT OPTION ENUMERATE - ENDED=====*/
 
     /*=====LOCAL ADMIN CONTROLLER FUNCTION - START=====*/
-    private function SendEmail(array $eTo, string $eSubject, string $eMessage): bool
+    protected function SendEmail(array $eTo, string $eSubject, string $eMessage): bool
     {
         $eFrom = "stimul.news@flash.az";
         $eFromName = "STIMUL NEWS";
@@ -33,7 +58,7 @@ class AdminController extends CI_Controller
         return $this->email->send() ? true : false;
     }
 
-    private function AlertFlashData(string $alertType, string $alertName, string $alertHeadMessage, string $alertShortMessage, string $alertLongMessage): void
+    protected function AlertFlashData(string $alertType, string $alertName, string $alertHeadMessage, string $alertShortMessage, string $alertLongMessage): void
     {
         $alert_type     = strtolower($alertType);
         $alert_bg_color = "rgba(0, 23, 51, 0.32)";
@@ -66,7 +91,7 @@ class AdminController extends CI_Controller
         );
     }
 
-    private function CryptoPrice($cryptoLimit)
+    protected function CryptoPrice($cryptoLimit)
     {
         $curl_crypto_price = curl_init("https://api.binance.com/api/v3/ticker/price");
         curl_setopt($curl_crypto_price, CURLOPT_USERAGENT, "StimulNewsClient-v1.0");
@@ -80,7 +105,7 @@ class AdminController extends CI_Controller
         return array_splice($response_result, 0, $cryptoLimit);
     }
 
-    private function FiatPrice($sourceFiat, array $currencyFiat)
+    protected function FiatPrice($sourceFiat, array $currencyFiat)
     {
         $curl_fiat_price = curl_init("http://apilayer.net/api/live?access_key=fe5846bdd06207a77f1865b04022e68f&currencies=" . join(",", $currencyFiat) . "&source=" . $sourceFiat . "&format=1");
         curl_setopt($curl_fiat_price, CURLOPT_USERAGENT, "StimulNewsClient-v1.0");
@@ -95,8 +120,8 @@ class AdminController extends CI_Controller
     public function dashboard()
     {
         $data["admin_page_name"] = "Dashboard";
-        $data["crypto_price"] = $this->CryptoPrice(3);
-        $data["fiat_price"] = $this->FiatPrice("USD", ["AZN", "RUB", "EUR"]);
+        $data["crypto_price"] = $this->CryptoPrice(5);
+        $data["fiat_price"] = $this->FiatPrice("USD", ["AZN", "RUB", "EUR", "CHF", "GBP"]);
         $this->load->view("admins/Dashboard", $data);
     }
     /*=====DASHBOARD - ENDED=====*/
@@ -1247,7 +1272,7 @@ class AdminController extends CI_Controller
         $this->load->view("admins/Subscribers/Edit", $data);
     }
 
-    public function crud_subscribers_edit_action() //ТЩЕУ
+    public function crud_subscribers_edit_action($id)
     {
         $subscriber_email = $this->input->post("subscriber_email", TRUE);
         $subscriber_status = $this->input->post("subscriber_status", TRUE);
@@ -1266,7 +1291,7 @@ class AdminController extends CI_Controller
                 "s_data" => $json_data_encoded
             ];
 
-            $this->AdminModel->subscribers_admin_db_insert($data);
+            $this->AdminModel->subscribers_admin_db_update($id, $data);
 
             $this->AlertFlashData(
                 "success",
@@ -1311,22 +1336,59 @@ class AdminController extends CI_Controller
 
         redirect(base_url("admin/subscribers-list"));
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /*=====SUBSCRIBERS CRUD - ENDED=====*/
+
+    /*=====SLIDER CRUD - START=====*/
+
+
+
+
+
+
+    //router jsonp
+    public function news_detector($id){
+        $ret = $this->AdminModel->news_admin_db_get($id)["n_data"];
+        print_r($ret);
+    }
+
+
+    public function crud_slider_create()
+    {
+        $data["admin_page_name"] = "Slider Create";
+        $this->load->view("admins/Slider/Create", $data);
+    }
+
+    public function crud_slider_create_action()
+    {
+    }
+
+    public function crud_slider_list()
+    {
+        $data["admin_page_name"] = "Slider List";
+        $this->load->view("admins/Slider/List", $data);
+    }
+
+    public function crud_slider_edit($id)
+    {
+        $data["admin_page_name"] = "Slider Edit";
+        $this->load->view("admins/Slider/Edit", $data);
+    }
+
+    public function crud_slider_edit_action($id)
+    {
+    }
+
+    public function crud_slider_delete($id)
+    {
+    }
+
+
+
+
+
+
+
+
+
+    /*=====SLIDER CRUD - ENDED=====*/
 }

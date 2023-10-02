@@ -10,7 +10,6 @@ $route["home"] = "UserController/index";
 /*=====USER CONTROLLER - ENDED=====*/
 
 
-
 /*=====ADMIN CONTROLLER - START=====*/
 $route["admin/dashboard"]                     = "AdminController/dashboard";
 
@@ -66,6 +65,11 @@ $route["admin/slider-detail/(.*)"]            = "AdminController/crud_slider_det
 $route["admin/slider-edit/(.*)"]              = "AdminController/crud_slider_edit/$1";
 $route["admin/slider-edit-action/(.*)"]       = "AdminController/crud_slider_edit_action/$1";
 $route["admin/slider-delete/(.*)"]            = "AdminController/crud_slider_delete/$1";
+
+
+
+$route["admin/rik/(.*)"]                     = "AdminController/news_detector/$1";
+
 /*=====SLIDER CRUD - ENDED=====*/
 
 /*=====GALLERY CRUD - START=====*/

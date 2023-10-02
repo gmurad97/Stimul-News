@@ -5,13 +5,13 @@
     <div class="card-header fw-bold d-flex flex-row justify-content-between align-items-center">
         <div class="h5 text-warning m-0">SUBSCRIBERS EDIT</div>
         <div>
-            <a href="<?= base_url('admin/subscribers-list'); ?>" class="btn btn-outline-info">
+            <a href="<?= base_url('admin/subscriber-list'); ?>" class="btn btn-outline-info">
                 <i class="bi bi-list-nested me-1"></i>
                 List
             </a>
-            <button type="submit" form="subscribers_form" class="btn btn-outline-success">
-                <i class="bi bi-plus-circle me-1"></i>
-                Create
+            <button type="submit" form="subscribers_form" class="btn btn-outline-warning">
+                <i class="bi bi-pencil-square me-1"></i>
+                Edit
             </button>
         </div>
     </div>
@@ -36,7 +36,7 @@
         $subscriber_data = json_decode($subscriber_info["s_data"], FALSE);
         ?>
 
-        <form class="" action="<?= base_url('admin/subscribers-edit-action'); ?>" method="POST" enctype="application/x-www-form-urlencoded" id="subscribers_form">
+        <form class="" action="<?= base_url('admin/subscribers-edit-action/').$subcriber_id; ?>" method="POST" enctype="application/x-www-form-urlencoded" id="subscribers_form">
             <ul class="list-group list-group-flush mb-3">
                 <li class="list-group-item">
                     <div class="row d-flex flex-row justify-content-between align-items-center">

@@ -9,7 +9,7 @@
                     <span class="menu-icon">
                         <i class="bi bi-cpu"></i>
                     </span>
-                    <span class="menu-text">Dashboard</span>
+                    <span class="menu-text">Dashboard*</span>
                 </a>
             </div>
             <!--=====DASHBOARD - ENDED=====-->
