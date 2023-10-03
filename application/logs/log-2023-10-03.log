@@ -1,0 +1,41 @@
+ERROR - 2023-10-03 01:06:19 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1350
+ERROR - 2023-10-03 01:06:21 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1350
+ERROR - 2023-10-03 01:06:21 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1350
+ERROR - 2023-10-03 01:06:21 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1350
+ERROR - 2023-10-03 01:06:22 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1350
+ERROR - 2023-10-03 01:06:22 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1350
+ERROR - 2023-10-03 01:06:23 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1350
+ERROR - 2023-10-03 01:06:23 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1350
+ERROR - 2023-10-03 01:06:24 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1350
+ERROR - 2023-10-03 01:06:24 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1350
+ERROR - 2023-10-03 01:06:25 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1350
+ERROR - 2023-10-03 01:06:26 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1350
+ERROR - 2023-10-03 01:06:27 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1350
+ERROR - 2023-10-03 01:06:32 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1350
+ERROR - 2023-10-03 01:06:33 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1350
+ERROR - 2023-10-03 01:06:51 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1350
+ERROR - 2023-10-03 01:06:52 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1350
+ERROR - 2023-10-03 01:06:53 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1350
+ERROR - 2023-10-03 01:06:53 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1350
+ERROR - 2023-10-03 01:06:54 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1350
+ERROR - 2023-10-03 01:06:54 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1350
+ERROR - 2023-10-03 01:06:55 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1350
+ERROR - 2023-10-03 01:06:55 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1350
+ERROR - 2023-10-03 01:06:56 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1350
+ERROR - 2023-10-03 01:06:57 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1350
+ERROR - 2023-10-03 02:40:52 --> Severity: Warning --> Attempt to read property "symbol" on float C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 22
+ERROR - 2023-10-03 02:40:52 --> Severity: Warning --> Attempt to read property "price" on float C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 23
+ERROR - 2023-10-03 02:40:52 --> Severity: Warning --> Attempt to read property "symbol" on float C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 22
+ERROR - 2023-10-03 02:40:52 --> Severity: Warning --> Attempt to read property "price" on float C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 23
+ERROR - 2023-10-03 02:40:52 --> Severity: Warning --> Attempt to read property "symbol" on float C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 22
+ERROR - 2023-10-03 02:40:52 --> Severity: Warning --> Attempt to read property "price" on float C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 23
+ERROR - 2023-10-03 02:41:21 --> Severity: Warning --> Attempt to read property "symbol" on float C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 23
+ERROR - 2023-10-03 02:41:21 --> Severity: Warning --> Attempt to read property "price" on float C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 24
+ERROR - 2023-10-03 02:41:21 --> Severity: Warning --> Attempt to read property "symbol" on float C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 23
+ERROR - 2023-10-03 02:41:21 --> Severity: Warning --> Attempt to read property "price" on float C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 24
+ERROR - 2023-10-03 02:41:21 --> Severity: Warning --> Attempt to read property "symbol" on float C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 23
+ERROR - 2023-10-03 02:41:21 --> Severity: Warning --> Attempt to read property "price" on float C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 24
+ERROR - 2023-10-03 02:43:46 --> Severity: Warning --> Undefined variable $fiat_item_price C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 21
+ERROR - 2023-10-03 02:43:46 --> Severity: error --> Exception: Attempt to assign property "" on null C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 21
+ERROR - 2023-10-03 02:47:56 --> Severity: Warning --> Undefined array key "quotes" C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 89
+ERROR - 2023-10-03 02:47:56 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 20

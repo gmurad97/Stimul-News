@@ -3,30 +3,30 @@
 <?php $this->load->view("admins/includes/Sidebar"); ?>
 <div class="card">
     <div class="card-header fw-bold d-flex flex-row justify-content-between align-items-center">
-        <div class="h5 text-warning m-0">Branding</div>
+        <div class="h5 text-warning text-uppercase m-0">Branding</div>
         <div>
-            <button type="submit" form="branding_form" class="btn btn-outline-warning">
-                <i class="bi bi-pencil-square me-1"></i>
-                Edit
-            </button>
-            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#branding_modal_delete">
+            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#danger_modal">
                 <i class="bi bi-trash me-1"></i>
                 Remove
+            </button>
+            <button type="submit" form="crud_form" class="btn btn-warning">
+                <i class="bi bi-pencil-square me-1"></i>
+                Edit
             </button>
         </div>
     </div>
     <div class="card-body">
-        <?php if ($this->session->flashdata("branding_alert")) : ?>
-            <div class="alert alert-<?= $this->session->flashdata('branding_alert')['alert_type']; ?> alert-dismissable fade show p-3" style="<?= $this->session->flashdata('branding_alert')['alert_bg_color']; ?>">
+        <?php if ($this->session->flashdata("crud_alert")) : ?>
+            <div class="alert alert-<?= $this->session->flashdata('crud_alert')['alert_type']; ?> alert-dismissable fade show p-3" style="<?= $this->session->flashdata('crud_alert')['alert_bg_color']; ?>">
                 <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
                 <h4 class="alert-heading">
-                    <i class="<?= $this->session->flashdata('branding_alert')['alert_icon']; ?> me-2"></i>
-                    <?= $this->session->flashdata('branding_alert')['alert_heading_message']; ?>
+                    <i class="<?= $this->session->flashdata('crud_alert')['alert_icon']; ?> me-2"></i>
+                    <?= $this->session->flashdata('crud_alert')['alert_heading_message']; ?>
                 </h4>
                 <hr>
                 <p class="mb-0">
-                    <strong class="fw-bold"><?= $this->session->flashdata('branding_alert')['alert_short_message']; ?> </strong>
-                    <?= $this->session->flashdata('branding_alert')['alert_long_message']; ?>
+                    <strong class="fw-bold"><?= $this->session->flashdata('crud_alert')['alert_short_message']; ?> </strong>
+                    <?= $this->session->flashdata('crud_alert')['alert_long_message']; ?>
                 </p>
             </div>
         <?php endif; ?>
@@ -53,10 +53,10 @@
                 <?php endif; ?>
             </div>
         <?php endif; ?>
-        <h1 class="h5 text-warning mb-3">Image</h1>
-        <form action="<?= base_url('admin/branding-edit-action'); ?>" method="POST" enctype="multipart/form-data" id="branding_form">
+        <form action="<?= base_url('admin/branding-edit-action'); ?>" method="POST" enctype="multipart/form-data" class="was-validated" id="crud_form">
             <ul class="list-group list-group-flush mb-3">
                 <li class="list-group-item">
+                    <h1 class="h5 text-warning mb-3">Image</h1>
                     <div class="row d-flex flex-row justify-content-between align-items-center">
                         <div class="col-md-3">
                             <label for="logo_dark_img_label">Logo Dark</label>
@@ -86,27 +86,31 @@
                         </div>
                     </div>
                 </li>
-                <h1 class="h5 text-warning mb-3 mt-3">Visibility</h1>
-                <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
-                    <label for="logo_dark_visibility_label">Logo Dark</label>
-                    <div class="form-check form-switch">
-                        <input name="logo_dark_visibility" type="checkbox" class="form-check-input" id="logo_dark_visibility_label" <?= $admin_branding->logo_dark->visibility ? "checked" : ""; ?>>
-                    </div>
-                </li>
-                <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
-                    <label for="logo_light_visibility_label">Logo Light</label>
-                    <div class="form-check form-switch">
-                        <input name="logo_light_visibility" type="checkbox" class="form-check-input" id="logo_light_visibility_label" <?= $admin_branding->logo_light->visibility ? "checked" : ""; ?>>
-                    </div>
-                </li>
-                <h1 class="h5 text-warning mb-3 mt-3">Other</h1>
                 <li class="list-group-item">
+                    <h1 class="h5 text-warning mb-3 mt-3">Visibility</h1>
+                    <div class="d-flex flex-row justify-content-between align-items-center">
+                        <label for="logo_dark_visibility_label">Logo Dark</label>
+                        <div class="form-check form-switch">
+                            <input name="logo_dark_visibility" type="checkbox" class="form-check-input" id="logo_dark_visibility_label" <?= $admin_branding->logo_dark->visibility ? "checked" : ""; ?>>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="d-flex flex-row justify-content-between align-items-center">
+                        <label for="logo_light_visibility_label">Logo Light</label>
+                        <div class="form-check form-switch">
+                            <input name="logo_light_visibility" type="checkbox" class="form-check-input" id="logo_light_visibility_label" <?= $admin_branding->logo_light->visibility ? "checked" : ""; ?>>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <h1 class="h5 text-warning mb-3 mt-3">Other</h1>
                     <div class="row d-flex flex-row justify-content-between align-items-center">
                         <div class="col-md-3">
                             <label for="site_title_prefix_label">Title Prefix</label>
                         </div>
                         <div class="col-md-9">
-                            <input name="site_title_prefix" type="text" class="form-control form-control-sm" id="site_title_prefix_label" placeholder="Stimul News" value="<?= $admin_branding->title_prefix; ?>">
+                            <input required name="site_title_prefix" type="text" class="form-control form-control-sm" id="site_title_prefix_label" placeholder="Stimul News" value="<?= $admin_branding->title_prefix; ?>">
                         </div>
                     </div>
                 </li>
@@ -120,7 +124,7 @@
         <div class="card-arrow-bottom-right"></div>
     </div>
 </div>
-<div class="modal fade text-center" id="branding_modal_delete">
+<div class="modal fade text-center" id="danger_modal">
     <div class="modal-dialog modal-sm">
         <div class="modal-content rounded">
             <div class="modal-body py-3">

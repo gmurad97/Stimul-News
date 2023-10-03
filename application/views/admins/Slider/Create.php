@@ -38,14 +38,14 @@
 
 
         <ul class="nav nav-tabs nav-tabs-v2 ps-4 pe-4">
-            <li class="nav-item me-3"><a href="#homev2WithCard" class="nav-link" data-bs-toggle="tab">Home</a></li>
-            <li class="nav-item me-3"><a href="#profilev2WithCard" class="nav-link active" data-bs-toggle="tab">Profile</a></li>
+            <li class="nav-item me-3"><a href="#homev2WithCard" class="nav-link active" data-bs-toggle="tab">Custom</a></li>
+            <li class="nav-item me-3"><a href="#profilev2WithCard" class="nav-link" data-bs-toggle="tab">News</a></li>
         </ul>
 
 
 
         <div class="tab-content p-4">
-            <div class="tab-pane fade" id="homev2WithCard">
+            <div class="tab-pane fade show active" id="homev2WithCard">
                 <form class="" action="<?= base_url('admin/slider-create-action'); ?>" method="POST" enctype="multipart/form-data" id="slider_form">
                     <ul class="list-group list-group-flush mb-3">
                         <h1 class="h5 text-success mb-3">Base Text</h1>
@@ -90,13 +90,13 @@
                         <link rel="stylesheet" href="<?= base_url('public/admin/assets/plugins/spectrum/css/spectrum.min.css'); ?>">
                         <script src="<?= base_url('public/admin/assets/plugins/spectrum/js/spectrum.min.js'); ?>"></script>
                         <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
-                            <label for="category_colorpicker">Background Color</label>
+                            <label for="category_colorpicker">Big Color</label>
                             <div class="form-check form-switch">
                                 <input required name="category_bg_color" type="text" value="#00AA00" class="form-control" id="category_colorpicker">
                             </div>
                         </li>
                         <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
-                            <label for="category_colorpicker">Background Color</label>
+                            <label for="category_colorpicker">Small Color</label>
                             <div class="form-check form-switch">
                                 <input required name="category_bg_color" type="text" value="#00AA00" class="form-control" id="category_colorpicker2">
                             </div>
@@ -122,7 +122,7 @@
 
 
 
-            <div class="tab-pane fade active show" id="profilev2WithCard">
+            <div class="tab-pane fade" id="profilev2WithCard">
 
                 <form class="" action="<?= base_url('admin/slider-create-action'); ?>" method="POST" enctype="multipart/form-data" id="slider_form">
                     <ul class="list-group list-group-flush mb-3">

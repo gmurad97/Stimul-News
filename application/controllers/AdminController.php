@@ -17,32 +17,6 @@ class AdminController extends CI_Controller
         $this->load->model("AdminModel");
     }
 
-    /*=====ADMIN CONTROLLER SELECT OPTION ENUMERATE - START=====*/
-    private $AdminRole = [
-        "root" => [
-            "access" => [
-                "create" => "1",
-                "edit"   => "1",
-                "delete" => "1",
-            ]
-        ],
-        "admin" => [
-            "access" => [
-                "create" => "1",
-                "edit"   => "1",
-                "delete" => "1"
-            ]
-        ],
-        "redactor" => [
-            "access" => [
-                "create" => "1",
-                "edit"   => "1",
-                "delete" => "0"
-            ]
-        ],
-    ];
-    /*=====ADMIN CONTROLLER SELECT OPTION ENUMERATE - ENDED=====*/
-
     /*=====LOCAL ADMIN CONTROLLER FUNCTION - START=====*/
     protected function SendEmail(array $eTo, string $eSubject, string $eMessage): bool
     {
@@ -120,8 +94,8 @@ class AdminController extends CI_Controller
     public function dashboard()
     {
         $data["admin_page_name"] = "Dashboard";
-        $data["crypto_price"] = $this->CryptoPrice(5);
-        $data["fiat_price"] = $this->FiatPrice("USD", ["AZN", "RUB", "EUR", "CHF", "GBP"]);
+        $data["crypto_price"] = $this->CryptoPrice(3);
+        $data["fiat_price"] = $this->FiatPrice("USD", ["AZN", "RUB", "EUR"]);
         $this->load->view("admins/Dashboard", $data);
     }
     /*=====DASHBOARD - ENDED=====*/
@@ -164,7 +138,7 @@ class AdminController extends CI_Controller
 
             $this->AlertFlashData(
                 "success",
-                "topbar_alert",
+                "crud_alert",
                 "Create",
                 "Success!",
                 "The topbar has been successfully created."
@@ -216,7 +190,7 @@ class AdminController extends CI_Controller
 
             $this->AlertFlashData(
                 "success",
-                "topbar_alert",
+                "crud_alert",
                 "Edit",
                 "Success!",
                 "The topbar has been successfully edited."
@@ -233,7 +207,7 @@ class AdminController extends CI_Controller
 
         $this->AlertFlashData(
             "success",
-            "topbar_alert",
+            "crud_alert",
             "Remove",
             "Success!",
             "The topbar has been successfully removed."
@@ -278,44 +252,61 @@ class AdminController extends CI_Controller
                 "favicon_img"    => $this->upload->do_upload("favicon_img")    ? $this->upload->data() : NULL
             ];
 
-            $json_data_decoded = [
-                "logo_dark" => [
-                    "file_name"  => $uploadResults["logo_dark_img"]["file_name"] ?? NULL,
-                    "file_type"  => $uploadResults["logo_dark_img"]["file_type"] ?? NULL,
-                    "file_ext"   => $uploadResults["logo_dark_img"]["file_ext"]  ?? NULL,
-                    "visibility" => str_contains($logo_dark_visibility, "on") ? TRUE : FALSE
-                ],
-                "logo_light" => [
-                    "file_name"  => $uploadResults["logo_light_img"]["file_name"] ?? NULL,
-                    "file_type"  => $uploadResults["logo_light_img"]["file_type"] ?? NULL,
-                    "file_ext"   => $uploadResults["logo_light_img"]["file_ext"]  ?? NULL,
-                    "visibility" => str_contains($logo_light_visibility, "on") ? TRUE : FALSE
-                ],
-                "favicon" => [
-                    "file_name"  => $uploadResults["favicon_img"]["file_name"] ?? NULL,
-                    "file_type"  => $uploadResults["favicon_img"]["file_type"] ?? NULL,
-                    "file_ext"   => $uploadResults["favicon_img"]["file_ext"]  ?? NULL
-                ],
-                "title_prefix" => $site_title_prefix
-            ];
+            if (
+                !is_null($uploadResults["logo_dark_img"])
+                && !is_null($uploadResults["logo_light_img"])
+                && !is_null($uploadResults["favicon_img"])
+                && !empty($site_title_prefix)
+            ) {
+                $json_data_decoded = [
+                    "logo_dark" => [
+                        "file_name"  => $uploadResults["logo_dark_img"]["file_name"] ?? NULL,
+                        "file_type"  => $uploadResults["logo_dark_img"]["file_type"] ?? NULL,
+                        "file_ext"   => $uploadResults["logo_dark_img"]["file_ext"]  ?? NULL,
+                        "visibility" => str_contains($logo_dark_visibility, "on") ? TRUE : FALSE
+                    ],
+                    "logo_light" => [
+                        "file_name"  => $uploadResults["logo_light_img"]["file_name"] ?? NULL,
+                        "file_type"  => $uploadResults["logo_light_img"]["file_type"] ?? NULL,
+                        "file_ext"   => $uploadResults["logo_light_img"]["file_ext"]  ?? NULL,
+                        "visibility" => str_contains($logo_light_visibility, "on") ? TRUE : FALSE
+                    ],
+                    "favicon" => [
+                        "file_name"  => $uploadResults["favicon_img"]["file_name"] ?? NULL,
+                        "file_type"  => $uploadResults["favicon_img"]["file_type"] ?? NULL,
+                        "file_ext"   => $uploadResults["favicon_img"]["file_ext"]  ?? NULL
+                    ],
+                    "title_prefix" => $site_title_prefix
+                ];
 
-            $json_data_encoded = json_encode($json_data_decoded);
+                $json_data_encoded = json_encode($json_data_decoded);
 
-            $data = [
-                "b_data" => $json_data_encoded
-            ];
+                $data = [
+                    "b_data" => $json_data_encoded
+                ];
 
-            $this->AdminModel->branding_admin_db_insert($data);
+                $this->AdminModel->branding_admin_db_insert($data);
 
-            $this->AlertFlashData(
-                "success",
-                "branding_alert",
-                "Create",
-                "Success!",
-                "The branding has been successfully created."
-            );
+                $this->AlertFlashData(
+                    "success",
+                    "crud_alert",
+                    "Create",
+                    "Success!",
+                    "The branding has been successfully created."
+                );
 
-            redirect(base_url("admin/branding-edit"));
+                redirect(base_url("admin/branding-edit"));
+            } else {
+                $this->AlertFlashData(
+                    "warning",
+                    "crud_alert",
+                    "Create",
+                    "Warning!",
+                    "Please, fill in all the fields."
+                );
+
+                redirect($_SERVER["HTTP_REFERER"]);
+            }
         } else {
             redirect(base_url("admin/branding-edit"));
         }
@@ -375,44 +366,61 @@ class AdminController extends CI_Controller
                 $favicon_img = $this->upload->data();
             }
 
-            $json_data_decoded = [
-                "logo_dark" => [
-                    "file_name"  => $logo_dark_img["file_name"] ?? NULL,
-                    "file_type"  => $logo_dark_img["file_type"] ?? NULL,
-                    "file_ext"   => $logo_dark_img["file_ext"]  ?? NULL,
-                    "visibility" => str_contains($logo_dark_visibility, "on") ? TRUE : FALSE
-                ],
-                "logo_light" => [
-                    "file_name"  => $logo_light_img["file_name"] ?? NULL,
-                    "file_type"  => $logo_light_img["file_type"] ?? NULL,
-                    "file_ext"   => $logo_light_img["file_ext"]  ?? NULL,
-                    "visibility" => str_contains($logo_light_visibility, "on") ? TRUE : FALSE
-                ],
-                "favicon" => [
-                    "file_name"  => $favicon_img["file_name"] ?? NULL,
-                    "file_type"  => $favicon_img["file_type"] ?? NULL,
-                    "file_ext"   => $favicon_img["file_ext"]  ?? NULL
-                ],
-                "title_prefix" => $site_title_prefix
-            ];
+            if (
+                !empty($logo_dark_img)
+                && !empty($logo_light_img)
+                && !empty($favicon_img)
+                && !empty($site_title_prefix)
+            ) {
+                $json_data_decoded = [
+                    "logo_dark" => [
+                        "file_name"  => $logo_dark_img["file_name"] ?? NULL,
+                        "file_type"  => $logo_dark_img["file_type"] ?? NULL,
+                        "file_ext"   => $logo_dark_img["file_ext"]  ?? NULL,
+                        "visibility" => str_contains($logo_dark_visibility, "on") ? TRUE : FALSE
+                    ],
+                    "logo_light" => [
+                        "file_name"  => $logo_light_img["file_name"] ?? NULL,
+                        "file_type"  => $logo_light_img["file_type"] ?? NULL,
+                        "file_ext"   => $logo_light_img["file_ext"]  ?? NULL,
+                        "visibility" => str_contains($logo_light_visibility, "on") ? TRUE : FALSE
+                    ],
+                    "favicon" => [
+                        "file_name"  => $favicon_img["file_name"] ?? NULL,
+                        "file_type"  => $favicon_img["file_type"] ?? NULL,
+                        "file_ext"   => $favicon_img["file_ext"]  ?? NULL
+                    ],
+                    "title_prefix" => $site_title_prefix
+                ];
 
-            $json_data_encoded = json_encode($json_data_decoded);
+                $json_data_encoded = json_encode($json_data_decoded);
 
-            $data = [
-                "b_data" => $json_data_encoded
-            ];
+                $data = [
+                    "b_data" => $json_data_encoded
+                ];
 
-            $this->AdminModel->branding_admin_db_update($branding_db_row, $data);
+                $this->AdminModel->branding_admin_db_update($branding_db_row, $data);
 
-            $this->AlertFlashData(
-                "success",
-                "branding_alert",
-                "Edit",
-                "Success!",
-                "The branding has been successfully edited."
-            );
+                $this->AlertFlashData(
+                    "success",
+                    "crud_alert",
+                    "Edit",
+                    "Success!",
+                    "The branding has been successfully edited."
+                );
 
-            redirect(base_url("admin/branding-edit"));
+                redirect(base_url("admin/branding-edit"));
+            } else {
+                $this->AlertFlashData(
+                    "warning",
+                    "crud_alert",
+                    "Create",
+                    "Warning!",
+                    "Please, fill in all the fields."
+                );
+
+                redirect($_SERVER["HTTP_REFERER"]);
+            }
         }
     }
 
@@ -424,7 +432,7 @@ class AdminController extends CI_Controller
 
         $this->AlertFlashData(
             "success",
-            "branding_alert",
+            "crud_alert",
             "Remove",
             "Success!",
             "The branding has been successfully removed."
@@ -433,6 +441,21 @@ class AdminController extends CI_Controller
         redirect(base_url("admin/branding-create"));
     }
     /*=====BRANDING CRUD - ENDED=====*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /*=====PARTNERS CRUD - START=====*/
     public function crud_partners_create()
@@ -1346,7 +1369,8 @@ class AdminController extends CI_Controller
 
 
     //router jsonp
-    public function news_detector($id){
+    public function news_detector($id)
+    {
         $ret = $this->AdminModel->news_admin_db_get($id)["n_data"];
         print_r($ret);
     }

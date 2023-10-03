@@ -2,50 +2,77 @@
     <div class="app-sidebar-content" data-scrollbar="true" data-height="100%">
         <div class="menu">
             <?php $segment_name = $this->uri->segment(2); ?>
-            <div class="menu-header">Navigation</div>
+            <div class="menu-header">Detailing</div>
+
             <!--=====DASHBOARD - START=====-->
-            <div class="menu-item <?= str_contains($segment_name, 'dashboard') ? 'active' : ''; ?>">
+            <?php
+            $isDashboard = str_contains($segment_name, "dashboard");
+            $dashboardActive = $isDashboard ? "active" : "";
+            $dashboardFade = $isDashboard ? "fa-fade" : "";
+            ?>
+            <div class="menu-item <?= $dashboardActive; ?>">
                 <a href="<?= base_url('admin/dashboard'); ?>" class="menu-link">
                     <span class="menu-icon">
-                        <i class="bi bi-cpu"></i>
+                        <i class="bi bi-cpu <?= $dashboardFade; ?>"></i>
                     </span>
-                    <span class="menu-text">Dashboard*</span>
+                    <span class="menu-text">Dashboard</span>
                 </a>
             </div>
             <!--=====DASHBOARD - ENDED=====-->
 
             <div class="menu-header">Content Manager</div>
 
-
             <!--=====TOPBAR - START=====-->
-            <div class="menu-item <?= str_contains($segment_name, 'topbar') ? 'active' : ''; ?>">
+            <?php
+            $isTopbar = str_contains($segment_name, "topbar");
+            $topbarActive = $isTopbar ? "active" : "";
+            $topbarFade = $isTopbar ? "fa-fade" : "";
+            ?>
+            <div class="menu-item <?= $topbarActive; ?>">
                 <a href="<?= base_url('admin/topbar-create'); ?>" class="menu-link">
                     <span class="menu-icon">
-                        <i class="bi bi-distribute-vertical"></i>
+                        <i class="bi bi-distribute-vertical <?= $topbarFade; ?>"></i>
                     </span>
-                    <span class="menu-text">Topbar*</span>
+                    <span class="menu-text">Topbar</span>
                 </a>
             </div>
             <!--=====TOPBAR - ENDED=====-->
 
             <!--=====BRANDING - START=====-->
-            <div class="menu-item <?= str_contains($segment_name, 'branding') ? 'active' : ''; ?>">
+            <?php
+            $isBranding = str_contains($segment_name, "branding");
+            $brandingActive = $isBranding ? "active" : "";
+            $brandingFade = $isBranding ? "fa-fade" : "";
+            ?>
+            <div class="menu-item <?= $brandingActive; ?>">
                 <a href="<?= base_url('admin/branding-create'); ?>" class="menu-link">
                     <span class="menu-icon">
-                        <i class="bi bi-flower1"></i>
+                        <i class="bi bi-flower1 <?= $brandingFade; ?>"></i>
                     </span>
-                    <span class="menu-text">Branding*</span>
+                    <span class="menu-text">Branding</span>
                 </a>
             </div>
             <!--=====BRANDING - ENDED=====-->
 
+
+
+
+
+
+
+
             <!--=====PARTNERS - START=====-->
+            <?php
+            $isPartners = str_contains($segment_name, "partners");
+            $partnersActive = $isPartners ? "active" : "";
+            $partnersFade = $isPartners ? "fa-fade" : "";
+            ?>
             <div class="menu-item has-sub <?= str_contains($segment_name, 'partners') ? 'active' : ''; ?>">
                 <a href="javascript:void(0);" class="menu-link">
                     <span class="menu-icon">
-                        <i class="bi bi-people"></i>
+                        <i class="bi bi-people <?= str_contains($segment_name, 'partners') ? 'fa-fade' : ''; ?>"></i>
                     </span>
-                    <span class="menu-text">Partners*</span>
+                    <span class="menu-text">Partners</span>
                     <span class="menu-caret">
                         <b class="caret"></b>
                     </span>
@@ -64,6 +91,17 @@
                 </div>
             </div>
             <!--=====PARTNERS - ENDED=====-->
+
+
+
+
+
+
+
+
+
+
+
 
             <!--=====CATEGORIES - START=====-->
             <div class="menu-item has-sub <?= str_contains($segment_name, 'categories') ? 'active' : ''; ?>">
@@ -123,7 +161,7 @@
                     <span class="menu-icon">
                         <i class="bi bi-bezier"></i>
                     </span>
-                    <span class="menu-text">Slider</span>
+                    <span class="menu-text">Slider*</span>
                     <span class="menu-caret">
                         <b class="caret"></b>
                     </span>
@@ -175,7 +213,7 @@
                     <span class="menu-icon">
                         <i class="fa-regular fa-address-card"></i>
                     </span>
-                    <span class="menu-text">About Us</span>
+                    <span class="menu-text">About Us*</span>
                 </a>
             </div>
             <!--=====ABOUT-US - ENDED=====-->
@@ -186,7 +224,7 @@
                     <span class="menu-icon">
                         <i class="bi bi-headset"></i>
                     </span>
-                    <span class="menu-text">Contacts</span>
+                    <span class="menu-text">Contacts*</span>
                 </a>
             </div>
             <!--=====CONTACTS - ENDED=====-->
@@ -197,7 +235,7 @@
                     <span class="menu-icon">
                         <i class="bi bi-card-image"></i>
                     </span>
-                    <span class="menu-text">Gallery</span>
+                    <span class="menu-text">Gallery*</span>
                     <span class="menu-caret">
                         <b class="caret"></b>
                     </span>
@@ -223,7 +261,7 @@
                     <span class="menu-icon">
                         <i class="bi bi-gear"></i>
                     </span>
-                    <span class="menu-text">Settings</span>
+                    <span class="menu-text">Settings*</span>
                 </a>
             </div>
             <!--=====SETTINGS - ENDED=====-->
