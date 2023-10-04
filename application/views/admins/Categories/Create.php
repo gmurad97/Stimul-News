@@ -1,47 +1,37 @@
 <?php $this->load->view("admins/includes/HeadScripts"); ?>
 <?php $this->load->view("admins/includes/Navbar"); ?>
 <?php $this->load->view("admins/includes/Sidebar"); ?>
-<div class="card">
-    <div class="card-header fw-bold d-flex flex-row justify-content-between align-items-center">
-        <div class="h5 text-success m-0">СATEGORIES CREATE</div>
+<div class="card bg-success border-theme bg-opacity-5">
+    <div class="card-header border-theme fw-bold d-flex flex-row justify-content-between align-items-center">
+        <div class="h5 text-success text-uppercase m-0">Categories Create</div>
         <div>
             <a href="<?= base_url('admin/categories-list'); ?>" class="btn btn-outline-info">
                 <i class="bi bi-list-nested me-1"></i>
                 List
             </a>
-            <button type="submit" form="categories_form" class="btn btn-outline-success">
+            <button type="submit" form="crud_form" class="btn btn-success">
                 <i class="bi bi-plus-circle me-1"></i>
                 Create
             </button>
         </div>
     </div>
     <div class="card-body">
-        <?php if ($this->session->flashdata("categories_alert")) : ?>
-            <div class="alert alert-<?= $this->session->flashdata('categories_alert')['alert_type']; ?> alert-dismissable fade show p-3" style="<?= $this->session->flashdata('categories_alert')['alert_bg_color']; ?>">
+        <?php if ($this->session->flashdata("crud_alert")) : ?>
+            <div class="alert alert-<?= $this->session->flashdata('crud_alert')['alert_type']; ?> alert-dismissable fade show p-3" style="<?= $this->session->flashdata('crud_alert')['alert_bg_color']; ?>">
                 <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
                 <h4 class="alert-heading">
-                    <i class="<?= $this->session->flashdata('categories_alert')['alert_icon']; ?> me-2"></i>
-                    <?= $this->session->flashdata('categories_alert')['alert_heading_message']; ?>
+                    <i class="<?= $this->session->flashdata('crud_alert')['alert_icon']; ?> me-2"></i>
+                    <?= $this->session->flashdata('crud_alert')['alert_heading_message']; ?>
                 </h4>
                 <hr>
                 <p class="mb-0">
-                    <strong class="fw-bold"><?= $this->session->flashdata('categories_alert')['alert_short_message']; ?> </strong>
-                    <?= $this->session->flashdata('categories_alert')['alert_long_message']; ?>
+                    <strong class="fw-bold"><?= $this->session->flashdata('crud_alert')['alert_short_message']; ?> </strong>
+                    <?= $this->session->flashdata('crud_alert')['alert_long_message']; ?>
                 </p>
             </div>
         <?php endif; ?>
-        <form action="<?= base_url('admin/categories-create-action'); ?>" method="POST" enctype="multipart/form-data" id="categories_form">
+        <form action="<?= base_url('admin/categories-create-action'); ?>" method="POST" enctype="multipart/form-data" class="was-validated" id="crud_form">
             <ul class="list-group list-group-flush mb-3">
-                <li class="list-group-item">
-                    <div class="row d-flex flex-row justify-content-between align-items-center">
-                        <div class="col-md-3">
-                            <label for="category_img_label">Breadcrumb Image</label>
-                        </div>
-                        <div class="col-md-9">
-                            <input required name="category_img" type="file" class="form-control form-control-sm" id="category_img_label">
-                        </div>
-                    </div>
-                </li>
                 <li class="list-group-item">
                     <ul class="nav nav-tabs nav-tabs-v2">
                         <li class="nav-item me-3">
@@ -90,6 +80,16 @@
                                     <input required name="category_az_name" type="text" class="form-control form-control-sm" id="category_az_name_label" placeholder="Biznes">
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row d-flex flex-row justify-content-between align-items-center">
+                        <div class="col-md-3">
+                            <label for="category_img_label">Breadcrumb Image</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input required name="category_img" type="file" class="form-control form-control-sm" id="category_img_label">
                         </div>
                     </div>
                 </li>

@@ -1,9 +1,9 @@
 <?php $this->load->view("admins/includes/HeadScripts"); ?>
 <?php $this->load->view("admins/includes/Navbar"); ?>
 <?php $this->load->view("admins/includes/Sidebar"); ?>
-<div class="card">
+<div class="card bg-primary border-primary bg-opacity-5">
     <div class="card-header fw-bold d-flex flex-row justify-content-between align-items-center">
-        <div class="h5 text-success m-0">CATEGORIES LIST</div>
+        <div class="h5 text-success text-uppercase m-0">Categories List</div>
         <div>
             <a href="<?= base_url('admin/categories-create'); ?>" class="btn btn-outline-success">
                 <i class="bi bi-plus-circle me-1"></i>
@@ -12,17 +12,17 @@
         </div>
     </div>
     <div class="card-body">
-        <?php if ($this->session->flashdata("categories_alert")) : ?>
-            <div class="alert alert-<?= $this->session->flashdata('categories_alert')['alert_type']; ?> alert-dismissable fade show p-3" style="<?= $this->session->flashdata('categories_alert')['alert_bg_color']; ?>">
+        <?php if ($this->session->flashdata("crud_alert")) : ?>
+            <div class="alert alert-<?= $this->session->flashdata('crud_alert')['alert_type']; ?> alert-dismissable fade show p-3" style="<?= $this->session->flashdata('crud_alert')['alert_bg_color']; ?>">
                 <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
                 <h4 class="alert-heading">
-                    <i class="<?= $this->session->flashdata('categories_alert')['alert_icon']; ?> me-2"></i>
-                    <?= $this->session->flashdata('categories_alert')['alert_heading_message']; ?>
+                    <i class="<?= $this->session->flashdata('crud_alert')['alert_icon']; ?> me-2"></i>
+                    <?= $this->session->flashdata('crud_alert')['alert_heading_message']; ?>
                 </h4>
                 <hr>
                 <p class="mb-0">
-                    <strong class="fw-bold"><?= $this->session->flashdata('categories_alert')['alert_short_message']; ?> </strong>
-                    <?= $this->session->flashdata('categories_alert')['alert_long_message']; ?>
+                    <strong class="fw-bold"><?= $this->session->flashdata('crud_alert')['alert_short_message']; ?> </strong>
+                    <?= $this->session->flashdata('crud_alert')['alert_long_message']; ?>
                 </p>
             </div>
         <?php endif; ?>
@@ -53,18 +53,22 @@
                                 </a>
                             </td>
                             <td>
-                                <?= (is_null($category_data_item_data->category_name->en) || empty($category_data_item_data->category_name->en)) ? "NULL" : "<span class='fw-bold text-info'>[EN]</span> " . $category_data_item_data->category_name->en . "<br>"; ?>
-                                <?= (is_null($category_data_item_data->category_name->ru) || empty($category_data_item_data->category_name->ru)) ? "NULL" : "<span class='fw-bold text-info'>[RU]</span> " . $category_data_item_data->category_name->ru . "<br>"; ?>
-                                <?= (is_null($category_data_item_data->category_name->az) || empty($category_data_item_data->category_name->az)) ? "NULL" : "<span class='fw-bold text-info'>[AZ]</span> " . $category_data_item_data->category_name->az . "<br>"; ?>
+                                <?= (is_null($category_data_item_data->category_name->en) || empty($category_data_item_data->category_name->en)) ? "NULL" : $category_data_item_data->category_name->en; ?>
                             </td>
                             <td>
                                 <div class="rounded-circle w-25px h-25px" style="background-color: <?= $category_data_item_data->category_bg_color; ?> ;"></div>
                             </td>
                             <td>
                                 <?php if ($category_data_item_data->category_status) : ?>
-                                    <span class="badge bg-success p-2 w-75px text-uppercase">Active</span>
+                                    <span class="badge bg-success p-2 w-90px text-uppercase">
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Active
+                                    </span>
                                 <?php else : ?>
-                                    <span class="badge bg-danger p-2 w-75px text-uppercase">Inactive</span>
+                                    <span class="badge bg-danger p-2 w-90px text-uppercase">
+                                        <i class="fa-regular fa-circle-xmark"></i>
+                                        Inactive
+                                    </span>
                                 <?php endif; ?>
                             </td>
                             <td>
@@ -75,7 +79,7 @@
                                     <a href="<?= base_url('admin/categories-edit/') . $category_data_item_id; ?>" class="nav-link theme-warning p-0 mx-3">
                                         <i class="bi bi-pencil-square fs-5"></i>
                                     </a>
-                                    <a href="javascript:void(0);" class="nav-link theme-danger p-0" data-link="<?= base_url('admin/categories-delete/') . $category_data_item_id; ?>" data-bs-toggle="modal" data-bs-target="#category_modal_delete">
+                                    <a href="javascript:void(0);" class="nav-link theme-danger p-0" data-link="<?= base_url('admin/categories-delete/') . $category_data_item_id; ?>" data-bs-toggle="modal" data-bs-target="#danger_modal">
                                         <i class=" bi bi-trash fs-5"></i>
                                     </a>
                                 </nav>
@@ -141,7 +145,7 @@
         <div class="card-arrow-bottom-right"></div>
     </div>
 </div>
-<div class="modal fade text-center" id="category_modal_delete">
+<div class="modal fade text-center" id="danger_modal">
     <div class="modal-dialog modal-sm">
         <div class="modal-content rounded">
             <div class="modal-body py-3">
@@ -149,7 +153,7 @@
             </div>
             <div class="modal-footer py-1">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <a href="javascript:void(0);" class="btn btn-outline-danger" id="category_modal_delete_link">Remove</a>
+                <a href="javascript:void(0);" class="btn btn-outline-danger" id="modal_delete_link">Remove</a>
             </div>
         </div>
     </div>
@@ -157,7 +161,7 @@
 <script>
     $(document).on("focus", "[data-link]", function() {
         var link = $(this).data("link");
-        $("#category_modal_delete_link").attr("href", link);
+        $("#modal_delete_link").attr("href", link);
     });
 </script>
 <?php $this->load->view("admins/includes/FooterScripts"); ?>

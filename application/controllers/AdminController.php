@@ -442,21 +442,6 @@ class AdminController extends CI_Controller
     }
     /*=====BRANDING CRUD - ENDED=====*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /*=====PARTNERS CRUD - START=====*/
     public function crud_partners_create()
     {
@@ -510,7 +495,7 @@ class AdminController extends CI_Controller
 
             $this->AlertFlashData(
                 "success",
-                "partners_alert",
+                "crud_alert",
                 "Create",
                 "Success!",
                 "The partner has been successfully added."
@@ -520,7 +505,7 @@ class AdminController extends CI_Controller
         } else {
             $this->AlertFlashData(
                 "warning",
-                "partners_alert",
+                "crud_alert",
                 "Create",
                 "Warning!",
                 "Please, fill in all the fields."
@@ -532,7 +517,7 @@ class AdminController extends CI_Controller
 
     public function crud_partners_list()
     {
-        $data["admin_page_name"] = "Partners Table List";
+        $data["admin_page_name"] = "Partners List";
         $data["partners_data"] = $this->AdminModel->partners_admin_db_get_results();
         $this->load->view("admins/Partners/List", $data);
     }
@@ -597,7 +582,7 @@ class AdminController extends CI_Controller
 
             $this->AlertFlashData(
                 "success",
-                "partners_alert",
+                "crud_alert",
                 "Edit",
                 "Success!",
                 "The partner has been successfully edited."
@@ -622,7 +607,7 @@ class AdminController extends CI_Controller
 
             $this->AlertFlashData(
                 "success",
-                "partners_alert",
+                "crud_alert",
                 "Edit",
                 "Success!",
                 "The partner has been successfully edited."
@@ -632,7 +617,7 @@ class AdminController extends CI_Controller
         } else {
             $this->AlertFlashData(
                 "warning",
-                "partners_alert",
+                "crud_alert",
                 "Edit",
                 "Warning!",
                 "Please, fill in all the fields."
@@ -653,7 +638,7 @@ class AdminController extends CI_Controller
 
         $this->AlertFlashData(
             "success",
-            "partners_alert",
+            "crud_alert",
             "Remove",
             "Success!",
             "The partner has been successfully removed."
@@ -722,7 +707,7 @@ class AdminController extends CI_Controller
 
             $this->AlertFlashData(
                 "success",
-                "categories_alert",
+                "crud_alert",
                 "Create",
                 "Success!",
                 "The category has been successfully added."
@@ -732,7 +717,7 @@ class AdminController extends CI_Controller
         } else {
             $this->AlertFlashData(
                 "warning",
-                "categories_alert",
+                "crud_alert",
                 "Create",
                 "Warning!",
                 "Please, fill in all the fields."
@@ -815,7 +800,7 @@ class AdminController extends CI_Controller
 
             $this->AlertFlashData(
                 "success",
-                "categories_alert",
+                "crud_alert",
                 "Create",
                 "Success!",
                 "The category has been successfully edited."
@@ -844,7 +829,7 @@ class AdminController extends CI_Controller
 
             $this->AlertFlashData(
                 "success",
-                "categories_alert",
+                "crud_alert",
                 "Create",
                 "Success!",
                 "The category has been successfully edited."
@@ -854,7 +839,7 @@ class AdminController extends CI_Controller
         } else {
             $this->AlertFlashData(
                 "warning",
-                "categories_alert",
+                "crud_alert",
                 "Edit",
                 "Warning!",
                 "Please, fill in all the fields."
@@ -876,7 +861,7 @@ class AdminController extends CI_Controller
 
         $this->AlertFlashData(
             "success",
-            "categories_alert",
+            "crud_alert",
             "Remove",
             "Success!",
             "The category has been successfully removed."
@@ -885,6 +870,22 @@ class AdminController extends CI_Controller
         redirect(base_url("admin/categories-list"));
     }
     /*=====CATEGORIES CRUD - ENDED=====*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /*=====NEWS CRUD - START=====*/
     public function crud_news_create()

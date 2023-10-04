@@ -1,19 +1,23 @@
 <div id="sidebar" class="app-sidebar">
     <div class="app-sidebar-content" data-scrollbar="true" data-height="100%">
         <div class="menu">
-            <?php $segment_name = $this->uri->segment(2); ?>
+            <!--=====FUNCTION MENU STATE - START=====-->
+            <?php
+            $segment_name = $this->uri->segment(2);
+            function MenuState(string $segmentName, string $pageName, string $className)
+            {
+                return str_contains($segmentName, $pageName) ? $className : "";
+            }
+            ?>
+            <!--=====FUNCTION MENU STATE - ENDED=====-->
+
             <div class="menu-header">Detailing</div>
 
             <!--=====DASHBOARD - START=====-->
-            <?php
-            $isDashboard = str_contains($segment_name, "dashboard");
-            $dashboardActive = $isDashboard ? "active" : "";
-            $dashboardFade = $isDashboard ? "fa-fade" : "";
-            ?>
-            <div class="menu-item <?= $dashboardActive; ?>">
+            <div class="menu-item <?= MenuState($segment_name, "dashboard", "active"); ?>">
                 <a href="<?= base_url('admin/dashboard'); ?>" class="menu-link">
                     <span class="menu-icon">
-                        <i class="bi bi-cpu <?= $dashboardFade; ?>"></i>
+                        <i class="bi bi-cpu <?= MenuState($segment_name, "dashboard", "fa-fade"); ?>"></i>
                     </span>
                     <span class="menu-text">Dashboard</span>
                 </a>
@@ -23,15 +27,10 @@
             <div class="menu-header">Content Manager</div>
 
             <!--=====TOPBAR - START=====-->
-            <?php
-            $isTopbar = str_contains($segment_name, "topbar");
-            $topbarActive = $isTopbar ? "active" : "";
-            $topbarFade = $isTopbar ? "fa-fade" : "";
-            ?>
-            <div class="menu-item <?= $topbarActive; ?>">
+            <div class="menu-item <?= MenuState($segment_name, "topbar", "active"); ?>">
                 <a href="<?= base_url('admin/topbar-create'); ?>" class="menu-link">
                     <span class="menu-icon">
-                        <i class="bi bi-distribute-vertical <?= $topbarFade; ?>"></i>
+                        <i class="bi bi-distribute-vertical <?= MenuState($segment_name, "topbar", "fa-fade"); ?>"></i>
                     </span>
                     <span class="menu-text">Topbar</span>
                 </a>
@@ -39,38 +38,21 @@
             <!--=====TOPBAR - ENDED=====-->
 
             <!--=====BRANDING - START=====-->
-            <?php
-            $isBranding = str_contains($segment_name, "branding");
-            $brandingActive = $isBranding ? "active" : "";
-            $brandingFade = $isBranding ? "fa-fade" : "";
-            ?>
-            <div class="menu-item <?= $brandingActive; ?>">
+            <div class="menu-item <?= MenuState($segment_name, "branding", "active"); ?>">
                 <a href="<?= base_url('admin/branding-create'); ?>" class="menu-link">
                     <span class="menu-icon">
-                        <i class="bi bi-flower1 <?= $brandingFade; ?>"></i>
+                        <i class="bi bi-flower1 <?= MenuState($segment_name, "branding", "fa-fade"); ?>"></i>
                     </span>
                     <span class="menu-text">Branding</span>
                 </a>
             </div>
             <!--=====BRANDING - ENDED=====-->
 
-
-
-
-
-
-
-
             <!--=====PARTNERS - START=====-->
-            <?php
-            $isPartners = str_contains($segment_name, "partners");
-            $partnersActive = $isPartners ? "active" : "";
-            $partnersFade = $isPartners ? "fa-fade" : "";
-            ?>
-            <div class="menu-item has-sub <?= str_contains($segment_name, 'partners') ? 'active' : ''; ?>">
+            <div class="menu-item has-sub <?= MenuState($segment_name, "partners", "active"); ?>">
                 <a href="javascript:void(0);" class="menu-link">
                     <span class="menu-icon">
-                        <i class="bi bi-people <?= str_contains($segment_name, 'partners') ? 'fa-fade' : ''; ?>"></i>
+                        <i class="bi bi-people <?= MenuState($segment_name, "partners", "fa-fade"); ?>"></i>
                     </span>
                     <span class="menu-text">Partners</span>
                     <span class="menu-caret">
@@ -78,12 +60,12 @@
                     </span>
                 </a>
                 <div class="menu-submenu">
-                    <div class="menu-item <?= str_contains($segment_name, 'partners-create') ? 'active' : ''; ?>">
+                    <div class="menu-item <?= MenuState($segment_name, "partners-create", "active"); ?>">
                         <a href="<?= base_url('admin/partners-create'); ?>" class="menu-link">
                             <span class="menu-text">Create</span>
                         </a>
                     </div>
-                    <div class="menu-item <?= str_contains($segment_name, 'partners-list') ? 'active' : ''; ?>">
+                    <div class="menu-item <?= MenuState($segment_name, "partners-list", "active"); ?>">
                         <a href="<?= base_url('admin/partners-list'); ?>" class="menu-link">
                             <span class="menu-text">List</span>
                         </a>
@@ -92,35 +74,24 @@
             </div>
             <!--=====PARTNERS - ENDED=====-->
 
-
-
-
-
-
-
-
-
-
-
-
             <!--=====CATEGORIES - START=====-->
-            <div class="menu-item has-sub <?= str_contains($segment_name, 'categories') ? 'active' : ''; ?>">
+            <div class="menu-item has-sub <?= MenuState($segment_name, "categories", "active"); ?>">
                 <a href="javascript:void(0);" class="menu-link">
                     <span class="menu-icon">
-                        <i class="bi bi-tags"></i>
+                        <i class="bi bi-tags <?= MenuState($segment_name, "categories", "fa-fade"); ?>"></i>
                     </span>
-                    <span class="menu-text">Categories*</span>
+                    <span class="menu-text">Categories</span>
                     <span class="menu-caret">
                         <b class="caret"></b>
                     </span>
                 </a>
                 <div class="menu-submenu">
-                    <div class="menu-item <?= str_contains($segment_name, 'categories-create') ? 'active' : ''; ?>">
+                    <div class="menu-item <?= MenuState($segment_name, "categories-create", "active"); ?>">
                         <a href="<?= base_url('admin/categories-create'); ?>" class="menu-link">
                             <span class="menu-text">Create</span>
                         </a>
                     </div>
-                    <div class="menu-item <?= str_contains($segment_name, 'categories-list') ? 'active' : ''; ?>">
+                    <div class="menu-item <?= MenuState($segment_name, "categories-list", "active"); ?>">
                         <a href="<?= base_url('admin/categories-list'); ?>" class="menu-link">
                             <span class="menu-text">List</span>
                         </a>
@@ -128,6 +99,16 @@
                 </div>
             </div>
             <!--=====CATEGORIES - ENDED=====-->
+
+
+
+
+
+
+
+
+
+
 
             <!--=====NEWS - START=====-->
             <div class="menu-item has-sub <?= str_contains($segment_name, 'news') ? 'active' : ''; ?>">

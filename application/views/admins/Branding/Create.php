@@ -1,7 +1,7 @@
 <?php $this->load->view("admins/includes/HeadScripts"); ?>
 <?php $this->load->view("admins/includes/Navbar"); ?>
 <?php $this->load->view("admins/includes/Sidebar"); ?>
-<div class="card bg-success border-theme bg-opacity-10">
+<div class="card bg-success border-theme bg-opacity-5">
     <div class="card-header border-theme fw-bold d-flex flex-row justify-content-between align-items-center">
         <div class="h5 text-success text-uppercase m-0">Branding</div>
         <div>
