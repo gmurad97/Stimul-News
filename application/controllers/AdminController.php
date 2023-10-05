@@ -902,12 +902,12 @@ class AdminController extends CI_Controller
             return json_decode($category_item["c_data"], TRUE)["category_name"]["en"];
         }, $categories_list_data);
 
-        $news_title_en             = substr($this->input->post("news_title_en", TRUE), 0, 40);
-        $news_title_ru             = substr($this->input->post("news_title_ru", TRUE), 0, 40);
-        $news_title_az             = substr($this->input->post("news_title_az", TRUE), 0, 40);
-        $news_short_description_en = substr($this->input->post("news_short_description_en", TRUE), 0, 118);
-        $news_short_description_ru = substr($this->input->post("news_short_description_ru", TRUE), 0, 118);
-        $news_short_description_az = substr($this->input->post("news_short_description_az", TRUE), 0, 118);
+        $news_title_en             = $this->input->post("news_title_en", TRUE);
+        $news_title_ru             = $this->input->post("news_title_ru", TRUE);
+        $news_title_az             = $this->input->post("news_title_az", TRUE);
+        $news_short_description_en = $this->input->post("news_short_description_en", TRUE);
+        $news_short_description_ru = $this->input->post("news_short_description_ru", TRUE);
+        $news_short_description_az = $this->input->post("news_short_description_az", TRUE);
         $news_full_description_en  = $this->input->post("news_full_description_en", FALSE);
         $news_full_description_ru  = $this->input->post("news_full_description_ru", FALSE);
         $news_full_description_az  = $this->input->post("news_full_description_az", FALSE);
@@ -917,7 +917,7 @@ class AdminController extends CI_Controller
         if (!in_array($news_category, $categories_list)) {
             $this->AlertFlashData(
                 "danger",
-                "news_alert",
+                "crud_alert",
                 "Create",
                 "Danger!",
                 "Unknown error."
@@ -962,21 +962,19 @@ class AdminController extends CI_Controller
 
             $json_data_decoded = [
                 "news_title" => [
-                    "en" => $news_title_en,
-                    "ru" => $news_title_ru,
-                    "az" => $news_title_az
+                    "en" => base64_encode(mb_convert_encoding($news_title_en,"UTF-8","UTF-8")),
+                    "ru" => base64_encode(mb_convert_encoding($news_title_ru,"UTF-8","UTF-8")),
+                    "az" => base64_encode(mb_convert_encoding($news_title_az,"UTF-8","UTF-8"))
                 ],
-
                 "news_short" => [
-                    "en" => $news_short_description_en,
-                    "ru" => $news_short_description_ru,
-                    "az" => $news_short_description_az,
+                    "en" => base64_encode(mb_convert_encoding($news_short_description_en,"UTF-8","UTF-8")),
+                    "ru" => base64_encode(mb_convert_encoding($news_short_description_ru,"UTF-8","UTF-8")),
+                    "az" => base64_encode(mb_convert_encoding($news_short_description_az,"UTF-8","UTF-8"))
                 ],
-
                 "news_full" => [
-                    "en" => $news_full_description_en,
-                    "ru" => $news_full_description_ru,
-                    "az" => $news_full_description_az,
+                    "en" => base64_encode(mb_convert_encoding($news_full_description_en,"UTF-8","UTF-8")),
+                    "ru" => base64_encode(mb_convert_encoding($news_full_description_ru,"UTF-8","UTF-8")),
+                    "az" => base64_encode(mb_convert_encoding($news_full_description_az,"UTF-8","UTF-8")),
                 ],
                 "news_preview" => $news_preview["file_name"],
                 "news_category" => $news_category,
@@ -991,22 +989,26 @@ class AdminController extends CI_Controller
                 "n_data" => $json_data_encoded
             ];
 
-            $this->AdminModel->news_admin_db_insert($data);
+            if (json_last_error() !== JSON_ERROR_NONE) {
+                echo "Ошибка JSON: " . json_last_error_msg();
+            }
+
+           $this->AdminModel->news_admin_db_insert($data);
             //$inserted_id = $this->db->insert_id();
 
             $this->AlertFlashData(
                 "success",
-                "news_alert",
+                "crud_alert",
                 "Create",
                 "Success!",
                 "The news has been successfully created."
             );
 
-            redirect(base_url("admin/news-list"));
+
         } else {
             $this->AlertFlashData(
                 "warning",
-                "news_alert",
+                "crud_alert",
                 "Create",
                 "Warning!",
                 "Please, fill in all the fields."
@@ -1063,7 +1065,7 @@ class AdminController extends CI_Controller
         if (!in_array($news_category, $categories_list)) {
             $this->AlertFlashData(
                 "danger",
-                "news_alert",
+                "crud_alert",
                 "Create",
                 "Danger!",
                 "Unknown error."
@@ -1144,7 +1146,7 @@ class AdminController extends CI_Controller
 
             $this->AlertFlashData(
                 "success",
-                "news_alert",
+                "crud_alert",
                 "Edit",
                 "Success!",
                 "The news has been successfully edited."
@@ -1198,7 +1200,7 @@ class AdminController extends CI_Controller
 
             $this->AlertFlashData(
                 "success",
-                "news_alert",
+                "crud_alert",
                 "Edit",
                 "Success!",
                 "The news has been successfully edited."
@@ -1208,7 +1210,7 @@ class AdminController extends CI_Controller
         } else {
             $this->AlertFlashData(
                 "warning",
-                "news_alert",
+                "crud_alert",
                 "Create",
                 "Warning!",
                 "Please, fill in all the fields."
@@ -1229,7 +1231,7 @@ class AdminController extends CI_Controller
 
         $this->AlertFlashData(
             "success",
-            "news_alert",
+            "crud_alert",
             "Remove",
             "Success!",
             "The news has been successfully removed."
@@ -1238,6 +1240,23 @@ class AdminController extends CI_Controller
         redirect(base_url("admin/news-list"));
     }
     /*=====NEWS CRUD - ENDED=====*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /*=====SUBSCRIBERS CRUD - START=====*/
     public function crud_subscribers_create()

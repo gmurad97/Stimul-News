@@ -1,38 +1,42 @@
 <?php $this->load->view("admins/includes/HeadScripts"); ?>
 <?php $this->load->view("admins/includes/Navbar"); ?>
 <?php $this->load->view("admins/includes/Sidebar"); ?>
-<div class="card">
-    <div class="card-header fw-bold d-flex flex-row justify-content-between align-items-center">
-        <div class="h5 text-success m-0">NEWS CREATE</div>
+<div class="card bg-success border-theme bg-opacity-5">
+    <div class="card-header border-theme fw-bold d-flex flex-row justify-content-between align-items-center">
+        <div class="h5 text-success text-uppercase m-0">News Create</div>
         <div>
             <a href="<?= base_url('admin/news-list'); ?>" class="btn btn-outline-info">
                 <i class="bi bi-list-nested me-1"></i>
                 News List
             </a>
-            <button type="submit" form="news_form" class="btn btn-outline-success">
+            <button type="submit" form="crud_form" class="btn btn-success">
                 <i class="bi bi-plus-circle me-1"></i>
                 Create
             </button>
         </div>
     </div>
     <div class="card-body">
-        <?php if ($this->session->flashdata("news_alert")) : ?>
-            <div class="alert alert-<?= $this->session->flashdata('news_alert')['alert_type']; ?> alert-dismissable fade show p-3" style="<?= $this->session->flashdata('news_alert')['alert_bg_color']; ?>">
+        <?php if ($this->session->flashdata("crud_alert")) : ?>
+            <div class="alert alert-<?= $this->session->flashdata('crud_alert')['alert_type']; ?> alert-dismissable fade show p-3" style="<?= $this->session->flashdata('crud_alert')['alert_bg_color']; ?>">
                 <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
                 <h4 class="alert-heading">
-                    <i class="<?= $this->session->flashdata('news_alert')['alert_icon']; ?> me-2"></i>
-                    <?= $this->session->flashdata('news_alert')['alert_heading_message']; ?>
+                    <i class="<?= $this->session->flashdata('crud_alert')['alert_icon']; ?> me-2"></i>
+                    <?= $this->session->flashdata('crud_alert')['alert_heading_message']; ?>
                 </h4>
                 <hr>
                 <p class="mb-0">
-                    <strong class="fw-bold"><?= $this->session->flashdata('news_alert')['alert_short_message']; ?> </strong>
-                    <?= $this->session->flashdata('news_alert')['alert_long_message']; ?>
+                    <strong class="fw-bold"><?= $this->session->flashdata('crud_alert')['alert_short_message']; ?> </strong>
+                    <?= $this->session->flashdata('crud_alert')['alert_long_message']; ?>
                 </p>
             </div>
         <?php endif; ?>
-        <form action="<?= base_url('admin/news-create-action'); ?>" method="POST" enctype="multipart/form-data" id="news_form">
+        <form action="<?= base_url('admin/news-create-action'); ?>" method="POST" enctype="multipart/form-data" class="was-validated" id="crud_form">
             <ul class="list-group list-group-flush mb-3">
-                <h1 class="h5 text-success mb-3">Base Text</h1>
+                <li class="list-group ms-4">
+                    <div class="row">
+                        <h1 class="h5 text-success my-2">Base Text</h1>
+                    </div>
+                </li>
                 <ul class="nav nav-tabs nav-tabs-v2 ps-4">
                     <li class="nav-item me-3">
                         <a href="#news_menu_en" class="nav-link active" data-bs-toggle="tab">
@@ -51,23 +55,17 @@
                     </li>
                 </ul>
                 <div class="tab-content p-4">
-                    <div class="tab-pane active" id="news_menu_en">
+                    <div class="tab-pane fade show active" id="news_menu_en">
                         <div class="row mb-2">
                             <div class="col-md-12">
-                                <label for="news_title_label" class="d-flex flex-row justify-content-start align-items-center">
-                                    Title
-                                    <span class="badge bg-dark ms-1">Max Length - 50</span>
-                                </label>
-                                <input required name="news_title_en" type="text" class="form-control form-control-sm my-2" id="news_title_label" maxlength="50" placeholder="News Title">
+                                <label for="news_title_en_label" class="d-flex flex-row justify-content-start align-items-center">Title</label>
+                                <input required name="news_title_en" type="text" class="form-control form-control-sm my-2" id="news_title_en_label" placeholder="News Title">
                             </div>
                         </div>
                         <div class="row mb-2">
                             <div class="col-md-12">
-                                <label for="news_short_description_label">
-                                    Short Description
-                                    <span class="badge bg-dark ms-1">Max Length - 120</span>
-                                </label>
-                                <input required name="news_short_description_en" type="text" class="form-control form-control-sm my-2" id="news_short_description_label" maxlength="120" placeholder="Short Description">
+                                <label for="news_short_description_en_label">Short Description</label>
+                                <textarea required name="news_short_description_en" class="form-control form-control-sm my-2" id="news_short_description_en_label" rows="3" placeholder="Short Description"></textarea>
                             </div>
                         </div>
                         <div class="row">
@@ -90,23 +88,17 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane" id="news_menu_ru">
+                    <div class="tab-pane fade" id="news_menu_ru">
                         <div class="row mb-2">
                             <div class="col-md-12">
-                                <label for="news_title_label" class="d-flex flex-row justify-content-start align-items-center">
-                                    Title
-                                    <span class="badge bg-dark ms-1">Max Length - 50</span>
-                                </label>
-                                <input required name="news_title_ru" type="text" class="form-control form-control-sm my-2" id="news_title_label" maxlength="50" placeholder="News Title">
+                                <label for="news_title_ru_label" class="d-flex flex-row justify-content-start align-items-center">Title</label>
+                                <input required name="news_title_ru" type="text" class="form-control form-control-sm my-2" id="news_title_ru_label" placeholder="News Title">
                             </div>
                         </div>
                         <div class="row mb-2">
                             <div class="col-md-12">
-                                <label for="news_short_description_label">
-                                    Short Description
-                                    <span class="badge bg-dark ms-1">Max Length - 120</span>
-                                </label>
-                                <input required name="news_short_description_ru" type="text" class="form-control form-control-sm my-2" id="news_short_description_label" maxlength="120" placeholder="Short Description">
+                                <label for="news_short_description_ru_label">Short Description</label>
+                                <textarea required name="news_short_description_ru" class="form-control form-control-sm my-2" id="news_short_description_ru_label" rows="3" placeholder="Short Description"></textarea>
                             </div>
                         </div>
                         <div class="row">
@@ -129,28 +121,22 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane" id="news_menu_az">
+                    <div class="tab-pane fade" id="news_menu_az">
                         <div class="row mb-2">
                             <div class="col-md-12">
-                                <label for="news_title_label" class="d-flex flex-row justify-content-start align-items-center">
-                                    Title
-                                    <span class="badge bg-dark ms-1">Max Length - 50</span>
-                                </label>
-                                <input required name="news_title_az" type="text" class="form-control form-control-sm my-2" id="news_title_label" maxlength="50" placeholder="News Title">
+                                <label for="news_title_az_label" class="d-flex flex-row justify-content-start align-items-center">Title</label>
+                                <input required name="news_title_az" type="text" class="form-control form-control-sm my-2" id="news_title_az_label" placeholder="News Title">
                             </div>
                         </div>
                         <div class="row mb-2">
                             <div class="col-md-12">
-                                <label for="news_short_description_label">
-                                    Short Description
-                                    <span class="badge bg-dark ms-1">Max Length - 120</span>
-                                </label>
-                                <input required name="news_short_description_az" type="text" class="form-control form-control-sm my-2" id="news_short_description_label" maxlength="120" placeholder="Short Description">
+                                <label for="news_short_description_az_label">Short Description</label>
+                                <textarea required name="news_short_description_az" class="form-control form-control-sm my-2" id="news_short_description_az_label" rows="3" placeholder="Short Description"></textarea>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <label>Full Description</label>
+                                <label for="news-editor-az">Full Description</label>
                                 <script src="<?= base_url('public/admin/assets/plugins/ckeditor/ckeditor.js'); ?>"></script>
                                 <textarea required name="news_full_description_az" id="news-editor-az"></textarea>
                                 <script>
@@ -169,8 +155,10 @@
                         </div>
                     </div>
                 </div>
-                <h1 class="h5 text-success mt-3">Settings</h1>
                 <li class="list-group-item">
+                    <div class="row">
+                        <h1 class="h5 text-success mb-3">Settings</h1>
+                    </div>
                     <div class="row">
                         <div class="col-md-6">
                             <label for="news_category_label">Category</label>

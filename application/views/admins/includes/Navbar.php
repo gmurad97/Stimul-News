@@ -13,11 +13,13 @@
     </button>
 </div>
 <div class="brand">
-    <a href="<?= base_url('dashboard'); ?>" class="brand-logo">
+    <a href="<?= base_url('admin/dashboard'); ?>" class="brand-logo">
         <span class="brand-img">
-            <span class="brand-img-text text-theme">S</span>
+            <span class="brand-img-text text-theme">
+                <i class="fa-solid fa-layer-group fa-xs fa-bounce" style="animation-iteration-count: <?= (int)rand(1, 3); ?>;"></i>
+            </span>
         </span>
-        <span class="brand-text">STIMUL NEWS CMS</span>
+        <span class="brand-text text-uppercase">Stimul News CMS</span>
     </a>
 </div>
 <div class="menu">

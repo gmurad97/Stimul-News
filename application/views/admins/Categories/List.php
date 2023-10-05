@@ -3,7 +3,7 @@
 <?php $this->load->view("admins/includes/Sidebar"); ?>
 <div class="card bg-primary border-primary bg-opacity-5">
     <div class="card-header fw-bold d-flex flex-row justify-content-between align-items-center">
-        <div class="h5 text-success text-uppercase m-0">Categories List</div>
+        <div class="h5 text-info text-uppercase m-0">Categories List</div>
         <div>
             <a href="<?= base_url('admin/categories-create'); ?>" class="btn btn-outline-success">
                 <i class="bi bi-plus-circle me-1"></i>

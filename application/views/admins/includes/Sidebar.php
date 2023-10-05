@@ -100,34 +100,24 @@
             </div>
             <!--=====CATEGORIES - ENDED=====-->
 
-
-
-
-
-
-
-
-
-
-
             <!--=====NEWS - START=====-->
-            <div class="menu-item has-sub <?= str_contains($segment_name, 'news') ? 'active' : ''; ?>">
+            <div class="menu-item has-sub <?= MenuState($segment_name, "news", "active"); ?>">
                 <a href="javascript:void(0);" class="menu-link">
                     <span class="menu-icon">
-                        <i class="bi bi-newspaper"></i>
+                        <i class="bi bi-newspaper <?= MenuState($segment_name, "news", "fa-fade"); ?>"></i>
                     </span>
-                    <span class="menu-text">News*</span>
+                    <span class="menu-text">News</span>
                     <span class="menu-caret">
                         <b class="caret"></b>
                     </span>
                 </a>
                 <div class="menu-submenu">
-                    <div class="menu-item <?= str_contains($segment_name, 'news-create') ? 'active' : ''; ?>">
+                    <div class="menu-item <?= MenuState($segment_name, "news-create", "active"); ?>">
                         <a href="<?= base_url('admin/news-create'); ?>" class="menu-link">
                             <span class="menu-text">Create</span>
                         </a>
                     </div>
-                    <div class="menu-item <?= str_contains($segment_name, 'news-list') ? 'active' : ''; ?>">
+                    <div class="menu-item <?= MenuState($segment_name, "news-list", "active"); ?>">
                         <a href="<?= base_url('admin/news-list'); ?>" class="menu-link">
                             <span class="menu-text">List</span>
                         </a>
@@ -135,6 +125,15 @@
                 </div>
             </div>
             <!--=====NEWS - ENDED=====-->
+
+
+
+
+
+
+
+
+
 
             <!--=====SLIDER - START=====-->
             <div class="menu-item has-sub <?= str_contains($segment_name, 'slider') ? 'active' : ''; ?>">

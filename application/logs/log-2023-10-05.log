@@ -1,0 +1,59 @@
+ERROR - 2023-10-05 05:40:32 --> Query error: Invalid JSON text: "not a JSON text, may need CAST" at position 0 in value for column 'news.n_data'. - Invalid query: INSERT INTO `news` (`n_data`) VALUES (0)
+ERROR - 2023-10-05 05:42:48 --> Query error: Invalid JSON text: "not a JSON text, may need CAST" at position 0 in value for column 'news.n_data'. - Invalid query: INSERT INTO `news` (`n_data`) VALUES (0)
+ERROR - 2023-10-05 05:43:16 --> Query error: Invalid JSON text: "not a JSON text, may need CAST" at position 0 in value for column 'news.n_data'. - Invalid query: INSERT INTO `news` (`n_data`) VALUES (0)
+ERROR - 2023-10-05 05:44:59 --> Query error: Invalid JSON text: "not a JSON text, may need CAST" at position 0 in value for column 'news.n_data'. - Invalid query: INSERT INTO `news` (`n_data`) VALUES (0)
+ERROR - 2023-10-05 05:45:06 --> Query error: Invalid JSON text: "not a JSON text, may need CAST" at position 0 in value for column 'news.n_data'. - Invalid query: INSERT INTO `news` (`n_data`) VALUES (0)
+ERROR - 2023-10-05 05:45:41 --> Query error: Invalid JSON text: "not a JSON text, may need CAST" at position 0 in value for column 'news.n_data'. - Invalid query: INSERT INTO `news` (`n_data`) VALUES (0)
+ERROR - 2023-10-05 05:47:03 --> Query error: Invalid JSON text: "not a JSON text, may need CAST" at position 0 in value for column 'news.n_data'. - Invalid query: INSERT INTO `news` (`n_data`) VALUES (0)
+ERROR - 2023-10-05 05:53:44 --> Query error: Invalid JSON text: "not a JSON text, may need CAST" at position 0 in value for column 'news.n_data'. - Invalid query: INSERT INTO `news` (`n_data`) VALUES (0)
+ERROR - 2023-10-05 05:53:56 --> Query error: Invalid JSON text: "not a JSON text, may need CAST" at position 0 in value for column 'news.n_data'. - Invalid query: INSERT INTO `news` (`n_data`) VALUES (0)
+ERROR - 2023-10-05 05:54:31 --> Query error: Invalid JSON text: "not a JSON text, may need CAST" at position 0 in value for column 'news.n_data'. - Invalid query: INSERT INTO `news` (`n_data`) VALUES (0)
+ERROR - 2023-10-05 05:55:21 --> Query error: Invalid JSON text: "not a JSON text, may need CAST" at position 0 in value for column 'news.n_data'. - Invalid query: INSERT INTO `news` (`n_data`) VALUES (0)
+ERROR - 2023-10-05 05:55:42 --> Query error: Invalid JSON text: "not a JSON text, may need CAST" at position 0 in value for column 'news.n_data'. - Invalid query: INSERT INTO `news` (`n_data`) VALUES (0)
+ERROR - 2023-10-05 20:05:20 --> Query error: Invalid JSON text: "not a JSON text, may need CAST" at position 0 in value for column 'news.n_data'. - Invalid query: INSERT INTO `news` (`n_data`) VALUES (0)
+ERROR - 2023-10-05 20:05:53 --> Severity: Warning --> Undefined property: stdClass::$news_title C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 54
+ERROR - 2023-10-05 20:05:53 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 54
+ERROR - 2023-10-05 20:05:53 --> Severity: Warning --> Undefined property: stdClass::$news_title C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 54
+ERROR - 2023-10-05 20:05:53 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 54
+ERROR - 2023-10-05 20:05:53 --> Severity: Warning --> Undefined property: stdClass::$news_title C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 59
+ERROR - 2023-10-05 20:05:53 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 59
+ERROR - 2023-10-05 20:06:05 --> Severity: Warning --> Undefined property: stdClass::$news_title C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 54
+ERROR - 2023-10-05 20:06:05 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 54
+ERROR - 2023-10-05 20:06:05 --> Severity: Warning --> Undefined property: stdClass::$news_title C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 54
+ERROR - 2023-10-05 20:06:05 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 54
+ERROR - 2023-10-05 20:06:05 --> Severity: Warning --> Undefined property: stdClass::$news_title C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 59
+ERROR - 2023-10-05 20:06:05 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 59
+ERROR - 2023-10-05 20:06:06 --> Severity: Warning --> Undefined property: stdClass::$news_title C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 54
+ERROR - 2023-10-05 20:06:06 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 54
+ERROR - 2023-10-05 20:06:06 --> Severity: Warning --> Undefined property: stdClass::$news_title C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 54
+ERROR - 2023-10-05 20:06:06 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 54
+ERROR - 2023-10-05 20:06:06 --> Severity: Warning --> Undefined property: stdClass::$news_title C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 59
+ERROR - 2023-10-05 20:06:06 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 59
+ERROR - 2023-10-05 20:06:23 --> Query error: Invalid JSON text: "not a JSON text, may need CAST" at position 0 in value for column 'news.n_data'. - Invalid query: INSERT INTO `news` (`n_data`) VALUES (0)
+ERROR - 2023-10-05 20:06:33 --> Query error: Invalid JSON text: "not a JSON text, may need CAST" at position 0 in value for column 'news.n_data'. - Invalid query: INSERT INTO `news` (`n_data`) VALUES (0)
+ERROR - 2023-10-05 20:07:46 --> Severity: Warning --> Undefined property: stdClass::$news_title C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 54
+ERROR - 2023-10-05 20:07:46 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 54
+ERROR - 2023-10-05 20:07:46 --> Severity: Warning --> Undefined property: stdClass::$news_title C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 54
+ERROR - 2023-10-05 20:07:46 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 54
+ERROR - 2023-10-05 20:07:46 --> Severity: Warning --> Undefined property: stdClass::$news_title C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 59
+ERROR - 2023-10-05 20:07:46 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 59
+ERROR - 2023-10-05 20:08:03 --> Severity: Warning --> Undefined property: stdClass::$news_title C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 54
+ERROR - 2023-10-05 20:08:03 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 54
+ERROR - 2023-10-05 20:08:03 --> Severity: Warning --> Undefined property: stdClass::$news_title C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 54
+ERROR - 2023-10-05 20:08:03 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 54
+ERROR - 2023-10-05 20:08:03 --> Severity: Warning --> Undefined property: stdClass::$news_title C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 59
+ERROR - 2023-10-05 20:08:03 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 59
+ERROR - 2023-10-05 20:08:34 --> Query error: Invalid JSON text: "not a JSON text, may need CAST" at position 0 in value for column 'news.n_data'. - Invalid query: INSERT INTO `news` (`n_data`) VALUES (0)
+ERROR - 2023-10-05 20:08:39 --> Query error: Invalid JSON text: "not a JSON text, may need CAST" at position 0 in value for column 'news.n_data'. - Invalid query: INSERT INTO `news` (`n_data`) VALUES (0)
+ERROR - 2023-10-05 20:14:36 --> Severity: Warning --> Undefined property: stdClass::$news_title C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 54
+ERROR - 2023-10-05 20:14:36 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 54
+ERROR - 2023-10-05 20:14:36 --> Severity: Warning --> Undefined property: stdClass::$news_title C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 54
+ERROR - 2023-10-05 20:14:36 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 54
+ERROR - 2023-10-05 20:14:36 --> Severity: Warning --> Undefined property: stdClass::$news_title C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 59
+ERROR - 2023-10-05 20:14:36 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\News\List.php 59
+ERROR - 2023-10-05 20:15:07 --> Severity: error --> Exception: syntax error, unexpected token "public" C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1020
+ERROR - 2023-10-05 20:51:33 --> Severity: error --> Exception: syntax error, unexpected variable "$news_title_en", expecting "]" C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 965
+ERROR - 2023-10-05 20:51:34 --> Severity: error --> Exception: syntax error, unexpected variable "$news_title_en", expecting "]" C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 965
+ERROR - 2023-10-05 20:51:35 --> Severity: error --> Exception: syntax error, unexpected variable "$news_title_en", expecting "]" C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 965
+ERROR - 2023-10-05 20:51:35 --> Severity: error --> Exception: syntax error, unexpected variable "$news_title_en", expecting "]" C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 965
+ERROR - 2023-10-05 23:00:44 --> Query error: Invalid JSON text: "not a JSON text, may need CAST" at position 0 in value for column 'news.n_data'. - Invalid query: INSERT INTO `news` (`n_data`) VALUES (0)

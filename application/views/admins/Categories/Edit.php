@@ -64,7 +64,7 @@
                         </li>
                     </ul>
                     <div class="tab-content py-3">
-                        <div class="tab-pane show active" id="tabs_category_en_name">
+                        <div class="tab-pane fade show active" id="tabs_category_en_name">
                             <div class="row d-flex flex-row justify-content-between align-items-center">
                                 <div class="col-md-3">
                                     <label for="category_en_name_label">Name</label>
@@ -74,7 +74,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane show" id="tabs_category_ru_name">
+                        <div class="tab-pane fade" id="tabs_category_ru_name">
                             <div class="row d-flex flex-row justify-content-between align-items-center">
                                 <div class="col-md-3">
                                     <label for="category_name_ru_label">Name</label>
@@ -84,7 +84,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane show" id="tabs_category_az_name">
+                        <div class="tab-pane fade" id="tabs_category_az_name">
                             <div class="row d-flex flex-row justify-content-between align-items-center">
                                 <div class="col-md-3">
                                     <label for="category_az_name_label">Name</label>

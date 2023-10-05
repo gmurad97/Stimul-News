@@ -61,8 +61,8 @@
 
                         <div class="col-md-7">
                             <div class="card-body">
-                                <h5 class="card-title"><?= $news_info->news_title->en; ?></h5>
-                                <p class="card-text"><?= $news_info->news_short->en; ?></p>
+                                <h5 class="card-title"><?= base64_decode($news_info->news_title->en); ?></h5>
+                                <p class="card-text"><?= base64_decode($news_info->news_short->en); ?></p>
                                 <p class="card-text">
                                     <small class="text-muted">Date: <?= $news_info->news_created_date . " " . $news_info->news_created_time; ?></small>
                                 </p>
@@ -86,7 +86,7 @@
 
                             <div class="card-body">
                                 <p class="card-text text-inverse text-opacity-75">
-                                    <?= $news_info->news_full->en; ?>
+                                    <?= base64_decode($news_info->news_full->en); ?>
                                 </p>
                             </div>
                             <div class="card-arrow">
