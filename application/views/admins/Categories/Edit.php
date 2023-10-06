@@ -70,7 +70,7 @@
                                     <label for="category_en_name_label">Name</label>
                                 </div>
                                 <div class="col-md-9">
-                                    <input required name="category_en_name" type="text" class="form-control form-control-sm" id="category_en_name_label" placeholder="Business" value="<?= $category_info->category_name->en; ?>">
+                                    <input required name="category_en_name" type="text" class="form-control form-control-sm" id="category_en_name_label" placeholder="Business" value="<?= htmlentities(base64_decode($category_info->category_name->en)); ?>">
                                 </div>
                             </div>
                         </div>
@@ -80,7 +80,7 @@
                                     <label for="category_name_ru_label">Name</label>
                                 </div>
                                 <div class="col-md-9">
-                                    <input required name="category_ru_name" type="text" class="form-control form-control-sm" id="category_name_ru_label" placeholder="Бизнес" value="<?= $category_info->category_name->ru; ?>">
+                                    <input required name="category_ru_name" type="text" class="form-control form-control-sm" id="category_name_ru_label" placeholder="Бизнес" value="<?= htmlentities(base64_decode($category_info->category_name->ru)); ?>">
                                 </div>
                             </div>
                         </div>
@@ -90,7 +90,7 @@
                                     <label for="category_az_name_label">Name</label>
                                 </div>
                                 <div class="col-md-9">
-                                    <input required name="category_az_name" type="text" class="form-control form-control-sm" id="category_az_name_label" placeholder="Biznes" value="<?= $category_info->category_name->az; ?>">
+                                    <input required name="category_az_name" type="text" class="form-control form-control-sm" id="category_az_name_label" placeholder="Biznes" value="<?= htmlentities(base64_decode($category_info->category_name->az)); ?>">
                                 </div>
                             </div>
                         </div>

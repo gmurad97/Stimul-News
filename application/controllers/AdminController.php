@@ -32,7 +32,7 @@ class AdminController extends CI_Controller
         return $this->email->send() ? true : false;
     }
 
-    protected function AlertFlashData(string $alertType, string $alertName, string $alertHeadMessage, string $alertShortMessage, string $alertLongMessage): void
+    protected function AlertFlashData(string $alertType, string $alertName, string $alertShortMessage, string $alertLongMessage): void
     {
         $alert_type     = strtolower($alertType);
         $alert_bg_color = "rgba(0, 23, 51, 0.32)";
@@ -43,24 +43,23 @@ class AdminController extends CI_Controller
             $alert_icon     = "bi bi-info-circle";
         } elseif ($alert_type === "success") {
             $alert_bg_color = "rgba(4, 27, 7, 0.32)";
-            $alert_icon = "bi bi-check-circle";
+            $alert_icon     = "bi bi-check-circle";
         } elseif ($alert_type === "warning") {
             $alert_bg_color = "rgba(50, 46, 3, 0.32)";
-            $alert_icon = "bi bi-exclamation-triangle";
+            $alert_icon     = "bi bi-exclamation-triangle";
         } elseif ($alert_type === "danger") {
             $alert_bg_color = "rgba(45, 0, 0, 0.32)";
-            $alert_icon = "bi bi-exclamation-octagon";
+            $alert_icon     = "bi bi-exclamation-octagon";
         }
 
         $this->session->set_flashdata(
             $alertName,
             [
-                "alert_type"            => $alert_type,
-                "alert_icon"            => $alert_icon,
-                "alert_bg_color"        => "background-color:" . $alert_bg_color,
-                "alert_heading_message" => $alertHeadMessage,
-                "alert_short_message"   => $alertShortMessage,
-                "alert_long_message"    => $alertLongMessage
+                "alert_type"          => $alert_type,
+                "alert_icon"          => $alert_icon,
+                "alert_bg_color"      => "background-color:" . $alert_bg_color,
+                "alert_short_message" => $alertShortMessage,
+                "alert_long_message"  => $alertLongMessage
             ]
         );
     }
@@ -139,7 +138,6 @@ class AdminController extends CI_Controller
             $this->AlertFlashData(
                 "success",
                 "crud_alert",
-                "Create",
                 "Success!",
                 "The topbar has been successfully created."
             );
@@ -191,7 +189,6 @@ class AdminController extends CI_Controller
             $this->AlertFlashData(
                 "success",
                 "crud_alert",
-                "Edit",
                 "Success!",
                 "The topbar has been successfully edited."
             );
@@ -208,7 +205,6 @@ class AdminController extends CI_Controller
         $this->AlertFlashData(
             "success",
             "crud_alert",
-            "Remove",
             "Success!",
             "The topbar has been successfully removed."
         );
@@ -216,6 +212,18 @@ class AdminController extends CI_Controller
         redirect(base_url("admin/topbar-create"));
     }
     /*=====TOPBAR CRUD - ENDED=====*/
+
+
+
+
+
+
+
+
+
+
+
+
 
     /*=====BRANDING CRUD - START=====*/
     public function crud_branding_create()
@@ -276,7 +284,7 @@ class AdminController extends CI_Controller
                         "file_type"  => $uploadResults["favicon_img"]["file_type"] ?? NULL,
                         "file_ext"   => $uploadResults["favicon_img"]["file_ext"]  ?? NULL
                     ],
-                    "title_prefix" => $site_title_prefix
+                    "title_prefix" =>  base64_encode($site_title_prefix)
                 ];
 
                 $json_data_encoded = json_encode($json_data_decoded);
@@ -390,7 +398,7 @@ class AdminController extends CI_Controller
                         "file_type"  => $favicon_img["file_type"] ?? NULL,
                         "file_ext"   => $favicon_img["file_ext"]  ?? NULL
                     ],
-                    "title_prefix" => $site_title_prefix
+                    "title_prefix" => base64_encode($site_title_prefix)
                 ];
 
                 $json_data_encoded = json_encode($json_data_decoded);
@@ -451,7 +459,7 @@ class AdminController extends CI_Controller
 
     public function crud_partners_create_action()
     {
-        $partner_link   = $this->input->post("partner_link",   TRUE);
+        $partner_link   = filter_var($this->input->post("partner_link",   TRUE), FILTER_SANITIZE_URL);
         $partner_title  = $this->input->post("partner_title",  TRUE);
         $partner_status = $this->input->post("partner_status", TRUE);
 
@@ -464,7 +472,7 @@ class AdminController extends CI_Controller
         $this->load->library("upload", $partners_config);
         $this->upload->initialize($partners_config);
 
-        if ($this->upload->do_upload("partner_img") && !empty($partner_link) && !empty($partner_title)) {
+        if ($this->upload->do_upload("partner_img") && (!empty($partner_link) && filter_var($partner_link, FILTER_VALIDATE_URL)) && !empty($partner_title)) {
             $partner_img = $this->upload->data();
 
             $partners_config_img["image_library"] = "gd2";
@@ -480,8 +488,8 @@ class AdminController extends CI_Controller
 
             $json_data_decoded = [
                 "partner_img"    => $partner_img["file_name"],
-                "partner_link"   => $partner_link,
-                "partner_title"  => $partner_title,
+                "partner_link"   => base64_encode($partner_link),
+                "partner_title"  => base64_encode($partner_title),
                 "partner_status" => str_contains($partner_status, "on") ? TRUE : FALSE
             ];
 
@@ -534,7 +542,7 @@ class AdminController extends CI_Controller
         $old_partner_data = json_decode($this->AdminModel->partners_admin_db_get($id)["p_data"], TRUE);
         $partner_img_path = "./file_manager/partners/" . $old_partner_data["partner_img"];
 
-        $partner_link   = $this->input->post("partner_link",   TRUE);
+        $partner_link   = filter_var($this->input->post("partner_link",   TRUE), FILTER_SANITIZE_URL);
         $partner_title  = $this->input->post("partner_title",  TRUE);
         $partner_status = $this->input->post("partner_status", TRUE);
 
@@ -547,7 +555,7 @@ class AdminController extends CI_Controller
         $this->load->library("upload", $partners_config);
         $this->upload->initialize($partners_config);
 
-        if ($this->upload->do_upload("partner_img") && !empty($partner_link) && !empty($partner_title)) {
+        if ($this->upload->do_upload("partner_img") && (!empty($partner_link) && filter_var($partner_link, FILTER_VALIDATE_URL)) && !empty($partner_title)) {
             if (!is_dir($partner_img_path) && file_exists($partner_img_path)) {
                 unlink($partner_img_path);
             }
@@ -567,8 +575,8 @@ class AdminController extends CI_Controller
 
             $json_data_decoded = [
                 "partner_img"    => $partner_img["file_name"],
-                "partner_link"   => $partner_link,
-                "partner_title"  => $partner_title,
+                "partner_link"   => base64_encode($partner_link),
+                "partner_title"  => base64_encode($partner_title),
                 "partner_status" => str_contains($partner_status, "on") ? TRUE : FALSE
             ];
 
@@ -589,11 +597,11 @@ class AdminController extends CI_Controller
             );
 
             redirect(base_url("admin/partners-list"));
-        } elseif (!empty($partner_link) && !empty($partner_title)) {
+        } elseif ((!empty($partner_link) && filter_var($partner_link, FILTER_VALIDATE_URL)) && !empty($partner_title)) {
             $json_data_decoded = [
                 "partner_img"    => $old_partner_data["partner_img"],
-                "partner_link"   => $partner_link,
-                "partner_title"  => $partner_title,
+                "partner_link"   => base64_encode($partner_link),
+                "partner_title"  => base64_encode($partner_title),
                 "partner_status" => str_contains($partner_status, "on") ? TRUE : FALSE
             ];
 
@@ -689,9 +697,9 @@ class AdminController extends CI_Controller
             $json_data_decoded = [
                 "category_img"     => $category_img["file_name"],
                 "category_name"    => [
-                    "en" => $category_en_name,
-                    "ru" => $category_ru_name,
-                    "az" => $category_az_name,
+                    "en" => base64_encode($category_en_name),
+                    "ru" => base64_encode($category_ru_name),
+                    "az" => base64_encode($category_az_name),
                 ],
                 "category_bg_color" => $category_bg_color,
                 "category_status"  => str_contains($category_status, "on") ? TRUE : FALSE
@@ -782,9 +790,9 @@ class AdminController extends CI_Controller
             $json_data_decoded = [
                 "category_img"     => $category_img["file_name"],
                 "category_name"    => [
-                    "en" => $category_en_name,
-                    "ru" => $category_ru_name,
-                    "az" => $category_az_name,
+                    "en" => base64_encode($category_en_name),
+                    "ru" => base64_encode($category_ru_name),
+                    "az" => base64_encode($category_az_name)
                 ],
                 "category_bg_color" => $category_bg_color,
                 "category_status"  => str_contains($category_status, "on") ? TRUE : FALSE
@@ -811,9 +819,9 @@ class AdminController extends CI_Controller
             $json_data_decoded = [
                 "category_img"     => $old_category_data["category_img"],
                 "category_name"    => [
-                    "en" => $category_en_name,
-                    "ru" => $category_ru_name,
-                    "az" => $category_az_name,
+                    "en" => base64_encode($category_en_name),
+                    "ru" => base64_encode($category_ru_name),
+                    "az" => base64_encode($category_az_name)
                 ],
                 "category_bg_color" => $category_bg_color,
                 "category_status"  => str_contains($category_status, "on") ? TRUE : FALSE
@@ -871,22 +879,6 @@ class AdminController extends CI_Controller
     }
     /*=====CATEGORIES CRUD - ENDED=====*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /*=====NEWS CRUD - START=====*/
     public function crud_news_create()
     {
@@ -897,11 +889,6 @@ class AdminController extends CI_Controller
 
     public function crud_news_create_action()
     {
-        $categories_list_data = $this->AdminModel->categories_admin_db_get_results();
-        $categories_list = array_map(function ($category_item) {
-            return json_decode($category_item["c_data"], TRUE)["category_name"]["en"];
-        }, $categories_list_data);
-
         $news_title_en             = $this->input->post("news_title_en", TRUE);
         $news_title_ru             = $this->input->post("news_title_ru", TRUE);
         $news_title_az             = $this->input->post("news_title_az", TRUE);
@@ -911,10 +898,22 @@ class AdminController extends CI_Controller
         $news_full_description_en  = $this->input->post("news_full_description_en", FALSE);
         $news_full_description_ru  = $this->input->post("news_full_description_ru", FALSE);
         $news_full_description_az  = $this->input->post("news_full_description_az", FALSE);
-        $news_category             = $this->input->post("news_category", TRUE);
+        $news_category             = base64_encode($this->input->post("news_category", TRUE));
         $news_status               = $this->input->post("news_status", TRUE);
 
-        if (!in_array($news_category, $categories_list)) {
+        $categories_list_data = $this->AdminModel->categories_admin_db_get_results();
+
+        $categories_list = array_map(function ($category_item) {
+            return json_decode($category_item["c_data"], TRUE);
+        }, $categories_list_data);
+
+        $category_data = array_merge(...array_filter($categories_list, function ($v) use ($news_category) {
+            if (in_array($news_category, $v["category_name"], TRUE)) {
+                return $v;
+            }
+        }));
+
+        if (empty($category_data)) {
             $this->AlertFlashData(
                 "danger",
                 "crud_alert",
@@ -932,7 +931,6 @@ class AdminController extends CI_Controller
         $news_config["encrypt_name"]     = TRUE;
         $this->load->library("upload", $news_config);
         $this->upload->initialize($news_config);
-
 
         if (
             $this->upload->do_upload("news_preview_img")
@@ -962,22 +960,27 @@ class AdminController extends CI_Controller
 
             $json_data_decoded = [
                 "news_title" => [
-                    "en" => base64_encode(mb_convert_encoding($news_title_en,"UTF-8","UTF-8")),
-                    "ru" => base64_encode(mb_convert_encoding($news_title_ru,"UTF-8","UTF-8")),
-                    "az" => base64_encode(mb_convert_encoding($news_title_az,"UTF-8","UTF-8"))
+                    "en" => base64_encode($news_title_en),
+                    "ru" => base64_encode($news_title_ru),
+                    "az" => base64_encode($news_title_az)
                 ],
                 "news_short" => [
-                    "en" => base64_encode(mb_convert_encoding($news_short_description_en,"UTF-8","UTF-8")),
-                    "ru" => base64_encode(mb_convert_encoding($news_short_description_ru,"UTF-8","UTF-8")),
-                    "az" => base64_encode(mb_convert_encoding($news_short_description_az,"UTF-8","UTF-8"))
+                    "en" => base64_encode($news_short_description_en),
+                    "ru" => base64_encode($news_short_description_ru),
+                    "az" => base64_encode($news_short_description_az)
                 ],
                 "news_full" => [
-                    "en" => base64_encode(mb_convert_encoding($news_full_description_en,"UTF-8","UTF-8")),
-                    "ru" => base64_encode(mb_convert_encoding($news_full_description_ru,"UTF-8","UTF-8")),
-                    "az" => base64_encode(mb_convert_encoding($news_full_description_az,"UTF-8","UTF-8")),
+                    "en" => base64_encode($news_full_description_en),
+                    "ru" => base64_encode($news_full_description_ru),
+                    "az" => base64_encode($news_full_description_az),
                 ],
                 "news_preview" => $news_preview["file_name"],
-                "news_category" => $news_category,
+                "news_category" => [
+                    "en" => $category_data["category_name"]["en"],
+                    "ru" => $category_data["category_name"]["ru"],
+                    "az" => $category_data["category_name"]["az"],
+                ],
+                "news_category_bg_color" => $category_data["category_bg_color"],
                 "news_status" => str_contains($news_status, "on") ? TRUE : FALSE,
                 "news_created_date" => date("d.m.Y"),
                 "news_created_time" => date("H:i"),
@@ -989,11 +992,7 @@ class AdminController extends CI_Controller
                 "n_data" => $json_data_encoded
             ];
 
-            if (json_last_error() !== JSON_ERROR_NONE) {
-                echo "Ошибка JSON: " . json_last_error_msg();
-            }
-
-           $this->AdminModel->news_admin_db_insert($data);
+            $this->AdminModel->news_admin_db_insert($data);
             //$inserted_id = $this->db->insert_id();
 
             $this->AlertFlashData(
@@ -1003,8 +1002,7 @@ class AdminController extends CI_Controller
                 "Success!",
                 "The news has been successfully created."
             );
-
-
+            redirect(base_url("admin/news-list"));
         } else {
             $this->AlertFlashData(
                 "warning",
@@ -1027,7 +1025,6 @@ class AdminController extends CI_Controller
     public function crud_news_detail($id)
     {
         $data["admin_page_name"] = "News Detail";
-        $data["categories_data"] = $this->AdminModel->categories_admin_db_get_results();
         $data["news_data"] = $this->AdminModel->news_admin_db_get($id);
         $this->load->view("admins/News/Detail", $data);
     }
@@ -1045,11 +1042,6 @@ class AdminController extends CI_Controller
         $old_news_data = json_decode($this->AdminModel->news_admin_db_get($id)["n_data"], TRUE);
         $news_img_path = "./file_manager/news/" . $old_news_data["news_preview"];
 
-        $categories_list_data = $this->AdminModel->categories_admin_db_get_results();
-        $categories_list = array_map(function ($category_item) {
-            return json_decode($category_item["c_data"], TRUE)["category_name"]["en"];
-        }, $categories_list_data);
-
         $news_title_en             = substr($this->input->post("news_title_en", TRUE), 0, 50);
         $news_title_ru             = substr($this->input->post("news_title_ru", TRUE), 0, 50);
         $news_title_az             = substr($this->input->post("news_title_az", TRUE), 0, 50);
@@ -1062,7 +1054,19 @@ class AdminController extends CI_Controller
         $news_category             = $this->input->post("news_category", TRUE);
         $news_status               = $this->input->post("news_status", TRUE);
 
-        if (!in_array($news_category, $categories_list)) {
+        $categories_list_data = $this->AdminModel->categories_admin_db_get_results();
+
+        $categories_list = array_map(function ($category_item) {
+            return json_decode($category_item["c_data"], TRUE);
+        }, $categories_list_data);
+
+        $category_data = array_merge(...array_filter($categories_list, function ($v) use ($news_category) {
+            if (in_array($news_category, $v["category_name"], TRUE)) {
+                return $v;
+            }
+        }));
+
+        if (empty($category_data)) {
             $this->AlertFlashData(
                 "danger",
                 "crud_alert",
@@ -1130,7 +1134,12 @@ class AdminController extends CI_Controller
                     "az" => $news_full_description_az,
                 ],
                 "news_preview" => $news_preview["file_name"],
-                "news_category" => $news_category,
+                "news_category" => [
+                    "en" => $category_data["category_name"]["en"],
+                    "ru" => $category_data["category_name"]["ru"],
+                    "az" => $category_data["category_name"]["az"],
+                ],
+                "news_category_bg_color" => $category_data["category_bg_color"],
                 "news_status" => str_contains($news_status, "on") ? TRUE : FALSE,
                 "news_created_date" => date("d.m.Y"),
                 "news_created_time" => date("H:i"),
@@ -1184,7 +1193,12 @@ class AdminController extends CI_Controller
                     "az" => $news_full_description_az,
                 ],
                 "news_preview" => $old_news_data["news_preview"],
-                "news_category" => $news_category,
+                "news_category" => [
+                    "en" => $category_data["category_name"]["en"],
+                    "ru" => $category_data["category_name"]["ru"],
+                    "az" => $category_data["category_name"]["az"],
+                ],
+                "news_category_bg_color" => $category_data["category_bg_color"],
                 "news_status" => str_contains($news_status, "on") ? TRUE : FALSE,
                 "news_created_date" => date("d.m.Y"),
                 "news_created_time" => date("H:i"),

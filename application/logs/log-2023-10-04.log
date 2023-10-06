@@ -1,2 +1,0 @@
-ERROR - 2023-10-04 05:01:27 --> Severity: Warning --> imagecreatefrompng(): gd-png: libpng warning: iCCP: known incorrect sRGB profile C:\OSPanel\domains\stimul.news\system\libraries\Image_lib.php 1475
-ERROR - 2023-10-04 06:05:47 --> 404 Page Not Found: Dashboard/index

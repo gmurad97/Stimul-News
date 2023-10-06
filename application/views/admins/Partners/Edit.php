@@ -63,7 +63,7 @@
                         <div class="col-md-9">
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text">URL</span>
-                                <input required name="partner_link" type="url" class="form-control" placeholder="https://example.com/" id="partner_link_label" value="<?= $partner_info->partner_link; ?>">
+                                <input required name="partner_link" type="url" class="form-control" placeholder="https://example.com/" id="partner_link_label" value="<?= htmlentities(base64_decode($partner_info->partner_link)); ?>">
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                             <label for="partner_title_label">Title</label>
                         </div>
                         <div class="col-md-9">
-                            <input required name="partner_title" type="text" class="form-control form-control-sm" id="partner_title_label" placeholder="Stimul News" value="<?= $partner_info->partner_title; ?>">
+                            <input required name="partner_title" type="text" class="form-control form-control-sm" id="partner_title_label" placeholder="Stimul News" value="<?= htmlentities(base64_decode($partner_info->partner_title)); ?>">
                         </div>
                     </div>
                 </li>

@@ -49,11 +49,11 @@
                             <td><?= $id_counter++; ?></td>
                             <td>
                                 <a href="<?= base_url('file_manager/partners/') . $partners_data_item_data->partner_img; ?>" data-lity>
-                                    <img width="64" height="64" style="object-fit: cover;" class="rounded-circle bg-white" src="<?= base_url('file_manager/partners/') . $partners_data_item_data->partner_img; ?>" title="<?= $partners_data_item_data->partner_title; ?>" alt="<?= $partners_data_item_data->partner_title; ?>">
+                                    <img width="64" height="64" style="object-fit: cover;" class="rounded-circle bg-white" src="<?= base_url('file_manager/partners/') . $partners_data_item_data->partner_img; ?>" title="<?= htmlentities(base64_decode($partners_data_item_data->partner_title)); ?>" alt="<?= htmlentities(base64_decode($partners_data_item_data->partner_title)); ?>">
                                 </a>
                             </td>
-                            <td><?= (is_null($partners_data_item_data->partner_link) || empty($partners_data_item_data->partner_link)) ? "NULL" : $partners_data_item_data->partner_link; ?></td>
-                            <td><?= (is_null($partners_data_item_data->partner_title) || empty($partners_data_item_data->partner_title)) ? "NULL" : $partners_data_item_data->partner_title; ?></td>
+                            <td><?= (is_null($partners_data_item_data->partner_link) || empty($partners_data_item_data->partner_link)) ? "NULL" : htmlentities(base64_decode($partners_data_item_data->partner_link)); ?></td>
+                            <td><?= (is_null($partners_data_item_data->partner_title) || empty($partners_data_item_data->partner_title)) ? "NULL" : htmlentities(base64_decode($partners_data_item_data->partner_title)); ?></td>
                             <td>
                                 <?php if ($partners_data_item_data->partner_status) : ?>
                                     <span class="badge bg-success p-2 w-90px text-uppercase">

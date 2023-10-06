@@ -131,7 +131,7 @@
                         <div class="row mb-2">
                             <div class="col-md-12">
                                 <label for="news_short_description_az_label">Short Description</label>
-                                <textarea required name="news_short_description_az" class="form-control form-control-sm my-2" id="news_short_description_az_label" rows="3" placeholder="Short Description"></textarea>
+                                <textarea required name="news_short_description_az" class="form-control form-control-sm my-2" id="news_short_description_az_label" rows="3" placeholder="Short Description" style="resize: none;"></textarea>
                             </div>
                         </div>
                         <div class="row">
@@ -166,7 +166,7 @@
                                 <?php foreach ($categories_list as $categories_list_item) : ?>
                                     <?php $categories_list_item_info = json_decode($categories_list_item["c_data"]); ?>
                                     <?php if ($categories_list_item_info->category_status) : ?>
-                                        <option value="<?= $categories_list_item_info->category_name->en; ?>"><?= $categories_list_item_info->category_name->en; ?></option>
+                                        <option value="<?= htmlentities(base64_decode($categories_list_item_info->category_name->en)); ?>"><?= htmlentities(base64_decode($categories_list_item_info->category_name->en)); ?></option>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
                             </select>

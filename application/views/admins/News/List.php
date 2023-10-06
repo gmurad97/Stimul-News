@@ -1,8 +1,8 @@
 <?php $this->load->view("admins/includes/HeadScripts"); ?>
 <?php $this->load->view("admins/includes/Navbar"); ?>
 <?php $this->load->view("admins/includes/Sidebar"); ?>
-<div class="card bg-primary border-primary bg-opacity-5">
-    <div class="card-header fw-bold d-flex flex-row justify-content-between align-items-center">
+<div class="card bg-create border-create bg-opacity-10">
+    <div class="card-header border-create fw-bold d-flex flex-row justify-content-between align-items-center">
         <div class="h5 text-info text-uppercase m-0">News List</div>
         <div>
             <a href="<?= base_url('admin/news-create'); ?>" class="btn btn-success">
@@ -51,16 +51,16 @@
                             <td><?= $id_counter++; ?></td>
                             <td>
                                 <a href="<?= base_url('file_manager/news/') . $news_data_item_data->news_preview; ?>" data-lity>
-                                    <img width="64" height="64" style="object-fit: cover;" class="rounded-circle bg-white" src="<?= base_url('file_manager/news/') . $news_data_item_data->news_preview; ?>" title="<?= $news_data_item_data->news_title->en; ?>" alt="<?= $news_data_item_data->news_title->en; ?>">
+                                    <img width="64" height="64" style="object-fit: cover;" class="rounded-circle bg-white" src="<?= base_url('file_manager/news/') . $news_data_item_data->news_preview; ?>" title="<?= htmlentities(base64_decode($news_data_item_data->news_title->en)); ?>" alt="<?= htmlentities(base64_decode($news_data_item_data->news_title->en)); ?>">
                                 </a>
                             </td>
                             <td>
                                 <p class="text-truncate p-0 m-0" style="max-width:200px;">
-                                    <?= (is_null($news_data_item_data->news_title->en) || empty($news_data_item_data->news_title->en)) ? "NULL" : $news_data_item_data->news_title->en; ?>
+                                    <?= (is_null($news_data_item_data->news_title->en) || empty($news_data_item_data->news_title->en)) ? "NULL" : htmlentities(base64_decode($news_data_item_data->news_title->en)); ?>
                                 </p>
                             </td>
                             <td>
-                                <?= $news_data_item_data->news_category; ?>
+                                <?= htmlentities(base64_decode($news_data_item_data->news_category->en)); ?>
                             </td>
                             <td>
                                 <?= $news_data_item_data->news_created_date . " " . $news_data_item_data->news_created_time; ?>

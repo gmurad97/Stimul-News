@@ -49,11 +49,11 @@
                             <td><?= $id_counter++; ?></td>
                             <td>
                                 <a href="<?= base_url('file_manager/categories/') . $category_data_item_data->category_img; ?>" data-lity>
-                                    <img width="64" height="64" style="object-fit: cover;" class="rounded-circle bg-white" src="<?= base_url('file_manager/categories/') . $category_data_item_data->category_img; ?>" title="<?= $category_data_item_data->category_name->en; ?>" alt="<?= $category_data_item_data->category_name->en; ?>">
+                                    <img width="64" height="64" style="object-fit: cover;" class="rounded-circle bg-white" src="<?= base_url('file_manager/categories/') . $category_data_item_data->category_img; ?>" title="<?= htmlentities(base64_decode($category_data_item_data->category_name->en)); ?>" alt="<?= htmlentities(base64_decode($category_data_item_data->category_name->en)); ?>">
                                 </a>
                             </td>
                             <td>
-                                <?= (is_null($category_data_item_data->category_name->en) || empty($category_data_item_data->category_name->en)) ? "NULL" : $category_data_item_data->category_name->en; ?>
+                                <?= (is_null($category_data_item_data->category_name->en) || empty($category_data_item_data->category_name->en)) ? "NULL" : htmlentities(base64_decode($category_data_item_data->category_name->en)); ?>
                             </td>
                             <td>
                                 <div class="rounded-circle w-25px h-25px" style="background-color: <?= $category_data_item_data->category_bg_color; ?> ;"></div>

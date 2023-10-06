@@ -1,0 +1,39 @@
+.card.bg-create {
+    background-color: rgba(16, 172, 132, var(--bs-bg-opacity)) !important;
+}
+
+.card.border-create {
+    --bs-border-color-rgb: 16, 172, 132 !important;
+}
+
+.card-header.border-create {
+    border-color: rgba(16, 172, 132, 1) !important;
+}
+
+.card.bg-edit {
+    background-color: rgba(254, 202, 87, var(--bs-bg-opacity)) !important;
+}
+
+.card.border-edit {
+    --bs-border-color-rgb: 254, 202, 87 !important;
+}
+
+.card-header.border-edit {
+    border-color: rgba(254, 202, 87, 1) !important;
+}
+
+.card.bg-list {
+    background-color: rgba(78, 156, 255, var(--bs-bg-opacity)) !important;
+}
+
+.card.border-list {
+    --bs-border-color-rgb: 78, 156, 255 !important;
+}
+
+.card-header.border-list {
+    border-color: rgba(78, 156, 255, 1) !important;
+}
+
+.text-header-shadow {
+    text-shadow: 3px 3px 6px #000000;
+}

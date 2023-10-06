@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="<?= base_url('public/admin/assets/plugins/lity/css/lity.min.css'); ?>">
     <link rel="stylesheet" href="<?= base_url('public/admin/assets/css/vendor.min.css'); ?>">
     <link rel="stylesheet" href="<?= base_url('public/admin/assets/css/app.min.css'); ?>">
+    <link rel="stylesheet" href="<?= base_url('public/admin/assets/css/app-custom.min.css'); ?>">
 </head>
 <body>
     <div id="app" class="app">
