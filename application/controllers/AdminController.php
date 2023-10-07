@@ -6,7 +6,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
  * USERNAME: gmurad97 || ASProgerHack
  * USER TEMPLATE: MORUS NEWS (Dump&Crack FrontEnd Pages)
  * ADMIN TEMPLATE: HUD ADMIN (Dump&Crack FrontEnd Pages)
- * VERSION: 1.0
+ * VERSION: 1.3
  */
 
 class AdminController extends CI_Controller
@@ -213,18 +213,6 @@ class AdminController extends CI_Controller
     }
     /*=====TOPBAR CRUD - ENDED=====*/
 
-
-
-
-
-
-
-
-
-
-
-
-
     /*=====BRANDING CRUD - START=====*/
     public function crud_branding_create()
     {
@@ -298,7 +286,6 @@ class AdminController extends CI_Controller
                 $this->AlertFlashData(
                     "success",
                     "crud_alert",
-                    "Create",
                     "Success!",
                     "The branding has been successfully created."
                 );
@@ -308,7 +295,6 @@ class AdminController extends CI_Controller
                 $this->AlertFlashData(
                     "warning",
                     "crud_alert",
-                    "Create",
                     "Warning!",
                     "Please, fill in all the fields."
                 );
@@ -412,7 +398,6 @@ class AdminController extends CI_Controller
                 $this->AlertFlashData(
                     "success",
                     "crud_alert",
-                    "Edit",
                     "Success!",
                     "The branding has been successfully edited."
                 );
@@ -422,7 +407,6 @@ class AdminController extends CI_Controller
                 $this->AlertFlashData(
                     "warning",
                     "crud_alert",
-                    "Create",
                     "Warning!",
                     "Please, fill in all the fields."
                 );
@@ -441,7 +425,6 @@ class AdminController extends CI_Controller
         $this->AlertFlashData(
             "success",
             "crud_alert",
-            "Remove",
             "Success!",
             "The branding has been successfully removed."
         );
@@ -504,7 +487,6 @@ class AdminController extends CI_Controller
             $this->AlertFlashData(
                 "success",
                 "crud_alert",
-                "Create",
                 "Success!",
                 "The partner has been successfully added."
             );
@@ -514,7 +496,6 @@ class AdminController extends CI_Controller
             $this->AlertFlashData(
                 "warning",
                 "crud_alert",
-                "Create",
                 "Warning!",
                 "Please, fill in all the fields."
             );
@@ -591,7 +572,6 @@ class AdminController extends CI_Controller
             $this->AlertFlashData(
                 "success",
                 "crud_alert",
-                "Edit",
                 "Success!",
                 "The partner has been successfully edited."
             );
@@ -616,7 +596,6 @@ class AdminController extends CI_Controller
             $this->AlertFlashData(
                 "success",
                 "crud_alert",
-                "Edit",
                 "Success!",
                 "The partner has been successfully edited."
             );
@@ -626,7 +605,6 @@ class AdminController extends CI_Controller
             $this->AlertFlashData(
                 "warning",
                 "crud_alert",
-                "Edit",
                 "Warning!",
                 "Please, fill in all the fields."
             );
@@ -647,7 +625,6 @@ class AdminController extends CI_Controller
         $this->AlertFlashData(
             "success",
             "crud_alert",
-            "Remove",
             "Success!",
             "The partner has been successfully removed."
         );
@@ -716,7 +693,6 @@ class AdminController extends CI_Controller
             $this->AlertFlashData(
                 "success",
                 "crud_alert",
-                "Create",
                 "Success!",
                 "The category has been successfully added."
             );
@@ -726,7 +702,6 @@ class AdminController extends CI_Controller
             $this->AlertFlashData(
                 "warning",
                 "crud_alert",
-                "Create",
                 "Warning!",
                 "Please, fill in all the fields."
             );
@@ -809,7 +784,6 @@ class AdminController extends CI_Controller
             $this->AlertFlashData(
                 "success",
                 "crud_alert",
-                "Create",
                 "Success!",
                 "The category has been successfully edited."
             );
@@ -838,7 +812,6 @@ class AdminController extends CI_Controller
             $this->AlertFlashData(
                 "success",
                 "crud_alert",
-                "Create",
                 "Success!",
                 "The category has been successfully edited."
             );
@@ -848,7 +821,6 @@ class AdminController extends CI_Controller
             $this->AlertFlashData(
                 "warning",
                 "crud_alert",
-                "Edit",
                 "Warning!",
                 "Please, fill in all the fields."
             );
@@ -870,7 +842,6 @@ class AdminController extends CI_Controller
         $this->AlertFlashData(
             "success",
             "crud_alert",
-            "Remove",
             "Success!",
             "The category has been successfully removed."
         );
@@ -878,6 +849,28 @@ class AdminController extends CI_Controller
         redirect(base_url("admin/categories-list"));
     }
     /*=====CATEGORIES CRUD - ENDED=====*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /*=====NEWS CRUD - START=====*/
     public function crud_news_create()
@@ -1272,6 +1265,7 @@ class AdminController extends CI_Controller
 
 
 
+
     /*=====SUBSCRIBERS CRUD - START=====*/
     public function crud_subscribers_create()
     {
@@ -1287,7 +1281,7 @@ class AdminController extends CI_Controller
         if (!empty($subscriber_email)) {
             $json_data = [
                 "subscriber" => [
-                    "email" => strtolower($subscriber_email),
+                    "email" => base64_encode(strtolower($subscriber_email)),
                     "status" => str_contains($subscriber_status, "on") ? TRUE : FALSE
                 ]
             ];
@@ -1302,8 +1296,7 @@ class AdminController extends CI_Controller
 
             $this->AlertFlashData(
                 "success",
-                "subscribers_alert",
-                "Create",
+                "crud_alert",
                 "Success!",
                 "The subscriber has been successfully added."
             );
@@ -1312,8 +1305,7 @@ class AdminController extends CI_Controller
         } else {
             $this->AlertFlashData(
                 "warning",
-                "subscribers_alert",
-                "Create",
+                "crud_alert",
                 "Warning!",
                 "Please, fill in all the fields."
             );
@@ -1337,7 +1329,7 @@ class AdminController extends CI_Controller
         if (!empty($subscriber_email)) {
             $json_data = [
                 "subscriber" => [
-                    "email" => strtolower($subscriber_email),
+                    "email" => base64_encode(strtolower($subscriber_email)),
                     "status" => str_contains($subscriber_status, "on") ? TRUE : FALSE
                 ]
             ];
@@ -1352,18 +1344,16 @@ class AdminController extends CI_Controller
 
             $this->AlertFlashData(
                 "success",
-                "subscribers_alert",
-                "Create",
+                "crud_alert",
                 "Success!",
-                "The subscriber has been successfully added."
+                "The subscriber has been successfully edited."
             );
 
             redirect(base_url("admin/subscribers-list"));
         } else {
             $this->AlertFlashData(
                 "warning",
-                "subscribers_alert",
-                "Create",
+                "crud_alert",
                 "Warning!",
                 "Please, fill in all the fields."
             );
@@ -1385,8 +1375,7 @@ class AdminController extends CI_Controller
 
         $this->AlertFlashData(
             "success",
-            "subscribers_alert",
-            "Remove",
+            "crud_alert",
             "Success!",
             "The subscriber has been successfully removed."
         );
@@ -1394,6 +1383,25 @@ class AdminController extends CI_Controller
         redirect(base_url("admin/subscribers-list"));
     }
     /*=====SUBSCRIBERS CRUD - ENDED=====*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /*=====SLIDER CRUD - START=====*/
 

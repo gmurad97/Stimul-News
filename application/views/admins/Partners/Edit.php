@@ -1,15 +1,18 @@
 <?php $this->load->view("admins/includes/HeadScripts"); ?>
 <?php $this->load->view("admins/includes/Navbar"); ?>
 <?php $this->load->view("admins/includes/Sidebar"); ?>
-<div class="card">
+<div class="card bg-edit border-edit bg-opacity-5">
     <div class="card-header fw-bold d-flex flex-row justify-content-between align-items-center">
-        <div class="h5 text-warning text-uppercase m-0">Partners Edit</div>
+        <div class="h5 text-warning text-uppercase text-header-shadow m-0">
+            <i class="bi bi-people me-1"></i>
+            Partners Edit
+        </div>
         <div>
-            <a href="<?= base_url('admin/partners-list'); ?>" class="btn btn-outline-info">
+            <a href="<?= base_url('admin/partners-list'); ?>" class="btn btn-outline-info btn-sm rounded-2">
                 <i class="bi bi-list-nested me-1"></i>
                 List
             </a>
-            <button type="submit" form="crud_form" class="btn btn-warning">
+            <button type="submit" form="crud_form" class="btn btn-warning btn-sm rounded-2">
                 <i class="bi bi-pencil-square me-1"></i>
                 Edit
             </button>
@@ -19,13 +22,9 @@
         <?php if ($this->session->flashdata("crud_alert")) : ?>
             <div class="alert alert-<?= $this->session->flashdata('crud_alert')['alert_type']; ?> alert-dismissable fade show p-3" style="<?= $this->session->flashdata('crud_alert')['alert_bg_color']; ?>">
                 <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
-                <h4 class="alert-heading">
-                    <i class="<?= $this->session->flashdata('crud_alert')['alert_icon']; ?> me-2"></i>
-                    <?= $this->session->flashdata('crud_alert')['alert_heading_message']; ?>
-                </h4>
-                <hr>
-                <p class="mb-0">
-                    <strong class="fw-bold"><?= $this->session->flashdata('crud_alert')['alert_short_message']; ?> </strong>
+                <p class="d-flex flex-row justify-content-start align-items-center mb-0">
+                    <i class="<?= $this->session->flashdata('crud_alert')['alert_icon']; ?> fs-5 me-2"></i>
+                    <strong class="fw-bold me-2"><?= $this->session->flashdata('crud_alert')['alert_short_message']; ?> </strong>
                     <?= $this->session->flashdata('crud_alert')['alert_long_message']; ?>
                 </p>
             </div>
@@ -39,7 +38,7 @@
                 <li class="list-group-item">
                     <div class="d-flex flex-row justify-content-between align-items-center">
                         <label class="fw-bold text-warning">Current Image</label>
-                        <a href="<?= base_url('file_manager/partners/') . $partner_info->partner_img; ?>" class="btn btn-outline-yellow" data-lity>
+                        <a href="<?= base_url('file_manager/partners/') . $partner_info->partner_img; ?>" class="btn btn-outline-yellow btn-sm rounded-2" data-lity>
                             Show Image
                             <span class="img" style="background-image: url(<?= base_url('file_manager/partners/') . $partner_info->partner_img; ?>)"></span>
                         </a>

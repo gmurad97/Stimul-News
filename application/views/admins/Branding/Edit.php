@@ -1,15 +1,18 @@
 <?php $this->load->view("admins/includes/HeadScripts"); ?>
 <?php $this->load->view("admins/includes/Navbar"); ?>
 <?php $this->load->view("admins/includes/Sidebar"); ?>
-<div class="card">
-    <div class="card-header fw-bold d-flex flex-row justify-content-between align-items-center">
-        <div class="h5 text-warning text-uppercase m-0">Branding</div>
+<div class="card bg-edit border-edit bg-opacity-5">
+    <div class="card-header border-edit fw-bold d-flex flex-row justify-content-between align-items-center">
+        <div class="h5 text-warning text-uppercase text-header-shadow m-0">
+            <i class="bi bi-flower1 me-1"></i>
+            Branding Edit
+        </div>
         <div>
-            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#danger_modal">
+            <button type="button" class="btn btn-outline-danger btn-sm rounded-2" data-bs-toggle="modal" data-bs-target="#danger_modal">
                 <i class="bi bi-trash me-1"></i>
                 Remove
             </button>
-            <button type="submit" form="crud_form" class="btn btn-warning">
+            <button type="submit" form="crud_form" class="btn btn-warning btn-sm rounded-2">
                 <i class="bi bi-pencil-square me-1"></i>
                 Edit
             </button>
@@ -19,13 +22,9 @@
         <?php if ($this->session->flashdata("crud_alert")) : ?>
             <div class="alert alert-<?= $this->session->flashdata('crud_alert')['alert_type']; ?> alert-dismissable fade show p-3" style="<?= $this->session->flashdata('crud_alert')['alert_bg_color']; ?>">
                 <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
-                <h4 class="alert-heading">
-                    <i class="<?= $this->session->flashdata('crud_alert')['alert_icon']; ?> me-2"></i>
-                    <?= $this->session->flashdata('crud_alert')['alert_heading_message']; ?>
-                </h4>
-                <hr>
-                <p class="mb-0">
-                    <strong class="fw-bold"><?= $this->session->flashdata('crud_alert')['alert_short_message']; ?> </strong>
+                <p class="d-flex flex-row justify-content-start align-items-center mb-0">
+                    <i class="<?= $this->session->flashdata('crud_alert')['alert_icon']; ?> fs-5 me-2"></i>
+                    <strong class="fw-bold me-2"><?= $this->session->flashdata('crud_alert')['alert_short_message']; ?> </strong>
                     <?= $this->session->flashdata('crud_alert')['alert_long_message']; ?>
                 </p>
             </div>
@@ -35,20 +34,26 @@
             <div class="row mb-3">
                 <?php if (!is_null($admin_branding->logo_dark->file_name)) : ?>
                     <div class="col-md-4 d-flex flex-column justify-content-center align-items-center">
-                        <h1 class="h5 text-info mb-3">Logo Dark</h1>
-                        <img src="<?= base_url("file_manager/branding/") . $admin_branding->logo_dark->file_name; ?>" width="128px" height="64px" style="object-fit: contain;" alt="Logo_Dark">
+                        <h1 class="h5 text-danger text-header-shadow mb-3">Logo Dark</h1>
+                        <a href="<?= base_url('file_manager/branding/') . $admin_branding->logo_dark->file_name; ?>" data-lity>
+                            <img src="<?= base_url("file_manager/branding/") . $admin_branding->logo_dark->file_name; ?>" width="128px" height="64px" style="object-fit: contain;" alt="Logo Dark">
+                        </a>
                     </div>
                 <?php endif; ?>
                 <?php if (!is_null($admin_branding->logo_light->file_name)) : ?>
                     <div class="col-md-4 d-flex flex-column justify-content-center align-items-center">
-                        <h1 class="h5 text-info mb-3">Logo Light</h1>
-                        <img src="<?= base_url("file_manager/branding/") . $admin_branding->logo_light->file_name; ?>" width="128px" height="64px" style="object-fit: contain;" alt="Logo_Light">
+                        <h1 class="h5 text-danger text-header-shadow mb-3">Logo Light</h1>
+                        <a href="<?= base_url('file_manager/branding/') . $admin_branding->logo_light->file_name; ?>" data-lity>
+                            <img src="<?= base_url("file_manager/branding/") . $admin_branding->logo_light->file_name; ?>" width="128px" height="64px" style="object-fit: contain;" alt="Logo Light">
+                        </a>
                     </div>
                 <?php endif; ?>
                 <?php if (!is_null($admin_branding->favicon->file_name)) : ?>
                     <div class="col-md-4 d-flex flex-column justify-content-center align-items-center">
-                        <h1 class="h5 text-info mb-3">Favicon</h1>
-                        <img src="<?= base_url("file_manager/branding/") . $admin_branding->favicon->file_name; ?>" width="128px" height="64px" style="object-fit: contain;" alt="Favicon">
+                        <h1 class="h5 text-danger text-header-shadow mb-3">Favicon</h1>
+                        <a href="<?= base_url('file_manager/branding/') . $admin_branding->favicon->file_name; ?>" data-lity>
+                            <img src="<?= base_url("file_manager/branding/") . $admin_branding->favicon->file_name; ?>" width="128px" height="64px" style="object-fit: contain;" alt="Favicon">
+                        </a>
                     </div>
                 <?php endif; ?>
             </div>

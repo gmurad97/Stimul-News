@@ -1,28 +1,27 @@
 <?php $this->load->view("admins/includes/HeadScripts"); ?>
 <?php $this->load->view("admins/includes/Navbar"); ?>
 <?php $this->load->view("admins/includes/Sidebar"); ?>
-<div class="card">
-    <div class="card-header fw-bold d-flex flex-row justify-content-between align-items-center">
-        <div class="h5 text-success m-0">SUBSCRIBERS LIST</div>
+<div class="card bg-list border-list bg-opacity-5">
+    <div class="card-header border-list fw-bold d-flex flex-row justify-content-between align-items-center">
+        <div class="h5 text-info text-uppercase text-header-shadow m-0">
+            <i class="fa-solid fa-people-group me-1"></i>
+            Subscribers List
+        </div>
         <div>
-            <a href="<?= base_url('admin/subscribers-create'); ?>" class="btn btn-outline-success">
+            <a href="<?= base_url('admin/subscribers-create'); ?>" class="btn btn-outline-success btn-sm rounded-2">
                 <i class="bi bi-plus-circle me-1"></i>
                 Create
             </a>
         </div>
     </div>
     <div class="card-body">
-        <?php if ($this->session->flashdata("subscribers_alert")) : ?>
-            <div class="alert alert-<?= $this->session->flashdata('subscribers_alert')['alert_type']; ?> alert-dismissable fade show p-3" style="<?= $this->session->flashdata('subscribers_alert')['alert_bg_color']; ?>">
+        <?php if ($this->session->flashdata("crud_alert")) : ?>
+            <div class="alert alert-<?= $this->session->flashdata('crud_alert')['alert_type']; ?> alert-dismissable fade show p-3" style="<?= $this->session->flashdata('crud_alert')['alert_bg_color']; ?>">
                 <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
-                <h4 class="alert-heading">
-                    <i class="<?= $this->session->flashdata('subscribers_alert')['alert_icon']; ?> me-2"></i>
-                    <?= $this->session->flashdata('subscribers_alert')['alert_heading_message']; ?>
-                </h4>
-                <hr>
-                <p class="mb-0">
-                    <strong class="fw-bold"><?= $this->session->flashdata('subscribers_alert')['alert_short_message']; ?> </strong>
-                    <?= $this->session->flashdata('subscribers_alert')['alert_long_message']; ?>
+                <p class="d-flex flex-row justify-content-start align-items-center mb-0">
+                    <i class="<?= $this->session->flashdata('crud_alert')['alert_icon']; ?> fs-5 me-2"></i>
+                    <strong class="fw-bold me-2"><?= $this->session->flashdata('crud_alert')['alert_short_message']; ?> </strong>
+                    <?= $this->session->flashdata('crud_alert')['alert_long_message']; ?>
                 </p>
             </div>
         <?php endif; ?>
@@ -30,7 +29,7 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Subscriber</th>
+                    <th>Email</th>
                     <th>Status</th>
                     <th>Control</th>
                 </tr>
@@ -44,7 +43,10 @@
                         $subscriber_data = json_decode($subscriber["s_data"], FALSE); ?>
                         <tr>
                             <td><?= ++$id_counter; ?></td>
-                            <td><?= $subscriber_data->subscriber->email ?? "NULL"; ?></td>
+                            <td>
+                                <i class="bi bi-envelope-at text-success"></i>
+                                <?= htmlentities(base64_decode($subscriber_data->subscriber->email ?? "NULL")); ?>
+                            </td>
                             <td>
                                 <?php if ($subscriber_data->subscriber->status) : ?>
                                     <span class="badge bg-success p-2 w-75px text-uppercase">Active</span>

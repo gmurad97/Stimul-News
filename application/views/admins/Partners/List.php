@@ -1,11 +1,14 @@
 <?php $this->load->view("admins/includes/HeadScripts"); ?>
 <?php $this->load->view("admins/includes/Navbar"); ?>
 <?php $this->load->view("admins/includes/Sidebar"); ?>
-<div class="card bg-primary border-primary bg-opacity-5">
-    <div class="card-header fw-bold d-flex flex-row justify-content-between align-items-center">
-        <div class="h5 text-info text-uppercase m-0">Partners List</div>
+<div class="card bg-list border-list bg-opacity-5">
+    <div class="card-header border-list fw-bold d-flex flex-row justify-content-between align-items-center">
+        <div class="h5 text-info text-uppercase text-header-shadow m-0">
+            <i class="bi bi-people me-1"></i>
+            Partners List
+        </div>
         <div>
-            <a href="<?= base_url('admin/partners-create'); ?>" class="btn btn-outline-success">
+            <a href="<?= base_url('admin/partners-create'); ?>" class="btn btn-outline-success btn-sm rounded-2">
                 <i class="bi bi-plus-circle me-1"></i>
                 Create
             </a>
@@ -15,13 +18,9 @@
         <?php if ($this->session->flashdata("crud_alert")) : ?>
             <div class="alert alert-<?= $this->session->flashdata('crud_alert')['alert_type']; ?> alert-dismissable fade show p-3" style="<?= $this->session->flashdata('crud_alert')['alert_bg_color']; ?>">
                 <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
-                <h4 class="alert-heading">
-                    <i class="<?= $this->session->flashdata('crud_alert')['alert_icon']; ?> me-2"></i>
-                    <?= $this->session->flashdata('crud_alert')['alert_heading_message']; ?>
-                </h4>
-                <hr>
-                <p class="mb-0">
-                    <strong class="fw-bold"><?= $this->session->flashdata('crud_alert')['alert_short_message']; ?> </strong>
+                <p class="d-flex flex-row justify-content-start align-items-center mb-0">
+                    <i class="<?= $this->session->flashdata('crud_alert')['alert_icon']; ?> fs-5 me-2"></i>
+                    <strong class="fw-bold me-2"><?= $this->session->flashdata('crud_alert')['alert_short_message']; ?> </strong>
                     <?= $this->session->flashdata('crud_alert')['alert_long_message']; ?>
                 </p>
             </div>
@@ -52,8 +51,18 @@
                                     <img width="64" height="64" style="object-fit: cover;" class="rounded-circle bg-white" src="<?= base_url('file_manager/partners/') . $partners_data_item_data->partner_img; ?>" title="<?= htmlentities(base64_decode($partners_data_item_data->partner_title)); ?>" alt="<?= htmlentities(base64_decode($partners_data_item_data->partner_title)); ?>">
                                 </a>
                             </td>
-                            <td><?= (is_null($partners_data_item_data->partner_link) || empty($partners_data_item_data->partner_link)) ? "NULL" : htmlentities(base64_decode($partners_data_item_data->partner_link)); ?></td>
-                            <td><?= (is_null($partners_data_item_data->partner_title) || empty($partners_data_item_data->partner_title)) ? "NULL" : htmlentities(base64_decode($partners_data_item_data->partner_title)); ?></td>
+                            <td>
+                                <div class="text-truncate" style="max-width: 200px;">
+                                    <a href="<?= (is_null($partners_data_item_data->partner_link) || empty($partners_data_item_data->partner_link)) ? "NULL" : htmlentities(base64_decode($partners_data_item_data->partner_link)); ?>">
+                                        <?= (is_null($partners_data_item_data->partner_link) || empty($partners_data_item_data->partner_link)) ? "NULL" : htmlentities(base64_decode($partners_data_item_data->partner_link)); ?>
+                                    </a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-truncate" style="max-width: 200px;">
+                                    <?= (is_null($partners_data_item_data->partner_title) || empty($partners_data_item_data->partner_title)) ? "NULL" : htmlentities(base64_decode($partners_data_item_data->partner_title)); ?>
+                                </div>
+                            </td>
                             <td>
                                 <?php if ($partners_data_item_data->partner_status) : ?>
                                     <span class="badge bg-success p-2 w-90px text-uppercase">

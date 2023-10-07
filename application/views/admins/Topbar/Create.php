@@ -20,7 +20,7 @@
                 <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
                 <p class="d-flex flex-row justify-content-start align-items-center mb-0">
                     <i class="<?= $this->session->flashdata('crud_alert')['alert_icon']; ?> fs-5 me-2"></i>
-                    <strong class="fw-bold me-1"><?= $this->session->flashdata('crud_alert')['alert_short_message']; ?> </strong>
+                    <strong class="fw-bold me-2"><?= $this->session->flashdata('crud_alert')['alert_short_message']; ?> </strong>
                     <?= $this->session->flashdata('crud_alert')['alert_long_message']; ?>
                 </p>
             </div>

@@ -5,7 +5,7 @@
     <div class="card-header border-edit fw-bold d-flex flex-row justify-content-between align-items-center">
         <div class="h5 text-uppercase text-warning text-header-shadow m-0">
             <i class="bi bi-distribute-vertical me-1"></i>
-            Topbar Create
+            Topbar Edit
         </div>
         <div>
             <button type="button" class="btn btn-outline-danger btn-sm rounded-2" data-bs-toggle="modal" data-bs-target="#danger_modal">
@@ -24,7 +24,7 @@
                 <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
                 <p class="d-flex flex-row justify-content-start align-items-center mb-0">
                     <i class="<?= $this->session->flashdata('crud_alert')['alert_icon']; ?> fs-5 me-2"></i>
-                    <strong class="fw-bold me-1"><?= $this->session->flashdata('crud_alert')['alert_short_message']; ?> </strong>
+                    <strong class="fw-bold me-2"><?= $this->session->flashdata('crud_alert')['alert_short_message']; ?> </strong>
                     <?= $this->session->flashdata('crud_alert')['alert_long_message']; ?>
                 </p>
             </div>

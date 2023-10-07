@@ -1,11 +1,14 @@
 <?php $this->load->view("admins/includes/HeadScripts"); ?>
 <?php $this->load->view("admins/includes/Navbar"); ?>
 <?php $this->load->view("admins/includes/Sidebar"); ?>
-<div class="card bg-primary border-primary bg-opacity-5">
-    <div class="card-header fw-bold d-flex flex-row justify-content-between align-items-center">
-        <div class="h5 text-info text-uppercase m-0">Categories List</div>
+<div class="card bg-list border-list bg-opacity-5">
+    <div class="card-header border-list fw-bold d-flex flex-row justify-content-between align-items-center">
+        <div class="h5 text-info text-uppercase text-header-shadow m-0">
+            <i class="bi bi-tags me-1"></i>
+            Categories List
+        </div>
         <div>
-            <a href="<?= base_url('admin/categories-create'); ?>" class="btn btn-outline-success">
+            <a href="<?= base_url('admin/categories-create'); ?>" class="btn btn-outline-success btn-sm rounded-2">
                 <i class="bi bi-plus-circle me-1"></i>
                 Create
             </a>
@@ -15,13 +18,9 @@
         <?php if ($this->session->flashdata("crud_alert")) : ?>
             <div class="alert alert-<?= $this->session->flashdata('crud_alert')['alert_type']; ?> alert-dismissable fade show p-3" style="<?= $this->session->flashdata('crud_alert')['alert_bg_color']; ?>">
                 <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
-                <h4 class="alert-heading">
-                    <i class="<?= $this->session->flashdata('crud_alert')['alert_icon']; ?> me-2"></i>
-                    <?= $this->session->flashdata('crud_alert')['alert_heading_message']; ?>
-                </h4>
-                <hr>
-                <p class="mb-0">
-                    <strong class="fw-bold"><?= $this->session->flashdata('crud_alert')['alert_short_message']; ?> </strong>
+                <p class="d-flex flex-row justify-content-start align-items-center mb-0">
+                    <i class="<?= $this->session->flashdata('crud_alert')['alert_icon']; ?> fs-5 me-2"></i>
+                    <strong class="fw-bold me-2"><?= $this->session->flashdata('crud_alert')['alert_short_message']; ?> </strong>
                     <?= $this->session->flashdata('crud_alert')['alert_long_message']; ?>
                 </p>
             </div>
@@ -32,7 +31,6 @@
                     <th>#</th>
                     <th>Image</th>
                     <th>Name</th>
-                    <th>BG Color</th>
                     <th>Status</th>
                     <th>Control</th>
                 </tr>
@@ -53,10 +51,9 @@
                                 </a>
                             </td>
                             <td>
-                                <?= (is_null($category_data_item_data->category_name->en) || empty($category_data_item_data->category_name->en)) ? "NULL" : htmlentities(base64_decode($category_data_item_data->category_name->en)); ?>
-                            </td>
-                            <td>
-                                <div class="rounded-circle w-25px h-25px" style="background-color: <?= $category_data_item_data->category_bg_color; ?> ;"></div>
+                                <span class="badge text-truncate w-200px rounded-5 p-2 text-uppercase" style="background-color: <?= $category_data_item_data->category_bg_color; ?>;">
+                                    <?= (is_null($category_data_item_data->category_name->en) || empty($category_data_item_data->category_name->en)) ? "NULL" : htmlentities(base64_decode($category_data_item_data->category_name->en)); ?>
+                                </span>
                             </td>
                             <td>
                                 <?php if ($category_data_item_data->category_status) : ?>
@@ -93,7 +90,6 @@
                     <th>#</th>
                     <th>Image</th>
                     <th>Name</th>
-                    <th>BG Color</th>
                     <th>Status</th>
                     <th>Control</th>
                 </tr>
