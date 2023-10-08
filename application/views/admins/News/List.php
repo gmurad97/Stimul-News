@@ -1,11 +1,14 @@
 <?php $this->load->view("admins/includes/HeadScripts"); ?>
 <?php $this->load->view("admins/includes/Navbar"); ?>
 <?php $this->load->view("admins/includes/Sidebar"); ?>
-<div class="card bg-create border-create bg-opacity-10">
-    <div class="card-header border-create fw-bold d-flex flex-row justify-content-between align-items-center">
-        <div class="h5 text-info text-uppercase m-0">News List</div>
+<div class="card bg-list border-list bg-opacity-5">
+    <div class="card-header border-list fw-bold d-flex flex-row justify-content-between align-items-center">
+        <div class="h5 text-info text-uppercase text-header-shadow m-0">
+            <i class="bi bi-newspaper me-1"></i>
+            News List
+        </div>
         <div>
-            <a href="<?= base_url('admin/news-create'); ?>" class="btn btn-success">
+            <a href="<?= base_url('admin/news-create'); ?>" class="btn btn-success btn-sm rounded-2">
                 <i class="bi bi-plus-circle me-1"></i>
                 Create
             </a>
@@ -15,13 +18,9 @@
         <?php if ($this->session->flashdata("crud_alert")) : ?>
             <div class="alert alert-<?= $this->session->flashdata('crud_alert')['alert_type']; ?> alert-dismissable fade show p-3" style="<?= $this->session->flashdata('crud_alert')['alert_bg_color']; ?>">
                 <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
-                <h4 class="alert-heading">
-                    <i class="<?= $this->session->flashdata('crud_alert')['alert_icon']; ?> me-2"></i>
-                    <?= $this->session->flashdata('crud_alert')['alert_heading_message']; ?>
-                </h4>
-                <hr>
-                <p class="mb-0">
-                    <strong class="fw-bold"><?= $this->session->flashdata('crud_alert')['alert_short_message']; ?> </strong>
+                <p class="d-flex flex-row justify-content-start align-items-center mb-0">
+                    <i class="<?= $this->session->flashdata('crud_alert')['alert_icon']; ?> fs-5 me-2"></i>
+                    <strong class="fw-bold me-2"><?= $this->session->flashdata('crud_alert')['alert_short_message']; ?> </strong>
                     <?= $this->session->flashdata('crud_alert')['alert_long_message']; ?>
                 </p>
             </div>
@@ -60,10 +59,17 @@
                                 </p>
                             </td>
                             <td>
-                                <?= htmlentities(base64_decode($news_data_item_data->news_category->en)); ?>
+                                <p class="text-truncate px-2 py-1 m-0 rounded-5" style="text-align:center; max-width:150px; background-color:<?= $news_data_item_data->news_category_bg_color; ?>">
+                                    <?= htmlentities(base64_decode($news_data_item_data->news_category->en)); ?>
+                                </p>
                             </td>
                             <td>
-                                <?= $news_data_item_data->news_created_date . " " . $news_data_item_data->news_created_time; ?>
+                                <div class="dflex flex-row">
+                                    <i class="bi bi-calendar text-success"></i>
+                                    <?= $news_data_item_data->news_created_date ?>
+                                    <i class="bi bi-clock text-success ms-2"></i>
+                                    <?= $news_data_item_data->news_created_time; ?>
+                                </div>
                             </td>
                             <td>
                                 <?php if ($news_data_item_data->news_status) : ?>
@@ -78,7 +84,11 @@
                                     </span>
                                 <?php endif; ?>
                             </td>
-                            <td><?= $news_data_item_id; ?></td>
+                            <td>
+                                <span class="bg-indigo bg-opacity-50 text-black fw-bold p-1 rounded-2">
+                                    <?= $news_data_item_id; ?>
+                                </span>
+                            </td>
                             <td>
                                 <nav class="nav flex-row">
                                     <a href="<?= base_url('admin/news-detail/') . $news_data_item_id; ?>" class="nav-link theme-info p-0">

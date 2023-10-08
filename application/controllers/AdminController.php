@@ -850,28 +850,6 @@ class AdminController extends CI_Controller
     }
     /*=====CATEGORIES CRUD - ENDED=====*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /*=====NEWS CRUD - START=====*/
     public function crud_news_create()
     {
@@ -991,7 +969,6 @@ class AdminController extends CI_Controller
             $this->AlertFlashData(
                 "success",
                 "crud_alert",
-                "Create",
                 "Success!",
                 "The news has been successfully created."
             );
@@ -1000,7 +977,6 @@ class AdminController extends CI_Controller
             $this->AlertFlashData(
                 "warning",
                 "crud_alert",
-                "Create",
                 "Warning!",
                 "Please, fill in all the fields."
             );
@@ -1044,7 +1020,7 @@ class AdminController extends CI_Controller
         $news_full_description_en  = $this->input->post("news_full_description_en", FALSE);
         $news_full_description_ru  = $this->input->post("news_full_description_ru", FALSE);
         $news_full_description_az  = $this->input->post("news_full_description_az", FALSE);
-        $news_category             = $this->input->post("news_category", TRUE);
+        $news_category             = base64_encode($this->input->post("news_category", TRUE));
         $news_status               = $this->input->post("news_status", TRUE);
 
         $categories_list_data = $this->AdminModel->categories_admin_db_get_results();
@@ -1063,7 +1039,6 @@ class AdminController extends CI_Controller
             $this->AlertFlashData(
                 "danger",
                 "crud_alert",
-                "Create",
                 "Danger!",
                 "Unknown error."
             );
@@ -1110,32 +1085,32 @@ class AdminController extends CI_Controller
 
             $json_data_decoded = [
                 "news_title" => [
-                    "en" => $news_title_en,
-                    "ru" => $news_title_ru,
-                    "az" => $news_title_az
+                    "en" => base64_encode($news_title_en),
+                    "ru" => base64_encode($news_title_ru),
+                    "az" => base64_encode($news_title_az)
                 ],
 
                 "news_short" => [
-                    "en" => $news_short_description_en,
-                    "ru" => $news_short_description_ru,
-                    "az" => $news_short_description_az,
+                    "en" => base64_encode($news_short_description_en),
+                    "ru" => base64_encode($news_short_description_ru),
+                    "az" => base64_encode($news_short_description_az)
                 ],
 
                 "news_full" => [
-                    "en" => $news_full_description_en,
-                    "ru" => $news_full_description_ru,
-                    "az" => $news_full_description_az,
+                    "en" => base64_encode($news_full_description_en),
+                    "ru" => base64_encode($news_full_description_ru),
+                    "az" => base64_encode($news_full_description_az)
                 ],
                 "news_preview" => $news_preview["file_name"],
                 "news_category" => [
-                    "en" => $category_data["category_name"]["en"],
-                    "ru" => $category_data["category_name"]["ru"],
-                    "az" => $category_data["category_name"]["az"],
+                    "en" => base64_encode($category_data["category_name"]["en"]),
+                    "ru" => base64_encode($category_data["category_name"]["ru"]),
+                    "az" => base64_encode($category_data["category_name"]["az"])
                 ],
                 "news_category_bg_color" => $category_data["category_bg_color"],
                 "news_status" => str_contains($news_status, "on") ? TRUE : FALSE,
                 "news_created_date" => date("d.m.Y"),
-                "news_created_time" => date("H:i"),
+                "news_created_time" => date("H:i")
             ];
 
             $json_data_encoded = json_encode($json_data_decoded);
@@ -1149,7 +1124,6 @@ class AdminController extends CI_Controller
             $this->AlertFlashData(
                 "success",
                 "crud_alert",
-                "Edit",
                 "Success!",
                 "The news has been successfully edited."
             );
@@ -1169,27 +1143,27 @@ class AdminController extends CI_Controller
         ) {
             $json_data_decoded = [
                 "news_title" => [
-                    "en" => $news_title_en,
-                    "ru" => $news_title_ru,
-                    "az" => $news_title_az
+                    "en" => base64_encode($news_title_en),
+                    "ru" => base64_encode($news_title_ru),
+                    "az" => base64_encode($news_title_az)
                 ],
 
                 "news_short" => [
-                    "en" => $news_short_description_en,
-                    "ru" => $news_short_description_ru,
-                    "az" => $news_short_description_az,
+                    "en" => base64_encode($news_short_description_en),
+                    "ru" => base64_encode($news_short_description_ru),
+                    "az" => base64_encode($news_short_description_az)
                 ],
 
                 "news_full" => [
-                    "en" => $news_full_description_en,
-                    "ru" => $news_full_description_ru,
-                    "az" => $news_full_description_az,
+                    "en" => base64_encode($news_full_description_en),
+                    "ru" => base64_encode($news_full_description_ru),
+                    "az" => base64_encode($news_full_description_az)
                 ],
                 "news_preview" => $old_news_data["news_preview"],
                 "news_category" => [
-                    "en" => $category_data["category_name"]["en"],
-                    "ru" => $category_data["category_name"]["ru"],
-                    "az" => $category_data["category_name"]["az"],
+                    "en" => base64_encode($category_data["category_name"]["en"]),
+                    "ru" => base64_encode($category_data["category_name"]["ru"]),
+                    "az" => base64_encode($category_data["category_name"]["az"])
                 ],
                 "news_category_bg_color" => $category_data["category_bg_color"],
                 "news_status" => str_contains($news_status, "on") ? TRUE : FALSE,
@@ -1208,7 +1182,6 @@ class AdminController extends CI_Controller
             $this->AlertFlashData(
                 "success",
                 "crud_alert",
-                "Edit",
                 "Success!",
                 "The news has been successfully edited."
             );
@@ -1218,7 +1191,6 @@ class AdminController extends CI_Controller
             $this->AlertFlashData(
                 "warning",
                 "crud_alert",
-                "Create",
                 "Warning!",
                 "Please, fill in all the fields."
             );
@@ -1247,24 +1219,6 @@ class AdminController extends CI_Controller
         redirect(base_url("admin/news-list"));
     }
     /*=====NEWS CRUD - ENDED=====*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     /*=====SUBSCRIBERS CRUD - START=====*/
     public function crud_subscribers_create()

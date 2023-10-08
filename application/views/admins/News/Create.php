@@ -39,17 +39,17 @@
                 <ul class="nav nav-tabs nav-tabs-v2 ps-4">
                     <li class="nav-item me-3">
                         <a href="#news_menu_en" class="nav-link active" data-bs-toggle="tab">
-                            News-EN
+                            EN
                         </a>
                     </li>
                     <li class="nav-item me-3">
                         <a href="#news_menu_ru" class="nav-link" data-bs-toggle="tab">
-                            News-RU
+                            RU
                         </a>
                     </li>
                     <li class="nav-item me-3">
                         <a href="#news_menu_az" class="nav-link" data-bs-toggle="tab">
-                            News-AZ
+                            AZ
                         </a>
                     </li>
                 </ul>
@@ -64,7 +64,7 @@
                         <div class="row mb-2">
                             <div class="col-md-12">
                                 <label for="news_short_description_en_label">Short Description</label>
-                                <textarea required name="news_short_description_en" class="form-control form-control-sm my-2" id="news_short_description_en_label" rows="3" placeholder="Short Description"></textarea>
+                                <textarea required name="news_short_description_en" class="form-control form-control-sm my-2" id="news_short_description_en_label" rows="3" placeholder="Short Description" style="resize: none;"></textarea>
                             </div>
                         </div>
                         <div class="row">
@@ -97,7 +97,7 @@
                         <div class="row mb-2">
                             <div class="col-md-12">
                                 <label for="news_short_description_ru_label">Short Description</label>
-                                <textarea required name="news_short_description_ru" class="form-control form-control-sm my-2" id="news_short_description_ru_label" rows="3" placeholder="Short Description"></textarea>
+                                <textarea required name="news_short_description_ru" class="form-control form-control-sm my-2" id="news_short_description_ru_label" rows="3" placeholder="Short Description" style="resize: none;"></textarea>
                             </div>
                         </div>
                         <div class="row">
@@ -185,10 +185,11 @@
                         <input name="news_status" type="checkbox" class="form-check-input" id="news_status_label">
                     </div>
                 </li>
+
                 <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
-                    <label for="news_status_label">notify users</label>
+                    <label for="notify_subscribers_label text-red">Notify Subscribers?</label>
                     <div class="form-check form-switch">
-                        <input name="news_status" type="checkbox" class="form-check-input" id="news_status_label">
+                        <input name="notify_subscribers" type="checkbox" class="form-check-input" id="notify_subscribers_label">
                     </div>
                 </li>
             </ul>
