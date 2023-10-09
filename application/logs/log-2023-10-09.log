@@ -1,0 +1,30 @@
+ERROR - 2023-10-09 02:13:12 --> Your server does not support the GD function required to process this type of image.
+ERROR - 2023-10-09 06:54:40 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '21' at line 2 - Invalid query: SELECT *
+FROM 21
+ERROR - 2023-10-09 06:57:07 --> Query error: Unknown column 'n_id' in 'where clause' - Invalid query: SELECT *
+FROM `news`
+WHERE `n_id` = 21
+ERROR - 2023-10-09 07:00:40 --> Severity: error --> Exception: syntax error, unexpected identifier "print_r" C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1033
+ERROR - 2023-10-09 07:01:05 --> Severity: error --> Exception: Cannot use object of type stdClass as array C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1031
+ERROR - 2023-10-09 07:01:19 --> Query error: Unknown column 'UGhvdG9ncmFwaHk' in 'on clause' - Invalid query: SELECT *
+FROM `news`
+JOIN `categories` ON `UGhvdG9ncmFwaHk`=`=category_name`.`en`
+ERROR - 2023-10-09 07:03:26 --> Query error: Unknown column 'c_uid' in 'where clause' - Invalid query: SELECT *
+FROM `news`
+WHERE `c_uid` = 15
+ERROR - 2023-10-09 07:03:50 --> Severity: error --> Exception: Cannot use object of type stdClass as array C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1032
+ERROR - 2023-10-09 07:04:05 --> Query error: Unknown column 'UGhvdG9ncmFwaHk' in 'on clause' - Invalid query: SELECT *
+FROM `news`
+JOIN `categories` ON `UGhvdG9ncmFwaHk`=`=UGhvdG9ncmFwaHk=`
+ERROR - 2023-10-09 07:04:15 --> Query error: Unknown column 'UGhvdG9ncmFwaHk' in 'on clause' - Invalid query: SELECT *
+FROM `news`
+JOIN `categories` ON `UGhvdG9ncmFwaHk`=`UGhvdG9ncmFwaHk=`
+ERROR - 2023-10-09 07:04:40 --> Query error: Unknown column 'UGhvdG9ncmFwaHk' in 'on clause' - Invalid query: SELECT *
+FROM `news`
+LEFT JOIN `categories` ON `UGhvdG9ncmFwaHk`=`=UGhvdG9ncmFwaHk=`
+ERROR - 2023-10-09 07:04:50 --> Query error: Not unique table/alias: 'news' - Invalid query: SELECT *
+FROM `news`
+LEFT JOIN `news` ON `UGhvdG9ncmFwaHk`=`=UGhvdG9ncmFwaHk=`
+ERROR - 2023-10-09 07:05:01 --> Query error: Unknown column 'UGhvdG9ncmFwaHk' in 'on clause' - Invalid query: SELECT *
+FROM `news`
+LEFT JOIN `categories` ON `UGhvdG9ncmFwaHk`=`=UGhvdG9ncmFwaHk=`

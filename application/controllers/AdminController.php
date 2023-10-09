@@ -1011,12 +1011,12 @@ class AdminController extends CI_Controller
         $old_news_data = json_decode($this->AdminModel->news_admin_db_get($id)["n_data"], TRUE);
         $news_img_path = "./file_manager/news/" . $old_news_data["news_preview"];
 
-        $news_title_en             = substr($this->input->post("news_title_en", TRUE), 0, 50);
-        $news_title_ru             = substr($this->input->post("news_title_ru", TRUE), 0, 50);
-        $news_title_az             = substr($this->input->post("news_title_az", TRUE), 0, 50);
-        $news_short_description_en = substr($this->input->post("news_short_description_en", TRUE), 0, 120);
-        $news_short_description_ru = substr($this->input->post("news_short_description_ru", TRUE), 0, 120);
-        $news_short_description_az = substr($this->input->post("news_short_description_az", TRUE), 0, 120);
+        $news_title_en             = $this->input->post("news_title_en", TRUE);
+        $news_title_ru             = $this->input->post("news_title_ru", TRUE);
+        $news_title_az             = $this->input->post("news_title_az", TRUE);
+        $news_short_description_en = $this->input->post("news_short_description_en", TRUE);
+        $news_short_description_ru = $this->input->post("news_short_description_ru", TRUE);
+        $news_short_description_az = $this->input->post("news_short_description_az", TRUE);
         $news_full_description_en  = $this->input->post("news_full_description_en", FALSE);
         $news_full_description_ru  = $this->input->post("news_full_description_ru", FALSE);
         $news_full_description_az  = $this->input->post("news_full_description_az", FALSE);
@@ -1103,9 +1103,9 @@ class AdminController extends CI_Controller
                 ],
                 "news_preview" => $news_preview["file_name"],
                 "news_category" => [
-                    "en" => base64_encode($category_data["category_name"]["en"]),
-                    "ru" => base64_encode($category_data["category_name"]["ru"]),
-                    "az" => base64_encode($category_data["category_name"]["az"])
+                    "en" => $category_data["category_name"]["en"],
+                    "ru" => $category_data["category_name"]["ru"],
+                    "az" => $category_data["category_name"]["az"]
                 ],
                 "news_category_bg_color" => $category_data["category_bg_color"],
                 "news_status" => str_contains($news_status, "on") ? TRUE : FALSE,
@@ -1161,9 +1161,9 @@ class AdminController extends CI_Controller
                 ],
                 "news_preview" => $old_news_data["news_preview"],
                 "news_category" => [
-                    "en" => base64_encode($category_data["category_name"]["en"]),
-                    "ru" => base64_encode($category_data["category_name"]["ru"]),
-                    "az" => base64_encode($category_data["category_name"]["az"])
+                    "en" => $category_data["category_name"]["en"],
+                    "ru" => $category_data["category_name"]["ru"],
+                    "az" => $category_data["category_name"]["az"]
                 ],
                 "news_category_bg_color" => $category_data["category_bg_color"],
                 "news_status" => str_contains($news_status, "on") ? TRUE : FALSE,
