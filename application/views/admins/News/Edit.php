@@ -12,7 +12,7 @@
                 <i class="bi bi-list-nested me-1"></i>
                 List
             </a>
-            <button type="submit" form="crud_form" class="btn btn-outline-warning btn-sm rounded-2">
+            <button type="submit" form="crud_form" class="btn btn-warning btn-sm rounded-2">
                 <i class="bi bi-pencil-square me-1"></i>
                 Edit
             </button>
@@ -172,7 +172,7 @@
                                 <?php foreach ($categories_list as $categories_list_item) : ?>
                                     <?php $categories_list_item_info = json_decode($categories_list_item["c_data"]); ?>
                                     <?php if ($categories_list_item_info->category_status) : ?>
-                                        <option value="<?= htmlentities(base64_decode($categories_list_item_info->category_name->en)); ?>" <?= $news_info->news_category == $categories_list_item_info->category_name->en ? "selected" : ""; ?>><?= htmlentities(base64_decode($categories_list_item_info->category_name->en)); ?></option>
+                                        <option value="<?= htmlentities(base64_decode($categories_list_item_info->category_name->en)); ?>" <?= $categories_list_item_info->category_name->en == $news_info->news_category->en ? "selected" : ""; ?>><?= htmlentities(base64_decode($categories_list_item_info->category_name->en)); ?></option>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
                             </select>

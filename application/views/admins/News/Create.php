@@ -187,7 +187,7 @@
                 </li>
 
                 <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
-                    <label for="notify_subscribers_label text-red">Notify Subscribers?</label>
+                    <label for="notify_subscribers_label" class="text-red fw-bold">Notify Subscribers?</label>
                     <div class="form-check form-switch">
                         <input name="notify_subscribers" type="checkbox" class="form-check-input" id="notify_subscribers_label">
                     </div>

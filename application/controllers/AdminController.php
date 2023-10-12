@@ -67,7 +67,7 @@ class AdminController extends CI_Controller
     protected function CryptoPrice($cryptoLimit)
     {
         $curl_crypto_price = curl_init("https://api.binance.com/api/v3/ticker/price");
-        curl_setopt($curl_crypto_price, CURLOPT_USERAGENT, "StimulNewsClient-v1.0");
+        curl_setopt($curl_crypto_price, CURLOPT_USERAGENT, "StimulNewsClient-v1.3");
         curl_setopt($curl_crypto_price, CURLOPT_RETURNTRANSFER, TRUE);
         $response_result = array_values(array_filter(json_decode(curl_exec($curl_crypto_price), FALSE), function ($cryptoPair) {
             if (str_ends_with($cryptoPair->symbol, "USDT")) {
@@ -81,7 +81,7 @@ class AdminController extends CI_Controller
     protected function FiatPrice($sourceFiat, array $currencyFiat)
     {
         $curl_fiat_price = curl_init("http://apilayer.net/api/live?access_key=fe5846bdd06207a77f1865b04022e68f&currencies=" . join(",", $currencyFiat) . "&source=" . $sourceFiat . "&format=1");
-        curl_setopt($curl_fiat_price, CURLOPT_USERAGENT, "StimulNewsClient-v1.0");
+        curl_setopt($curl_fiat_price, CURLOPT_USERAGENT, "StimulNewsClient-v1.3");
         curl_setopt($curl_fiat_price, CURLOPT_RETURNTRANSFER, TRUE);
         $response_result = curl_exec($curl_fiat_price);
         curl_close($curl_fiat_price);
@@ -860,6 +860,16 @@ class AdminController extends CI_Controller
 
     public function crud_news_create_action()
     {
+        $subscribers_data = array_map(function ($subs_data) {
+            return json_decode($subs_data["s_data"], TRUE);
+        }, $this->AdminModel->subscribers_admin_db_get_results());
+
+        $subscribers_email = array_values(array_filter(array_map(function ($subs_item) {
+            if ($subs_item["subscriber"]["status"]) {
+                return base64_decode($subs_item["subscriber"]["email"]);
+            }
+        }, $subscribers_data)));
+
         $news_title_en             = $this->input->post("news_title_en", TRUE);
         $news_title_ru             = $this->input->post("news_title_ru", TRUE);
         $news_title_az             = $this->input->post("news_title_az", TRUE);
@@ -871,6 +881,7 @@ class AdminController extends CI_Controller
         $news_full_description_az  = $this->input->post("news_full_description_az", FALSE);
         $news_category             = base64_encode($this->input->post("news_category", TRUE));
         $news_status               = $this->input->post("news_status", TRUE);
+        $news_notify_subscribers   = str_contains($this->input->post("notify_subscribers", TRUE), "on") ? TRUE : FALSE;
 
         $categories_list_data = $this->AdminModel->categories_admin_db_get_results();
 
@@ -964,7 +975,21 @@ class AdminController extends CI_Controller
             ];
 
             $this->AdminModel->news_admin_db_insert($data);
-            //$inserted_id = $this->db->insert_id();
+            $inserted_id = $this->db->insert_id();
+
+            if ($news_notify_subscribers) {
+                $this->SendEmail(
+                    $subscribers_email,
+                    "New news on the StimulNews",
+                    "
+                    <h1 style='font-family: Impact,sans-serif; font-weight: lighter; text-align: center;color: #3CD2A5;'>{$news_title_en}</h1>
+                    <p style='text-indent: 32px;'>
+                        {$news_short_description_en}
+                    </p>
+                    <a href='{$inserted_id}' style='padding: 8px; background-color: #3CD2A5; font-weight: bold; text-decoration: none;border-radius: 8px; float: right; color: black;'>Read More...</a>
+                    "
+                );
+            }
 
             $this->AlertFlashData(
                 "success",
@@ -1211,7 +1236,6 @@ class AdminController extends CI_Controller
         $this->AlertFlashData(
             "success",
             "crud_alert",
-            "Remove",
             "Success!",
             "The news has been successfully removed."
         );

@@ -59,7 +59,7 @@
                                 </p>
                             </td>
                             <td>
-                                <p class="text-truncate px-2 py-1 m-0 rounded-5" style="text-align:center; max-width:150px; background-color:<?= $news_data_item_data->news_category_bg_color; ?>">
+                                <p class="text-white text-truncate px-2 py-1 m-0 rounded-5" style="text-align:center; max-width:150px; background-color:<?= $news_data_item_data->news_category_bg_color; ?>">
                                     <?= htmlentities(base64_decode($news_data_item_data->news_category->en)); ?>
                                 </p>
                             </td>
@@ -97,7 +97,7 @@
                                     <a href="<?= base_url('admin/news-edit/') . $news_data_item_id; ?>" class="nav-link theme-warning p-0 mx-3">
                                         <i class="bi bi-pencil-square fs-5"></i>
                                     </a>
-                                    <a href="javascript:void(0);" class="nav-link theme-danger p-0" data-link="<?= base_url('admin/news-delete/') . $news_data_item_id; ?>" data-bs-toggle="modal" data-bs-target="#news_modal_delete">
+                                    <a href="javascript:void(0);" class="nav-link theme-danger p-0" data-link="<?= base_url('admin/news-delete/') . $news_data_item_id; ?>" data-bs-toggle="modal" data-bs-target="#danger_modal">
                                         <i class=" bi bi-trash fs-5"></i>
                                     </a>
                                 </nav>
@@ -165,7 +165,7 @@
         <div class="card-arrow-bottom-right"></div>
     </div>
 </div>
-<div class="modal fade text-center" id="news_modal_delete">
+<div class="modal fade text-center" id="danger_modal">
     <div class="modal-dialog modal-sm">
         <div class="modal-content rounded">
             <div class="modal-body py-3">
@@ -173,7 +173,7 @@
             </div>
             <div class="modal-footer py-1">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <a href="javascript:void(0);" class="btn btn-outline-danger" id="news_modal_delete_link">Remove</a>
+                <a href="javascript:void(0);" class="btn btn-outline-danger" id="danger_modal_link">Remove</a>
             </div>
         </div>
     </div>
@@ -181,7 +181,7 @@
 <script>
     $(document).on("focus", "[data-link]", function() {
         var link = $(this).data("link");
-        $("#news_modal_delete_link").attr("href", link);
+        $("#danger_modal_link").attr("href", link);
     });
 </script>
 <?php $this->load->view("admins/includes/FooterScripts"); ?>

@@ -12,12 +12,12 @@ $config["smtp_pass"]   = "Stimul0559918540News";
 /*=====ENDED - IMPORTANT MAIL SETTINGS=====*/
 
 /*=====START - NOT IMPORTANT MAIL SETTINGS=====*/
-$config["useragent"] = "StimulNewsClient-v1.0";
+$config["useragent"] = "StimulNewsClient-v1.3";
 $config["wordwrap"]  = TRUE;
 $config["mailtype"]  = "html";
 $config["charset"]   = "utf-8";
 $config["validate"]  = TRUE;
-$config["priority"]  = 3;
+$config["priority"]  = 1;
 $config["crlf"]      = "\r\n";
 $config["newline"]   = "\r\n";
 /*=====ENDED - NOT IMPORTANT MAIL SETTINGS=====*/
