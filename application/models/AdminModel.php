@@ -189,8 +189,6 @@ class AdminModel extends CI_Model
     }
     /*=====NEWS MODEL - ENDED=====*/
 
-
-
     /*=====SLIDER MODEL - START=====*/
     private const SLIDER_TABLE_NAME = "slider";
     private const SLIDER_ID_NAME = "s_uid";

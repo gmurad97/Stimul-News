@@ -14,10 +14,10 @@
             <div class="menu-header">Detailing</div>
 
             <!--=====DASHBOARD - START=====-->
-            <div class="menu-item <?= MenuState($segment_name, "dashboard", "active"); ?>">
+            <div class="menu-item <?= MenuState($segment_name, 'dashboard', 'active'); ?>">
                 <a href="<?= base_url('admin/dashboard'); ?>" class="menu-link">
                     <span class="menu-icon">
-                        <i class="bi bi-cpu <?= MenuState($segment_name, "dashboard", "fa-fade"); ?>"></i>
+                        <i class="bi bi-cpu <?= MenuState($segment_name, 'dashboard', 'fa-fade'); ?>"></i>
                     </span>
                     <span class="menu-text">Dashboard</span>
                 </a>
@@ -27,10 +27,10 @@
             <div class="menu-header">Content Manager</div>
 
             <!--=====TOPBAR - START=====-->
-            <div class="menu-item <?= MenuState($segment_name, "topbar", "active"); ?>">
+            <div class="menu-item <?= MenuState($segment_name, 'topbar', 'active'); ?>">
                 <a href="<?= base_url('admin/topbar-create'); ?>" class="menu-link">
                     <span class="menu-icon">
-                        <i class="bi bi-distribute-vertical <?= MenuState($segment_name, "topbar", "fa-fade"); ?>"></i>
+                        <i class="bi bi-distribute-vertical <?= MenuState($segment_name, 'topbar', 'fa-fade'); ?>"></i>
                     </span>
                     <span class="menu-text">Topbar</span>
                 </a>
@@ -38,10 +38,10 @@
             <!--=====TOPBAR - ENDED=====-->
 
             <!--=====BRANDING - START=====-->
-            <div class="menu-item <?= MenuState($segment_name, "branding", "active"); ?>">
+            <div class="menu-item <?= MenuState($segment_name, 'branding', 'active'); ?>">
                 <a href="<?= base_url('admin/branding-create'); ?>" class="menu-link">
                     <span class="menu-icon">
-                        <i class="bi bi-flower1 <?= MenuState($segment_name, "branding", "fa-fade"); ?>"></i>
+                        <i class="bi bi-flower1 <?= MenuState($segment_name, 'branding', 'fa-fade'); ?>"></i>
                     </span>
                     <span class="menu-text">Branding</span>
                 </a>
@@ -49,10 +49,10 @@
             <!--=====BRANDING - ENDED=====-->
 
             <!--=====PARTNERS - START=====-->
-            <div class="menu-item has-sub <?= MenuState($segment_name, "partners", "active"); ?>">
+            <div class="menu-item has-sub <?= MenuState($segment_name, 'partners', 'active'); ?>">
                 <a href="javascript:void(0);" class="menu-link">
                     <span class="menu-icon">
-                        <i class="bi bi-people <?= MenuState($segment_name, "partners", "fa-fade"); ?>"></i>
+                        <i class="bi bi-people <?= MenuState($segment_name, 'partners', 'fa-fade'); ?>"></i>
                     </span>
                     <span class="menu-text">Partners</span>
                     <span class="menu-caret">
@@ -60,12 +60,12 @@
                     </span>
                 </a>
                 <div class="menu-submenu">
-                    <div class="menu-item <?= MenuState($segment_name, "partners-create", "active"); ?>">
+                    <div class="menu-item <?= MenuState($segment_name, 'partners-create', 'active'); ?>">
                         <a href="<?= base_url('admin/partners-create'); ?>" class="menu-link">
                             <span class="menu-text">Create</span>
                         </a>
                     </div>
-                    <div class="menu-item <?= MenuState($segment_name, "partners-list", "active"); ?>">
+                    <div class="menu-item <?= MenuState($segment_name, 'partners-list', 'active'); ?>">
                         <a href="<?= base_url('admin/partners-list'); ?>" class="menu-link">
                             <span class="menu-text">List</span>
                         </a>
@@ -75,10 +75,10 @@
             <!--=====PARTNERS - ENDED=====-->
 
             <!--=====CATEGORIES - START=====-->
-            <div class="menu-item has-sub <?= MenuState($segment_name, "categories", "active"); ?>">
+            <div class="menu-item has-sub <?= MenuState($segment_name, 'categories', 'active'); ?>">
                 <a href="javascript:void(0);" class="menu-link">
                     <span class="menu-icon">
-                        <i class="bi bi-tags <?= MenuState($segment_name, "categories", "fa-fade"); ?>"></i>
+                        <i class="bi bi-tags <?= MenuState($segment_name, 'categories', 'fa-fade'); ?>"></i>
                     </span>
                     <span class="menu-text">Categories</span>
                     <span class="menu-caret">
@@ -86,12 +86,12 @@
                     </span>
                 </a>
                 <div class="menu-submenu">
-                    <div class="menu-item <?= MenuState($segment_name, "categories-create", "active"); ?>">
+                    <div class="menu-item <?= MenuState($segment_name, 'categories-create', 'active'); ?>">
                         <a href="<?= base_url('admin/categories-create'); ?>" class="menu-link">
                             <span class="menu-text">Create</span>
                         </a>
                     </div>
-                    <div class="menu-item <?= MenuState($segment_name, "categories-list", "active"); ?>">
+                    <div class="menu-item <?= MenuState($segment_name, 'categories-list', 'active'); ?>">
                         <a href="<?= base_url('admin/categories-list'); ?>" class="menu-link">
                             <span class="menu-text">List</span>
                         </a>
@@ -101,10 +101,10 @@
             <!--=====CATEGORIES - ENDED=====-->
 
             <!--=====NEWS - START=====-->
-            <div class="menu-item has-sub <?= MenuState($segment_name, "news", "active"); ?>">
+            <div class="menu-item has-sub <?= MenuState($segment_name, 'news', 'active'); ?>">
                 <a href="javascript:void(0);" class="menu-link">
                     <span class="menu-icon">
-                        <i class="bi bi-newspaper <?= MenuState($segment_name, "news", "fa-fade"); ?>"></i>
+                        <i class="bi bi-newspaper <?= MenuState($segment_name, 'news', 'fa-fade'); ?>"></i>
                     </span>
                     <span class="menu-text">News</span>
                     <span class="menu-caret">
@@ -112,12 +112,12 @@
                     </span>
                 </a>
                 <div class="menu-submenu">
-                    <div class="menu-item <?= MenuState($segment_name, "news-create", "active"); ?>">
+                    <div class="menu-item <?= MenuState($segment_name, 'news-create', 'active'); ?>">
                         <a href="<?= base_url('admin/news-create'); ?>" class="menu-link">
                             <span class="menu-text">Create</span>
                         </a>
                     </div>
-                    <div class="menu-item <?= MenuState($segment_name, "news-list", "active"); ?>">
+                    <div class="menu-item <?= MenuState($segment_name, 'news-list', 'active'); ?>">
                         <a href="<?= base_url('admin/news-list'); ?>" class="menu-link">
                             <span class="menu-text">List</span>
                         </a>
@@ -126,33 +126,24 @@
             </div>
             <!--=====NEWS - ENDED=====-->
 
-
-
-
-
-
-
-
-
-
             <!--=====SLIDER - START=====-->
-            <div class="menu-item has-sub <?= str_contains($segment_name, 'slider') ? 'active' : ''; ?>">
+            <div class="menu-item has-sub <?= MenuState($segment_name, 'slider', 'active'); ?>">
                 <a href="javascript:void(0);" class="menu-link">
                     <span class="menu-icon">
-                        <i class="bi bi-bezier"></i>
+                        <i class="bi bi-bezier <?= MenuState($segment_name, 'slider', 'fa-fade'); ?>"></i>
                     </span>
-                    <span class="menu-text">Slider*</span>
+                    <span class="menu-text">Slider</span>
                     <span class="menu-caret">
                         <b class="caret"></b>
                     </span>
                 </a>
                 <div class="menu-submenu">
-                    <div class="menu-item <?= str_contains($segment_name, 'slider-create') ? 'active' : ''; ?>">
+                    <div class="menu-item <?= MenuState($segment_name, 'slider-create', 'active'); ?>">
                         <a href="<?= base_url('admin/slider-create'); ?>" class="menu-link">
                             <span class="menu-text">Create</span>
                         </a>
                     </div>
-                    <div class="menu-item <?= str_contains($segment_name, 'slider-list') ? 'active' : ''; ?>">
+                    <div class="menu-item <?= MenuState($segment_name, 'slider-list', 'active'); ?>">
                         <a href="<?= base_url('admin/slider-list'); ?>" class="menu-link">
                             <span class="menu-text">List</span>
                         </a>
@@ -161,18 +152,11 @@
             </div>
             <!--=====SLIDER - ENDED=====-->
 
-
-
-
-
-
-
-
             <!--=====SUBSCRIBERS - START=====-->
-            <div class="menu-item has-sub <?= MenuState($segment_name, "subscribers", "active"); ?>">
+            <div class="menu-item has-sub <?= MenuState($segment_name, 'subscribers', 'active'); ?>">
                 <a href="javascript:void(0);" class="menu-link">
                     <span class="menu-icon">
-                        <i class="fa-solid fa-people-group <?= MenuState($segment_name, "subscribers", "fa-fade"); ?>"></i>
+                        <i class="fa-solid fa-people-group <?= MenuState($segment_name, 'subscribers', 'fa-fade'); ?>"></i>
                     </span>
                     <span class="menu-text">Subscribers</span>
                     <span class="menu-caret">
@@ -180,12 +164,12 @@
                     </span>
                 </a>
                 <div class="menu-submenu">
-                    <div class="menu-item <?= MenuState($segment_name, "subscribers-create", "active"); ?>">
+                    <div class="menu-item <?= MenuState($segment_name, 'subscribers-create', 'active'); ?>">
                         <a href="<?= base_url('admin/subscribers-create'); ?>" class="menu-link">
                             <span class="menu-text">Create</span>
                         </a>
                     </div>
-                    <div class="menu-item <?= MenuState($segment_name, "subscribers-list", "active"); ?>">
+                    <div class="menu-item <?= MenuState($segment_name, 'subscribers-list', 'active'); ?>">
                         <a href="<?= base_url('admin/subscribers-list'); ?>" class="menu-link">
                             <span class="menu-text">List</span>
                         </a>

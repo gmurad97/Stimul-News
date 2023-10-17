@@ -62,7 +62,7 @@
                                     <a href="<?= base_url('admin/subscribers-edit/') . $subscriber_id; ?>" class="nav-link theme-warning p-0 mx-3">
                                         <i class="bi bi-pencil-square fs-5"></i>
                                     </a>
-                                    <a href="javascript:void(0);" class="nav-link theme-danger p-0" data-link="<?= base_url('admin/subscribers-delete/') . $subscriber_id; ?>" data-bs-toggle="modal" data-bs-target="#subscribers_modal_delete">
+                                    <a href="javascript:void(0);" class="nav-link theme-danger p-0" data-link="<?= base_url('admin/subscribers-delete/') . $subscriber_id; ?>" data-bs-toggle="modal" data-bs-target="#danger_modal">
                                         <i class=" bi bi-trash fs-5"></i>
                                     </a>
                                 </nav>
@@ -129,7 +129,7 @@
         <div class="card-arrow-bottom-right"></div>
     </div>
 </div>
-<div class="modal fade text-center" id="subscribers_modal_delete">
+<div class="modal fade text-center" id="danger_modal">
     <div class="modal-dialog modal-sm">
         <div class="modal-content rounded">
             <div class="modal-body py-3">
@@ -137,7 +137,7 @@
             </div>
             <div class="modal-footer py-1">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <a href="javascript:void(0);" class="btn btn-outline-danger" id="subscribers_modal_delete_link">Remove</a>
+                <a href="javascript:void(0);" class="btn btn-outline-danger" id="danger_modal_link">Remove</a>
             </div>
         </div>
     </div>
@@ -145,7 +145,7 @@
 <script>
     $(document).on("focus", "[data-link]", function() {
         var link = $(this).data("link");
-        $("#subscribers_modal_delete_link").attr("href", link);
+        $("#danger_modal_link").attr("href", link);
     });
 </script>
 <?php $this->load->view("admins/includes/FooterScripts"); ?>
