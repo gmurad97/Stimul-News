@@ -1530,6 +1530,13 @@ class AdminController extends CI_Controller
 
     public function crud_slider_edit_action($id)
     {
+        $data["slider_data"] = $this->AdminModel->slider_admin_db_get($id);
+        if("custom_slider"){
+
+        }
+        else "news slider"{
+
+        }
     }
 
     public function crud_slider_delete($id)

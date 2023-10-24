@@ -250,6 +250,18 @@
                 </a>
             </div>
             <!--=====SETTINGS - ENDED=====-->
+
+            <!--=====BRANDING - START=====-->
+            <div class="menu-item">
+                <a href="#" class="menu-link">
+                    <span class="menu-icon">
+                        <i class="bi bi-robot"></i>
+
+                    </span>
+                    <span class="menu-text">ChatGPT4F (BETA)</span>
+                </a>
+            </div>
+            <!--=====BRANDING - ENDED=====-->
         </div>
         <div class="p-3 px-4 mt-auto">
             <a href="https://github.com/gmurad97" target="_blank" class="btn d-block btn-outline-success fw-bold">

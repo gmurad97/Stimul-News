@@ -4,7 +4,7 @@
 <div class="card bg-create border-create bg-opacity-10">
     <div class="card-header border-create fw-bold d-flex flex-row justify-content-between align-items-center">
         <div class="h5 text-success text-uppercase text-header-shadow m-0">
-            <i class="bi bi-bezier fa-fade"></i>
+            <i class="bi bi-bezier"></i>
             Slider Create
         </div>
         <div>
