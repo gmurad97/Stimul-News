@@ -1,0 +1,9 @@
+ERROR - 2023-10-25 04:19:47 --> Severity: error --> Exception: Object of class stdClass could not be converted to string C:\OSPanel\domains\stimul.news\application\views\admins\Slider\Edit.php 143
+ERROR - 2023-10-25 04:22:04 --> Severity: Warning --> Undefined property: stdClass::$kus C:\OSPanel\domains\stimul.news\application\views\admins\Slider\Edit.php 143
+ERROR - 2023-10-25 04:33:47 --> Severity: Warning --> Undefined variable $category_info C:\OSPanel\domains\stimul.news\application\views\admins\Slider\Edit.php 62
+ERROR - 2023-10-25 04:33:47 --> Severity: Warning --> Attempt to read property "category_img" on null C:\OSPanel\domains\stimul.news\application\views\admins\Slider\Edit.php 62
+ERROR - 2023-10-25 04:33:47 --> Severity: Warning --> Undefined variable $category_info C:\OSPanel\domains\stimul.news\application\views\admins\Slider\Edit.php 64
+ERROR - 2023-10-25 04:33:47 --> Severity: Warning --> Attempt to read property "category_img" on null C:\OSPanel\domains\stimul.news\application\views\admins\Slider\Edit.php 64
+ERROR - 2023-10-25 04:42:48 --> Severity: Warning --> Undefined variable $category_info C:\OSPanel\domains\stimul.news\application\views\admins\Slider\Edit.php 65
+ERROR - 2023-10-25 04:42:48 --> Severity: Warning --> Attempt to read property "category_img" on null C:\OSPanel\domains\stimul.news\application\views\admins\Slider\Edit.php 65
+ERROR - 2023-10-25 05:09:13 --> 404 Page Not Found: Admin/slider-edit-action

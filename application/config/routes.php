@@ -63,8 +63,8 @@ $route["admin/slider-custom-create-action"]    = "AdminController/crud_slider_cu
 $route["admin/slider-news-create-action"]      = "AdminController/crud_slider_news_create_action";
 $route["admin/slider-list"]                    = "AdminController/crud_slider_list";
 $route["admin/slider-edit/(.*)"]               = "AdminController/crud_slider_edit/$1";
-$route["admin/slider-custom-edit-action/(.*)"] = "AdminController/crud_slider_custom_edit_action/$1";
-$route["admin/slider-news-edit-action/(.*)"]   = "AdminController/crud_slider_news_edit_action/$1";
+$route["admin/slider-edit-action/(.*)"] = "AdminController/crud_slider_edit_action/$1";
+/* $route["admin/slider-news-edit-action/(.*)"]   = "AdminController/crud_slider_news_edit_action/$1"; */
 $route["admin/slider-delete/(.*)"]             = "AdminController/crud_slider_delete/$1";
 $route["admin/api/get-news-uid/(.*)/(.*)"]     = "AdminController/get_news_uid/$1/$2";
 /*=====SLIDER CRUD - ENDED=====*/
