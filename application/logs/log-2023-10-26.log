@@ -1,0 +1,99 @@
+ERROR - 2023-10-26 00:37:41 --> 404 Page Not Found: Admin/api
+ERROR - 2023-10-26 00:44:40 --> Severity: Error --> Maximum execution time of 60 seconds exceeded C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 120
+ERROR - 2023-10-26 00:48:04 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 00:49:55 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 00:50:42 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 00:50:58 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:03:55 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:04:04 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:04:36 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:05:13 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:08:59 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:09:30 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:09:48 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:10:11 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:10:20 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:10:37 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:11:47 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:11:57 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:18:28 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:18:44 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:19:10 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:21:38 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:22:45 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:27:43 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:28:12 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:28:44 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:29:45 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:31:07 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:31:32 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:31:58 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:33:24 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:33:29 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:33:37 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:33:41 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:34:57 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:35:15 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:35:21 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:35:25 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:35:32 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:37:28 --> 404 Page Not Found: Admin/gpt-4f
+ERROR - 2023-10-26 01:37:30 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:37:40 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:38:01 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:38:10 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:40:30 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:41:51 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:41:56 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:42:57 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:43:10 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:43:25 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:44:22 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:44:54 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:45:07 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:45:47 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:45:56 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:46:06 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:48:17 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 01:53:33 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 02:06:10 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 02:11:12 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 02:11:30 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 02:11:39 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 02:11:49 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 02:17:01 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 02:17:10 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 02:17:22 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 02:17:29 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 02:17:40 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 02:17:49 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 02:17:58 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 02:18:22 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 02:18:37 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 02:18:41 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 02:18:56 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 02:19:01 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 02:19:54 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 02:21:17 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 02:21:22 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 02:22:01 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 02:22:25 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 02:22:35 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 02:41:31 --> Severity: Warning --> Undefined property: CurlHandle::$header C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 145
+ERROR - 2023-10-26 02:49:30 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 02:49:33 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
+ERROR - 2023-10-26 03:27:00 --> Severity: Warning --> Undefined variable $page_name C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 6
+ERROR - 2023-10-26 03:27:00 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 7
+ERROR - 2023-10-26 03:27:00 --> Severity: Warning --> Attempt to read property "favicon" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 7
+ERROR - 2023-10-26 03:27:00 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 7
+ERROR - 2023-10-26 03:27:00 --> Severity: Warning --> Undefined variable $topbar_options C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 81
+ERROR - 2023-10-26 03:27:00 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 134
+ERROR - 2023-10-26 03:27:00 --> Severity: Warning --> Attempt to read property "logo_dark" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 134
+ERROR - 2023-10-26 03:27:00 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 134
+ERROR - 2023-10-26 03:27:00 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-10-26 03:27:00 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-10-26 03:27:00 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-10-26 03:27:08 --> 404 Page Not Found: Admin/gpt-4f
+ERROR - 2023-10-26 03:43:24 --> 404 Page Not Found: AdminController/crud_settings_create
+ERROR - 2023-10-26 06:11:57 --> 404 Page Not Found: Admin/gpt-4f
+ERROR - 2023-10-26 06:12:00 --> 404 Page Not Found: Admin/gpt-4f

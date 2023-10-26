@@ -13,6 +13,9 @@ $route["home"] = "UserController/index";
 /*=====ADMIN CONTROLLER - START=====*/
 $route["admin/dashboard"]                      = "AdminController/dashboard";
 
+$route["admin/gpt"]                            = "AdminController/cgpt";
+$route["admin/api/gpt/(.*)"]                   = "AdminController/cgpt_action/$1";
+
 /*=====TOPBAR CRUD - START=====*/
 $route["admin/topbar-create"]                  = "AdminController/crud_topbar_create";
 $route["admin/topbar-create-action"]           = "AdminController/crud_topbar_create_action";
@@ -110,5 +113,5 @@ $route["admin/settings-edit"]                  = "AdminController/crud_settings_
 $route["admin/settings-edit-action"]           = "AdminController/crud_settings_edit_action";
 $route["admin/settings-delete"]                = "AdminController/crud_settings_delete";
 /*=====SETTINGS CRUD - ENDED=====*/ 
- 
+
 /*=====ADMIN CONTROLLER - ENDED=====*/

@@ -251,17 +251,26 @@
             </div>
             <!--=====SETTINGS - ENDED=====-->
 
-            <!--=====BRANDING - START=====-->
-            <div class="menu-item">
-                <a href="#" class="menu-link">
-                    <span class="menu-icon">
-                        <i class="bi bi-robot"></i>
 
+
+
+
+
+
+
+
+
+
+            <!--=====CHAT GPT 4F - START=====-->
+            <div class="menu-item <?= MenuState($segment_name, 'gpt', 'active'); ?>">
+                <a href="<?= base_url('admin/gpt'); ?>" class="menu-link">
+                    <span class="menu-icon">
+                        <i class="bi bi-robot <?= MenuState($segment_name, 'gpt', 'fa-fade'); ?>"></i>
                     </span>
-                    <span class="menu-text">ChatGPT4F (BETA)</span>
+                    <span class="menu-text">AI GPT 3.5</span>
                 </a>
             </div>
-            <!--=====BRANDING - ENDED=====-->
+            <!--=====CHAT GPT 4F - ENDED=====-->
         </div>
         <div class="p-3 px-4 mt-auto">
             <a href="https://github.com/gmurad97" target="_blank" class="btn d-block btn-outline-success fw-bold">
