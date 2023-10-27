@@ -1438,12 +1438,11 @@ class AdminController extends CI_Controller
     public function crud_slider_news_create_action()
     {
         $slider_news_uid    = $this->input->post("slider_news_uid", TRUE);
-        $slider_news_status = $this->input->post("slider_news_status_label", TRUE);
+        $slider_news_status = $this->input->post("slider_news_status", TRUE);
 
         if (!empty($slider_news_uid) && is_numeric($slider_news_uid)) {
             @$news_uid_data = json_decode($this->AdminModel->news_admin_db_get($slider_news_uid)["n_data"], TRUE);
-            if (!empty($news_uid_data)) {
-            } else {
+            if (empty($news_uid_data)) {
                 $this->AlertFlashData(
                     "warning",
                     "crud_alert",
@@ -1558,27 +1557,24 @@ class AdminController extends CI_Controller
 
     public function crud_slider_edit_action($id)
     {
-        die();
-        $s_type = json_decode($this->AdminModel->slider_admin_db_get($id)["s_data"], TRUE)["slider_type"] == "slider_news" ? TRUE : FALSE;
+        $s_data = json_decode($this->AdminModel->slider_admin_db_get($id)["s_data"], TRUE);
+        $s_img_path = "./file_manager/slider/" . $s_data["slider_info"]["slider_img"];
+        $s_type = $s_data["slider_type"] == "slider_news" ? TRUE : FALSE;
 
-        if ($s_type) { //_slider_news {
-
-
-
+        if ($s_type) {
             $slider_news_uid    = $this->input->post("slider_news_uid", TRUE);
-            $slider_news_status = $this->input->post("slider_news_status_label", TRUE);
+            $slider_news_status = $this->input->post("slider_news_status", TRUE);
 
             if (!empty($slider_news_uid) && is_numeric($slider_news_uid)) {
                 @$news_uid_data = json_decode($this->AdminModel->news_admin_db_get($slider_news_uid)["n_data"], TRUE);
-                if (!empty($news_uid_data)) {
-                } else {
+                if (empty($news_uid_data)) {
                     $this->AlertFlashData(
                         "warning",
                         "crud_alert",
                         "Warning!",
                         "UID not found.Please enter a valid UID."
                     );
-                    redirect(base_url("admin/slider-create"));
+                    redirect($_SERVER["HTTP_REFERER"]);
                 }
             } else {
                 $this->AlertFlashData(
@@ -1587,9 +1583,9 @@ class AdminController extends CI_Controller
                     "Danger!",
                     "Unknown error."
                 );
+
                 redirect(base_url("admin/slider-create"));
             }
-
             $json_data_decoded = [
                 "slider_type" => "slider_news",
                 "slider_info" => [
@@ -1597,27 +1593,18 @@ class AdminController extends CI_Controller
                     "slider_status" => str_contains($slider_news_status, "on") ? TRUE : FALSE
                 ]
             ];
-
             $data = [
                 "s_data" => json_encode($json_data_decoded)
             ];
-
-            $this->AdminModel->slider_admin_db_insert($data);
-
+            $this->AdminModel->slider_admin_db_update($id, $data);
             $this->AlertFlashData(
                 "success",
                 "crud_alert",
                 "Success!",
-                "The slider has been successfully created."
+                "The slider has been successfully edited."
             );
-
             redirect(base_url("admin/slider-list"));
         } else {
-
-
-
-
-
 
             $slider_custom_large_text       = $this->input->post("slider_custom_large_text", TRUE);
             $slider_custom_small_text       = $this->input->post("slider_custom_small_text", TRUE);
@@ -1634,6 +1621,9 @@ class AdminController extends CI_Controller
             $this->upload->initialize($slider_custom_config);
 
             if ($this->upload->do_upload("slider_custom_img")) {
+                if (!is_dir($s_img_path) && file_exists($s_img_path)) {
+                    unlink($s_img_path);
+                }
                 $slider_custom_img = $this->upload->data()["file_name"];
                 $json_data_decoded = [
                     "slider_type" => "slider_custom",
@@ -1651,25 +1641,44 @@ class AdminController extends CI_Controller
                     "s_data" => json_encode($json_data_decoded)
                 ];
 
-                $this->AdminModel->slider_admin_db_insert($data);
+                $this->AdminModel->slider_admin_db_update($id, $data);
 
                 $this->AlertFlashData(
                     "success",
                     "crud_alert",
                     "Success!",
-                    "The slider has been successfully created."
+                    "The slider has been successfully edited."
                 );
 
                 redirect(base_url("admin/slider-list"));
             } else {
+
+                $json_data_decoded = [
+                    "slider_type" => "slider_custom",
+                    "slider_info" => [
+                        "slider_img" => $s_data["slider_info"]["slider_img"],
+                        "slider_large_text" => base64_encode($slider_custom_large_text),
+                        "slider_small_text" => base64_encode($slider_custom_small_text),
+                        "slider_large_text_color" => $slider_custom_large_text_color,
+                        "slider_small_text_color" => $slider_custom_small_text_color,
+                        "slider_status" => str_contains($slider_custom_status, "on") ? TRUE : FALSE,
+                    ]
+                ];
+
+                $data = [
+                    "s_data" => json_encode($json_data_decoded)
+                ];
+
+                $this->AdminModel->slider_admin_db_update($id, $data);
+
                 $this->AlertFlashData(
-                    "warning",
+                    "success",
                     "crud_alert",
-                    "Warning!",
-                    "Please, fill in all the fields."
+                    "Success!",
+                    "The slider has been successfully edited."
                 );
 
-                redirect(base_url("admin/slider-create"));
+                redirect(base_url("admin/slider-list"));
             }
         }
     }

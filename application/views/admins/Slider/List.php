@@ -45,8 +45,13 @@
                         <tr>
                             <td><?= ++$id_counter; ?></td>
                             <td>
-                                <i class="bi bi-braces-asterisk text-indigo"></i>
-                                <?= $slider_item_data->slider_type == "slider_custom" ? "Custom Slider" : "News Slider"; ?>
+                                <?php if ($slider_item_data->slider_type == "slider_custom") : ?>
+                                    <i class="bi bi-cc-square text-indigo"></i>
+                                    Custom Slider
+                                <?php else : ?>
+                                    <i class="bi bi-newspaper text-indigo"></i>
+                                    News Slider
+                                <?php endif; ?>
                             </td>
                             <td>
                                 <?php if ($slider_item_data->slider_info->slider_status) : ?>

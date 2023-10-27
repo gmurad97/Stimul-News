@@ -51,7 +51,7 @@ $s_type = $slider_info->slider_type == "slider_news" ? TRUE : FALSE;
         <div class="tab-content p-4">
             <?php if ($s_type == FALSE) : ?>
                 <div class="tab-pane fade show active" id="slider_custom">
-                    <form action="<?= base_url('admin/slider-edit-action'); ?>" method="POST" enctype="multipart/form-data" class="was-validated" id="slider_custom_form">
+                    <form action="<?= base_url('admin/slider-edit-action/') . $slider_id; ?>" method="POST" enctype="multipart/form-data" class="was-validated" id="slider_custom_form">
                         <ul class="list-group list-group-flush mb-3">
                             <li class="list-group-item">
                                 <div class="d-flex flex-row justify-content-between align-items-center">
@@ -81,7 +81,7 @@ $s_type = $slider_info->slider_type == "slider_news" ? TRUE : FALSE;
                                         <label for="slider_custom_large_text_label">Large text</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input name="slider_custom_large_text" type="text" class="form-control form-control-sm" id="slider_custom_large_text_label" value="<?= $slider_info->slider_info->slider_large_text; ?>">
+                                        <input name="slider_custom_large_text" type="text" class="form-control form-control-sm" id="slider_custom_large_text_label" value="<?= base64_decode($slider_info->slider_info->slider_large_text); ?>">
                                     </div>
                                 </div>
                             </li>
@@ -91,7 +91,7 @@ $s_type = $slider_info->slider_type == "slider_news" ? TRUE : FALSE;
                                         <label for="slider_custom_small_text_label">Small text</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input name="slider_custom_small_text" type="text" class="form-control form-control-sm" id="slider_custom_small_text_label" value="<?= $slider_info->slider_info->slider_small_text; ?>">
+                                        <input name="slider_custom_small_text" type="text" class="form-control form-control-sm" id="slider_custom_small_text_label" value="<?= base64_decode($slider_info->slider_info->slider_small_text); ?>">
                                     </div>
                                 </div>
                             </li>
@@ -134,7 +134,7 @@ $s_type = $slider_info->slider_type == "slider_news" ? TRUE : FALSE;
                 </div>
             <?php else : ?>
                 <div class="tab-pane fade show active" id="slider_news">
-                    <form action="<?= base_url('admin/slider-edit-action'); ?>" method="POST" enctype="multipart/form-data" class="was-validated" id="slider_news_form">
+                    <form action="<?= base_url('admin/slider-edit-action/') . $slider_id; ?>" method="POST" enctype="multipart/form-data" class="was-validated" id="slider_news_form">
                         <ul class="list-group list-group-flush mb-3">
                             <li class="list-group-item">
                                 <div class="row">
