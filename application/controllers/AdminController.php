@@ -109,21 +109,29 @@ class AdminController extends CI_Controller
     public function cgpt_action($query)
     {
         $json_data = [
-            "question" => $query,
-            "chat_id" => "65396c58f1587c93d0fc527d",
-            "timestamp" => time()
+            "id" => null,
+            "botId" => "default",
+            "newMessage" => $query,
+            "stream" => false
         ];
-        $curl_api_gpt = curl_init("https://chatgptlogin.ai/chat/chat_api_stream");
+        $curl_api_gpt = curl_init("https://chatg.io/wp-json/mwai-ui/v1/chats/submit");
         curl_setopt($curl_api_gpt, CURLOPT_USERAGENT, "StimulNewsClient-v1.3");
         curl_setopt($curl_api_gpt, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt(
+            $curl_api_gpt,
+            CURLOPT_HTTPHEADER,
+            [
+                "Referer:https://chatg.io/chat/",
+                "Accept: text/event-stream",
+                "Content-Type: application/json"
+            ]
+        );
         curl_setopt($curl_api_gpt, CURLOPT_POST, 1);
         curl_setopt($curl_api_gpt, CURLOPT_POSTFIELDS, json_encode($json_data));
         curl_setopt($curl_api_gpt, CURLOPT_TIMEOUT, 60);
         $gpt_response = curl_exec($curl_api_gpt);
         curl_close($curl_api_gpt);
-        $regex_parse_result = [];
-        preg_match_all("/(?<=content\":\").*(?=\"},\"finish_reason)/", $gpt_response, $regex_parse_result);
-        print_r(join("", $regex_parse_result[0]));
+        print_r(json_decode($gpt_response, FALSE)->reply);
     }
     /*=====DASHBOARD - ENDED=====*/
 
