@@ -203,35 +203,39 @@
             </div>
             <!--=====ABOUT-US - ENDED=====-->
 
+
+
+
+
             <!--=====CONTACTS - START=====-->
-            <div class="menu-item <?= str_contains($segment_name, 'contacts') ? 'active' : ''; ?>">
+            <div class="menu-item <?= MenuState($segment_name, 'contacts', 'active'); ?>">
                 <a href="<?= base_url('admin/contacts-create'); ?>" class="menu-link">
                     <span class="menu-icon">
-                        <i class="bi bi-headset"></i>
+                        <i class="bi bi-headset <?= MenuState($segment_name, 'contacts', 'fa-fade'); ?>"></i>
                     </span>
-                    <span class="menu-text">Contacts*</span>
+                    <span class="menu-text">Contacts</span>
                 </a>
             </div>
             <!--=====CONTACTS - ENDED=====-->
 
             <!--=====GALLERY - START=====-->
-            <div class="menu-item has-sub <?= str_contains($segment_name, 'gallery') ? 'active' : ''; ?>">
+            <div class="menu-item has-sub <?= MenuState($segment_name, 'gallery', 'active'); ?>">
                 <a href="javascript:void(0);" class="menu-link">
                     <span class="menu-icon">
-                        <i class="bi bi-card-image"></i>
+                        <i class="bi bi-card-image <?= MenuState($segment_name, 'gallery', 'fa-fade'); ?>"></i>
                     </span>
-                    <span class="menu-text">Gallery*</span>
+                    <span class="menu-text">Gallery</span>
                     <span class="menu-caret">
                         <b class="caret"></b>
                     </span>
                 </a>
                 <div class="menu-submenu">
-                    <div class="menu-item <?= str_contains($segment_name, 'gallery-create') ? 'active' : ''; ?>">
+                    <div class="menu-item <?= MenuState($segment_name, 'gallery-create', 'active'); ?>">
                         <a href="<?= base_url('admin/gallery-create'); ?>" class="menu-link">
                             <span class="menu-text">Create</span>
                         </a>
                     </div>
-                    <div class="menu-item <?= str_contains($segment_name, 'gallery-list') ? 'active' : ''; ?>">
+                    <div class="menu-item <?= MenuState($segment_name, 'gallery-list', 'active'); ?>">
                         <a href="<?= base_url('admin/gallery-list'); ?>" class="menu-link">
                             <span class="menu-text">List</span>
                         </a>
@@ -239,6 +243,14 @@
                 </div>
             </div>
             <!--=====GALLERY - ENDED=====-->
+
+
+
+
+
+
+
+
 
             <!--=====SETTINGS - START=====-->
             <div class="menu-item <?= str_contains($segment_name, 'settings') ? 'active' : ''; ?>">

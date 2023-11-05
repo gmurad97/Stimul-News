@@ -1398,25 +1398,6 @@ class AdminController extends CI_Controller
     }
     /*=====SUBSCRIBERS CRUD - ENDED=====*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /*=====SLIDER CRUD - START=====*/
 
     public function get_news_uid(int $news_uid, string $selector)
@@ -1724,14 +1705,269 @@ class AdminController extends CI_Controller
             redirect(base_url("admin/slider-list"));
         }
     }
-
-
-
-
-
-
-
-
-
     /*=====SLIDER CRUD - ENDED=====*/
+
+    /*=====CONTACTS CRUD - START=====*/
+    public function crud_contacts_create()
+    {
+        $contacts_db_row = $this->AdminModel->table_row_id("contacts", "c_uid");
+        if ($contacts_db_row == -1) {
+            $data["admin_page_name"] = "Сontacts Create";
+            $this->load->view("admins/Contacts/Create", $data);
+        } else {
+            redirect(base_url("admin/contacts-edit"));
+        }
+    }
+
+    public function crud_contacts_create_action()
+    {
+        $contacts_db_row = $this->AdminModel->table_row_id("contacts", "c_uid");
+        if ($contacts_db_row == -1) {
+            $facebook_link      = $this->input->post("facebook_link", true);
+            $facebook_status    = $this->input->post("facebook_status", true);
+            $twitter_link       = $this->input->post("twitter_link", true);
+            $twitter_status     = $this->input->post("twitter_status", true);
+            $google_plus_link   = $this->input->post("google_plus_link", true);
+            $google_plus_status = $this->input->post("google_plus_status", true);
+            $instagram_link     = $this->input->post("instagram_link", true);
+            $instagram_status   = $this->input->post("instagram_status", true);
+            $youtube_link       = $this->input->post("youtube_link", true);
+            $youtube_status     = $this->input->post("youtube_status", true);
+            $pinterest_link     = $this->input->post("pinterest_link", true);
+            $pinterest_status   = $this->input->post("pinterest_status", true);
+            $address_info       = $this->input->post("address_info", true);
+            $address_status     = $this->input->post("address_status", true);
+            $mail_info          = $this->input->post("mail_info", true);
+            $mail_status        = $this->input->post("mail_status", true);
+            $phone_info         = $this->input->post("phone_info", true);
+            $phone_status       = $this->input->post("phone_status", true);
+
+            if (
+                !empty($facebook_link) && !empty($twitter_link) &&
+                !empty($google_plus_link) && !empty($instagram_link) &&
+                !empty($pinterest_link) && !empty($address_info) &&
+                !empty($mail_info) && !empty($phone_info)
+            ) {
+                $json_data_decoded = [
+                    "social" => [
+                        "facebook" => [
+                            "link" => base64_encode($facebook_link),
+                            "status" => str_contains($facebook_status, "on") ? TRUE : FALSE
+                        ],
+                        "twitter" => [
+                            "link" => base64_encode($twitter_link),
+                            "status" => str_contains($twitter_status, "on") ? TRUE : FALSE
+                        ],
+                        "google_plus" => [
+                            "link" => base64_encode($google_plus_link),
+                            "status" => str_contains($google_plus_status, "on") ? TRUE : FALSE
+                        ],
+                        "instagram" => [
+                            "link" => base64_encode($instagram_link),
+                            "status" => str_contains($instagram_status, "on") ? TRUE : FALSE
+                        ],
+                        "youtube" => [
+                            "link" => base64_encode($youtube_link),
+                            "status" => str_contains($youtube_status, "on") ? TRUE : FALSE
+                        ],
+                        "pinterest" => [
+                            "link" => base64_encode($pinterest_link),
+                            "status" => str_contains($pinterest_status, "on") ? TRUE : FALSE
+                        ]
+                    ],
+                    "information" => [
+                        "address" => [
+                            "info" => base64_encode($address_info),
+                            "status" => str_contains($address_status, "on") ? TRUE : FALSE
+                        ],
+                        "mail" => [
+                            "info" => base64_encode($mail_info),
+                            "status" => str_contains($mail_status, "on") ? TRUE : FALSE
+                        ],
+                        "phone" => [
+                            "info" => base64_encode($phone_info),
+                            "status" => str_contains($phone_status, "on") ? TRUE : FALSE
+                        ]
+                    ]
+                ];
+
+                $json_data_encoded = json_encode($json_data_decoded);
+
+                $data = [
+                    "c_data" => $json_data_encoded
+                ];
+
+                $this->AdminModel->contacts_admin_db_insert($data);
+
+                $this->AlertFlashData(
+                    "success",
+                    "crud_alert",
+                    "Success!",
+                    "The contacts has been successfully created."
+                );
+
+                redirect(base_url("admin/contacts-edit"));
+            } else {
+                $this->AlertFlashData(
+                    "warning",
+                    "crud_alert",
+                    "Warning!",
+                    "Please, fill in all the fields."
+                );
+
+                redirect($_SERVER["HTTP_REFERER"]);
+            }
+        } else {
+            redirect(base_url("admin/contacts-edit"));
+        }
+    }
+
+    public function crud_contacts_edit()
+    {
+        $contacts_db_row = $this->AdminModel->table_row_id("contacts", "c_uid");
+        if ($contacts_db_row == -1) {
+            redirect(base_url("admin/contacts-create"));
+        } else {
+            $data["admin_page_name"] = "Contacts Edit";
+            $data["contacts_data"] = $this->AdminModel->contacts_admin_db_get($contacts_db_row);
+            $this->load->view("admins/Contacts/Edit", $data);
+        }
+    }
+
+    public function crud_contacts_edit_action()
+    {
+        $contacts_db_row = $this->AdminModel->table_row_id("contacts", "c_uid");
+        if ($contacts_db_row == -1) {
+            redirect(base_url("admin/contacts-create"));
+        } else {
+
+            $facebook_link      = $this->input->post("facebook_link", true);
+            $facebook_status    = $this->input->post("facebook_status", true);
+            $twitter_link       = $this->input->post("twitter_link", true);
+            $twitter_status     = $this->input->post("twitter_status", true);
+            $google_plus_link   = $this->input->post("google_plus_link", true);
+            $google_plus_status = $this->input->post("google_plus_status", true);
+            $instagram_link     = $this->input->post("instagram_link", true);
+            $instagram_status   = $this->input->post("instagram_status", true);
+            $youtube_link       = $this->input->post("youtube_link", true);
+            $youtube_status     = $this->input->post("youtube_status", true);
+            $pinterest_link     = $this->input->post("pinterest_link", true);
+            $pinterest_status   = $this->input->post("pinterest_status", true);
+            $address_info       = $this->input->post("address_info", true);
+            $address_status     = $this->input->post("address_status", true);
+            $mail_info          = $this->input->post("mail_info", true);
+            $mail_status        = $this->input->post("mail_status", true);
+            $phone_info         = $this->input->post("phone_info", true);
+            $phone_status       = $this->input->post("phone_status", true);
+
+            if (
+                !empty($facebook_link) && !empty($twitter_link) &&
+                !empty($google_plus_link) && !empty($instagram_link) &&
+                !empty($pinterest_link) && !empty($address_info) &&
+                !empty($mail_info) && !empty($phone_info)
+            ) {
+                $json_data_decoded = [
+                    "social" => [
+                        "facebook" => [
+                            "link" => base64_encode($facebook_link),
+                            "status" => str_contains($facebook_status, "on") ? TRUE : FALSE
+                        ],
+                        "twitter" => [
+                            "link" => base64_encode($twitter_link),
+                            "status" => str_contains($twitter_status, "on") ? TRUE : FALSE
+                        ],
+                        "google_plus" => [
+                            "link" => base64_encode($google_plus_link),
+                            "status" => str_contains($google_plus_status, "on") ? TRUE : FALSE
+                        ],
+                        "instagram" => [
+                            "link" => base64_encode($instagram_link),
+                            "status" => str_contains($instagram_status, "on") ? TRUE : FALSE
+                        ],
+                        "youtube" => [
+                            "link" => base64_encode($youtube_link),
+                            "status" => str_contains($youtube_status, "on") ? TRUE : FALSE
+                        ],
+                        "pinterest" => [
+                            "link" => base64_encode($pinterest_link),
+                            "status" => str_contains($pinterest_status, "on") ? TRUE : FALSE
+                        ]
+                    ],
+                    "information" => [
+                        "address" => [
+                            "info" => base64_encode($address_info),
+                            "status" => str_contains($address_status, "on") ? TRUE : FALSE
+                        ],
+                        "mail" => [
+                            "info" => base64_encode($mail_info),
+                            "status" => str_contains($mail_status, "on") ? TRUE : FALSE
+                        ],
+                        "phone" => [
+                            "info" => base64_encode($phone_info),
+                            "status" => str_contains($phone_status, "on") ? TRUE : FALSE
+                        ]
+                    ]
+                ];
+
+                $json_data_encoded = json_encode($json_data_decoded);
+
+                $data = [
+                    "c_data" => $json_data_encoded
+                ];
+
+                $this->AdminModel->contacts_admin_db_edit($contacts_db_row, $data);
+
+                $this->AlertFlashData(
+                    "success",
+                    "crud_alert",
+                    "Success!",
+                    "The contacts has been successfully edited."
+                );
+
+                redirect(base_url("admin/contacts-edit"));
+            } else {
+                $this->AlertFlashData(
+                    "warning",
+                    "crud_alert",
+                    "Warning!",
+                    "Please, fill in all the fields."
+                );
+
+                redirect($_SERVER["HTTP_REFERER"]);
+            }
+        }
+    }
+
+    public function crud_contacts_delete()
+    {
+        $contacts_db_row = $this->AdminModel->table_row_id("contacts", "c_uid");
+        $this->AdminModel->contacts_admin_db_delete($contacts_db_row);
+
+        $this->AlertFlashData(
+            "success",
+            "crud_alert",
+            "Success!",
+            "The contacts has been successfully removed."
+        );
+
+        redirect(base_url("admin/contacts-create"));
+    }
+    /*=====CONTACTS CRUD - ENDED=====*/
+
+
+    /*=====GALLERY CRUD - START=====*/
+    public function crud_gallery_list()
+    {
+        $this->load->view("admins/Gallery/List");
+    }
+
+
+
+
+
+
+
+
+
+    /*=====GALLERY CRUD - ENDED=====*/
 }

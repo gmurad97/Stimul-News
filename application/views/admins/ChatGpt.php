@@ -24,7 +24,7 @@
         <div class="row mt-3">
             <div class="col-md-12">
                 <button type="button" id="search_btn" class="btn btn-block btn-outline-success d-flex flex-row justify-content-center align-items-center">
-                    Search
+                    Request
                     <i class="spinner-border spinner-border-sm d-none ms-2" id="search_loader"></i>
                 </button>
             </div>

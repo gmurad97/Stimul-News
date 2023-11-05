@@ -218,5 +218,30 @@ class AdminModel extends CI_Model
         $this->db->delete(self::SLIDER_TABLE_NAME, self::SLIDER_ID_NAME . "=" . $id);
     }
     /*=====SLIDER MODEL - ENDED=====*/
+
+    /*=====CONTACTS MODEL - START=====*/
+    private const CONTACTS_TABLE_NAME = "contacts";
+    private const CONTACTS_ID_NAME = "c_uid";
+
+    public function contacts_admin_db_insert($data)
+    {
+        $this->db->insert(self::CONTACTS_TABLE_NAME, $data);
+    }
+
+    public function contacts_admin_db_get($id)
+    {
+        return $this->db->where(self::CONTACTS_ID_NAME, $id)->get(self::CONTACTS_TABLE_NAME, 1)->row_array();
+    }
+
+    public function contacts_admin_db_edit($id, $data)
+    {
+        $this->db->update(self::CONTACTS_TABLE_NAME, $data, self::CONTACTS_ID_NAME . "=" . $id);
+    }
+
+    public function contacts_admin_db_delete($id)
+    {
+        $this->db->delete(self::CONTACTS_TABLE_NAME, self::CONTACTS_ID_NAME . "=" . $id);
+    }
+    /*=====CONTACTS MODEL - ENDED=====*/
 }
     /*==========CRUD MODEL - ENDED==========*/
