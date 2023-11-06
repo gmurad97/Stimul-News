@@ -89,6 +89,22 @@ class AdminController extends CI_Controller
     }
     /*=====LOCAL ADMIN CONTROLLER FUNCTION - ENDED=====*/
 
+
+
+
+    public function login(){
+        $data["admin_page_name"] = "Admin Panel";
+        $this->load->view("admins/Login",$data);
+    }
+
+
+
+
+
+
+
+
+
     /*=====DASHBOARD - START=====*/
     public function dashboard()
     {
@@ -99,7 +115,7 @@ class AdminController extends CI_Controller
     }
     /*=====DASHBOARD - ENDED=====*/
 
-    /*=====DASHBOARD - START=====*/
+    /*=====GPT - START=====*/
     public function cgpt()
     {
         $data["admin_page_name"] = "AI GPT 3.5";
@@ -133,7 +149,7 @@ class AdminController extends CI_Controller
         curl_close($curl_api_gpt);
         print_r(json_decode($gpt_response, FALSE)->reply);
     }
-    /*=====DASHBOARD - ENDED=====*/
+    /*=====GPT - ENDED=====*/
 
     /*=====TOPBAR CRUD - START=====*/
     public function crud_topbar_create()
