@@ -12,7 +12,7 @@
                 <i class="bi bi-list-nested me-1"></i>
                 List
             </a>
-            <button type="submit" form="subscribers_form" class="btn btn-outline-success btn-sm rounded-2">
+            <button type="submit" form="crud_form" class="btn btn-outline-success btn-sm rounded-2">
                 <i class="bi bi-plus-circle me-1"></i>
                 Create
             </button>
@@ -29,7 +29,7 @@
                 </p>
             </div>
         <?php endif; ?>
-        <form action="<?= base_url('admin/subscribers-create-action'); ?>" method="POST" enctype="application/x-www-form-urlencoded" class="was-validated" id="subscribers_form">
+        <form action="<?= base_url('admin/subscribers-create-action'); ?>" method="POST" enctype="application/x-www-form-urlencoded" class="was-validated" id="crud_form">
             <ul class="list-group list-group-flush mb-3">
                 <li class="list-group-item">
                     <div class="row d-flex flex-row justify-content-between align-items-center">

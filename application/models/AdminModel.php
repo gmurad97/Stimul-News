@@ -243,5 +243,35 @@ class AdminModel extends CI_Model
         $this->db->delete(self::CONTACTS_TABLE_NAME, self::CONTACTS_ID_NAME . "=" . $id);
     }
     /*=====CONTACTS MODEL - ENDED=====*/
+    
+    /*=====GALLERY MODEL - START=====*/
+    private const GALLERY_TABLE_NAME = "gallery";
+    private const GALLERY_ID_NAME = "g_uid";
+
+    public function gallery_admin_db_insert($data)
+    {
+        $this->db->insert(self::GALLERY_TABLE_NAME, $data);
+    }
+
+    public function gallery_admin_db_get($id)
+    {
+        return $this->db->where(self::GALLERY_ID_NAME, $id)->get(self::GALLERY_TABLE_NAME, 1)->row_array();
+    }
+
+    public function gallery_admin_db_get_results()
+    {
+        return $this->db->order_by(self::GALLERY_ID_NAME, "DESC")->get(self::GALLERY_TABLE_NAME)->result_array();
+    }
+
+    public function gallery_admin_db_edit($id, $data)
+    {
+        $this->db->update(self::GALLERY_TABLE_NAME, $data, self::GALLERY_ID_NAME . "=" . $id);
+    }
+
+    public function gallery_admin_db_delete($id)
+    {
+        $this->db->delete(self::GALLERY_TABLE_NAME, self::GALLERY_ID_NAME . "=" . $id);
+    }
+    /*=====GALLERY MODEL - ENDED=====*/
 }
     /*==========CRUD MODEL - ENDED==========*/

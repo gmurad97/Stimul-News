@@ -1954,20 +1954,82 @@ class AdminController extends CI_Controller
     }
     /*=====CONTACTS CRUD - ENDED=====*/
 
-
     /*=====GALLERY CRUD - START=====*/
-    public function crud_gallery_list()
+    public function crud_gallery_create()
     {
-        $this->load->view("admins/Gallery/List");
+        $data["admin_page_name"] = "Gallery Create";
+        $this->load->view("admins/Gallery/Create", $data);
     }
 
+    public function crud_gallery_create_action()
+    {
+        $gallery_config["upload_path"]      = "./file_manager/gallery/";
+        $gallery_config["allowed_types"]    = "ico|jpeg|jpg|png|svg|ICO|JPEG|JPG|PNG|SVG";
+        $gallery_config["file_ext_tolower"] = TRUE;
+        $gallery_config["remove_spaces"]    = TRUE;
+        $gallery_config["encrypt_name"]     = TRUE;
+        $this->load->library("upload", $gallery_config);
+        $this->upload->initialize($gallery_config);
 
+        if ($this->upload->do_upload("gallery_img")) {
+            $gallery_img = $this->upload->data()["file_name"];
 
+            $json_data_decoded = [
+                "gallery_file_name" => $gallery_img
+            ];
 
+            $json_data_ecoded = json_encode($json_data_decoded);
 
+            $data = [
+                "g_data" => $json_data_ecoded
+            ];
 
+            $this->AdminModel->gallery_admin_db_insert($data);
 
+            $this->AlertFlashData(
+                "success",
+                "crud_alert",
+                "Success!",
+                "The image has been successfully added."
+            );
 
+            redirect(base_url("admin/gallery-list"));
+        } else {
+            $this->AlertFlashData(
+                "warning",
+                "crud_alert",
+                "Warning!",
+                "Please, fill in all the fields."
+            );
+            redirect($_SERVER["HTTP_REFERER"]);
+        }
+    }
 
+    public function crud_gallery_list()
+    {
+        $data["admin_page_name"] = "Gallery List";
+        $data["gallery_images"] = $this->AdminModel->gallery_admin_db_get_results();
+        $this->load->view("admins/Gallery/List", $data);
+    }
+
+    public function crud_gallery_delete($id)
+    {
+        $gallery_img_path = "./file_manager/gallery/" . json_decode($this->AdminModel->gallery_admin_db_get($id)["g_data"], TRUE)["gallery_file_name"];
+
+        if (!is_dir($gallery_img_path) && file_exists($gallery_img_path)) {
+            unlink($gallery_img_path);
+        }
+
+        $this->AdminModel->gallery_admin_db_delete($id);
+
+        $this->AlertFlashData(
+            "success",
+            "crud_alert",
+            "Success!",
+            "The image has been successfully deleted."
+        );
+
+        redirect(base_url("admin/gallery-list"));
+    }
     /*=====GALLERY CRUD - ENDED=====*/
 }

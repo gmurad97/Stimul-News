@@ -8,10 +8,10 @@
             Gallery List
         </div>
         <div>
-            <button type="submit" form="crud_form" class="btn btn-sm btn-success rounded-2">
+            <a href="<?= base_url('admin/gallery-create'); ?>" class="btn btn-outline-success btn-sm rounded-2">
                 <i class="bi bi-plus-circle me-1"></i>
                 Create
-            </button>
+            </a>
         </div>
     </div>
     <div class="card-body">
@@ -29,45 +29,52 @@
         <script src="<?= base_url('public/admin/assets/plugins/fancybox/js/fancybox.umd.js'); ?>"></script>
         <div class="container">
             <div class="row">
-                <div class="col-md-3 mb-3">
-
-
-
-
-                    <div class="card bg-edit border-edit bg-opacity-5">
-                        <div class="card-body">
-                            <a href="https://i.pinimg.com/originals/41/51/b6/4151b61ab7bda3c282660432d4a4a255.jpg" data-fancybox="gallery">
-                                <img src="https://i.pinimg.com/originals/41/51/b6/4151b61ab7bda3c282660432d4a4a255.jpg" alt="Gallery Image" style="width: 100%; height:128px;">
-                            </a>
-                        </div>
-                        <div class="card-footer">
-                            <div class="row">
-                                <div class="col-12 col-md-6 text-center">
-                                    <a href="javascript:void(0);" class="theme-red text-decoration-none">
-                                        <i class="bi bi-trash fs-5"></i>
-                                        Remove
-                                    </a>
-                                </div>
-                                <div class="col-12 col-md-6 text-center">
-                                    <a href="javascript:void(0);" class="theme-blue text-decoration-none">
-                                        <i class="bi bi-box-arrow-up-right fs-5"></i>
-                                        Link
-                                    </a>
+                <?php foreach ($gallery_images as $gallery_image) :
+                    $gallery_image_uid = $gallery_image["g_uid"];
+                    $gallery_image_data = json_decode($gallery_image["g_data"], FALSE);
+                ?>
+                    <div class="col-3 mb-3">
+                        <div class="card bg-edit border-edit bg-opacity-5">
+                            <div class="card-body">
+                                <a href="<?= base_url("file_manager/gallery/" . $gallery_image_data->gallery_file_name); ?>" data-fancybox="gallery">
+                                    <img src="<?= base_url("file_manager/gallery/" . $gallery_image_data->gallery_file_name); ?>" alt="Gallery Image" style="width: 100%; height:150px;">
+                                </a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row">
+                                    <div class="col-12 col-md-6 text-center">
+                                        <a href="javascript:void(0);" class="theme-red text-decoration-none" data-link="<?= base_url('admin/gallery-delete/' . $gallery_image_uid); ?>" data-bs-toggle="modal" data-bs-target="#danger_modal">
+                                            <i class="bi bi-trash fs-5"></i>
+                                            Remove
+                                        </a>
+                                    </div>
+                                    <div class="col-12 col-md-6 text-center">
+                                        <a onclick="prompt('Copy to clipboard: Ctrl+C, Enter','<?= base_url('file_manager/gallery/' . $gallery_image_data->gallery_file_name); ?>');" href="javascript:void(0);" class="theme-blue text-decoration-none">
+                                            <i class="bi bi-box-arrow-up-right fs-5"></i>
+                                            Link
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card-arrow">
-                            <div class="card-arrow-top-left"></div>
-                            <div class="card-arrow-top-right"></div>
-                            <div class="card-arrow-bottom-left"></div>
-                            <div class="card-arrow-bottom-right"></div>
+                            <div class="card-arrow">
+                                <div class="card-arrow-top-left"></div>
+                                <div class="card-arrow-top-right"></div>
+                                <div class="card-arrow-bottom-left"></div>
+                                <div class="card-arrow-bottom-right"></div>
+                            </div>
                         </div>
                     </div>
+                <?php endforeach; ?>
 
 
 
 
-                </div>
+
+
+
+
+
+
             </div>
         </div>
         <script>
@@ -81,4 +88,24 @@
         <div class="card-arrow-bottom-right"></div>
     </div>
 </div>
+<div class="modal fade text-center" id="danger_modal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content rounded">
+            <div class="modal-body py-3">
+                <p class="h5 text-danger">Do you really want to remove the image?</p>
+            </div>
+            <div class="modal-footer py-1">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a href="javascript:void(0);" class="btn btn-outline-danger" id="modal_delete_link">Remove</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="<?= base_url('public/admin/assets/js/jquery-3.7.1.min.js'); ?>"></script>
+<script>
+    $(document).on("focus", "[data-link]", function() {
+        var link = $(this).data("link");
+        $("#modal_delete_link").attr("href", link);
+    });
+</script>
 <?php $this->load->view("admins/includes/FooterScripts"); ?>

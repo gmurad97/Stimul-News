@@ -207,6 +207,12 @@
 
 
 
+
+
+
+
+
+
             <!--=====CONTACTS - START=====-->
             <div class="menu-item <?= MenuState($segment_name, 'contacts', 'active'); ?>">
                 <a href="<?= base_url('admin/contacts-create'); ?>" class="menu-link">
