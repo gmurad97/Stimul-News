@@ -90,31 +90,10 @@ class AdminController extends CI_Controller
     }
     /*=====LOCAL ADMIN CONTROLLER FUNCTION - ENDED=====*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    /*=====LOGIN - START=====*/
     public function login()
     {
-        print_r($this->SendEmail(["murad.dev@bk.ru"], "sub", "mess"));
-        print_r($this->email->print_debugger());
-
-        /* $this->load->helper("captcha");
+        $this->load->helper("captcha");
 
         $captcha_cfg = [
             "img_path" => "./file_manager/system/captcha/",
@@ -122,9 +101,9 @@ class AdminController extends CI_Controller
             "font_path" => "system/fonts/texb.ttf",
             "img_width" => 160,
             "img_height" => 48,
-            "expiration" => 1920,
-            "word_length" => 8,
-            "pool" => "XYZ0123456789",
+            "expiration" => 960,
+            "word_length" => 6,
+            "pool" => "XYZ0123456789HQF",
             "colors" => [
                 "background" => array(56, 173, 169),
                 "border" => array(30, 55, 153),
@@ -134,23 +113,65 @@ class AdminController extends CI_Controller
         ];
 
         $data["admin_auth_captcha"] = create_captcha($captcha_cfg);
+        $data["admin_page_name"] = "Admin Panel";
+
         $this->session->unset_userdata("adm_auth_captcha");
         $this->session->set_userdata("adm_auth_captcha", $data["admin_auth_captcha"]["word"]);
-        $data["admin_page_name"] = "Admin Panel";
-        $this->load->view("admins/Login", $data); */
+
+        $this->load->view("admins/Login", $data);
     }
 
     public function login_action()
     {
+        $admin_session_captcha = strtoupper($this->session->userdata("adm_auth_captcha"));
+        $this->session->unset_userdata("adm_auth_captcha");
+
+        $admin_login    = $this->input->post("admin_login", TRUE);
+        $admin_password = hash("sha512", hash("md5", $this->input->post("admin_password", TRUE)));
+        $admin_captcha  = strtoupper($this->input->post("admin_captcha", TRUE));
+
+        if (!empty($admin_login) && !empty($admin_password) && !empty($admin_captcha)) {
+            if ($admin_captcha === $admin_session_captcha) {
+                $admin_data = $this->db->or_where(["a_username" => $admin_login, "a_email" => $admin_login])->get("admin")->row_array();
+                if (!empty($admin_data) && $admin_password === $admin_data["a_password"]) {
+                    $sess_data = [
+                        "admin_first_name" => $admin_data["a_name"],
+                        "admin_last_name"  => $admin_data["a_surname"],
+                        "admin_img"        => $admin_data["a_img"],
+                        "admin_role"       => $admin_data["a_role"],
+                        "logged_in"        => TRUE
+                    ];
+                    $this->session->set_userdata("admin_auth", $sess_data);
+                    redirect(base_url("admin/dashboard"));
+                } else {
+                    $this->AlertFlashData(
+                        "danger",
+                        "crud_alert",
+                        "Danger!",
+                        "The login or password you provided is incorrect."
+                    );
+                    redirect($_SERVER["HTTP_REFERER"]);
+                }
+            } else {
+                $this->AlertFlashData(
+                    "danger",
+                    "crud_alert",
+                    "Danger!",
+                    "The provided captcha was entered incorrectly."
+                );
+                redirect($_SERVER["HTTP_REFERER"]);
+            }
+        } else {
+            $this->AlertFlashData(
+                "warning",
+                "crud_alert",
+                "Warning!",
+                "Please, fill in all the fields."
+            );
+            redirect($_SERVER["HTTP_REFERER"]);
+        }
     }
-
-
-
-
-
-
-
-
+    /*=====LOGIN - ENDED=====*/
 
     /*=====DASHBOARD - START=====*/
     public function dashboard()
@@ -161,6 +182,16 @@ class AdminController extends CI_Controller
         $this->load->view("admins/Dashboard", $data);
     }
     /*=====DASHBOARD - ENDED=====*/
+
+
+
+
+
+
+
+
+
+
 
     /*=====GPT - START=====*/
     public function cgpt()

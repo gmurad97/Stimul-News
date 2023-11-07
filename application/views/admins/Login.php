@@ -20,6 +20,16 @@
                     <div class="text-inverse text-opacity-50 text-center mb-4">
                         For your protection, please verify your identity.
                     </div>
+                    <?php if ($this->session->flashdata("crud_alert")) : ?>
+                        <div class="alert alert-<?= $this->session->flashdata('crud_alert')['alert_type']; ?> alert-dismissable fade show p-3" style="<?= $this->session->flashdata('crud_alert')['alert_bg_color']; ?>">
+                            <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+                            <p class="d-flex flex-row justify-content-start align-items-center mb-0">
+                                <i class="<?= $this->session->flashdata('crud_alert')['alert_icon']; ?> fs-5 me-2"></i>
+                                <strong class="fw-bold me-2"><?= $this->session->flashdata('crud_alert')['alert_short_message']; ?> </strong>
+                                <?= $this->session->flashdata('crud_alert')['alert_long_message']; ?>
+                            </p>
+                        </div>
+                    <?php endif; ?>
                     <div class="mb-3">
                         <div class="d-flex">
                             <label for="admin_login_label" class="form-label">Email Address or Username</label>
@@ -30,7 +40,7 @@
                         <div class="d-flex">
                             <label for="admin_password_label" class="form-label">Password</label>
                         </div>
-                        <input required name="admin_password" type="password" class="form-control form-control-lg bg-inverse bg-opacity-5" id="admin_password_label">
+                        <input required name="admin_password" type="password" class="form-control form-control-lg bg-inverse bg-opacity-5" id="admin_password_label" placeholder="Password">
                     </div>
                     <div class="mb-3">
                         <div class="d-flex">

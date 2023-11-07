@@ -180,3 +180,20 @@ ERROR - 2023-11-07 05:17:32 --> Severity: error --> Exception: Cannot use object
 ERROR - 2023-11-07 05:17:47 --> Severity: error --> Exception: Cannot use object of type stdClass as array C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 89
 ERROR - 2023-11-07 05:17:57 --> Severity: Warning --> Undefined array key 0 C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 89
 ERROR - 2023-11-07 05:18:17 --> Severity: error --> Exception: Object of class stdClass could not be converted to string C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 22
+ERROR - 2023-11-07 05:59:55 --> Severity: Warning --> Undefined variable $cokc C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 164
+ERROR - 2023-11-07 06:04:39 --> Query error: Unknown column 'a_username,a_email' in 'where clause' - Invalid query: SELECT *
+FROM `admin`
+WHERE `a_username,a_email` IS NULL
+ERROR - 2023-11-07 06:07:32 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '|| a_email 'gmurad97'' at line 4 - Invalid query: SELECT *
+FROM `admin`
+WHERE `a_username` = 'gmurad97'
+AND || a_email 'gmurad97'
+ERROR - 2023-11-07 06:07:41 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'OR a_email 'gmurad97'' at line 4 - Invalid query: SELECT *
+FROM `admin`
+WHERE `a_username` = 'gmurad97'
+AND OR a_email 'gmurad97'
+ERROR - 2023-11-07 06:46:09 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Login.php 19
+ERROR - 2023-11-07 06:46:09 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Login.php 19
+ERROR - 2023-11-07 06:46:09 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Login.php 22
+ERROR - 2023-11-07 06:46:09 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Login.php 23
+ERROR - 2023-11-07 06:46:09 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Login.php 24

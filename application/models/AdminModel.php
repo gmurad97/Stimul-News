@@ -17,7 +17,29 @@ class AdminModel extends CI_Model
     }
     /*==========GLOBAL MODEL - ENDED==========*/
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /*==========CRUD MODEL - START==========*/
+
+
+
 
     /*=====TOPBAR MODEL - START=====*/
     private const TOPBAR_TABLE_NAME = "topbar";
@@ -243,7 +265,7 @@ class AdminModel extends CI_Model
         $this->db->delete(self::CONTACTS_TABLE_NAME, self::CONTACTS_ID_NAME . "=" . $id);
     }
     /*=====CONTACTS MODEL - ENDED=====*/
-    
+
     /*=====GALLERY MODEL - START=====*/
     private const GALLERY_TABLE_NAME = "gallery";
     private const GALLERY_ID_NAME = "g_uid";
