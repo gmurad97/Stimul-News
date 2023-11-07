@@ -664,21 +664,6 @@ class AdminController extends CI_Controller
     }
     /*=====PARTNERS CRUD - ENDED=====*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /*=====CATEGORIES CRUD - START=====*/
     public function crud_categories_create()
     {
@@ -693,56 +678,41 @@ class AdminController extends CI_Controller
         $category_az_name  = $this->input->post("category_az_name", TRUE);
         $category_bg_color = $this->input->post("category_bg_color", TRUE);
         $category_status   = $this->input->post("category_status", TRUE);
-
         $categories_config["upload_path"]      = "./file_manager/categories/";
         $categories_config["allowed_types"]    = "ico|jpeg|jpg|png|svg|ICO|JPEG|JPG|PNG|SVG";
         $categories_config["file_ext_tolower"] = TRUE;
         $categories_config["remove_spaces"]    = TRUE;
         $categories_config["encrypt_name"]     = TRUE;
-
         $this->load->library("upload", $categories_config);
         $this->upload->initialize($categories_config);
-
         if ($this->upload->do_upload("category_img") && !empty($category_en_name) && !empty($category_ru_name) && !empty($category_az_name) && !empty($category_bg_color)) {
             $category_img = $this->upload->data();
-
             $breadcrumb_img_config["image_library"] = "gd2";
             $breadcrumb_img_config["source_image"] = $categories_config["upload_path"] . $category_img["file_name"];
             $breadcrumb_img_config["maintain_ratio"] = FALSE;
             $breadcrumb_img_config["width"] = 540;
             $breadcrumb_img_config["height"] = 370;
-
             $this->load->library("image_lib", $breadcrumb_img_config);
             $this->load->initialize($breadcrumb_img_config);
-
             $this->image_lib->resize();
-
-            $json_data_decoded = [
-                "category_img"     => $category_img["file_name"],
-                "category_name"    => [
+            $data = [
+                "c_name" =>
+                json_encode([
                     "en" => base64_encode($category_en_name),
                     "ru" => base64_encode($category_ru_name),
-                    "az" => base64_encode($category_az_name),
-                ],
-                "category_bg_color" => $category_bg_color,
-                "category_status"  => str_contains($category_status, "on") ? TRUE : FALSE
+                    "az" => base64_encode($category_az_name)
+                ]),
+                "c_bg_color" => $category_bg_color,
+                "c_img"      => $category_img["file_name"],
+                "c_status"   => str_contains($category_status, "on") ? TRUE : FALSE
             ];
-
-            $json_data_encoded = json_encode($json_data_decoded);
-
-            $data = [
-                "c_data" => $json_data_encoded
-            ];
-
             $this->AdminModel->categories_admin_db_insert($data);
-
             $this->AlertFlashData(
                 "success",
                 "crud_alert",
                 "Success!",
                 "The category has been successfully added."
             );
-
             redirect(base_url("admin/categories-list"));
         } else {
             $this->AlertFlashData(
@@ -751,7 +721,6 @@ class AdminController extends CI_Controller
                 "Warning!",
                 "Please, fill in all the fields."
             );
-
             redirect(base_url("admin/categories-create"));
         }
     }
@@ -772,96 +741,71 @@ class AdminController extends CI_Controller
 
     public function crud_categories_edit_action($id)
     {
-        $old_category_data = json_decode($this->AdminModel->categories_admin_db_get($id)["c_data"], TRUE);
-        $category_img_path = "./file_manager/partners/" . $old_category_data["category_img"];
-
+        $old_category_data = $this->AdminModel->categories_admin_db_get($id);
+        $category_img_path = "./file_manager/categories/" . $old_category_data["c_img"];
         $category_en_name  = $this->input->post("category_en_name", TRUE);
         $category_ru_name  = $this->input->post("category_ru_name", TRUE);
         $category_az_name  = $this->input->post("category_az_name", TRUE);
         $category_bg_color = $this->input->post("category_bg_color", TRUE);
         $category_status   = $this->input->post("category_status", TRUE);
-
         $categories_config["upload_path"]      = "./file_manager/categories/";
         $categories_config["allowed_types"]    = "ico|jpeg|jpg|png|svg|ICO|JPEG|JPG|PNG|SVG";
         $categories_config["file_ext_tolower"] = TRUE;
         $categories_config["remove_spaces"]    = TRUE;
         $categories_config["encrypt_name"]     = TRUE;
-
         $this->load->library("upload", $categories_config);
         $this->upload->initialize($categories_config);
-
         if ($this->upload->do_upload("category_img") && !empty($category_en_name) && !empty($category_ru_name) && !empty($category_az_name) && !empty($category_bg_color)) {
             if (!is_dir($category_img_path) && file_exists($category_img_path)) {
                 unlink($category_img_path);
             }
-
             $category_img = $this->upload->data();
-
             $breadcrumb_img_config["image_library"] = "gd2";
             $breadcrumb_img_config["source_image"] = $categories_config["upload_path"] . $category_img["file_name"];
             $breadcrumb_img_config["maintain_ratio"] = FALSE;
-            $breadcrumb_img_config["width"] = 1920;
-            $breadcrumb_img_config["height"] = 1080;
-
+            $breadcrumb_img_config["width"] = 540;
+            $breadcrumb_img_config["height"] = 370;
             $this->load->library("image_lib", $breadcrumb_img_config);
             $this->load->initialize($breadcrumb_img_config);
-
             $this->image_lib->resize();
-
-            $json_data_decoded = [
-                "category_img"     => $category_img["file_name"],
-                "category_name"    => [
+            $data = [
+                "c_name" =>
+                json_encode([
                     "en" => base64_encode($category_en_name),
                     "ru" => base64_encode($category_ru_name),
                     "az" => base64_encode($category_az_name)
-                ],
-                "category_bg_color" => $category_bg_color,
-                "category_status"  => str_contains($category_status, "on") ? TRUE : FALSE
+                ]),
+                "c_bg_color" => $category_bg_color,
+                "c_img"      => $category_img["file_name"],
+                "c_status"   => str_contains($category_status, "on") ? TRUE : FALSE
             ];
-
-            $json_data_encoded = json_encode($json_data_decoded);
-
-            $data = [
-                "c_data" => $json_data_encoded
-            ];
-
             $this->AdminModel->categories_admin_db_update($id, $data);
-
             $this->AlertFlashData(
                 "success",
                 "crud_alert",
                 "Success!",
                 "The category has been successfully edited."
             );
-
             redirect(base_url("admin/categories-list"));
         } else if (!empty($category_en_name) && !empty($category_ru_name) && !empty($category_az_name) && !empty($category_bg_color)) {
-            $json_data_decoded = [
-                "category_img"     => $old_category_data["category_img"],
-                "category_name"    => [
+            $data = [
+                "c_name" =>
+                json_encode([
                     "en" => base64_encode($category_en_name),
                     "ru" => base64_encode($category_ru_name),
                     "az" => base64_encode($category_az_name)
-                ],
-                "category_bg_color" => $category_bg_color,
-                "category_status"  => str_contains($category_status, "on") ? TRUE : FALSE
+                ]),
+                "c_bg_color" => $category_bg_color,
+                "c_img"      => $old_category_data["c_img"],
+                "c_status"   => str_contains($category_status, "on") ? TRUE : FALSE
             ];
-
-            $json_data_encoded = json_encode($json_data_decoded);
-
-            $data = [
-                "c_data" => $json_data_encoded
-            ];
-
             $this->AdminModel->categories_admin_db_update($id, $data);
-
             $this->AlertFlashData(
                 "success",
                 "crud_alert",
                 "Success!",
                 "The category has been successfully edited."
             );
-
             redirect(base_url("admin/categories-list"));
         } else {
             $this->AlertFlashData(
@@ -870,15 +814,14 @@ class AdminController extends CI_Controller
                 "Warning!",
                 "Please, fill in all the fields."
             );
-
             redirect($_SERVER["HTTP_REFERER"]);
         }
     }
 
     public function crud_categories_delete($id)
     {
-        $category_data = json_decode($this->AdminModel->categories_admin_db_get($id)["c_data"], TRUE);
-        $category_img_path = "./file_manager/categories/" . $category_data["category_img"];
+        $category_data = $this->AdminModel->categories_admin_db_get($id);
+        $category_img_path = "./file_manager/categories/" . $category_data["c_img"];
         if (!is_dir($category_img_path) && file_exists($category_img_path)) {
             unlink($category_img_path);
         }
@@ -895,6 +838,23 @@ class AdminController extends CI_Controller
         redirect(base_url("admin/categories-list"));
     }
     /*=====CATEGORIES CRUD - ENDED=====*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /*=====NEWS CRUD - START=====*/
     public function crud_news_create()

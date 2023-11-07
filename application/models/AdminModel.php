@@ -99,22 +99,6 @@ class AdminModel extends CI_Model
     }
     /*=====PARTNERS MODEL - ENDED=====*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /*=====CATEGORIES MODEL - START=====*/
     private const CATEGORIES_TABLE_NAME = "categories";
     private const CATEGORIES_ID_NAME = "c_uid";
@@ -145,6 +129,27 @@ class AdminModel extends CI_Model
     }
     /*=====CATEGORIES MODEL - ENDED=====*/
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     /*=====NEWS MODEL - START=====*/
     private const NEWS_TABLE_NAME = "news";
     private const NEWS_ID_NAME = "n_uid";

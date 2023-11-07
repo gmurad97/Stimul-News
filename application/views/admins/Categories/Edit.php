@@ -29,18 +29,15 @@
                 </p>
             </div>
         <?php endif; ?>
-        <?php
-        $category_id = $category_data["c_uid"];
-        $category_info = json_decode($category_data["c_data"]);
-        ?>
-        <form action="<?= base_url('admin/categories-edit-action/') . $category_id; ?>" method="POST" enctype="multipart/form-data" class="was-validated" id="categories_form">
+        <?php $category_name = json_decode($category_data["c_name"], FALSE); ?>
+        <form action="<?= base_url('admin/categories-edit-action/') . $category_data["c_uid"]; ?>" method="POST" enctype="multipart/form-data" class="was-validated" id="categories_form">
             <ul class="list-group list-group-flush mb-3">
                 <li class="list-group-item">
                     <div class="d-flex flex-row justify-content-between align-items-center">
                         <label class="fw-bold text-warning">Current Image</label>
-                        <a href="<?= base_url('file_manager/categories/') . $category_info->category_img; ?>" class="btn btn-outline-yellow btn-sm rounded-2" data-lity>
+                        <a href="<?= base_url('file_manager/categories/') . $category_data["c_img"]; ?>" class="btn btn-outline-yellow btn-sm rounded-2" data-lity>
                             Show Image
-                            <span class="img" style="background-image: url(<?= base_url('file_manager/categories/') . $category_info->category_img; ?>)"></span>
+                            <span class="img" style="background-image: url(<?= base_url('file_manager/categories/') . $category_data["c_img"]; ?>)"></span>
                         </a>
                     </div>
                 </li>
@@ -69,7 +66,7 @@
                                     <label for="category_en_name_label">Name</label>
                                 </div>
                                 <div class="col-md-9">
-                                    <input required name="category_en_name" type="text" class="form-control form-control-sm" id="category_en_name_label" placeholder="Business" value="<?= htmlentities(base64_decode($category_info->category_name->en)); ?>">
+                                    <input required name="category_en_name" type="text" class="form-control form-control-sm" id="category_en_name_label" placeholder="Business" value="<?= htmlentities(base64_decode($category_name->en)); ?>">
                                 </div>
                             </div>
                         </div>
@@ -79,7 +76,7 @@
                                     <label for="category_name_ru_label">Name</label>
                                 </div>
                                 <div class="col-md-9">
-                                    <input required name="category_ru_name" type="text" class="form-control form-control-sm" id="category_name_ru_label" placeholder="Бизнес" value="<?= htmlentities(base64_decode($category_info->category_name->ru)); ?>">
+                                    <input required name="category_ru_name" type="text" class="form-control form-control-sm" id="category_name_ru_label" placeholder="Бизнес" value="<?= htmlentities(base64_decode($category_name->ru)); ?>">
                                 </div>
                             </div>
                         </div>
@@ -89,7 +86,7 @@
                                     <label for="category_az_name_label">Name</label>
                                 </div>
                                 <div class="col-md-9">
-                                    <input required name="category_az_name" type="text" class="form-control form-control-sm" id="category_az_name_label" placeholder="Biznes" value="<?= htmlentities(base64_decode($category_info->category_name->az)); ?>">
+                                    <input required name="category_az_name" type="text" class="form-control form-control-sm" id="category_az_name_label" placeholder="Biznes" value="<?= htmlentities(base64_decode($category_name->az)); ?>">
                                 </div>
                             </div>
                         </div>
@@ -111,7 +108,7 @@
                 <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
                     <label for="category_colorpicker">Background Color</label>
                     <div class="form-check form-switch">
-                        <input required name="category_bg_color" type="text" value="<?= $category_info->category_bg_color; ?>" class="form-control" id="category_colorpicker">
+                        <input required name="category_bg_color" type="text" value="<?= $category_data["c_bg_color"]; ?>" class="form-control" id="category_colorpicker">
                     </div>
                 </li>
                 <script>
@@ -122,7 +119,7 @@
                 <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
                     <label for="category_status_label">Status</label>
                     <div class="form-check form-switch">
-                        <input name="category_status" type="checkbox" class="form-check-input" id="category_status_label" <?= $category_info->category_status ? "checked" : "" ?>>
+                        <input name="category_status" type="checkbox" class="form-check-input" id="category_status_label" <?= $category_data["c_status"] ? "checked" : "" ?>>
                     </div>
                 </li>
             </ul>

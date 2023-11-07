@@ -40,23 +40,22 @@
                     <?php
                     $id_counter = 1;
                     foreach ($categories_data as $category_data_item) :
-                        $category_data_item_id = $category_data_item["c_uid"];
-                        $category_data_item_data = json_decode($category_data_item["c_data"]);
+                        $category_data_item_name = json_decode($category_data_item["c_name"], FALSE);
                     ?>
                         <tr>
                             <td><?= $id_counter++; ?></td>
                             <td>
-                                <a href="<?= base_url('file_manager/categories/') . $category_data_item_data->category_img; ?>" data-lity>
-                                    <img width="64" height="64" style="object-fit: cover;" class="rounded-circle bg-white" src="<?= base_url('file_manager/categories/') . $category_data_item_data->category_img; ?>" title="<?= htmlentities(base64_decode($category_data_item_data->category_name->en)); ?>" alt="<?= htmlentities(base64_decode($category_data_item_data->category_name->en)); ?>">
+                                <a href="<?= base_url('file_manager/categories/') . $category_data_item["c_img"]; ?>" data-lity>
+                                    <img width="64" height="64" style="object-fit: cover;" class="rounded-circle bg-white" src="<?= base_url('file_manager/categories/') . $category_data_item["c_img"]; ?>" title="<?= htmlentities(base64_decode($category_data_item_name->en)); ?>" alt="<?= htmlentities(base64_decode($category_data_item_name->en)); ?>">
                                 </a>
                             </td>
                             <td>
-                                <span class="badge text-truncate w-200px rounded-5 p-2 text-uppercase" style="background-color: <?= $category_data_item_data->category_bg_color; ?>;">
-                                    <?= (is_null($category_data_item_data->category_name->en) || empty($category_data_item_data->category_name->en)) ? "NULL" : htmlentities(base64_decode($category_data_item_data->category_name->en)); ?>
+                                <span class="badge text-truncate w-200px rounded-5 p-2 text-uppercase" style="background-color: <?= $category_data_item["c_bg_color"]; ?>;">
+                                    <?= htmlentities(base64_decode($category_data_item_name->en)); ?>
                                 </span>
                             </td>
                             <td>
-                                <?php if ($category_data_item_data->category_status) : ?>
+                                <?php if ($category_data_item["c_status"]) : ?>
                                     <span class="badge bg-success p-2 w-90px text-uppercase">
                                         <i class="fa-regular fa-circle-check"></i>
                                         Active
@@ -73,10 +72,10 @@
                                     <a href="javascript:void(0);" class="nav-link disabled theme-info p-0">
                                         <i class="bi bi-eye fs-5"></i>
                                     </a>
-                                    <a href="<?= base_url('admin/categories-edit/') . $category_data_item_id; ?>" class="nav-link theme-warning p-0 mx-3">
+                                    <a href="<?= base_url('admin/categories-edit/') . $category_data_item["c_uid"]; ?>" class="nav-link theme-warning p-0 mx-3">
                                         <i class="bi bi-pencil-square fs-5"></i>
                                     </a>
-                                    <a href="javascript:void(0);" class="nav-link theme-danger p-0" data-link="<?= base_url('admin/categories-delete/') . $category_data_item_id; ?>" data-bs-toggle="modal" data-bs-target="#danger_modal">
+                                    <a href="javascript:void(0);" class="nav-link theme-danger p-0" data-link="<?= base_url('admin/categories-delete/') . $category_data_item["c_uid"]; ?>" data-bs-toggle="modal" data-bs-target="#danger_modal">
                                         <i class=" bi bi-trash fs-5"></i>
                                     </a>
                                 </nav>
