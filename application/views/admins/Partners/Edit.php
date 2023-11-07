@@ -29,18 +29,14 @@
                 </p>
             </div>
         <?php endif; ?>
-        <?php
-        $partner_id = $partner_data["p_uid"];
-        $partner_info = json_decode($partner_data["p_data"]);
-        ?>
-        <form action="<?= base_url('admin/partners-edit-action/') . $partner_id; ?>" method="POST" enctype="multipart/form-data" class="was-validated" id="crud_form">
+        <form action="<?= base_url('admin/partners-edit-action/') . $partner_data["p_uid"]; ?>" method="POST" enctype="multipart/form-data" class="was-validated" id="crud_form">
             <ul class="list-group list-group-flush mb-3">
                 <li class="list-group-item">
                     <div class="d-flex flex-row justify-content-between align-items-center">
                         <label class="fw-bold text-warning">Current Image</label>
-                        <a href="<?= base_url('file_manager/partners/') . $partner_info->partner_img; ?>" class="btn btn-outline-yellow btn-sm rounded-2" data-lity>
+                        <a href="<?= base_url('file_manager/partners/') . $partner_data["p_img"]; ?>" class="btn btn-outline-yellow btn-sm rounded-2" data-lity>
                             Show Image
-                            <span class="img" style="background-image: url(<?= base_url('file_manager/partners/') . $partner_info->partner_img; ?>)"></span>
+                            <span class="img" style="background-image: url(<?= base_url('file_manager/partners/') . $partner_data["p_img"]; ?>)"></span>
                         </a>
                     </div>
                 </li>
@@ -62,7 +58,7 @@
                         <div class="col-md-9">
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text">URL</span>
-                                <input required name="partner_link" type="url" class="form-control" placeholder="https://example.com/" id="partner_link_label" value="<?= htmlentities(base64_decode($partner_info->partner_link)); ?>">
+                                <input required name="partner_link" type="url" class="form-control" placeholder="https://example.com/" id="partner_link_label" value="<?= $partner_data["p_link"]; ?>">
                             </div>
                         </div>
                     </div>
@@ -73,14 +69,14 @@
                             <label for="partner_title_label">Title</label>
                         </div>
                         <div class="col-md-9">
-                            <input required name="partner_title" type="text" class="form-control form-control-sm" id="partner_title_label" placeholder="Stimul News" value="<?= htmlentities(base64_decode($partner_info->partner_title)); ?>">
+                            <input required name="partner_title" type="text" class="form-control form-control-sm" id="partner_title_label" placeholder="Stimul News" value="<?= $partner_data["p_title"]; ?>">
                         </div>
                     </div>
                 </li>
                 <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
                     <label for="partner_status_label">Status</label>
                     <div class="form-check form-switch">
-                        <input name="partner_status" type="checkbox" class="form-check-input" id="partner_status_label" <?= $partner_info->partner_status ? "checked" : "" ?>>
+                        <input name="partner_status" type="checkbox" class="form-check-input" id="partner_status_label" <?= $partner_data["p_status"] ? "checked" : "" ?>>
                     </div>
                 </li>
             </ul>

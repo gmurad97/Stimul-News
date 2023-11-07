@@ -41,30 +41,28 @@
                     <?php
                     $id_counter = 1;
                     foreach ($partners_data as $partners_data_item) :
-                        $partners_data_item_id = $partners_data_item["p_uid"];
-                        $partners_data_item_data = json_decode($partners_data_item["p_data"]);
                     ?>
                         <tr>
                             <td><?= $id_counter++; ?></td>
                             <td>
-                                <a href="<?= base_url('file_manager/partners/') . $partners_data_item_data->partner_img; ?>" data-lity>
-                                    <img width="64" height="64" style="object-fit: cover;" class="rounded-circle bg-white" src="<?= base_url('file_manager/partners/') . $partners_data_item_data->partner_img; ?>" title="<?= htmlentities(base64_decode($partners_data_item_data->partner_title)); ?>" alt="<?= htmlentities(base64_decode($partners_data_item_data->partner_title)); ?>">
+                                <a href="<?= base_url('file_manager/partners/') . $partners_data_item["p_img"]; ?>" data-lity>
+                                    <img width="64" height="64" style="object-fit: cover;" class="rounded-circle bg-white" src="<?= base_url('file_manager/partners/') . $partners_data_item["p_img"]; ?>" title="<?= $partners_data_item["p_title"]; ?>" alt="<?= $partners_data_item["p_title"]; ?>">
                                 </a>
                             </td>
                             <td>
                                 <div class="text-truncate" style="max-width: 200px;">
-                                    <a href="<?= (is_null($partners_data_item_data->partner_link) || empty($partners_data_item_data->partner_link)) ? "NULL" : htmlentities(base64_decode($partners_data_item_data->partner_link)); ?>">
-                                        <?= (is_null($partners_data_item_data->partner_link) || empty($partners_data_item_data->partner_link)) ? "NULL" : htmlentities(base64_decode($partners_data_item_data->partner_link)); ?>
+                                    <a href="<?= $partners_data_item["p_link"]; ?>">
+                                        <?= $partners_data_item["p_link"]; ?>
                                     </a>
                                 </div>
                             </td>
                             <td>
                                 <div class="text-truncate" style="max-width: 200px;">
-                                    <?= (is_null($partners_data_item_data->partner_title) || empty($partners_data_item_data->partner_title)) ? "NULL" : htmlentities(base64_decode($partners_data_item_data->partner_title)); ?>
+                                    <?= $partners_data_item["p_title"]; ?>
                                 </div>
                             </td>
                             <td>
-                                <?php if ($partners_data_item_data->partner_status) : ?>
+                                <?php if ($partners_data_item["p_status"]) : ?>
                                     <span class="badge bg-success p-2 w-90px text-uppercase">
                                         <i class="fa-regular fa-circle-check"></i>
                                         Active
@@ -81,10 +79,10 @@
                                     <a href="javascript:void(0);" class="nav-link disabled theme-info p-0">
                                         <i class="bi bi-eye fs-5"></i>
                                     </a>
-                                    <a href="<?= base_url('admin/partners-edit/') . $partners_data_item_id; ?>" class="nav-link theme-warning p-0 mx-3">
+                                    <a href="<?= base_url('admin/partners-edit/') . $partners_data_item["p_uid"]; ?>" class="nav-link theme-warning p-0 mx-3">
                                         <i class="bi bi-pencil-square fs-5"></i>
                                     </a>
-                                    <a href="javascript:void(0);" class="nav-link theme-danger p-0" data-link="<?= base_url('admin/partners-delete/') . $partners_data_item_id; ?>" data-bs-toggle="modal" data-bs-target="#danger_modal">
+                                    <a href="javascript:void(0);" class="nav-link theme-danger p-0" data-link="<?= base_url('admin/partners-delete/') . $partners_data_item["p_uid"]; ?>" data-bs-toggle="modal" data-bs-target="#danger_modal">
                                         <i class=" bi bi-trash fs-5"></i>
                                     </a>
                                 </nav>

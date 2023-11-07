@@ -7,7 +7,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
  * USER TEMPLATE: MORUS NEWS (Dump&Crack FrontEnd Pages)
  * ADMIN TEMPLATE: HUD ADMIN (Dump&Crack FrontEnd Pages)
  * VERSION: 2.1
- * USED LOCAL SERVER: OPENSERVER
+ * USED LOCAL SERVER: OPENSERVER 5.4.3
  **/
 
 class AdminController extends CI_Controller
@@ -23,13 +23,11 @@ class AdminController extends CI_Controller
     {
         $eFrom = "murad.dev@rrshipping.global";
         $eFromName = "STIMUL NEWS";
-
         $this->email->clear();
         $this->email->from($eFrom, $eFromName);
         $this->email->to($eTo);
         $this->email->subject($eSubject);
         $this->email->message($eMessage);
-
         return $this->email->send();
     }
 
@@ -38,7 +36,6 @@ class AdminController extends CI_Controller
         $alert_type     = strtolower($alertType);
         $alert_bg_color = "rgba(0, 23, 51, 0.32)";
         $alert_icon     = "bi bi-info-circle";
-
         if ($alert_type === "info") {
             $alert_bg_color = "rgba(0, 23, 51, 0.32)";
             $alert_icon     = "bi bi-info-circle";
@@ -52,7 +49,6 @@ class AdminController extends CI_Controller
             $alert_bg_color = "rgba(45, 0, 0, 0.32)";
             $alert_icon     = "bi bi-exclamation-octagon";
         }
-
         $this->session->set_flashdata(
             $alertName,
             [
@@ -183,24 +179,14 @@ class AdminController extends CI_Controller
     }
     /*=====DASHBOARD - ENDED=====*/
 
-
-
-
-
-
-
-
-
-
-
-    /*=====GPT - START=====*/
-    public function cgpt()
+    /*=====AI GPT - START=====*/
+    public function ai_gpt()
     {
         $data["admin_page_name"] = "AI GPT 3.5";
         $this->load->view("admins/ChatGpt", $data);
     }
 
-    public function cgpt_action($query)
+    public function ai_gpt_action($query)
     {
         $json_data = [
             "id" => null,
@@ -227,7 +213,7 @@ class AdminController extends CI_Controller
         curl_close($curl_api_gpt);
         print_r(json_decode($gpt_response, FALSE)->reply);
     }
-    /*=====GPT - ENDED=====*/
+    /*=====AI GPT - ENDED=====*/
 
     /*=====TOPBAR CRUD - START=====*/
     public function crud_topbar_create()
@@ -249,29 +235,23 @@ class AdminController extends CI_Controller
             $topbar_date    = $this->input->post("topbar_date",    TRUE);
             $topbar_time    = $this->input->post("topbar_time",    TRUE);
             $topbar_weather = $this->input->post("topbar_weather", TRUE);
-
             $json_data_decoded = [
                 "topbar_self"    => str_contains($topbar_self,    "on") ? TRUE : FALSE,
                 "topbar_date"    => str_contains($topbar_date,    "on") ? TRUE : FALSE,
                 "topbar_time"    => str_contains($topbar_time,    "on") ? TRUE : FALSE,
                 "topbar_weather" => str_contains($topbar_weather, "on") ? TRUE : FALSE
             ];
-
             $json_data_encoded = json_encode($json_data_decoded);
-
             $data = [
                 "t_data" => $json_data_encoded
             ];
-
             $this->AdminModel->topbar_admin_db_insert($data);
-
             $this->AlertFlashData(
                 "success",
                 "crud_alert",
                 "Success!",
                 "The topbar has been successfully created."
             );
-
             redirect(base_url("admin/topbar-edit"));
         } else {
             redirect(base_url("admin/topbar-edit"));
@@ -300,29 +280,23 @@ class AdminController extends CI_Controller
             $topbar_date    = $this->input->post("topbar_date",    TRUE);
             $topbar_time    = $this->input->post("topbar_time",    TRUE);
             $topbar_weather = $this->input->post("topbar_weather", TRUE);
-
             $json_data_decoded = [
                 "topbar_self"    => str_contains($topbar_self,    "on") ? TRUE : FALSE,
                 "topbar_date"    => str_contains($topbar_date,    "on") ? TRUE : FALSE,
                 "topbar_time"    => str_contains($topbar_time,    "on") ? TRUE : FALSE,
                 "topbar_weather" => str_contains($topbar_weather, "on") ? TRUE : FALSE
             ];
-
             $json_data_encoded = json_encode($json_data_decoded);
-
             $data = [
                 "t_data" => $json_data_encoded
             ];
-
             $this->AdminModel->topbar_admin_db_edit($topbar_db_row, $data);
-
             $this->AlertFlashData(
                 "success",
                 "crud_alert",
                 "Success!",
                 "The topbar has been successfully edited."
             );
-
             redirect(base_url("admin/topbar-edit"));
         }
     }
@@ -331,14 +305,12 @@ class AdminController extends CI_Controller
     {
         $topbar_db_row = $this->AdminModel->table_row_id("topbar", "t_uid");
         $this->AdminModel->topbar_admin_db_delete($topbar_db_row);
-
         $this->AlertFlashData(
             "success",
             "crud_alert",
             "Success!",
             "The topbar has been successfully removed."
         );
-
         redirect(base_url("admin/topbar-create"));
     }
     /*=====TOPBAR CRUD - ENDED=====*/
@@ -362,22 +334,18 @@ class AdminController extends CI_Controller
             $logo_dark_visibility  = $this->input->post("logo_dark_visibility",  TRUE);
             $logo_light_visibility = $this->input->post("logo_light_visibility", TRUE);
             $site_title_prefix     = $this->input->post("site_title_prefix",     TRUE);
-
             $branding_config["upload_path"]      = "./file_manager/branding/";
             $branding_config["allowed_types"]    = "ico|jpeg|jpg|png|svg|ICO|JPEG|JPG|PNG|SVG";
             $branding_config["file_ext_tolower"] = TRUE;
             $branding_config["remove_spaces"]    = TRUE;
             $branding_config["encrypt_name"]     = TRUE;
-
             $this->load->library("upload", $branding_config);
             $this->upload->initialize($branding_config);
-
             $uploadResults = [
                 "logo_dark_img"  => $this->upload->do_upload("logo_dark_img")  ? $this->upload->data() : NULL,
                 "logo_light_img" => $this->upload->do_upload("logo_light_img") ? $this->upload->data() : NULL,
                 "favicon_img"    => $this->upload->do_upload("favicon_img")    ? $this->upload->data() : NULL
             ];
-
             if (
                 !is_null($uploadResults["logo_dark_img"])
                 && !is_null($uploadResults["logo_light_img"])
@@ -404,22 +372,17 @@ class AdminController extends CI_Controller
                     ],
                     "title_prefix" =>  base64_encode($site_title_prefix)
                 ];
-
                 $json_data_encoded = json_encode($json_data_decoded);
-
                 $data = [
                     "b_data" => $json_data_encoded
                 ];
-
                 $this->AdminModel->branding_admin_db_insert($data);
-
                 $this->AlertFlashData(
                     "success",
                     "crud_alert",
                     "Success!",
                     "The branding has been successfully created."
                 );
-
                 redirect(base_url("admin/branding-edit"));
             } else {
                 $this->AlertFlashData(
@@ -428,7 +391,6 @@ class AdminController extends CI_Controller
                     "Warning!",
                     "Please, fill in all the fields."
                 );
-
                 redirect($_SERVER["HTTP_REFERER"]);
             }
         } else {
@@ -457,22 +419,17 @@ class AdminController extends CI_Controller
             $logo_dark_visibility  = $this->input->post("logo_dark_visibility",  TRUE);
             $logo_light_visibility = $this->input->post("logo_light_visibility", TRUE);
             $site_title_prefix     = $this->input->post("site_title_prefix",     TRUE);
-
             $branding_config["upload_path"]      = "./file_manager/branding/";
             $branding_config["allowed_types"]    = "ico|jpeg|jpg|png|svg|ICO|JPEG|JPG|PNG|SVG";
             $branding_config["file_ext_tolower"] = TRUE;
             $branding_config["remove_spaces"]    = TRUE;
             $branding_config["encrypt_name"]     = TRUE;
-
             $this->load->library("upload", $branding_config);
             $this->upload->initialize($branding_config);
-
             $old_branding_data = json_decode($this->AdminModel->branding_admin_db_get($branding_db_row)["b_data"], TRUE);
-
             $logo_dark_img  = $old_branding_data["logo_dark"];
             $logo_light_img = $old_branding_data["logo_light"];
             $favicon_img    = $old_branding_data["favicon"];
-
             if ($this->upload->do_upload("logo_dark_img")) {
                 if (isset($logo_dark_img["file_name"]) && file_exists($branding_config["upload_path"] . $logo_dark_img["file_name"])) {
                     unlink($branding_config["upload_path"] . $logo_dark_img["file_name"]);
@@ -489,7 +446,6 @@ class AdminController extends CI_Controller
                 }
                 $favicon_img = $this->upload->data();
             }
-
             if (
                 !empty($logo_dark_img)
                 && !empty($logo_light_img)
@@ -516,22 +472,17 @@ class AdminController extends CI_Controller
                     ],
                     "title_prefix" => base64_encode($site_title_prefix)
                 ];
-
                 $json_data_encoded = json_encode($json_data_decoded);
-
                 $data = [
                     "b_data" => $json_data_encoded
                 ];
-
                 $this->AdminModel->branding_admin_db_update($branding_db_row, $data);
-
                 $this->AlertFlashData(
                     "success",
                     "crud_alert",
                     "Success!",
                     "The branding has been successfully edited."
                 );
-
                 redirect(base_url("admin/branding-edit"));
             } else {
                 $this->AlertFlashData(
@@ -540,7 +491,6 @@ class AdminController extends CI_Controller
                     "Warning!",
                     "Please, fill in all the fields."
                 );
-
                 redirect($_SERVER["HTTP_REFERER"]);
             }
         }
@@ -551,14 +501,12 @@ class AdminController extends CI_Controller
         $branding_db_row = $this->AdminModel->table_row_id("branding", "b_uid");
         $this->AdminModel->branding_admin_db_delete($branding_db_row);
         array_map("unlink", array_filter((array) glob("./file_manager/branding/*"), "file_exists"));
-
         $this->AlertFlashData(
             "success",
             "crud_alert",
             "Success!",
             "The branding has been successfully removed."
         );
-
         redirect(base_url("admin/branding-create"));
     }
     /*=====BRANDING CRUD - ENDED=====*/
@@ -575,52 +523,36 @@ class AdminController extends CI_Controller
         $partner_link   = filter_var($this->input->post("partner_link",   TRUE), FILTER_SANITIZE_URL);
         $partner_title  = $this->input->post("partner_title",  TRUE);
         $partner_status = $this->input->post("partner_status", TRUE);
-
         $partners_config["upload_path"]      = "./file_manager/partners/";
         $partners_config["allowed_types"]    = "ico|jpeg|jpg|png|svg|ICO|JPEG|JPG|PNG|SVG";
         $partners_config["file_ext_tolower"] = TRUE;
         $partners_config["remove_spaces"]    = TRUE;
         $partners_config["encrypt_name"]     = TRUE;
-
         $this->load->library("upload", $partners_config);
         $this->upload->initialize($partners_config);
-
         if ($this->upload->do_upload("partner_img") && (!empty($partner_link) && filter_var($partner_link, FILTER_VALIDATE_URL)) && !empty($partner_title)) {
             $partner_img = $this->upload->data();
-
             $partners_config_img["image_library"] = "gd2";
             $partners_config_img["source_image"] = $partners_config["upload_path"] . $partner_img["file_name"];
             $partners_config_img["maintain_ratio"] = FALSE;
             $partners_config_img["width"] = 200;
             $partners_config_img["height"] = 150;
-
             $this->load->library("image_lib", $partners_config_img);
             $this->load->initialize($partners_config_img);
-
             $this->image_lib->resize();
-
-            $json_data_decoded = [
-                "partner_img"    => $partner_img["file_name"],
-                "partner_link"   => base64_encode($partner_link),
-                "partner_title"  => base64_encode($partner_title),
-                "partner_status" => str_contains($partner_status, "on") ? TRUE : FALSE
-            ];
-
-            $json_data_encoded = json_encode($json_data_decoded);
-
             $data = [
-                "p_data" => $json_data_encoded
+                "p_title"  => $partner_title,
+                "p_link"   => $partner_link,
+                "p_img"    => $partner_img["file_name"],
+                "p_status" => str_contains($partner_status, "on") ? TRUE : FALSE
             ];
-
             $this->AdminModel->partners_admin_db_insert($data);
-
             $this->AlertFlashData(
                 "success",
                 "crud_alert",
                 "Success!",
                 "The partner has been successfully added."
             );
-
             redirect(base_url("admin/partners-list"));
         } else {
             $this->AlertFlashData(
@@ -629,7 +561,6 @@ class AdminController extends CI_Controller
                 "Warning!",
                 "Please, fill in all the fields."
             );
-
             redirect(base_url("admin/partners-create"));
         }
     }
@@ -650,86 +581,59 @@ class AdminController extends CI_Controller
 
     public function crud_partners_edit_action($id)
     {
-        $old_partner_data = json_decode($this->AdminModel->partners_admin_db_get($id)["p_data"], TRUE);
-        $partner_img_path = "./file_manager/partners/" . $old_partner_data["partner_img"];
-
+        $old_partner_data = $this->AdminModel->partners_admin_db_get($id);
+        $partner_img_path = "./file_manager/partners/" . $old_partner_data["p_img"];
         $partner_link   = filter_var($this->input->post("partner_link",   TRUE), FILTER_SANITIZE_URL);
         $partner_title  = $this->input->post("partner_title",  TRUE);
         $partner_status = $this->input->post("partner_status", TRUE);
-
         $partners_config["upload_path"]      = "./file_manager/partners/";
         $partners_config["allowed_types"]    = "ico|jpeg|jpg|png|svg|ICO|JPEG|JPG|PNG|SVG";
         $partners_config["file_ext_tolower"] = TRUE;
         $partners_config["remove_spaces"]    = TRUE;
         $partners_config["encrypt_name"]     = TRUE;
-
         $this->load->library("upload", $partners_config);
         $this->upload->initialize($partners_config);
-
         if ($this->upload->do_upload("partner_img") && (!empty($partner_link) && filter_var($partner_link, FILTER_VALIDATE_URL)) && !empty($partner_title)) {
             if (!is_dir($partner_img_path) && file_exists($partner_img_path)) {
                 unlink($partner_img_path);
             }
-
             $partner_img = $this->upload->data();
-
             $partners_config_img["image_library"] = "gd2";
             $partners_config_img["source_image"] = $partners_config["upload_path"] . $partner_img["file_name"];
             $partners_config_img["maintain_ratio"] = FALSE;
             $partners_config_img["width"] = 200;
             $partners_config_img["height"] = 150;
-
             $this->load->library("image_lib", $partners_config_img);
             $this->load->initialize($partners_config_img);
-
             $this->image_lib->resize();
-
-            $json_data_decoded = [
-                "partner_img"    => $partner_img["file_name"],
-                "partner_link"   => base64_encode($partner_link),
-                "partner_title"  => base64_encode($partner_title),
-                "partner_status" => str_contains($partner_status, "on") ? TRUE : FALSE
-            ];
-
-            $json_data_encoded = json_encode($json_data_decoded);
-
             $data = [
-                "p_data" => $json_data_encoded
+                "p_title"  => $partner_title,
+                "p_link"   => $partner_link,
+                "p_img"    => $partner_img["file_name"],
+                "p_status" => str_contains($partner_status, "on") ? TRUE : FALSE
             ];
-
             $this->AdminModel->partners_admin_db_update($id, $data);
-
             $this->AlertFlashData(
                 "success",
                 "crud_alert",
                 "Success!",
                 "The partner has been successfully edited."
             );
-
             redirect(base_url("admin/partners-list"));
         } elseif ((!empty($partner_link) && filter_var($partner_link, FILTER_VALIDATE_URL)) && !empty($partner_title)) {
-            $json_data_decoded = [
-                "partner_img"    => $old_partner_data["partner_img"],
-                "partner_link"   => base64_encode($partner_link),
-                "partner_title"  => base64_encode($partner_title),
-                "partner_status" => str_contains($partner_status, "on") ? TRUE : FALSE
-            ];
-
-            $json_data_encoded = json_encode($json_data_decoded);
-
             $data = [
-                "p_data" => $json_data_encoded
+                "p_title"  => $partner_title,
+                "p_link"   => $partner_link,
+                "p_img"    => $old_partner_data["p_img"],
+                "p_status" => str_contains($partner_status, "on") ? TRUE : FALSE
             ];
-
             $this->AdminModel->partners_admin_db_update($id, $data);
-
             $this->AlertFlashData(
                 "success",
                 "crud_alert",
                 "Success!",
                 "The partner has been successfully edited."
             );
-
             redirect(base_url("admin/partners-list"));
         } else {
             $this->AlertFlashData(
@@ -738,30 +642,42 @@ class AdminController extends CI_Controller
                 "Warning!",
                 "Please, fill in all the fields."
             );
-
             redirect($_SERVER["HTTP_REFERER"]);
         }
     }
 
     public function crud_partners_delete($id)
     {
-        $partner_data = json_decode($this->AdminModel->partners_admin_db_get($id)["p_data"], TRUE);
-        $partner_img_path = "./file_manager/partners/" . $partner_data["partner_img"];
+        $partner_data = $this->AdminModel->partners_admin_db_get($id);
+        $partner_img_path = "./file_manager/partners/" . $partner_data["p_img"];
         if (!is_dir($partner_img_path) && file_exists($partner_img_path)) {
             unlink($partner_img_path);
         }
         $this->AdminModel->partners_admin_db_delete($id);
-
         $this->AlertFlashData(
             "success",
             "crud_alert",
             "Success!",
             "The partner has been successfully removed."
         );
-
         redirect(base_url("admin/partners-list"));
     }
     /*=====PARTNERS CRUD - ENDED=====*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /*=====CATEGORIES CRUD - START=====*/
     public function crud_categories_create()

@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class AdminModel extends CI_Model
 {
-    /*==========GLOBAL MODEL - START==========*/
+    /*====================GLOBAL MODEL - START====================*/
     public function table_row_id($tableName, $idName)
     {
         $rows_count = $this->db->count_all_results($tableName, TRUE);
@@ -15,33 +15,11 @@ class AdminModel extends CI_Model
             return -1;
         }
     }
-    /*==========GLOBAL MODEL - ENDED==========*/
+    /*====================GLOBAL MODEL - ENDED====================*/
 
+    /*====================CRUD MODEL - START====================*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*==========CRUD MODEL - START==========*/
-
-
-
-
-    /*=====TOPBAR MODEL - START=====*/
+    /*==========TOPBAR MODEL - START==========*/
     private const TOPBAR_TABLE_NAME = "topbar";
     private const TOPBAR_ID_NAME = "t_uid";
 
@@ -64,7 +42,7 @@ class AdminModel extends CI_Model
     {
         $this->db->delete(self::TOPBAR_TABLE_NAME, self::TOPBAR_ID_NAME . "=" . $id);
     }
-    /*=====TOPBAR MODEL - ENDED=====*/
+    /*==========TOPBAR MODEL - ENDED==========*/
 
     /*=====BRANDING MODEL - START=====*/
     private const BRANDING_TABLE_NAME = "branding";
@@ -120,6 +98,22 @@ class AdminModel extends CI_Model
         $this->db->delete("partners", self::PARTNERS_ID_NAME . "=" . $id);
     }
     /*=====PARTNERS MODEL - ENDED=====*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /*=====CATEGORIES MODEL - START=====*/
     private const CATEGORIES_TABLE_NAME = "categories";

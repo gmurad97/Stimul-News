@@ -79,7 +79,7 @@
                     <h1 class="h5 text-success my-3">Other</h1>
                     <div class="row d-flex flex-row justify-content-between align-items-center">
                         <div class="col-md-3">
-                            <label for="site_title_prefix_label">Title Prefix</label>
+                            <label for="site_title_prefix_label">Site Title Prefix</label>
                         </div>
                         <div class="col-md-9">
                             <input required name="site_title_prefix" type="text" class="form-control form-control-sm" id="site_title_prefix_label" placeholder="Stimul News">

@@ -9,8 +9,8 @@ $route["translate_uri_dashes"]  = FALSE;
 $route["admin/auth"]                           = "AdminController/login";
 $route["admin/auth-action"]                    = "AdminController/login_action";
 $route["admin/dashboard"]                      = "AdminController/dashboard";
-$route["admin/gpt"]                            = "AdminController/cgpt";
-$route["admin/api/gpt/(.*)"]                   = "AdminController/cgpt_action/$1";
+$route["admin/gpt"]                            = "AdminController/ai_gpt";
+$route["admin/api/gpt/(.*)"]                   = "AdminController/ai_gpt_action/$1";
 
 /*=====TOPBAR CRUD - START=====*/
 $route["admin/topbar-create"]                  = "AdminController/crud_topbar_create";
