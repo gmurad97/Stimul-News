@@ -1,12 +1,7 @@
-ERROR - 2023-11-06 06:15:23 --> 404 Page Not Found: AdminController/crud_settings_create
-ERROR - 2023-11-06 06:26:45 --> 404 Page Not Found: AdminController/crud_about_us_create
-ERROR - 2023-11-06 06:30:24 --> 404 Page Not Found: AdminController/login
-ERROR - 2023-11-06 06:32:11 --> 404 Page Not Found: Admin/auth1
-ERROR - 2023-11-06 06:32:24 --> 404 Page Not Found: Cdn-cgi/rum
-ERROR - 2023-11-06 06:33:01 --> 404 Page Not Found: Cdn-cgi/rum
-ERROR - 2023-11-06 06:36:00 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
-ERROR - 2023-11-06 06:36:15 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 6
-ERROR - 2023-11-06 06:37:22 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\Login.php 7
-ERROR - 2023-11-06 06:37:36 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\Login.php 7
-ERROR - 2023-11-06 06:40:24 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\Login.php 7
-ERROR - 2023-11-06 06:41:02 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\Login.php 7
+ERROR - 2023-11-06 22:58:01 --> create_captcha(): 'C:/OSPanel/domains/stimul.news/captcha/file.png' is not a dir, nor is it writable.
+ERROR - 2023-11-06 23:32:56 --> Severity: error --> Exception: mt_rand(): Argument #2 ($max) must be greater than or equal to argument #1 ($min) C:\OSPanel\domains\stimul.news\system\helpers\captcha_helper.php 243
+ERROR - 2023-11-06 23:33:03 --> Severity: error --> Exception: mt_rand(): Argument #2 ($max) must be greater than or equal to argument #1 ($min) C:\OSPanel\domains\stimul.news\system\helpers\captcha_helper.php 243
+ERROR - 2023-11-06 23:33:25 --> Severity: error --> Exception: mt_rand(): Argument #2 ($max) must be greater than or equal to argument #1 ($min) C:\OSPanel\domains\stimul.news\system\helpers\captcha_helper.php 243
+ERROR - 2023-11-06 23:33:43 --> Severity: error --> Exception: mt_rand(): Argument #2 ($max) must be greater than or equal to argument #1 ($min) C:\OSPanel\domains\stimul.news\system\helpers\captcha_helper.php 243
+ERROR - 2023-11-06 23:33:50 --> Severity: error --> Exception: mt_rand(): Argument #2 ($max) must be greater than or equal to argument #1 ($min) C:\OSPanel\domains\stimul.news\system\helpers\captcha_helper.php 243
+ERROR - 2023-11-06 23:39:23 --> Severity: Warning --> Undefined array key "border" C:\OSPanel\domains\stimul.news\system\helpers\captcha_helper.php 261

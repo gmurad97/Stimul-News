@@ -6,8 +6,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
  * USERNAME: gmurad97 || ASProgerHack
  * USER TEMPLATE: MORUS NEWS (Dump&Crack FrontEnd Pages)
  * ADMIN TEMPLATE: HUD ADMIN (Dump&Crack FrontEnd Pages)
- * VERSION: 1.3
- */
+ * VERSION: 2.1
+ * USED LOCAL SERVER: OPENSERVER
+ **/
 
 class AdminController extends CI_Controller
 {
@@ -20,7 +21,7 @@ class AdminController extends CI_Controller
     /*=====LOCAL ADMIN CONTROLLER FUNCTION - START=====*/
     protected function SendEmail(array $eTo, string $eSubject, string $eMessage): bool
     {
-        $eFrom = "stimul.news@flash.az";
+        $eFrom = "murad.dev@rrshipping.global";
         $eFromName = "STIMUL NEWS";
 
         $this->email->clear();
@@ -29,7 +30,7 @@ class AdminController extends CI_Controller
         $this->email->subject($eSubject);
         $this->email->message($eMessage);
 
-        return $this->email->send() ? true : false;
+        return $this->email->send();
     }
 
     protected function AlertFlashData(string $alertType, string $alertName, string $alertShortMessage, string $alertLongMessage): void
@@ -78,23 +79,69 @@ class AdminController extends CI_Controller
         return array_splice($response_result, 0, $cryptoLimit);
     }
 
-    protected function FiatPrice($sourceFiat, array $currencyFiat)
+    protected function FiatPrice(array $currencyFiat)
     {
-        $curl_fiat_price = curl_init("http://apilayer.net/api/live?access_key=fe5846bdd06207a77f1865b04022e68f&currencies=" . join(",", $currencyFiat) . "&source=" . $sourceFiat . "&format=1");
+        $curl_fiat_price = curl_init("https://openexchangerates.org/api/latest.json?app_id=65d9e0d1a009445c9f96ceb8caed66bb&symbols=" . join(",", $currencyFiat));
         curl_setopt($curl_fiat_price, CURLOPT_USERAGENT, "StimulNewsClient-v1.3");
         curl_setopt($curl_fiat_price, CURLOPT_RETURNTRANSFER, TRUE);
         $response_result = curl_exec($curl_fiat_price);
         curl_close($curl_fiat_price);
-        return json_decode($response_result, TRUE)["quotes"];
+        return json_decode($response_result, TRUE)["rates"];
     }
     /*=====LOCAL ADMIN CONTROLLER FUNCTION - ENDED=====*/
 
 
 
 
-    public function login(){
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function login()
+    {
+        print_r($this->SendEmail(["murad.dev@bk.ru"], "sub", "mess"));
+        print_r($this->email->print_debugger());
+
+        /* $this->load->helper("captcha");
+
+        $captcha_cfg = [
+            "img_path" => "./file_manager/system/captcha/",
+            "img_url" => base_url("/file_manager/system/captcha/"),
+            "font_path" => "system/fonts/texb.ttf",
+            "img_width" => 160,
+            "img_height" => 48,
+            "expiration" => 1920,
+            "word_length" => 8,
+            "pool" => "XYZ0123456789",
+            "colors" => [
+                "background" => array(56, 173, 169),
+                "border" => array(30, 55, 153),
+                "text" => array(123, 237, 159),
+                "grid" => array(60, 99, 130)
+            ]
+        ];
+
+        $data["admin_auth_captcha"] = create_captcha($captcha_cfg);
+        $this->session->unset_userdata("adm_auth_captcha");
+        $this->session->set_userdata("adm_auth_captcha", $data["admin_auth_captcha"]["word"]);
         $data["admin_page_name"] = "Admin Panel";
-        $this->load->view("admins/Login",$data);
+        $this->load->view("admins/Login", $data); */
+    }
+
+    public function login_action()
+    {
     }
 
 
@@ -110,7 +157,7 @@ class AdminController extends CI_Controller
     {
         $data["admin_page_name"] = "Dashboard";
         $data["crypto_price"] = $this->CryptoPrice(3);
-        $data["fiat_price"] = $this->FiatPrice("USD", ["AZN", "RUB", "EUR"]);
+        $data["fiat_price"] = $this->FiatPrice(["AZN", "RUB", "EUR"]);
         $this->load->view("admins/Dashboard", $data);
     }
     /*=====DASHBOARD - ENDED=====*/
@@ -951,7 +998,6 @@ class AdminController extends CI_Controller
             $this->AlertFlashData(
                 "danger",
                 "crud_alert",
-                "Create",
                 "Danger!",
                 "Unknown error."
             );

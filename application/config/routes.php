@@ -7,6 +7,7 @@ $route["translate_uri_dashes"]  = FALSE;
 
 /*=====ADMIN CONTROLLER - START=====*/
 $route["admin/auth"]                           = "AdminController/login";
+$route["admin/auth-action"]                    = "AdminController/login_action";
 $route["admin/dashboard"]                      = "AdminController/dashboard";
 $route["admin/gpt"]                            = "AdminController/cgpt";
 $route["admin/api/gpt/(.*)"]                   = "AdminController/cgpt_action/$1";

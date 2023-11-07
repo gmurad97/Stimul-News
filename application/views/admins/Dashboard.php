@@ -6,7 +6,7 @@
         <div class="card bg-theme border-theme bg-opacity-10 mb-3">
             <div class="card-body">
                 <div class="d-flex fw-bold small mb-3">
-                    <span class="flex-grow-1 text-success">FIAT PRICE</span>
+                    <span class="flex-grow-1 text-success">FIAT PRICE - USD</span>
                 </div>
                 <div class="small text-inverse text-opacity-50 text-truncate">
                     <table class="table table-hover">
