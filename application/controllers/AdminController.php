@@ -825,19 +825,21 @@ class AdminController extends CI_Controller
         if (!is_dir($category_img_path) && file_exists($category_img_path)) {
             unlink($category_img_path);
         }
-
         $this->AdminModel->categories_admin_db_delete($id);
-
         $this->AlertFlashData(
             "success",
             "crud_alert",
             "Success!",
             "The category has been successfully removed."
         );
-
         redirect(base_url("admin/categories-list"));
     }
     /*=====CATEGORIES CRUD - ENDED=====*/
+
+
+
+
+
 
 
 
@@ -869,12 +871,12 @@ class AdminController extends CI_Controller
         $subscribers_data = array_map(function ($subs_data) {
             return json_decode($subs_data["s_data"], TRUE);
         }, $this->AdminModel->subscribers_admin_db_get_results());
-
         $subscribers_email = array_values(array_filter(array_map(function ($subs_item) {
             if ($subs_item["subscriber"]["status"]) {
                 return base64_decode($subs_item["subscriber"]["email"]);
             }
         }, $subscribers_data)));
+
 
         $news_title_en             = $this->input->post("news_title_en", TRUE);
         $news_title_ru             = $this->input->post("news_title_ru", TRUE);
@@ -1249,6 +1251,24 @@ class AdminController extends CI_Controller
     }
     /*=====NEWS CRUD - ENDED=====*/
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /*=====SUBSCRIBERS CRUD - START=====*/
     public function crud_subscribers_create()
     {
@@ -1260,30 +1280,18 @@ class AdminController extends CI_Controller
     {
         $subscriber_email = $this->input->post("subscriber_email", TRUE);
         $subscriber_status = $this->input->post("subscriber_status", TRUE);
-
         if (!empty($subscriber_email)) {
-            $json_data = [
-                "subscriber" => [
-                    "email" => base64_encode(strtolower($subscriber_email)),
-                    "status" => str_contains($subscriber_status, "on") ? TRUE : FALSE
-                ]
-            ];
-
-            $json_data_encoded = json_encode($json_data);
-
             $data = [
-                "s_data" => $json_data_encoded
+                "s_email"  => strtolower($subscriber_email),
+                "s_status" => str_contains($subscriber_status, "on") ? TRUE : FALSE
             ];
-
             $this->AdminModel->subscribers_admin_db_insert($data);
-
             $this->AlertFlashData(
                 "success",
                 "crud_alert",
                 "Success!",
                 "The subscriber has been successfully added."
             );
-
             redirect(base_url("admin/subscribers-list"));
         } else {
             $this->AlertFlashData(
@@ -1292,7 +1300,6 @@ class AdminController extends CI_Controller
                 "Warning!",
                 "Please, fill in all the fields."
             );
-
             redirect($_SERVER["HTTP_REFERER"]);
         }
     }
@@ -1300,7 +1307,7 @@ class AdminController extends CI_Controller
     public function crud_subscribers_edit($id)
     {
         $data["admin_page_name"] = "Subscribers Edit";
-        $data["subscriber_info"] = $this->AdminModel->subscribers_admin_db_get($id);
+        $data["subscriber_data"] = $this->AdminModel->subscribers_admin_db_get($id);
         $this->load->view("admins/Subscribers/Edit", $data);
     }
 
@@ -1308,30 +1315,18 @@ class AdminController extends CI_Controller
     {
         $subscriber_email = $this->input->post("subscriber_email", TRUE);
         $subscriber_status = $this->input->post("subscriber_status", TRUE);
-
         if (!empty($subscriber_email)) {
-            $json_data = [
-                "subscriber" => [
-                    "email" => base64_encode(strtolower($subscriber_email)),
-                    "status" => str_contains($subscriber_status, "on") ? TRUE : FALSE
-                ]
-            ];
-
-            $json_data_encoded = json_encode($json_data);
-
             $data = [
-                "s_data" => $json_data_encoded
+                "s_email"  => strtolower($subscriber_email),
+                "s_status" => str_contains($subscriber_status, "on") ? TRUE : FALSE
             ];
-
             $this->AdminModel->subscribers_admin_db_update($id, $data);
-
             $this->AlertFlashData(
                 "success",
                 "crud_alert",
                 "Success!",
                 "The subscriber has been successfully edited."
             );
-
             redirect(base_url("admin/subscribers-list"));
         } else {
             $this->AlertFlashData(
@@ -1340,7 +1335,6 @@ class AdminController extends CI_Controller
                 "Warning!",
                 "Please, fill in all the fields."
             );
-
             redirect($_SERVER["HTTP_REFERER"]);
         }
     }
@@ -1355,17 +1349,33 @@ class AdminController extends CI_Controller
     public function crud_subscribers_delete($id)
     {
         $this->AdminModel->subscribers_admin_db_delete($id);
-
         $this->AlertFlashData(
             "success",
             "crud_alert",
             "Success!",
             "The subscriber has been successfully removed."
         );
-
         redirect(base_url("admin/subscribers-list"));
     }
     /*=====SUBSCRIBERS CRUD - ENDED=====*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /*=====SLIDER CRUD - START=====*/
 

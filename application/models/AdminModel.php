@@ -129,27 +129,6 @@ class AdminModel extends CI_Model
     }
     /*=====CATEGORIES MODEL - ENDED=====*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
     /*=====NEWS MODEL - START=====*/
     private const NEWS_TABLE_NAME = "news";
     private const NEWS_ID_NAME = "n_uid";
@@ -180,7 +159,27 @@ class AdminModel extends CI_Model
     }
     /*=====NEWS MODEL - ENDED=====*/
 
-    /*=====NEWS MODEL - START=====*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*=====SUBSCRIBERS MODEL - START=====*/
     private const SUBSCRIBERS_TABLE_NAME = "subscribers";
     private const SUBSCRIBERS_ID_NAME = "s_uid";
 
@@ -208,7 +207,25 @@ class AdminModel extends CI_Model
     {
         $this->db->delete(self::SUBSCRIBERS_TABLE_NAME, self::SUBSCRIBERS_ID_NAME . "=" . $id);
     }
-    /*=====NEWS MODEL - ENDED=====*/
+    /*=====SUBSCRIBERS MODEL - ENDED=====*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /*=====SLIDER MODEL - START=====*/
     private const SLIDER_TABLE_NAME = "slider";

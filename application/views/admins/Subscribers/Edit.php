@@ -12,7 +12,7 @@
                 <i class="bi bi-list-nested me-1"></i>
                 List
             </a>
-            <button type="submit" form="subscribers_form" class="btn btn-outline-warning btn-sm rounded-2">
+            <button type="submit" form="crud_form" class="btn btn-outline-warning btn-sm rounded-2">
                 <i class="bi bi-pencil-square me-1"></i>
                 Edit
             </button>
@@ -29,11 +29,7 @@
                 </p>
             </div>
         <?php endif; ?>
-        <?php
-        $subcriber_id = $subscriber_info["s_uid"];
-        $subscriber_data = json_decode($subscriber_info["s_data"], FALSE);
-        ?>
-        <form action="<?= base_url('admin/subscribers-edit-action/') . $subcriber_id; ?>" method="POST" enctype="application/x-www-form-urlencoded" class="was-validated" id="subscribers_form">
+        <form action="<?= base_url('admin/subscribers-edit-action/') . $subscriber_data["s_uid"]; ?>" method="POST" enctype="application/x-www-form-urlencoded" class="was-validated" id="crud_form">
             <ul class="list-group list-group-flush mb-3">
                 <li class="list-group-item">
                     <div class="row d-flex flex-row justify-content-between align-items-center">
@@ -41,14 +37,14 @@
                             <label for="subscriber_email_label">Email</label>
                         </div>
                         <div class="col-md-9">
-                            <input required name="subscriber_email" type="email" class="form-control form-control-sm" id="subscriber_email_label" value="<?= htmlentities(base64_decode($subscriber_data->subscriber->email)); ?>" placeholder="name@example.com">
+                            <input required name="subscriber_email" type="email" class="form-control form-control-sm" id="subscriber_email_label" value="<?= $subscriber_data["s_email"]; ?>" placeholder="name@example.com">
                         </div>
                     </div>
                 </li>
                 <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
                     <label for="subscriber_status_label">Status</label>
                     <div class="form-check form-switch">
-                        <input name="subscriber_status" type="checkbox" class="form-check-input" id="subscriber_status_label" <?= $subscriber_data->subscriber->status ? "checked" : ""; ?>>
+                        <input name="subscriber_status" type="checkbox" class="form-check-input" id="subscriber_status_label" <?= $subscriber_data["s_status"] ? "checked" : ""; ?>>
                     </div>
                 </li>
             </ul>

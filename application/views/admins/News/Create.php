@@ -162,12 +162,16 @@
                         <div class="col-md-6">
                             <label for="news_category_label">Category</label>
                             <select required name="news_category" class="form-select form-select-sm my-2" id="news_category_label">
-                                <?php foreach ($categories_list as $categories_list_item) : ?>
-                                    <?php $categories_list_item_info = json_decode($categories_list_item["c_data"]); ?>
-                                    <?php if ($categories_list_item_info->category_status) : ?>
-                                        <option value="<?= htmlentities(base64_decode($categories_list_item_info->category_name->en)); ?>"><?= htmlentities(base64_decode($categories_list_item_info->category_name->en)); ?></option>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
+                                <?php if (!empty($categories_list)) : ?>
+                                    <?php foreach ($categories_list as $categories_list_item) : ?>
+                                        <?php $category_name = json_decode($categories_list_item["c_name"], FALSE); ?>
+                                        <?php if ($categories_list_item["c_status"]) : ?>
+                                            <option value="<?= htmlentities(base64_decode($category_name->en)); ?>"><?= htmlentities(base64_decode($category_name->en)); ?></option>
+                                        <?php else : ?>
+                                            <option disabled value="<?= htmlentities(base64_decode($category_name->en)); ?>"><?= htmlentities(base64_decode($category_name->en)); ?></option>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
                             </select>
                         </div>
                         <div class="col-md-6">
@@ -185,7 +189,6 @@
                         <input name="news_status" type="checkbox" class="form-check-input" id="news_status_label">
                     </div>
                 </li>
-
                 <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
                     <label for="notify_subscribers_label" class="text-red fw-bold">Notify Subscribers?</label>
                     <div class="form-check form-switch">

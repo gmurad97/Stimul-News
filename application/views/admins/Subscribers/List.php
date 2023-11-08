@@ -36,19 +36,16 @@
             </thead>
             <tbody>
                 <?php if (!empty($subscribers_list)) : ?>
-                    <?php
-                    $id_counter = 0;
-                    foreach ($subscribers_list as $subscriber) :
-                        $subscriber_id = $subscriber["s_uid"];
-                        $subscriber_data = json_decode($subscriber["s_data"], FALSE); ?>
+                    <?php $id_counter = 1; ?>
+                    <?php foreach ($subscribers_list as $subscriber) : ?>
                         <tr>
-                            <td><?= ++$id_counter; ?></td>
+                            <td><?= $id_counter++; ?></td>
                             <td>
                                 <i class="bi bi-envelope-at text-success"></i>
-                                <?= htmlentities(base64_decode($subscriber_data->subscriber->email ?? "NULL")); ?>
+                                <a href="mailto:<?= $subscriber["s_email"]; ?>" class="text-decoration-none"><?= $subscriber["s_email"]; ?></a>
                             </td>
                             <td>
-                                <?php if ($subscriber_data->subscriber->status) : ?>
+                                <?php if ($subscriber["s_status"]) : ?>
                                     <span class="badge bg-success p-2 w-75px text-uppercase">Active</span>
                                 <?php else : ?>
                                     <span class="badge bg-danger p-2 w-75px text-uppercase">Inactive</span>
@@ -59,10 +56,10 @@
                                     <a href="javascript:void(0);" class="nav-link disabled theme-info p-0">
                                         <i class="bi bi-eye fs-5"></i>
                                     </a>
-                                    <a href="<?= base_url('admin/subscribers-edit/') . $subscriber_id; ?>" class="nav-link theme-warning p-0 mx-3">
+                                    <a href="<?= base_url('admin/subscribers-edit/') . $subscriber["s_uid"]; ?>" class="nav-link theme-warning p-0 mx-3">
                                         <i class="bi bi-pencil-square fs-5"></i>
                                     </a>
-                                    <a href="javascript:void(0);" class="nav-link theme-danger p-0" data-link="<?= base_url('admin/subscribers-delete/') . $subscriber_id; ?>" data-bs-toggle="modal" data-bs-target="#danger_modal">
+                                    <a href="javascript:void(0);" class="nav-link theme-danger p-0" data-link="<?= base_url('admin/subscribers-delete/') . $subscriber["s_uid"]; ?>" data-bs-toggle="modal" data-bs-target="#danger_modal">
                                         <i class=" bi bi-trash fs-5"></i>
                                     </a>
                                 </nav>
@@ -70,7 +67,6 @@
                         </tr>
                     <?php endforeach; ?>
                 <?php endif; ?>
-
             </tbody>
             <tfoot>
                 <tr>
@@ -81,8 +77,6 @@
                 </tr>
             </tfoot>
         </table>
-
-
         <!--DATA TABLE SCRIPTS & STYLES - START-->
         <link rel="stylesheet" href="<?= base_url('public/admin/assets/plugins/datatable/css/buttons.bootstrap5.min.css'); ?>">
         <link rel="stylesheet" href="<?= base_url('public/admin/assets/plugins/datatable/css/dataTables.bootstrap5.min.css'); ?>">
