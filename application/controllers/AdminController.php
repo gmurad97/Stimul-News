@@ -868,16 +868,10 @@ class AdminController extends CI_Controller
 
     public function crud_news_create_action()
     {
-        $subscribers_data = array_map(function ($subs_data) {
-            return json_decode($subs_data["s_data"], TRUE);
-        }, $this->AdminModel->subscribers_admin_db_get_results());
-        $subscribers_email = array_values(array_filter(array_map(function ($subs_item) {
-            if ($subs_item["subscriber"]["status"]) {
-                return base64_decode($subs_item["subscriber"]["email"]);
-            }
-        }, $subscribers_data)));
-
-
+        $subscribers_data_list  = $this->AdminModel->subscribers_admin_db_get_results();
+        $subscribers_email_list = array_filter(array_map(function ($subscriber_data) {
+            return $subscriber_data["s_status"] ? $subscriber_data["s_email"] : "";
+        }, $subscribers_data_list));
         $news_title_en             = $this->input->post("news_title_en", TRUE);
         $news_title_ru             = $this->input->post("news_title_ru", TRUE);
         $news_title_az             = $this->input->post("news_title_az", TRUE);
@@ -887,31 +881,28 @@ class AdminController extends CI_Controller
         $news_full_description_en  = $this->input->post("news_full_description_en", FALSE);
         $news_full_description_ru  = $this->input->post("news_full_description_ru", FALSE);
         $news_full_description_az  = $this->input->post("news_full_description_az", FALSE);
-        $news_category             = base64_encode($this->input->post("news_category", TRUE));
+        $news_category             = $this->input->post("news_category", TRUE);
         $news_status               = $this->input->post("news_status", TRUE);
         $news_notify_subscribers   = str_contains($this->input->post("notify_subscribers", TRUE), "on") ? TRUE : FALSE;
-
         $categories_list_data = $this->AdminModel->categories_admin_db_get_results();
-
-        $categories_list = array_map(function ($category_item) {
-            return json_decode($category_item["c_data"], TRUE);
+        $categories_list = array_map(function ($category_data) {
+            return base64_decode(json_decode($category_data["c_name"], FALSE)->en);
         }, $categories_list_data);
-
-        $category_data = array_merge(...array_filter($categories_list, function ($v) use ($news_category) {
-            if (in_array($news_category, $v["category_name"], TRUE)) {
-                return $v;
-            }
-        }));
-
-        if (empty($category_data)) {
+        $isFoundCategory = in_array($news_category, $categories_list);
+        if (!$isFoundCategory) {
             $this->AlertFlashData(
                 "danger",
                 "crud_alert",
                 "Danger!",
                 "Unknown error."
             );
-            redirect(base_url("admin/news-create"));
+            redirect($_SERVER["HTTP_REFERER"]);
         }
+
+
+
+
+
 
         $news_config["upload_path"]      = "./file_manager/news/";
         $news_config["allowed_types"]    = "ico|jpeg|jpg|png|svg|ICO|JPEG|JPG|PNG|SVG";
