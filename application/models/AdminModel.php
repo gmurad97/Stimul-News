@@ -140,12 +140,12 @@ class AdminModel extends CI_Model
 
     public function news_admin_db_get_results()
     {
-        return $this->db->order_by(self::NEWS_ID_NAME, "DESC")->get(self::NEWS_TABLE_NAME)->result_array();
+        return $this->db->order_by(self::NEWS_ID_NAME,"DESC")->join("categories", "c_uid = n_category_uid", "left")->get(self::NEWS_TABLE_NAME)->result_array();
     }
 
     public function news_admin_db_get($id)
     {
-        return $this->db->where(self::NEWS_ID_NAME, $id)->get(self::NEWS_TABLE_NAME)->row_array();
+        return $this->db->order_by(self::NEWS_ID_NAME,"DESC")->join("categories", "c_uid = n_category_uid", "left")->where(self::NEWS_ID_NAME, $id)->get(self::NEWS_TABLE_NAME)->row_array();
     }
 
     public function news_admin_db_update($id, $data)

@@ -43,36 +43,38 @@
                     <?php
                     $id_counter = 1;
                     foreach ($news_data as $news_data_item) :
-                        $news_data_item_id = $news_data_item["n_uid"];
-                        $news_data_item_data = json_decode($news_data_item["n_data"]);
+                        $news_title         = json_decode($news_data_item["n_title"], FALSE);
+                        $news_short         = json_decode($news_data_item["n_short"], FALSE);
+                        $news_full          = json_decode($news_data_item["n_full"], FALSE);
+                        $news_category_name = json_decode($news_data_item["c_name"], FALSE);
                     ?>
                         <tr>
                             <td><?= $id_counter++; ?></td>
                             <td>
-                                <a href="<?= base_url('file_manager/news/') . $news_data_item_data->news_preview; ?>" data-lity>
-                                    <img width="64" height="64" style="object-fit: cover;" class="rounded-circle bg-white" src="<?= base_url('file_manager/news/') . $news_data_item_data->news_preview; ?>" title="<?= htmlentities(base64_decode($news_data_item_data->news_title->en)); ?>" alt="<?= htmlentities(base64_decode($news_data_item_data->news_title->en)); ?>">
+                                <a href="<?= base_url('file_manager/news/') . $news_data_item["n_preview_img"]; ?>" data-lity>
+                                    <img width="64" height="64" style="object-fit: cover;" class="rounded-circle bg-white" src="<?= base_url('file_manager/news/') . $news_data_item["n_preview_img"]; ?>" title="<?= htmlentities(base64_decode($news_title->en)); ?>" alt="<?= htmlentities(base64_decode($news_title->en)); ?>">
                                 </a>
                             </td>
                             <td>
                                 <p class="text-truncate p-0 m-0" style="max-width:200px;">
-                                    <?= (is_null($news_data_item_data->news_title->en) || empty($news_data_item_data->news_title->en)) ? "NULL" : htmlentities(base64_decode($news_data_item_data->news_title->en)); ?>
+                                    <?= htmlentities(base64_decode($news_title->en)); ?>
                                 </p>
                             </td>
                             <td>
-                                <p class="text-white text-truncate px-2 py-1 m-0 rounded-5" style="text-align:center; max-width:150px; background-color:<?= $news_data_item_data->news_category_bg_color; ?>">
-                                    <?= htmlentities(base64_decode($news_data_item_data->news_category->en)); ?>
+                                <p class="text-white text-truncate px-2 py-1 m-0 rounded-5" style="text-align:center; max-width:150px; background-color:<?= $news_data_item["c_bg_color"]; ?>">
+                                    <?= htmlentities(base64_decode($news_category_name->en)); ?>
                                 </p>
                             </td>
                             <td>
                                 <div class="dflex flex-row">
                                     <i class="bi bi-calendar text-success"></i>
-                                    <?= $news_data_item_data->news_created_date ?>
+                                    <?= $news_data_item["n_created_date"]; ?>
                                     <i class="bi bi-clock text-success ms-2"></i>
-                                    <?= $news_data_item_data->news_created_time; ?>
+                                    <?= $news_data_item["n_created_time"]; ?>
                                 </div>
                             </td>
                             <td>
-                                <?php if ($news_data_item_data->news_status) : ?>
+                                <?php if ($news_data_item["n_status"]) : ?>
                                     <span class="badge bg-success p-2 w-90px text-uppercase">
                                         <i class="fa-regular fa-circle-check"></i>
                                         Active
@@ -86,18 +88,18 @@
                             </td>
                             <td>
                                 <span class="bg-indigo bg-opacity-50 text-black fw-bold p-1 rounded-2">
-                                    <?= $news_data_item_id; ?>
+                                    <?= $news_data_item["n_uid"]; ?>
                                 </span>
                             </td>
                             <td>
                                 <nav class="nav flex-row">
-                                    <a href="<?= base_url('admin/news-detail/') . $news_data_item_id; ?>" class="nav-link theme-info p-0">
+                                    <a href="<?= base_url('admin/news-detail/') . $news_data_item["n_uid"]; ?>" class="nav-link theme-info p-0">
                                         <i class="bi bi-eye fs-5"></i>
                                     </a>
-                                    <a href="<?= base_url('admin/news-edit/') . $news_data_item_id; ?>" class="nav-link theme-warning p-0 mx-3">
+                                    <a href="<?= base_url('admin/news-edit/') . $news_data_item["n_uid"]; ?>" class="nav-link theme-warning p-0 mx-3">
                                         <i class="bi bi-pencil-square fs-5"></i>
                                     </a>
-                                    <a href="javascript:void(0);" class="nav-link theme-danger p-0" data-link="<?= base_url('admin/news-delete/') . $news_data_item_id; ?>" data-bs-toggle="modal" data-bs-target="#danger_modal">
+                                    <a href="javascript:void(0);" class="nav-link theme-danger p-0" data-link="<?= base_url('admin/news-delete/') . $news_data_item["n_uid"]; ?>" data-bs-toggle="modal" data-bs-target="#danger_modal">
                                         <i class=" bi bi-trash fs-5"></i>
                                     </a>
                                 </nav>

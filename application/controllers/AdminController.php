@@ -885,11 +885,10 @@ class AdminController extends CI_Controller
         $news_status               = $this->input->post("news_status", TRUE);
         $news_notify_subscribers   = str_contains($this->input->post("notify_subscribers", TRUE), "on") ? TRUE : FALSE;
         $categories_list_data = $this->AdminModel->categories_admin_db_get_results();
-        $categories_list = array_map(function ($category_data) {
-            return base64_decode(json_decode($category_data["c_name"], FALSE)->en);
-        }, $categories_list_data);
-        $isFoundCategory = in_array($news_category, $categories_list);
-        if (!$isFoundCategory) {
+        $isFoundCategory = array_values(array_filter($categories_list_data, function ($category_item) use ($news_category) {
+            return base64_decode(json_decode($category_item["c_name"], FALSE)->en) === $news_category;
+        }))[0];
+        if (empty($isFoundCategory)) {
             $this->AlertFlashData(
                 "danger",
                 "crud_alert",
@@ -898,12 +897,6 @@ class AdminController extends CI_Controller
             );
             redirect($_SERVER["HTTP_REFERER"]);
         }
-
-
-
-
-
-
         $news_config["upload_path"]      = "./file_manager/news/";
         $news_config["allowed_types"]    = "ico|jpeg|jpg|png|svg|ICO|JPEG|JPG|PNG|SVG";
         $news_config["file_ext_tolower"] = TRUE;
@@ -911,7 +904,6 @@ class AdminController extends CI_Controller
         $news_config["encrypt_name"]     = TRUE;
         $this->load->library("upload", $news_config);
         $this->upload->initialize($news_config);
-
         if (
             $this->upload->do_upload("news_preview_img")
             && !empty($news_title_en)
@@ -926,58 +918,41 @@ class AdminController extends CI_Controller
             && !empty($news_category)
         ) {
             $news_preview = $this->upload->data();
-
             $preview_img_config["image_library"] = "gd2";
             $preview_img_config["source_image"] = $news_config["upload_path"] . $news_preview["file_name"];
-            $preview_img_config["maintain_ratio"] = FALSE;
+            $preview_img_config["maintain_ratio"] = TRUE;
             $preview_img_config["width"] = 1920;
             $preview_img_config["height"] = 1080;
-
             $this->load->library("image_lib", $preview_img_config);
             $this->load->initialize($preview_img_config);
-
             $this->image_lib->resize();
-
-            $json_data_decoded = [
-                "news_title" => [
+            $data = [
+                "n_title" => json_encode([
                     "en" => base64_encode($news_title_en),
                     "ru" => base64_encode($news_title_ru),
                     "az" => base64_encode($news_title_az)
-                ],
-                "news_short" => [
+                ]),
+                "n_short" => json_encode([
                     "en" => base64_encode($news_short_description_en),
                     "ru" => base64_encode($news_short_description_ru),
                     "az" => base64_encode($news_short_description_az)
-                ],
-                "news_full" => [
+                ]),
+                "n_full" => json_encode([
                     "en" => base64_encode($news_full_description_en),
                     "ru" => base64_encode($news_full_description_ru),
                     "az" => base64_encode($news_full_description_az),
-                ],
-                "news_preview" => $news_preview["file_name"],
-                "news_category" => [
-                    "en" => $category_data["category_name"]["en"],
-                    "ru" => $category_data["category_name"]["ru"],
-                    "az" => $category_data["category_name"]["az"],
-                ],
-                "news_category_bg_color" => $category_data["category_bg_color"],
-                "news_status" => str_contains($news_status, "on") ? TRUE : FALSE,
-                "news_created_date" => date("d.m.Y"),
-                "news_created_time" => date("H:i"),
+                ]),
+                "n_preview_img" => $news_preview["file_name"],
+                "n_category_uid" => $isFoundCategory["c_uid"],
+                "n_created_date" => date("d.m.Y"),
+                "n_created_time" => date("H:i"),
+                "n_status" => str_contains($news_status, "on") ? TRUE : FALSE,
             ];
-
-            $json_data_encoded = json_encode($json_data_decoded);
-
-            $data = [
-                "n_data" => $json_data_encoded
-            ];
-
             $this->AdminModel->news_admin_db_insert($data);
             $inserted_id = $this->db->insert_id();
-
             if ($news_notify_subscribers) {
                 $this->SendEmail(
-                    $subscribers_email,
+                    $subscribers_email_list,
                     "New news on the StimulNews",
                     "
                     <h1 style='font-family: Impact,sans-serif; font-weight: lighter; text-align: center;color: #3CD2A5;'>{$news_title_en}</h1>
@@ -988,7 +963,6 @@ class AdminController extends CI_Controller
                     "
                 );
             }
-
             $this->AlertFlashData(
                 "success",
                 "crud_alert",
@@ -1021,17 +995,26 @@ class AdminController extends CI_Controller
         $this->load->view("admins/News/Detail", $data);
     }
 
+
+
+
+
+
+
     public function crud_news_edit($id)
     {
         $data["admin_page_name"] = "News Edit";
-        $data["categories_list"] = $this->AdminModel->categories_admin_db_get_results();
         $data["news_data"] = $this->AdminModel->news_admin_db_get($id);
+        $data["categories_list"] = $this->AdminModel->categories_admin_db_get_results();
         $this->load->view("admins/News/Edit", $data);
     }
 
     public function crud_news_edit_action($id)
     {
+
+        $old_news_data = 
         $old_news_data = json_decode($this->AdminModel->news_admin_db_get($id)["n_data"], TRUE);
+
         $news_img_path = "./file_manager/news/" . $old_news_data["news_preview"];
 
         $news_title_en             = $this->input->post("news_title_en", TRUE);
@@ -1221,23 +1204,32 @@ class AdminController extends CI_Controller
         }
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
     public function crud_news_delete($id)
     {
-        $news_data = json_decode($this->AdminModel->news_admin_db_get($id)["n_data"], TRUE);
-        $news_img_path = "./file_manager/news/" . $news_data["news_preview"];
+        $news_data = $this->AdminModel->news_admin_db_get($id);
+        $news_img_path = "./file_manager/news/" . $news_data["n_preview_img"];
         if (!is_dir($news_img_path) && file_exists($news_img_path)) {
             unlink($news_img_path);
         }
-
         $this->AdminModel->news_admin_db_delete($id);
-
         $this->AlertFlashData(
             "success",
             "crud_alert",
             "Success!",
             "The news has been successfully removed."
         );
-
         redirect(base_url("admin/news-list"));
     }
     /*=====NEWS CRUD - ENDED=====*/

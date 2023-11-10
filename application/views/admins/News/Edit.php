@@ -30,17 +30,18 @@
             </div>
         <?php endif; ?>
         <?php
-        $news_id = $news_data["n_uid"];
-        $news_info = json_decode($news_data["n_data"]);
+        $news_title = json_decode($news_data["n_title"], FALSE);
+        $news_short = json_decode($news_data["n_short"], FALSE);
+        $news_full  = json_decode($news_data["n_full"], FALSE);
         ?>
-        <form action="<?= base_url('admin/news-edit-action/') . $news_id; ?>" method="POST" enctype="multipart/form-data" class="was-validated" id="crud_form">
+        <form action="<?= base_url('admin/news-edit-action/') . $news_data["n_uid"]; ?>" method="POST" enctype="multipart/form-data" class="was-validated" id="crud_form">
             <ul class="list-group list-group-flush mb-3">
                 <li class="list-group-item mb-3">
                     <div class="d-flex flex-row justify-content-between align-items-center">
-                        <label for="1" class="fw-bold text-warning">Current Preview</label>
-                        <a href="<?= base_url('file_manager/news/') . $news_info->news_preview; ?>" class="btn btn-outline-yellow btn-sm rounded-2" data-lity>
+                        <label class="fw-bold text-warning">Current Preview</label>
+                        <a href="<?= base_url('file_manager/news/') . $news_data["n_preview_img"]; ?>" class="btn btn-outline-yellow btn-sm rounded-2" data-lity>
                             Show Image
-                            <span class="img" style="background-image: url(<?= base_url('file_manager/news/') . $news_info->news_preview; ?>)"></span>
+                            <span class="img" style="background-image: url(<?= base_url('file_manager/news/') . $news_data["n_preview_img"]; ?>)"></span>
                         </a>
                     </div>
                 <li class="list-group ms-4">
@@ -65,20 +66,20 @@
                         <div class="row mb-2">
                             <div class="col-md-12">
                                 <label for="news_title_en_label" class="d-flex flex-row justify-content-start align-items-center">Title</label>
-                                <input required name="news_title_en" type="text" class="form-control form-control-sm my-2" id="news_title_en_label" value="<?= htmlentities(base64_decode($news_info->news_title->en)); ?>" placeholder="News Title">
+                                <input required name="news_title_en" type="text" class="form-control form-control-sm my-2" id="news_title_en_label" value="<?= htmlentities(base64_decode($news_title->en)); ?>" placeholder="News Title">
                             </div>
                         </div>
                         <div class="row mb-2">
                             <div class="col-md-12">
                                 <label for="news_short_description_en_label">Short Description</label>
-                                <textarea required name="news_short_description_en" class="form-control form-control-sm my-2" id="news_short_description_en_label" rows="3" placeholder="Short Description" style="resize: none;"><?= htmlentities(base64_decode($news_info->news_short->en)); ?></textarea>
+                                <textarea required name="news_short_description_en" class="form-control form-control-sm my-2" id="news_short_description_en_label" rows="3" placeholder="Short Description" style="resize: none;"><?= htmlentities(base64_decode($news_short->en)); ?></textarea>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="news-editor-en">Full Description</label>
                                 <script src="<?= base_url('public/admin/assets/plugins/ckeditor/ckeditor.js'); ?>"></script>
-                                <textarea required name="news_full_description_en" id="news-editor-en"><?= htmlentities(base64_decode($news_info->news_full->en)); ?></textarea>
+                                <textarea required name="news_full_description_en" id="news-editor-en"><?= htmlentities(base64_decode($news_full->en)); ?></textarea>
                                 <script>
                                     CKEDITOR.replace("news-editor-en", {
                                         on: {
@@ -98,20 +99,20 @@
                         <div class="row mb-2">
                             <div class="col-md-12">
                                 <label for="news_title_ru_label" class="d-flex flex-row justify-content-start align-items-center">Title</label>
-                                <input required name="news_title_ru" type="text" class="form-control form-control-sm my-2" id="news_title_ru_label" value="<?= htmlentities(base64_decode($news_info->news_title->ru)); ?>" placeholder="News Title">
+                                <input required name="news_title_ru" type="text" class="form-control form-control-sm my-2" id="news_title_ru_label" value="<?= htmlentities(base64_decode($news_title->ru)); ?>" placeholder="News Title">
                             </div>
                         </div>
                         <div class="row mb-2">
                             <div class="col-md-12">
                                 <label for="news_short_description_ru_label">Short Description</label>
-                                <textarea required name="news_short_description_ru" class="form-control form-control-sm my-2" id="news_short_description_ru_label" rows="3" placeholder="Short Description" style="resize: none;"><?= htmlentities(base64_decode($news_info->news_short->ru)); ?></textarea>
+                                <textarea required name="news_short_description_ru" class="form-control form-control-sm my-2" id="news_short_description_ru_label" rows="3" placeholder="Short Description" style="resize: none;"><?= htmlentities(base64_decode($news_short->ru)); ?></textarea>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="news-editor-ru">Full Description</label>
                                 <script src="<?= base_url('public/admin/assets/plugins/ckeditor/ckeditor.js'); ?>"></script>
-                                <textarea required name="news_full_description_ru" id="news-editor-ru"><?= htmlentities(base64_decode($news_info->news_full->ru)); ?></textarea>
+                                <textarea required name="news_full_description_ru" id="news-editor-ru"><?= htmlentities(base64_decode($news_full->ru)); ?></textarea>
                                 <script>
                                     CKEDITOR.replace("news-editor-ru", {
                                         on: {
@@ -131,20 +132,20 @@
                         <div class="row mb-2">
                             <div class="col-md-12">
                                 <label for="news_title_az_label" class="d-flex flex-row justify-content-start align-items-center">Title</label>
-                                <input required name="news_title_az" type="text" class="form-control form-control-sm my-2" id="news_title_az_label" value="<?= htmlentities(base64_decode($news_info->news_title->az)); ?>" placeholder="News Title">
+                                <input required name="news_title_az" type="text" class="form-control form-control-sm my-2" id="news_title_az_label" value="<?= htmlentities(base64_decode($news_title->az)); ?>" placeholder="News Title">
                             </div>
                         </div>
                         <div class="row mb-2">
                             <div class="col-md-12">
                                 <label for="news_short_description_az_label">Short Description</label>
-                                <textarea required name="news_short_description_az" class="form-control form-control-sm my-2" id="news_short_description_az_label" rows="3" placeholder="Short Description" style="resize: none;"><?= htmlentities(base64_decode($news_info->news_short->az)); ?></textarea>
+                                <textarea required name="news_short_description_az" class="form-control form-control-sm my-2" id="news_short_description_az_label" rows="3" placeholder="Short Description" style="resize: none;"><?= htmlentities(base64_decode($news_short->az)); ?></textarea>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="news-editor-az">Full Description</label>
                                 <script src="<?= base_url('public/admin/assets/plugins/ckeditor/ckeditor.js'); ?>"></script>
-                                <textarea required name="news_full_description_az" id="news-editor-az"><?= htmlentities(base64_decode($news_info->news_full->az)); ?></textarea>
+                                <textarea required name="news_full_description_az" id="news-editor-az"><?= htmlentities(base64_decode($news_full->az)); ?></textarea>
                                 <script>
                                     CKEDITOR.replace("news-editor-az", {
                                         on: {
@@ -169,12 +170,16 @@
                         <div class="col-md-6">
                             <label for="news_category_label">Category</label>
                             <select required name="news_category" class="form-select form-select-sm my-2" id="news_category_label">
-                                <?php foreach ($categories_list as $categories_list_item) : ?>
-                                    <?php $categories_list_item_info = json_decode($categories_list_item["c_data"]); ?>
-                                    <?php if ($categories_list_item_info->category_status) : ?>
-                                        <option value="<?= htmlentities(base64_decode($categories_list_item_info->category_name->en)); ?>" <?= $categories_list_item_info->category_name->en == $news_info->news_category->en ? "selected" : ""; ?>><?= htmlentities(base64_decode($categories_list_item_info->category_name->en)); ?></option>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
+                                <?php if (!empty($categories_list)) : ?>
+                                    <?php foreach ($categories_list as $categories_list_item) : ?>
+                                        <?php $category_name = json_decode($categories_list_item["c_name"], FALSE); ?>
+                                        <?php if ($categories_list_item["c_status"]) : ?>
+                                            <option <?= $categories_list_item["c_uid"] === $news_data["n_category_uid"] ? "selected" : "" ?> value="<?= htmlentities(base64_decode($category_name->en)); ?>"><?= htmlentities(base64_decode($category_name->en)); ?></option>
+                                        <?php else : ?>
+                                            <option <?= $categories_list_item["c_uid"] === $news_data["n_category_uid"] ? "selected" : "" ?> disabled value="<?= htmlentities(base64_decode($category_name->en)); ?>"><?= htmlentities(base64_decode($category_name->en)); ?></option>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
                             </select>
                         </div>
                         <div class="col-md-6">
@@ -189,7 +194,7 @@
                 <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
                     <label for="news_status_label">Status</label>
                     <div class="form-check form-switch">
-                        <input name="news_status" type="checkbox" class="form-check-input" id="news_status_label" <?= $news_info->news_status ? "checked" : "" ?>>
+                        <input name="news_status" type="checkbox" class="form-check-input" id="news_status_label" <?= $news_data["n_status"] ? "checked" : "" ?>>
                     </div>
                 </li>
             </ul>

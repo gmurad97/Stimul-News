@@ -3,8 +3,9 @@
 <?php $this->load->view("admins/includes/Sidebar"); ?>
 <div class="card bg-list border-list bg-opacity-5">
     <?php
-    $news_id = $news_data["n_uid"];
-    $news_info = json_decode($news_data["n_data"]);
+    $news_title = json_decode($news_data["n_title"], FALSE);
+    $news_short = json_decode($news_data["n_short"], FALSE);
+    $news_full  = json_decode($news_data["n_full"], FALSE);
     ?>
     <div class="card-header border-list fw-bold d-flex flex-row justify-content-between align-items-center">
         <div class="h5 text-info text-uppercase text-header-shadow m-0">
@@ -16,7 +17,7 @@
                 <i class="bi bi-list-nested me-1"></i>
                 News List
             </a>
-            <a href="<?= base_url('admin/news-edit/') . $news_id; ?>" class="btn btn-outline-warning btn-sm rounded-2">
+            <a href="<?= base_url('admin/news-edit/') . $news_data["n_uid"]; ?>" class="btn btn-outline-warning btn-sm rounded-2">
                 <i class="bi bi-pencil-square me-1"></i>
                 Edit
             </a>
@@ -50,14 +51,16 @@
                     <h1 class="h5 text-info">Short Preview</h1>
                     <div class="row gx-0 align-items-center">
                         <div class="col-md-5">
-                            <img width="100%" class="rounded" src="<?= base_url('file_manager/news/') . $news_info->news_preview; ?>" alt="News Preview">
+                            <a href="<?= base_url('file_manager/news/') . $news_data["n_preview_img"]; ?>" data-lity>
+                                <img width="100%" style="object-fit: cover;" src="<?= base_url('file_manager/news/') . $news_data["n_preview_img"]; ?>" title="<?= htmlentities(base64_decode($news_title->en)); ?>" alt="<?= htmlentities(base64_decode($news_title->en)); ?>">
+                            </a>
                         </div>
                         <div class="col-md-7">
                             <div class="card-body">
-                                <h5 class="card-title"><?= base64_decode($news_info->news_title->en); ?></h5>
-                                <p class="card-text"><?= base64_decode($news_info->news_short->en); ?></p>
+                                <h5 class="card-title"><?= base64_decode($news_title->en); ?></h5>
+                                <p class="card-text"><?= base64_decode($news_short->en); ?></p>
                                 <p class="card-text">
-                                    <small class="text-muted">Date: <?= $news_info->news_created_date . " " . $news_info->news_created_time; ?></small>
+                                    <small class="text-muted">Date: <?= $news_data["n_created_date"] . " " . $news_data["n_created_time"]; ?></small>
                                 </p>
                             </div>
                         </div>
@@ -68,7 +71,7 @@
                         <div class="card bg-list border-list bg-opacity-10 mb-3">
                             <div class="card-body">
                                 <p class="card-text text-inverse text-opacity-75">
-                                    <?= base64_decode($news_info->news_full->en); ?>
+                                    <?= base64_decode($news_full->en); ?>
                                 </p>
                             </div>
                             <div class="card-arrow">
@@ -86,14 +89,16 @@
                     <h1 class="h5 text-info">Short Preview</h1>
                     <div class="row gx-0 align-items-center">
                         <div class="col-md-5">
-                            <img width="100%" class="rounded" src="<?= base_url('file_manager/news/') . $news_info->news_preview; ?>" alt="News Preview">
+                            <a href="<?= base_url('file_manager/news/') . $news_data["n_preview_img"]; ?>" data-lity>
+                                <img width="100%" style="object-fit: cover;" src="<?= base_url('file_manager/news/') . $news_data["n_preview_img"]; ?>" title="<?= htmlentities(base64_decode($news_title->en)); ?>" alt="<?= htmlentities(base64_decode($news_title->en)); ?>">
+                            </a>
                         </div>
                         <div class="col-md-7">
                             <div class="card-body">
-                                <h5 class="card-title"><?= base64_decode($news_info->news_title->ru); ?></h5>
-                                <p class="card-text"><?= base64_decode($news_info->news_short->ru); ?></p>
+                                <h5 class="card-title"><?= base64_decode($news_title->ru); ?></h5>
+                                <p class="card-text"><?= base64_decode($news_short->ru); ?></p>
                                 <p class="card-text">
-                                    <small class="text-muted">Date: <?= $news_info->news_created_date . " " . $news_info->news_created_time; ?></small>
+                                    <small class="text-muted">Date: <?= $news_data["n_created_date"] . " " . $news_data["n_created_time"]; ?></small>
                                 </p>
                             </div>
                         </div>
@@ -104,7 +109,7 @@
                         <div class="card bg-list border-list bg-opacity-10 mb-3">
                             <div class="card-body">
                                 <p class="card-text text-inverse text-opacity-75">
-                                    <?= base64_decode($news_info->news_full->ru); ?>
+                                    <?= base64_decode($news_full->ru); ?>
                                 </p>
                             </div>
                             <div class="card-arrow">
@@ -122,14 +127,16 @@
                     <h1 class="h5 text-info">Short Preview</h1>
                     <div class="row gx-0 align-items-center">
                         <div class="col-md-5">
-                            <img width="100%" class="rounded" src="<?= base_url('file_manager/news/') . $news_info->news_preview; ?>" alt="News Preview">
+                            <a href="<?= base_url('file_manager/news/') . $news_data["n_preview_img"]; ?>" data-lity>
+                                <img width="100%" style="object-fit: cover;" src="<?= base_url('file_manager/news/') . $news_data["n_preview_img"]; ?>" title="<?= htmlentities(base64_decode($news_title->en)); ?>" alt="<?= htmlentities(base64_decode($news_title->en)); ?>">
+                            </a>
                         </div>
                         <div class="col-md-7">
                             <div class="card-body">
-                                <h5 class="card-title"><?= base64_decode($news_info->news_title->az); ?></h5>
-                                <p class="card-text"><?= base64_decode($news_info->news_short->az); ?></p>
+                                <h5 class="card-title"><?= base64_decode($news_title->az); ?></h5>
+                                <p class="card-text"><?= base64_decode($news_short->az); ?></p>
                                 <p class="card-text">
-                                    <small class="text-muted">Date: <?= $news_info->news_created_date . " " . $news_info->news_created_time; ?></small>
+                                    <small class="text-muted">Date: <?= $news_data["n_created_date"] . " " . $news_data["n_created_time"]; ?></small>
                                 </p>
                             </div>
                         </div>
@@ -140,7 +147,7 @@
                         <div class="card bg-list border-list bg-opacity-10 mb-3">
                             <div class="card-body">
                                 <p class="card-text text-inverse text-opacity-75">
-                                    <?= base64_decode($news_info->news_full->az); ?>
+                                    <?= base64_decode($news_full->az); ?>
                                 </p>
                             </div>
                             <div class="card-arrow">
@@ -170,7 +177,7 @@
             </div>
             <div class="modal-footer py-1">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <a href="<?= base_url('admin/news-delete/') . $news_id; ?>" class="btn btn-outline-danger">Remove</a>
+                <a href="<?= base_url('admin/news-delete/') . $news_data["n_uid"]; ?>" class="btn btn-outline-danger">Remove</a>
             </div>
         </div>
     </div>

@@ -1,7 +1,0 @@
-ERROR - 2023-11-09 00:05:17 --> Severity: Warning --> Undefined array key "c_data" C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 904
-ERROR - 2023-11-09 00:05:17 --> Severity: Warning --> Undefined array key "c_data" C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 904
-ERROR - 2023-11-09 00:05:17 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 908
-ERROR - 2023-11-09 00:05:17 --> Severity: error --> Exception: in_array(): Argument #2 ($haystack) must be of type array, null given C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 908
-ERROR - 2023-11-09 00:19:43 --> Severity: error --> Exception: syntax error, unexpected token "}", expecting ";" C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 917
-ERROR - 2023-11-09 00:19:44 --> Severity: error --> Exception: syntax error, unexpected token "}", expecting ";" C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 917
-ERROR - 2023-11-09 00:31:39 --> Severity: error --> Exception: in_array(): Argument #2 ($haystack) must be of type array, string given C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 915
