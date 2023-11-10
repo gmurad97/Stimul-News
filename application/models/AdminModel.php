@@ -140,12 +140,12 @@ class AdminModel extends CI_Model
 
     public function news_admin_db_get_results()
     {
-        return $this->db->order_by(self::NEWS_ID_NAME,"DESC")->join("categories", "c_uid = n_category_uid", "left")->get(self::NEWS_TABLE_NAME)->result_array();
+        return $this->db->order_by(self::NEWS_ID_NAME, "DESC")->join("categories", "c_uid = n_category_uid", "left")->get(self::NEWS_TABLE_NAME)->result_array();
     }
 
     public function news_admin_db_get($id)
     {
-        return $this->db->order_by(self::NEWS_ID_NAME,"DESC")->join("categories", "c_uid = n_category_uid", "left")->where(self::NEWS_ID_NAME, $id)->get(self::NEWS_TABLE_NAME)->row_array();
+        return $this->db->order_by(self::NEWS_ID_NAME, "DESC")->join("categories", "c_uid = n_category_uid", "left")->where(self::NEWS_ID_NAME, $id)->get(self::NEWS_TABLE_NAME)->row_array();
     }
 
     public function news_admin_db_update($id, $data)
@@ -158,26 +158,6 @@ class AdminModel extends CI_Model
         $this->db->delete(self::NEWS_TABLE_NAME, self::NEWS_ID_NAME . "=" . $id);
     }
     /*=====NEWS MODEL - ENDED=====*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     /*=====SUBSCRIBERS MODEL - START=====*/
     private const SUBSCRIBERS_TABLE_NAME = "subscribers";
@@ -256,6 +236,22 @@ class AdminModel extends CI_Model
         $this->db->delete(self::SLIDER_TABLE_NAME, self::SLIDER_ID_NAME . "=" . $id);
     }
     /*=====SLIDER MODEL - ENDED=====*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /*=====CONTACTS MODEL - START=====*/
     private const CONTACTS_TABLE_NAME = "contacts";
