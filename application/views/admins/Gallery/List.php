@@ -29,27 +29,24 @@
         <script src="<?= base_url('public/admin/assets/plugins/fancybox/js/fancybox.umd.js'); ?>"></script>
         <div class="container">
             <div class="row">
-                <?php foreach ($gallery_images as $gallery_image) :
-                    $gallery_image_uid = $gallery_image["g_uid"];
-                    $gallery_image_data = json_decode($gallery_image["g_data"], FALSE);
-                ?>
+                <?php foreach ($gallery_images as $gallery_image) : ?>
                     <div class="col-3 mb-3">
                         <div class="card bg-edit border-edit bg-opacity-5">
                             <div class="card-body">
-                                <a href="<?= base_url("file_manager/gallery/" . $gallery_image_data->gallery_file_name); ?>" data-fancybox="gallery">
-                                    <img src="<?= base_url("file_manager/gallery/" . $gallery_image_data->gallery_file_name); ?>" alt="Gallery Image" style="width: 100%; height:150px;">
+                                <a href="<?= base_url('file_manager/gallery/' . $gallery_image['g_img']); ?>" data-fancybox="gallery">
+                                    <img src="<?= base_url('file_manager/gallery/' . $gallery_image['g_img']); ?>" alt="Gallery Image" style="width: 100%; height:150px;">
                                 </a>
                             </div>
                             <div class="card-footer">
                                 <div class="row">
                                     <div class="col-12 col-md-6 text-center">
-                                        <a href="javascript:void(0);" class="theme-red text-decoration-none" data-link="<?= base_url('admin/gallery-delete/' . $gallery_image_uid); ?>" data-bs-toggle="modal" data-bs-target="#danger_modal">
+                                        <a href="javascript:void(0);" class="theme-red text-decoration-none" data-link="<?= base_url('admin/gallery-delete/' . $gallery_image["g_uid"]); ?>" data-bs-toggle="modal" data-bs-target="#danger_modal">
                                             <i class="bi bi-trash fs-5"></i>
                                             Remove
                                         </a>
                                     </div>
                                     <div class="col-12 col-md-6 text-center">
-                                        <a onclick="prompt('Copy to clipboard: Ctrl+C, Enter','<?= base_url('file_manager/gallery/' . $gallery_image_data->gallery_file_name); ?>');" href="javascript:void(0);" class="theme-blue text-decoration-none">
+                                        <a onclick="prompt('Copy to clipboard: Ctrl+C, Enter','<?= base_url('file_manager/gallery/' . $gallery_image['g_img']); ?>');" href="javascript:void(0);" class="theme-blue text-decoration-none">
                                             <i class="bi bi-box-arrow-up-right fs-5"></i>
                                             Link
                                         </a>
@@ -65,16 +62,6 @@
                         </div>
                     </div>
                 <?php endforeach; ?>
-
-
-
-
-
-
-
-
-
-
             </div>
         </div>
         <script>

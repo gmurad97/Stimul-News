@@ -1730,29 +1730,6 @@ class AdminController extends CI_Controller
     }
     /*=====CONTACTS CRUD - ENDED=====*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /*=====GALLERY CRUD - START=====*/
     public function crud_gallery_create()
     {
@@ -1769,29 +1746,18 @@ class AdminController extends CI_Controller
         $gallery_config["encrypt_name"]     = TRUE;
         $this->load->library("upload", $gallery_config);
         $this->upload->initialize($gallery_config);
-
         if ($this->upload->do_upload("gallery_img")) {
             $gallery_img = $this->upload->data()["file_name"];
-
-            $json_data_decoded = [
-                "gallery_file_name" => $gallery_img
-            ];
-
-            $json_data_ecoded = json_encode($json_data_decoded);
-
             $data = [
-                "g_data" => $json_data_ecoded
+                "g_img" => $gallery_img
             ];
-
             $this->AdminModel->gallery_admin_db_insert($data);
-
             $this->AlertFlashData(
                 "success",
                 "crud_alert",
                 "Success!",
                 "The image has been successfully added."
             );
-
             redirect(base_url("admin/gallery-list"));
         } else {
             $this->AlertFlashData(
@@ -1813,21 +1779,18 @@ class AdminController extends CI_Controller
 
     public function crud_gallery_delete($id)
     {
-        $gallery_img_path = "./file_manager/gallery/" . json_decode($this->AdminModel->gallery_admin_db_get($id)["g_data"], TRUE)["gallery_file_name"];
-
+        $gallery_data = $this->AdminModel->gallery_admin_db_get($id);
+        $gallery_img_path = "./file_manager/gallery/" . $gallery_data["g_img"];
         if (!is_dir($gallery_img_path) && file_exists($gallery_img_path)) {
             unlink($gallery_img_path);
         }
-
         $this->AdminModel->gallery_admin_db_delete($id);
-
         $this->AlertFlashData(
             "success",
             "crud_alert",
             "Success!",
             "The image has been successfully deleted."
         );
-
         redirect(base_url("admin/gallery-list"));
     }
     /*=====GALLERY CRUD - ENDED=====*/

@@ -244,10 +244,6 @@ class AdminModel extends CI_Model
     }
     /*=====CONTACTS MODEL - ENDED=====*/
 
-
-
-
-
     /*=====GALLERY MODEL - START=====*/
     private const GALLERY_TABLE_NAME = "gallery";
     private const GALLERY_ID_NAME = "g_uid";
@@ -277,17 +273,5 @@ class AdminModel extends CI_Model
         $this->db->delete(self::GALLERY_TABLE_NAME, self::GALLERY_ID_NAME . "=" . $id);
     }
     /*=====GALLERY MODEL - ENDED=====*/
-
-
-
-
-
-
-
-
-
-
-
-    
 }
     /*====================CRUD MODEL - ENDED====================*/
