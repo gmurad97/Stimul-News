@@ -123,28 +123,7 @@
                                     <label for="slider_news_uid_label">News UID</label>
                                 </div>
                                 <div class="col-md-9">
-                                    <b id="news_b_title">News Title: Example</b>
-                                    <input required name="slider_news_uid" type="number" class="form-control form-control-sm" oninput="searchNews(this);" id="slider_news_uid_label">
-                                    <script>
-                                        function searchNews(e) {
-                                            let uid = e.value;
-                                            if (!uid) {
-                                                uid = 0;
-                                            }
-                                            let outputDoc = document.querySelector("#news_b_title");
-                                            let resp = fetch("<?= base_url('admin/api/get-news-uid/'); ?>" + uid + "/title", {
-                                                method: "GET"
-                                            }).then((response) => {
-                                                return response.text();
-                                            }).then((resolve) => {
-                                                if (!(resolve == (-1))) {
-                                                    outputDoc.innerHTML = "News Title: " + JSON.parse(resolve).title;
-                                                } else {
-                                                    outputDoc.innerHTML = "News Title: Not Found!";
-                                                }
-                                            });
-                                        }
-                                    </script>
+                                    <input required name="slider_news_uid" type="number" class="form-control form-control-sm" id="slider_news_uid_label">
                                 </div>
                             </div>
                         </li>

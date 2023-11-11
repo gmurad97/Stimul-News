@@ -189,24 +189,6 @@ class AdminModel extends CI_Model
     }
     /*=====SUBSCRIBERS MODEL - ENDED=====*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /*=====SLIDER MODEL - START=====*/
     private const SLIDER_TABLE_NAME = "slider";
     private const SLIDER_ID_NAME = "s_uid";
@@ -237,22 +219,6 @@ class AdminModel extends CI_Model
     }
     /*=====SLIDER MODEL - ENDED=====*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /*=====CONTACTS MODEL - START=====*/
     private const CONTACTS_TABLE_NAME = "contacts";
     private const CONTACTS_ID_NAME = "c_uid";
@@ -277,6 +243,10 @@ class AdminModel extends CI_Model
         $this->db->delete(self::CONTACTS_TABLE_NAME, self::CONTACTS_ID_NAME . "=" . $id);
     }
     /*=====CONTACTS MODEL - ENDED=====*/
+
+
+
+
 
     /*=====GALLERY MODEL - START=====*/
     private const GALLERY_TABLE_NAME = "gallery";
@@ -307,5 +277,17 @@ class AdminModel extends CI_Model
         $this->db->delete(self::GALLERY_TABLE_NAME, self::GALLERY_ID_NAME . "=" . $id);
     }
     /*=====GALLERY MODEL - ENDED=====*/
+
+
+
+
+
+
+
+
+
+
+
+    
 }
-    /*==========CRUD MODEL - ENDED==========*/
+    /*====================CRUD MODEL - ENDED====================*/
