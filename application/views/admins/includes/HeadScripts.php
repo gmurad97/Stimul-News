@@ -1,18 +1,3 @@
-<?php
-/* if (!$this->session->has_userdata("admin_auth")) {
-    $this->session->set_flashdata(
-        "crud_alert",
-        [
-            "alert_type"          => "danger",
-            "alert_icon"          => "bi bi-exclamation-octagon",
-            "alert_bg_color"      => "background-color:rgba(45, 0, 0, 0.32)",
-            "alert_short_message" => "Danger!",
-            "alert_long_message"  => "You are not logged in."
-        ]
-    );
-    redirect(base_url("admin/auth"));
-} */
-?>
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 

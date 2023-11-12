@@ -3,9 +3,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
  * AUTHOR: Murad Gazymagomedov
- * USERNAME: gmurad97 || ASProgerHack
- * USER TEMPLATE: MORUS NEWS (Dump&Crack FrontEnd Pages)
- * ADMIN TEMPLATE: HUD ADMIN (Dump&Crack FrontEnd Pages)
+ * USERNAME: gmurad97
+ * USER TEMPLATE: MORUS NEWS
+ * ADMIN TEMPLATE: HUD ADMIN
  * VERSION: 2.1
  * USED LOCAL SERVER: OPENSERVER 5.4.3
  **/
@@ -90,7 +90,6 @@ class AdminController extends CI_Controller
     public function login()
     {
         $this->load->helper("captcha");
-
         $captcha_cfg = [
             "img_path" => "./file_manager/system/captcha/",
             "img_url" => base_url("/file_manager/system/captcha/"),
@@ -107,13 +106,10 @@ class AdminController extends CI_Controller
                 "grid" => array(60, 99, 130)
             ]
         ];
-
         $data["admin_auth_captcha"] = create_captcha($captcha_cfg);
         $data["admin_page_name"] = "Admin Panel";
-
         $this->session->unset_userdata("adm_auth_captcha");
         $this->session->set_userdata("adm_auth_captcha", $data["admin_auth_captcha"]["word"]);
-
         $this->load->view("admins/Login", $data);
     }
 
@@ -121,11 +117,9 @@ class AdminController extends CI_Controller
     {
         $admin_session_captcha = strtoupper($this->session->userdata("adm_auth_captcha"));
         $this->session->unset_userdata("adm_auth_captcha");
-
         $admin_login    = $this->input->post("admin_login", TRUE);
         $admin_password = hash("sha512", hash("md5", $this->input->post("admin_password", TRUE)));
         $admin_captcha  = strtoupper($this->input->post("admin_captcha", TRUE));
-
         if (!empty($admin_login) && !empty($admin_password) && !empty($admin_captcha)) {
             if ($admin_captcha === $admin_session_captcha) {
                 $admin_data = $this->db->or_where(["a_username" => $admin_login, "a_email" => $admin_login])->get("admin")->row_array();
