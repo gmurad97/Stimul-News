@@ -19,6 +19,16 @@ class AdminModel extends CI_Model
 
     /*====================CRUD MODEL - START====================*/
 
+    /*==========REGISTER MODEL - START==========*/
+    private const ADMIN_TABLE_NAME = "admin";
+    private const ADMIN_ID_NAME = "a_uid";
+
+    public function register_admin_db_insert($data)
+    {
+        $this->db->insert(self::ADMIN_TABLE_NAME, $data);
+    }
+    /*==========REGISTER MODEL - ENDED==========*/
+
     /*==========TOPBAR MODEL - START==========*/
     private const TOPBAR_TABLE_NAME = "topbar";
     private const TOPBAR_ID_NAME = "t_uid";

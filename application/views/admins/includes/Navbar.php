@@ -42,7 +42,7 @@
                 <i class="bi bi-gear ms-auto text-theme fs-16px my-n1"></i>
             </a>
             <div class="dropdown-divider"></div>
-            <a href="page_login.html" class="dropdown-item d-flex align-items-center">
+            <a href="<?= base_url('admin/logout-action'); ?>" class="dropdown-item d-flex align-items-center">
                 LOGOUT
                 <i class="bi bi-toggle-off ms-auto text-theme fs-16px my-n1"></i>
             </a>

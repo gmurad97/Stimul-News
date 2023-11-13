@@ -161,6 +161,120 @@ class AdminController extends CI_Controller
             redirect($_SERVER["HTTP_REFERER"]);
         }
     }
+
+    public function logout_action()
+    {
+        $this->session->unset_userdata("admin_auth");
+        redirect(base_url("admin/auth"));
+    }
+
+    public function register()
+    {
+        $this->load->helper("captcha");
+        $captcha_cfg = [
+            "img_path" => "./file_manager/system/captcha/",
+            "img_url" => base_url("/file_manager/system/captcha/"),
+            "font_path" => "system/fonts/texb.ttf",
+            "img_width" => 160,
+            "img_height" => 48,
+            "expiration" => 960,
+            "word_length" => 6,
+            "pool" => "XYZ0123456789HQF",
+            "colors" => [
+                "background" => array(56, 173, 169),
+                "border" => array(30, 55, 153),
+                "text" => array(123, 237, 159),
+                "grid" => array(60, 99, 130)
+            ]
+        ];
+        $data["admin_auth_captcha"] = create_captcha($captcha_cfg);
+        $this->session->unset_userdata("adm_auth_captcha");
+        $this->session->set_userdata("adm_auth_captcha", $data["admin_auth_captcha"]["word"]);
+
+        $data["admin_page_name"] = "Register";
+        $this->load->view("admins/Register", $data);
+    }
+
+    public function register_action()
+    {
+        $allowed_admin_role = [
+            "666", //Administrator
+            "333" //Reporter
+        ];
+        $admin_session_captcha = strtoupper($this->session->userdata("adm_auth_captcha"));
+        $admin_name     = $this->input->post("admin_name", TRUE);
+        $admin_surname  = $this->input->post("admin_surname", TRUE);
+        $admin_email    = $this->input->post("admin_email", TRUE);
+        $admin_username = $this->input->post("admin_username", TRUE);
+        $admin_password = hash("sha512", hash("md5", $this->input->post("admin_password", TRUE)));
+        $admin_role     = $this->input->post("admin_role", TRUE);
+        $admin_captcha  = strtoupper($this->input->post("admin_captcha", TRUE));
+        if (!in_array($admin_role, $allowed_admin_role)) {
+            $this->AlertFlashData(
+                "danger",
+                "crud_alert",
+                "Danger!",
+                "Unknown error."
+            );
+            redirect($_SERVER["HTTP_REFERER"]);
+        }
+        if (
+            !empty($admin_name)
+            && !empty($admin_surname)
+            && !empty($admin_email)
+            && !empty($admin_username)
+            && !empty($admin_password)
+            && !empty($admin_role)
+            && !empty($admin_captcha)
+        ) {
+            if ($admin_captcha === $admin_session_captcha) {
+                $data = [
+                    "a_name"     => $admin_name,
+                    "a_surname"  => $admin_surname,
+                    "a_email"    => $admin_email,
+                    "a_username" => $admin_username,
+                    "a_password" => $admin_password,
+                    "a_role"     => $admin_role,
+                    "a_verified" => FALSE,
+                ];
+                $this->AdminModel->register_admin_db_insert($data);
+                $this->AlertFlashData(
+                    "success",
+                    "crud_alert",
+                    "Success!",
+                    "Registration successful. Please await confirmation."
+                );
+                redirect($_SERVER["HTTP_REFERER"]);
+            } else {
+                $this->AlertFlashData(
+                    "danger",
+                    "crud_alert",
+                    "Danger!",
+                    "The provided captcha was entered incorrectly."
+                );
+                redirect($_SERVER["HTTP_REFERER"]);
+            }
+        } else {
+            $this->AlertFlashData(
+                "warning",
+                "crud_alert",
+                "Warning!",
+                "Please, fill in all the fields."
+            );
+            redirect($_SERVER["HTTP_REFERER"]);
+        }
+    }
+
+    public function profile()
+    {
+        $data["admin_page_name"] = "Profile";
+        $this->load->view("admins/Profile", $data);
+    }
+
+
+
+
+
     /*=====LOGIN - ENDED=====*/
 
     /*=====DASHBOARD - START=====*/
