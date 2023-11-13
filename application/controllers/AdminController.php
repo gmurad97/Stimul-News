@@ -270,11 +270,6 @@ class AdminController extends CI_Controller
         $data["admin_page_name"] = "Profile";
         $this->load->view("admins/Profile", $data);
     }
-
-
-
-
-
     /*=====LOGIN - ENDED=====*/
 
     /*=====DASHBOARD - START=====*/

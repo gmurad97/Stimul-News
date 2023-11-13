@@ -2,10 +2,12 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 $route["default_controller"]    = "UserController/index";
-$route["404_override"]          = "";
+$route["404_override"]          = "ErrorController/Error404";
 $route["translate_uri_dashes"]  = FALSE;
 
 /*=====ADMIN CONTROLLER - START=====*/
+
+/*=====GLOBAL CRUD - START=====*/
 $route["admin/auth"]                           = "AdminController/login";
 $route["admin/auth-action"]                    = "AdminController/login_action";
 $route["admin/logout-action"]                  = "AdminController/logout_action";
@@ -15,6 +17,7 @@ $route["admin/profile"]                        = "AdminController/profile";
 $route["admin/dashboard"]                      = "AdminController/dashboard";
 $route["admin/gpt"]                            = "AdminController/ai_gpt";
 $route["admin/api/gpt/(.*)"]                   = "AdminController/ai_gpt_action/$1";
+/*=====GLOBAL CRUD - ENDED=====*/
 
 /*=====TOPBAR CRUD - START=====*/
 $route["admin/topbar-create"]                  = "AdminController/crud_topbar_create";
