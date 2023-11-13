@@ -44,3 +44,10 @@ ERROR - 2023-11-13 03:51:56 --> Severity: error --> Exception: in_array(): Argum
 ERROR - 2023-11-13 03:51:57 --> Severity: error --> Exception: in_array(): Argument #2 ($haystack) must be of type array, string given C:\OSPanel\domains\stimul.news\application\hooks\AdminAuthCheck.php 16
 ERROR - 2023-11-13 03:52:32 --> Severity: error --> Exception: in_array(): Argument #2 ($haystack) must be of type array, string given C:\OSPanel\domains\stimul.news\application\hooks\AdminAuthCheck.php 16
 ERROR - 2023-11-13 03:53:03 --> 404 Page Not Found: Admin/register
+ERROR - 2023-11-13 04:10:12 --> 404 Page Not Found: Admin/dash
+ERROR - 2023-11-13 04:10:15 --> 404 Page Not Found: Admin/dash
+ERROR - 2023-11-13 04:10:15 --> 404 Page Not Found: Admin/dash
+ERROR - 2023-11-13 04:10:20 --> 404 Page Not Found: Admin/dash
+ERROR - 2023-11-13 04:10:20 --> 404 Page Not Found: Admin/dash
+ERROR - 2023-11-13 04:10:33 --> 404 Page Not Found: Admin/dash
+ERROR - 2023-11-13 04:24:09 --> 404 Page Not Found: Admin/register
