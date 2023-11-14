@@ -86,7 +86,7 @@ class AdminController extends CI_Controller
     }
     /*=====LOCAL ADMIN CONTROLLER FUNCTION - ENDED=====*/
 
-    /*=====LOGIN - START=====*/
+    /*=====GLOBAL ADMIN FUNCTION - START=====*/
     public function login()
     {
         $this->load->helper("captcha");
@@ -197,9 +197,12 @@ class AdminController extends CI_Controller
 
     public function register_action()
     {
+        //999 - ROOT
+        //666 - ADMIN
+        //333 - REPORTER
         $allowed_admin_role = [
-            "666", //Administrator
-            "333" //Reporter
+            "666",
+            "333"
         ];
         $admin_session_captcha = strtoupper($this->session->userdata("adm_auth_captcha"));
         $admin_name     = $this->input->post("admin_name", TRUE);
@@ -234,6 +237,7 @@ class AdminController extends CI_Controller
                     "a_email"    => $admin_email,
                     "a_username" => $admin_username,
                     "a_password" => $admin_password,
+                    "a_img"      => "e6c94cc24bc7c84a152a40cc181ebe9a.jpg",
                     "a_role"     => $admin_role,
                     "a_verified" => FALSE,
                 ];
@@ -265,12 +269,19 @@ class AdminController extends CI_Controller
         }
     }
 
+    public function admins_registred_list()
+    {
+        $data["admin_page_name"] = "Admin List";
+        $data["admins_db_list"] = $this->AdminModel->register_admin_db_get_all();
+        $this->load->view("admins/AdminsList/List", $data);
+    }
+
     public function profile()
     {
         $data["admin_page_name"] = "Profile";
         $this->load->view("admins/Profile", $data);
     }
-    /*=====LOGIN - ENDED=====*/
+    /*=====GLOBAL ADMIN FUNCTION - ENDED=====*/
 
     /*=====DASHBOARD - START=====*/
     public function dashboard()

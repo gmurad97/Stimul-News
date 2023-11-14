@@ -19,3 +19,102 @@ ERROR - 2023-11-14 03:15:26 --> Severity: Warning --> Attempt to read property "
 ERROR - 2023-11-14 03:15:26 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
 ERROR - 2023-11-14 03:22:22 --> Severity: error --> Exception: Call to undefined method CI_Router::directory() C:\OSPanel\domains\stimul.news\application\controllers\ErrorController.php 13
 ERROR - 2023-11-14 03:28:42 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\Error404.php 7
+ERROR - 2023-11-14 03:53:49 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 7
+ERROR - 2023-11-14 03:54:05 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 7
+ERROR - 2023-11-14 03:55:13 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 7
+ERROR - 2023-11-14 03:55:21 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 7
+ERROR - 2023-11-14 03:55:40 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 7
+ERROR - 2023-11-14 03:56:02 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 7
+ERROR - 2023-11-14 03:56:12 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 7
+ERROR - 2023-11-14 04:04:46 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 7
+ERROR - 2023-11-14 04:19:26 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 7
+ERROR - 2023-11-14 04:20:52 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 7
+ERROR - 2023-11-14 04:26:40 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 7
+ERROR - 2023-11-14 04:26:40 --> Severity: Warning --> Undefined variable $category_data_item C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 40
+ERROR - 2023-11-14 04:26:40 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 40
+ERROR - 2023-11-14 04:26:40 --> Severity: Warning --> Undefined variable $category_data_item C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 41
+ERROR - 2023-11-14 04:26:40 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 41
+ERROR - 2023-11-14 04:26:40 --> Severity: Warning --> Undefined variable $category_data_item_name C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 41
+ERROR - 2023-11-14 04:26:40 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 41
+ERROR - 2023-11-14 04:26:40 --> Severity: Warning --> Undefined variable $category_data_item_name C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 41
+ERROR - 2023-11-14 04:26:40 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 41
+ERROR - 2023-11-14 04:26:53 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 7
+ERROR - 2023-11-14 04:26:53 --> Severity: Warning --> Undefined variable $category_data_item C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 42
+ERROR - 2023-11-14 04:26:53 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 42
+ERROR - 2023-11-14 04:26:53 --> Severity: Warning --> Undefined variable $category_data_item C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 43
+ERROR - 2023-11-14 04:26:53 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 43
+ERROR - 2023-11-14 04:26:53 --> Severity: Warning --> Undefined variable $category_data_item_name C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 43
+ERROR - 2023-11-14 04:26:53 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 43
+ERROR - 2023-11-14 04:26:53 --> Severity: Warning --> Undefined variable $category_data_item_name C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 43
+ERROR - 2023-11-14 04:26:53 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 43
+ERROR - 2023-11-14 04:26:56 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 7
+ERROR - 2023-11-14 04:26:56 --> Severity: Warning --> Undefined variable $category_data_item C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 43
+ERROR - 2023-11-14 04:26:56 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 43
+ERROR - 2023-11-14 04:26:56 --> Severity: Warning --> Undefined variable $category_data_item C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 44
+ERROR - 2023-11-14 04:26:56 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 44
+ERROR - 2023-11-14 04:26:56 --> Severity: Warning --> Undefined variable $category_data_item_name C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 44
+ERROR - 2023-11-14 04:26:56 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 44
+ERROR - 2023-11-14 04:26:56 --> Severity: Warning --> Undefined variable $category_data_item_name C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 44
+ERROR - 2023-11-14 04:26:56 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 44
+ERROR - 2023-11-14 04:26:59 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 7
+ERROR - 2023-11-14 04:26:59 --> Severity: Warning --> Undefined variable $category_data_item C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 44
+ERROR - 2023-11-14 04:26:59 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 44
+ERROR - 2023-11-14 04:26:59 --> Severity: Warning --> Undefined variable $category_data_item C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 45
+ERROR - 2023-11-14 04:26:59 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 45
+ERROR - 2023-11-14 04:26:59 --> Severity: Warning --> Undefined variable $category_data_item_name C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 45
+ERROR - 2023-11-14 04:26:59 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 45
+ERROR - 2023-11-14 04:26:59 --> Severity: Warning --> Undefined variable $category_data_item_name C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 45
+ERROR - 2023-11-14 04:26:59 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 45
+ERROR - 2023-11-14 04:27:40 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 7
+ERROR - 2023-11-14 04:27:41 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 7
+ERROR - 2023-11-14 04:28:15 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 7
+ERROR - 2023-11-14 04:28:15 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 7
+ERROR - 2023-11-14 04:28:20 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 7
+ERROR - 2023-11-14 04:28:20 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 7
+ERROR - 2023-11-14 04:33:54 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 7
+ERROR - 2023-11-14 04:42:18 --> Severity: Warning --> Undefined variable $category_data_item C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 48
+ERROR - 2023-11-14 04:42:18 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 48
+ERROR - 2023-11-14 04:42:18 --> Severity: Warning --> Undefined variable $category_data_item C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:18 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:18 --> Severity: Warning --> Undefined variable $category_data_item_name C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:18 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:18 --> Severity: Warning --> Undefined variable $category_data_item_name C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:18 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:18 --> Severity: Warning --> Undefined variable $category_data_item C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 48
+ERROR - 2023-11-14 04:42:18 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 48
+ERROR - 2023-11-14 04:42:18 --> Severity: Warning --> Undefined variable $category_data_item C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:18 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:18 --> Severity: Warning --> Undefined variable $category_data_item_name C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:18 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:18 --> Severity: Warning --> Undefined variable $category_data_item_name C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:18 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:21 --> Severity: Warning --> Undefined variable $category_data_item C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 48
+ERROR - 2023-11-14 04:42:21 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 48
+ERROR - 2023-11-14 04:42:21 --> Severity: Warning --> Undefined variable $category_data_item C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:21 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:21 --> Severity: Warning --> Undefined variable $category_data_item_name C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:21 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:21 --> Severity: Warning --> Undefined variable $category_data_item_name C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:21 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:21 --> Severity: Warning --> Undefined variable $category_data_item C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 48
+ERROR - 2023-11-14 04:42:21 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 48
+ERROR - 2023-11-14 04:42:21 --> Severity: Warning --> Undefined variable $category_data_item C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:21 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:21 --> Severity: Warning --> Undefined variable $category_data_item_name C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:21 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:21 --> Severity: Warning --> Undefined variable $category_data_item_name C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:21 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:44 --> Severity: Warning --> Undefined variable $category_data_item C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:44 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:44 --> Severity: Warning --> Undefined variable $category_data_item_name C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:44 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:44 --> Severity: Warning --> Undefined variable $category_data_item_name C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:44 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:44 --> Severity: Warning --> Undefined variable $category_data_item C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:44 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:44 --> Severity: Warning --> Undefined variable $category_data_item_name C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:44 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:44 --> Severity: Warning --> Undefined variable $category_data_item_name C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 04:42:44 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
+ERROR - 2023-11-14 05:12:52 --> Severity: Warning --> Array to string conversion C:\OSPanel\domains\stimul.news\application\views\admins\includes\Navbar.php 33
+ERROR - 2023-11-14 05:14:15 --> Severity: Warning --> Undefined array key "admin_username" C:\OSPanel\domains\stimul.news\application\views\admins\includes\Navbar.php 33

@@ -27,6 +27,11 @@ class AdminModel extends CI_Model
     {
         $this->db->insert(self::ADMIN_TABLE_NAME, $data);
     }
+
+    public function register_admin_db_get_all()
+    {
+        return $this->db->order_by(self::ADMIN_ID_NAME, "DESC")->get(self::ADMIN_TABLE_NAME)->result_array();
+    }
     /*==========REGISTER MODEL - ENDED==========*/
 
     /*==========TOPBAR MODEL - START==========*/

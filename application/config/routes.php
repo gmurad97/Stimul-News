@@ -17,6 +17,7 @@ $route["admin/profile"]                        = "AdminController/profile";
 $route["admin/dashboard"]                      = "AdminController/dashboard";
 $route["admin/gpt"]                            = "AdminController/ai_gpt";
 $route["admin/api/gpt/(.*)"]                   = "AdminController/ai_gpt_action/$1";
+$route["admin/admins-list"]                     = "AdminController/admins_registred_list";
 /*=====GLOBAL CRUD - ENDED=====*/
 
 /*=====TOPBAR CRUD - START=====*/

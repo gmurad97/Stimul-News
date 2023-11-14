@@ -24,6 +24,17 @@
             </div>
             <!--=====DASHBOARD - ENDED=====-->
 
+            <!--=====ADMINS-LIST - START=====-->
+            <div class="menu-item <?= MenuState($segment_name, 'admins-list', 'active'); ?>">
+                <a href="<?= base_url('admin/admins-list'); ?>" class="menu-link">
+                    <span class="menu-icon">
+                        <i class="bi bi-star-half <?= MenuState($segment_name, 'admins-list', 'fa-fade'); ?>"></i>
+                    </span>
+                    <span class="menu-text">Admins List</span>
+                </a>
+            </div>
+            <!--=====ADMINS-LIST - ENDED=====-->
+
             <div class="menu-header">Content Manager</div>
 
             <!--=====TOPBAR - START=====-->

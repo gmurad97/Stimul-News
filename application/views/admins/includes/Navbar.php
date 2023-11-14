@@ -23,13 +23,14 @@
     </a>
 </div>
 <div class="menu">
+    <?php $admin_auth = $this->session->userdata("admin_auth"); ?>
     <div class="menu-item dropdown dropdown-mobile-full">
         <a href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-display="static" class="menu-link">
             <div class="menu-img online">
-                <img src="<?= base_url('public/admin/assets/img/user/profile.jpg'); ?>" width="32" height="32" alt="Profile Image">
+                <img src="<?= base_url('file_manager/system/admin/') . $admin_auth["admin_img"]; ?>" width="32" height="32" alt="Profile Image">
             </div>
             <div class="menu-text d-sm-block d-none w-170px">
-                <span>Murad Gazymagomedov</span>
+                <span><?= $admin_auth["admin_first_name"] . " " . $admin_auth["admin_last_name"]; ?></span>
             </div>
         </a>
         <div class="dropdown-menu dropdown-menu-end me-lg-3 fs-11px mt-1">
