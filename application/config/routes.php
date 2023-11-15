@@ -13,11 +13,11 @@ $route["admin/auth-action"]                    = "AdminController/login_action";
 $route["admin/logout-action"]                  = "AdminController/logout_action";
 $route["admin/register"]                       = "AdminController/register";
 $route["admin/register-action"]                = "AdminController/register_action";
-$route["admin/profile"]                        = "AdminController/profile";
+$route["admin/admins-list"]                    = "AdminController/admins_registred_list";
+$route["admin/profile/(.*)"]                   = "AdminController/admin_profile/$1";
 $route["admin/dashboard"]                      = "AdminController/dashboard";
 $route["admin/gpt"]                            = "AdminController/ai_gpt";
 $route["admin/api/gpt/(.*)"]                   = "AdminController/ai_gpt_action/$1";
-$route["admin/admins-list"]                     = "AdminController/admins_registred_list";
 /*=====GLOBAL CRUD - ENDED=====*/
 
 /*=====TOPBAR CRUD - START=====*/

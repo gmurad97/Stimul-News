@@ -19,7 +19,7 @@ class AdminModel extends CI_Model
 
     /*====================CRUD MODEL - START====================*/
 
-    /*==========REGISTER MODEL - START==========*/
+    /*==========ADMIN MODEL - START==========*/
     private const ADMIN_TABLE_NAME = "admin";
     private const ADMIN_ID_NAME = "a_uid";
 
@@ -32,7 +32,12 @@ class AdminModel extends CI_Model
     {
         return $this->db->order_by(self::ADMIN_ID_NAME, "DESC")->get(self::ADMIN_TABLE_NAME)->result_array();
     }
-    /*==========REGISTER MODEL - ENDED==========*/
+
+    public function profile_admin_db_get($id)
+    {
+        return $this->db->where(self::ADMIN_ID_NAME, $id)->get(self::ADMIN_TABLE_NAME)->row_array();
+    }
+    /*==========ADMIN MODEL - ENDED==========*/
 
     /*==========TOPBAR MODEL - START==========*/
     private const TOPBAR_TABLE_NAME = "topbar";

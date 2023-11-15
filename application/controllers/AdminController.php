@@ -125,6 +125,7 @@ class AdminController extends CI_Controller
                 $admin_data = $this->db->or_where(["a_username" => $admin_login, "a_email" => $admin_login])->get("admin")->row_array();
                 if (!empty($admin_data) && $admin_password === $admin_data["a_password"]) {
                     $sess_data = [
+                        "admin_uid"        => $admin_data["a_uid"],
                         "admin_first_name" => $admin_data["a_name"],
                         "admin_last_name"  => $admin_data["a_surname"],
                         "admin_img"        => $admin_data["a_img"],
@@ -276,9 +277,10 @@ class AdminController extends CI_Controller
         $this->load->view("admins/AdminsList/List", $data);
     }
 
-    public function profile()
+    public function admin_profile($id)
     {
         $data["admin_page_name"] = "Profile";
+        $data["admin_detail"] = $this->AdminModel->profile_admin_db_get($id);
         $this->load->view("admins/Profile", $data);
     }
     /*=====GLOBAL ADMIN FUNCTION - ENDED=====*/

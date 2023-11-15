@@ -26,7 +26,6 @@
                     <th>Image</th>
                     <th>Name</th>
                     <th>Surname</th>
-                    <th>Email</th>
                     <th>Username</th>
                     <th>Role</th>
                     <th>Verified</th>
@@ -48,11 +47,6 @@
                             <?= $admin_data["a_name"]; ?>
                         </td>
                         <td><?= $admin_data["a_surname"]; ?></td>
-                        <td>
-                            <a href="mailto:<?= $admin_data["a_email"]; ?>">
-                                <?= $admin_data["a_email"]; ?>
-                            </a>
-                        </td>
                         <td><?= $admin_data["a_username"]; ?></td>
                         <td>
                             <?php if ($admin_data["a_role"] === "999") : ?>
@@ -85,17 +79,27 @@
                             <?php endif; ?>
                         </td>
                         <td>
+
+
+
                             <nav class="nav flex-row">
-                                <a href="#" class="nav-link disabled theme-info p-0">
+                                <a href="<?= base_url('admin/profile/').$admin_data['a_uid']; ?>" class="nav-link theme-info p-0 me-3">
                                     <i class="bi bi-eye fs-5"></i>
                                 </a>
-                                <a href="#" class="nav-link theme-warning p-0 mx-3">
+                                <a href="#" class="nav-link theme-warning p-0 me-3">
                                     <i class="bi bi-pencil-square fs-5"></i>
+                                </a>
+                                <a href="#" class="nav-link theme-success p-0 me-3">
+                                    <i class="bi bi-check-square fs-5"></i>
                                 </a>
                                 <a href="#" class="nav-link theme-danger p-0" data-link="" data-bs-toggle="modal" data-bs-target="#danger_modal">
                                     <i class=" bi bi-trash fs-5"></i>
                                 </a>
+                                
                             </nav>
+
+
+
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -106,7 +110,6 @@
                     <th>Image</th>
                     <th>Name</th>
                     <th>Surname</th>
-                    <th>Email</th>
                     <th>Username</th>
                     <th>Role</th>
                     <th>Verified</th>

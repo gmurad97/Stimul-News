@@ -34,13 +34,9 @@
             </div>
         </a>
         <div class="dropdown-menu dropdown-menu-end me-lg-3 fs-11px mt-1">
-            <a href="profile.html" class="dropdown-item d-flex align-items-center">
+            <a href="<?= base_url('admin/profile/' . $admin_auth['admin_uid']); ?>" class="dropdown-item d-flex align-items-center">
                 PROFILE
                 <i class="bi bi-person-circle ms-auto text-theme fs-16px my-n1"></i>
-            </a>
-            <a href="settings.html" class="dropdown-item d-flex align-items-center">
-                SETTINGS
-                <i class="bi bi-gear ms-auto text-theme fs-16px my-n1"></i>
             </a>
             <div class="dropdown-divider"></div>
             <a href="<?= base_url('admin/logout-action'); ?>" class="dropdown-item d-flex align-items-center">

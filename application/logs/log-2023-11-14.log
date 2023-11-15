@@ -118,3 +118,56 @@ ERROR - 2023-11-14 04:42:44 --> Severity: Warning --> Undefined variable $catego
 ERROR - 2023-11-14 04:42:44 --> Severity: Warning --> Attempt to read property "en" on null C:\OSPanel\domains\stimul.news\application\views\admins\AdminsList\List.php 49
 ERROR - 2023-11-14 05:12:52 --> Severity: Warning --> Array to string conversion C:\OSPanel\domains\stimul.news\application\views\admins\includes\Navbar.php 33
 ERROR - 2023-11-14 05:14:15 --> Severity: Warning --> Undefined array key "admin_username" C:\OSPanel\domains\stimul.news\application\views\admins\includes\Navbar.php 33
+ERROR - 2023-11-14 05:33:54 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 8
+ERROR - 2023-11-14 05:34:03 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 8
+ERROR - 2023-11-14 05:55:44 --> Severity: Warning --> Undefined variable $admin_data C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 15
+ERROR - 2023-11-14 05:55:44 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 15
+ERROR - 2023-11-14 05:55:44 --> Severity: Warning --> Undefined variable $admin_data C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 16
+ERROR - 2023-11-14 05:55:44 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 16
+ERROR - 2023-11-14 05:55:44 --> Severity: Warning --> Undefined variable $admin_data C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 16
+ERROR - 2023-11-14 05:55:44 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 16
+ERROR - 2023-11-14 05:55:44 --> Severity: Warning --> Undefined variable $admin_data C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 16
+ERROR - 2023-11-14 05:55:44 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 16
+ERROR - 2023-11-14 05:59:07 --> Severity: Warning --> Undefined variable $admin_data C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 16
+ERROR - 2023-11-14 05:59:07 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 16
+ERROR - 2023-11-14 05:59:07 --> Severity: Warning --> Undefined variable $admin_data C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 16
+ERROR - 2023-11-14 05:59:07 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 16
+ERROR - 2023-11-14 05:59:07 --> Severity: Warning --> Undefined variable $admin_data C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 16
+ERROR - 2023-11-14 05:59:07 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 16
+ERROR - 2023-11-14 06:22:52 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 8
+ERROR - 2023-11-14 06:22:52 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 8
+ERROR - 2023-11-14 06:22:52 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 16
+ERROR - 2023-11-14 06:22:52 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 17
+ERROR - 2023-11-14 06:22:52 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 17
+ERROR - 2023-11-14 06:22:52 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 17
+ERROR - 2023-11-14 06:22:52 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 26
+ERROR - 2023-11-14 06:22:52 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 30
+ERROR - 2023-11-14 06:22:52 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 34
+ERROR - 2023-11-14 06:22:52 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 38
+ERROR - 2023-11-14 06:22:52 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 42
+ERROR - 2023-11-14 06:22:52 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 46
+ERROR - 2023-11-14 06:22:52 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 50
+ERROR - 2023-11-14 06:23:46 --> Severity: Warning --> Undefined array key "a_uid" C:\OSPanel\domains\stimul.news\application\views\admins\includes\Navbar.php 37
+ERROR - 2023-11-14 06:23:46 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 8
+ERROR - 2023-11-14 06:23:46 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 8
+ERROR - 2023-11-14 06:23:46 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 16
+ERROR - 2023-11-14 06:23:46 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 17
+ERROR - 2023-11-14 06:23:46 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 17
+ERROR - 2023-11-14 06:23:46 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 17
+ERROR - 2023-11-14 06:23:46 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 26
+ERROR - 2023-11-14 06:23:46 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 30
+ERROR - 2023-11-14 06:23:46 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 34
+ERROR - 2023-11-14 06:23:46 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 38
+ERROR - 2023-11-14 06:23:46 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 42
+ERROR - 2023-11-14 06:23:46 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 46
+ERROR - 2023-11-14 06:23:46 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile.php 50
+ERROR - 2023-11-14 06:23:52 --> Severity: Warning --> Undefined array key "a_uid" C:\OSPanel\domains\stimul.news\application\views\admins\includes\Navbar.php 37
+ERROR - 2023-11-14 06:24:22 --> Severity: Warning --> Undefined array key "a_uid" C:\OSPanel\domains\stimul.news\application\views\admins\includes\Navbar.php 37
+ERROR - 2023-11-14 06:24:29 --> Severity: Compile Error --> Cannot use [] for reading C:\OSPanel\domains\stimul.news\application\views\admins\includes\Navbar.php 37
+ERROR - 2023-11-14 06:24:32 --> Severity: Warning --> Array to string conversion C:\OSPanel\domains\stimul.news\application\views\admins\includes\Navbar.php 37
+ERROR - 2023-11-14 06:25:03 --> Severity: Warning --> Undefined array key "a_uid" C:\OSPanel\domains\stimul.news\application\views\admins\includes\Navbar.php 37
+ERROR - 2023-11-14 06:25:19 --> Severity: Warning --> Undefined array key "a_uid" C:\OSPanel\domains\stimul.news\application\views\admins\includes\Navbar.php 37
+ERROR - 2023-11-14 06:26:20 --> Severity: Warning --> Undefined array key "a_uid" C:\OSPanel\domains\stimul.news\application\views\admins\includes\Navbar.php 37
+ERROR - 2023-11-14 06:26:30 --> Severity: Warning --> Undefined array key "a_uid" C:\OSPanel\domains\stimul.news\application\views\admins\includes\Navbar.php 37
+ERROR - 2023-11-14 06:26:53 --> Severity: Warning --> Undefined array key "a_uid" C:\OSPanel\domains\stimul.news\application\views\admins\includes\Navbar.php 37
+ERROR - 2023-11-14 06:26:55 --> Severity: Warning --> Undefined array key "a_uid" C:\OSPanel\domains\stimul.news\application\views\admins\includes\Navbar.php 37
