@@ -50,7 +50,7 @@
                                 </a>
                             </td>
                             <td>
-                                <span class="badge text-truncate w-200px rounded-5 p-2 text-uppercase" style="background-color: <?= $category_data_item["c_bg_color"]; ?>;">
+                                <span class="badge text-truncate w-200px rounded-5 py-2 text-uppercase" style="background-color: <?= $category_data_item["c_bg_color"]; ?>;">
                                     <?= htmlentities(base64_decode($category_data_item_name->en)); ?>
                                 </span>
                             </td>
