@@ -4,8 +4,8 @@
 <div class="card bg-list border-list bg-opacity-5">
     <div class="card-header border-list fw-bold d-flex flex-row justify-content-between align-items-center">
         <div class="h5 text-info text-uppercase text-header-shadow m-0">
-            <i class="bi bi-tags me-1"></i>
-            Admins List
+            <i class="bi bi-star-half me-1"></i>
+            Profile List
         </div>
     </div>
     <div class="card-body">
@@ -34,32 +34,32 @@
             </thead>
             <tbody>
                 <?php $id_counter = 1; ?>
-                <?php foreach ($admins_db_list as $admin_data) : ?>
+                <?php foreach ($profiles_data as $profile_data) : ?>
                     <tr>
                         <td><?= $id_counter++; ?></td>
                         <td>
-                            <a href="<?= base_url('file_manager/system/admin/') . $admin_data["a_img"]; ?>" data-lity>
-                                <img width="64" height="64" style="object-fit: cover;" class="rounded-circle bg-white" src="<?= base_url('file_manager/system/admin/') . $admin_data["a_img"]; ?>" title="<?= $admin_data["a_name"] . " " . $admin_data["a_surname"]; ?>" alt="Admin Image">
+                            <a href="<?= base_url('file_manager/system/admin/') . $profile_data["a_img"]; ?>" data-lity>
+                                <img width="64" height="64" style="object-fit: cover;" class="rounded-circle bg-white" src="<?= base_url('file_manager/system/admin/') . $profile_data["a_img"]; ?>" title="<?= $profile_data["a_name"] . " " . $profile_data["a_surname"]; ?>" alt="Admin Image">
                             </a>
                         </td>
                         <td>
-                            <?= $admin_data["a_name"]; ?>
+                            <?= $profile_data["a_name"]; ?>
                         </td>
-                        <td><?= $admin_data["a_surname"]; ?></td>
-                        <td><?= $admin_data["a_username"]; ?></td>
+                        <td><?= $profile_data["a_surname"]; ?></td>
+                        <td><?= $profile_data["a_username"]; ?></td>
                         <td>
-                            <?php if ($admin_data["a_role"] === "999") : ?>
+                            <?php if ($profile_data["a_role"] === "999") : ?>
                                 <span class="badge bg-warning w-90px py-2 text-uppercase">
                                     <i class="bi bi-star-fill"></i>
                                     Root
                                     <i class="bi bi-star-fill"></i>
                                 </span>
-                            <?php elseif ($admin_data["a_role"] === "666") : ?>
+                            <?php elseif ($profile_data["a_role"] === "666") : ?>
                                 <span class="badge bg-warning w-90px py-2 text-uppercase">
                                     <i class="bi bi-star-fill"></i>
                                     Admin
                                 </span>
-                            <?php elseif ($admin_data["a_role"] === "333") : ?>
+                            <?php elseif ($profile_data["a_role"] === "333") : ?>
                                 Redactor
                             <?php else : ?>
                                 <span class="badge bg-danger p-2 text-uppercase">
@@ -69,7 +69,7 @@
                             <?php endif; ?>
                         </td>
                         <td>
-                            <?php if ($admin_data["a_verified"]) : ?>
+                            <?php if ($profile_data["a_verified"]) : ?>
                                 <span class="badge bg-success p-2 w-90px text-uppercase">
                                     <i class="fa-regular fa-circle-check"></i>
                                     TRUE
@@ -86,10 +86,10 @@
 
 
                             <nav class="nav flex-row">
-                                <a href="<?= base_url('admin/profile/') . $admin_data['a_uid']; ?>" class="nav-link theme-info p-0 me-3">
+                                <a href="<?= base_url('admin/profile-detail/') . $profile_data['a_uid']; ?>" class="nav-link theme-info p-0 me-3">
                                     <i class="bi bi-eye fs-5"></i>
                                 </a>
-                                <a href="#" class="nav-link theme-warning p-0 me-3">
+                                <a href="<?= base_url('admin/profile-edit/') . $profile_data["a_uid"]; ?>" class="nav-link theme-warning p-0 me-3">
                                     <i class="bi bi-pencil-square fs-5"></i>
                                 </a>
                                 <a href="#" class="nav-link theme-danger p-0" data-link="" data-bs-toggle="modal" data-bs-target="#danger_modal">

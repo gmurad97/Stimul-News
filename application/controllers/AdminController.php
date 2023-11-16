@@ -270,19 +270,40 @@ class AdminController extends CI_Controller
         }
     }
 
-    public function admins_registred_list()
+
+
+    public function crud_profile_list()
     {
         $data["admin_page_name"] = "Admin List";
-        $data["admins_db_list"] = $this->AdminModel->register_admin_db_get_all();
-        $this->load->view("admins/AdminsList/List", $data);
+        $data["profiles_data"] = $this->AdminModel->register_admin_db_get_all();
+        $this->load->view("admins/Profile/List", $data);
     }
 
-    public function admin_profile($id)
+    public function crud_profile_detail($id)
     {
-        $data["admin_page_name"] = "Profile";
-        $data["admin_detail"] = $this->AdminModel->profile_admin_db_get($id);
-        $this->load->view("admins/Profile", $data);
+        $data["admin_page_name"] = "Profile Detail";
+        $data["profile_data"] = $this->AdminModel->profile_admin_db_get($id);
+        $this->load->view("admins/Profile/Detail", $data);
     }
+
+    public function crud_profile_edit($id)
+    {
+        $data["admin_page_name"] = "Profile Edit";
+        $data["profile_data"] = $this->AdminModel->profile_admin_db_get($id);
+        $this->load->view("admins/Profile/Edit", $data);
+    }
+
+    public function crud_profile_edit_action($id)
+    {
+    }
+
+
+
+
+
+
+
+
     /*=====GLOBAL ADMIN FUNCTION - ENDED=====*/
 
     /*=====DASHBOARD - START=====*/

@@ -8,7 +8,6 @@ $route["translate_uri_dashes"]  = FALSE;
 /*==========ADMIN CONTROLLER - START==========*/
 
 /*=====GLOBAL ROUTES - START=====*/
-
 $route["admin/dashboard"]                      = "AdminController/dashboard";
 
 /*AUTH & REG ROUTES - START*/
@@ -19,12 +18,11 @@ $route["admin/register"]                       = "AdminController/register";
 $route["admin/register-action"]                = "AdminController/register_action";
 /*AUTH & REG ROUTES - ENDED*/
 
-$route["admin/admins-list"]                    = "AdminController/admins_registred_list";
-
 /*PROFILE ROUTES - START*/
-$route["admin/profile/(.*)"]                   = "AdminController/admin_profile/$1";
-$route["admin/profile-edit/(.*)"]              = "AdminController/admin_profile_edit/$1";
-$route["admin/profile-edit-action/(.*)"]       = "AdminController/admin_profile_edit_action/$1";
+$route["admin/profile-list"]                   = "AdminController/crud_profile_list";
+$route["admin/profile-detail/(.*)"]            = "AdminController/crud_profile_detail/$1";
+$route["admin/profile-edit/(.*)"]              = "AdminController/crud_profile_edit/$1";
+$route["admin/profile-edit-action/(.*)"]       = "AdminController/crud_profile_edit_action/$1";
 /*PROFILE ROUTES - ENDED*/
 
 /*AI GPT ROUTES - START*/
