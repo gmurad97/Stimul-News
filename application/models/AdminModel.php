@@ -23,12 +23,17 @@ class AdminModel extends CI_Model
     private const ADMIN_TABLE_NAME = "admin";
     private const ADMIN_ID_NAME = "a_uid";
 
-    public function register_admin_db_insert($data)
+    public function profile_admin_db_insert($data)
     {
         $this->db->insert(self::ADMIN_TABLE_NAME, $data);
     }
 
-    public function register_admin_db_get_all()
+    public function profile_admin_db_target($admin_login)
+    {
+        return $this->db->or_where(["a_username" => $admin_login, "a_email" => $admin_login])->get("admin")->row_array();
+    }
+
+    public function profile_admin_db_get_all()
     {
         return $this->db->order_by(self::ADMIN_ID_NAME, "DESC")->get(self::ADMIN_TABLE_NAME)->result_array();
     }
@@ -36,6 +41,16 @@ class AdminModel extends CI_Model
     public function profile_admin_db_get($id)
     {
         return $this->db->where(self::ADMIN_ID_NAME, $id)->get(self::ADMIN_TABLE_NAME)->row_array();
+    }
+
+    public function profile_admin_db_edit($id, $data)
+    {
+        $this->db->where(self::ADMIN_ID_NAME, $id)->update(self::ADMIN_TABLE_NAME, $data);
+    }
+
+    public function profile_admin_db_delete($id)
+    {
+        $this->db->where(self::ADMIN_ID_NAME, $id)->delete(self::ADMIN_TABLE_NAME);
     }
     /*==========ADMIN MODEL - ENDED==========*/
 

@@ -38,9 +38,15 @@
                     <tr>
                         <td><?= $id_counter++; ?></td>
                         <td>
-                            <a href="<?= base_url('file_manager/system/admin/') . $profile_data["a_img"]; ?>" data-lity>
-                                <img width="64" height="64" style="object-fit: cover;" class="rounded-circle bg-white" src="<?= base_url('file_manager/system/admin/') . $profile_data["a_img"]; ?>" title="<?= $profile_data["a_name"] . " " . $profile_data["a_surname"]; ?>" alt="Admin Image">
-                            </a>
+                            <?php if (!empty($profile_data["a_img"])) : ?>
+                                <a href="<?= base_url('file_manager/system/admin/') . $profile_data["a_img"]; ?>" data-lity>
+                                    <img width="64" height="64" style="object-fit: cover;" class="rounded-circle bg-white" src="<?= base_url('file_manager/system/admin/') . $profile_data["a_img"]; ?>" title="<?= $profile_data["a_name"] . " " . $profile_data["a_surname"]; ?>" alt="Admin Image">
+                                </a>
+                            <?php else : ?>
+                                <a href="<?= base_url('public/admin/assets/img/user/profile.jpg'); ?>" data-lity>
+                                    <img width="64" height="64" style="object-fit: cover;" class="rounded-circle bg-white" src="<?= base_url('public/admin/assets/img/user/profile.jpg'); ?>" title="<?= $profile_data["a_name"] . " " . $profile_data["a_surname"]; ?>" alt="Admin Image">
+                                </a>
+                            <?php endif; ?>
                         </td>
                         <td>
                             <?= $profile_data["a_name"]; ?>
@@ -60,7 +66,9 @@
                                     Admin
                                 </span>
                             <?php elseif ($profile_data["a_role"] === "333") : ?>
-                                Redactor
+                                <span class="badge bg-indigo w-90px py-2 text-uppercase">
+                                    Redactor
+                                </span>
                             <?php else : ?>
                                 <span class="badge bg-danger p-2 text-uppercase">
                                     <i class="bi bi-eyeglasses"></i>
@@ -69,7 +77,7 @@
                             <?php endif; ?>
                         </td>
                         <td>
-                            <?php if ($profile_data["a_verified"]) : ?>
+                            <?php if ($profile_data["a_status"]) : ?>
                                 <span class="badge bg-success p-2 w-90px text-uppercase">
                                     <i class="fa-regular fa-circle-check"></i>
                                     TRUE
@@ -82,9 +90,6 @@
                             <?php endif; ?>
                         </td>
                         <td>
-
-
-
                             <nav class="nav flex-row">
                                 <a href="<?= base_url('admin/profile-detail/') . $profile_data['a_uid']; ?>" class="nav-link theme-info p-0 me-3">
                                     <i class="bi bi-eye fs-5"></i>
@@ -92,13 +97,10 @@
                                 <a href="<?= base_url('admin/profile-edit/') . $profile_data["a_uid"]; ?>" class="nav-link theme-warning p-0 me-3">
                                     <i class="bi bi-pencil-square fs-5"></i>
                                 </a>
-                                <a href="#" class="nav-link theme-danger p-0" data-link="" data-bs-toggle="modal" data-bs-target="#danger_modal">
-                                    <i class=" bi bi-trash fs-5"></i>
+                                <a href="javascript:void(0);" class="nav-link theme-danger p-0" data-link="<?= base_url('admin/profile-delete/') . $profile_data["a_uid"]; ?>" data-bs-toggle="modal" data-bs-target="#danger_modal">
+                                    <i class="bi bi-trash fs-5"></i>
                                 </a>
                             </nav>
-
-
-
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -166,7 +168,7 @@
     <div class="modal-dialog modal-sm">
         <div class="modal-content rounded">
             <div class="modal-body py-3">
-                <p class="h5 text-danger">Do you really want to remove the category?</p>
+                <p class="h5 text-danger">Do you really want to remove the profile?</p>
             </div>
             <div class="modal-footer py-1">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

@@ -122,7 +122,7 @@ class AdminController extends CI_Controller
         $admin_captcha  = strtoupper($this->input->post("admin_captcha", TRUE));
         if (!empty($admin_login) && !empty($admin_password) && !empty($admin_captcha)) {
             if ($admin_captcha === $admin_session_captcha) {
-                $admin_data = $this->db->or_where(["a_username" => $admin_login, "a_email" => $admin_login])->get("admin")->row_array();
+                $admin_data = $this->AdminModel->profile_admin_db_target($admin_login);
                 if (!empty($admin_data) && $admin_password === $admin_data["a_password"]) {
                     $sess_data = [
                         "admin_uid"        => $admin_data["a_uid"],
@@ -191,17 +191,16 @@ class AdminController extends CI_Controller
         $data["admin_auth_captcha"] = create_captcha($captcha_cfg);
         $this->session->unset_userdata("adm_auth_captcha");
         $this->session->set_userdata("adm_auth_captcha", $data["admin_auth_captcha"]["word"]);
-
         $data["admin_page_name"] = "Register";
         $this->load->view("admins/Register", $data);
     }
 
     public function register_action()
     {
-        //999 - ROOT
-        //666 - ADMIN
-        //333 - REPORTER
         $allowed_admin_role = [
+            //999 - ROOT
+            //666 - ADMIN
+            //333 - REPORTER
             "666",
             "333"
         ];
@@ -231,31 +230,41 @@ class AdminController extends CI_Controller
             && !empty($admin_role)
             && !empty($admin_captcha)
         ) {
-            if ($admin_captcha === $admin_session_captcha) {
-                $data = [
-                    "a_name"     => $admin_name,
-                    "a_surname"  => $admin_surname,
-                    "a_email"    => $admin_email,
-                    "a_username" => $admin_username,
-                    "a_password" => $admin_password,
-                    "a_img"      => "e6c94cc24bc7c84a152a40cc181ebe9a.jpg",
-                    "a_role"     => $admin_role,
-                    "a_verified" => FALSE,
-                ];
-                $this->AdminModel->register_admin_db_insert($data);
-                $this->AlertFlashData(
-                    "success",
-                    "crud_alert",
-                    "Success!",
-                    "Registration successful. Please await confirmation."
-                );
-                redirect($_SERVER["HTTP_REFERER"]);
+            $isUserExists = !empty($this->AdminModel->profile_admin_db_target($admin_email)) || !empty($this->AdminModel->profile_admin_db_target($admin_username));
+            if (!$isUserExists) {
+                if ($admin_captcha === $admin_session_captcha) {
+                    $data = [
+                        "a_name"     => $admin_name,
+                        "a_surname"  => $admin_surname,
+                        "a_email"    => $admin_email,
+                        "a_username" => $admin_username,
+                        "a_password" => $admin_password,
+                        "a_role"     => $admin_role,
+                        "a_status" => FALSE,
+                    ];
+                    $this->AdminModel->profile_admin_db_insert($data);
+                    $this->AlertFlashData(
+                        "success",
+                        "crud_alert",
+                        "Success!",
+                        "Registration successful. Please await confirmation."
+                    );
+                    redirect($_SERVER["HTTP_REFERER"]);
+                } else {
+                    $this->AlertFlashData(
+                        "danger",
+                        "crud_alert",
+                        "Danger!",
+                        "The provided captcha was entered incorrectly."
+                    );
+                    redirect($_SERVER["HTTP_REFERER"]);
+                }
             } else {
                 $this->AlertFlashData(
-                    "danger",
+                    "warning",
                     "crud_alert",
-                    "Danger!",
-                    "The provided captcha was entered incorrectly."
+                    "Warning!",
+                    "This login or email is already registered."
                 );
                 redirect($_SERVER["HTTP_REFERER"]);
             }
@@ -270,12 +279,10 @@ class AdminController extends CI_Controller
         }
     }
 
-
-
     public function crud_profile_list()
     {
         $data["admin_page_name"] = "Admin List";
-        $data["profiles_data"] = $this->AdminModel->register_admin_db_get_all();
+        $data["profiles_data"] = $this->AdminModel->profile_admin_db_get_all();
         $this->load->view("admins/Profile/List", $data);
     }
 
@@ -295,15 +302,154 @@ class AdminController extends CI_Controller
 
     public function crud_profile_edit_action($id)
     {
+        $current_profile_data      = $this->AdminModel->profile_admin_db_get($id);
+        $current_profile_img_path  = "./file_manager/system/admin/" . $current_profile_data["a_img"];
+        $profile_name             = $this->input->post("profile_name", TRUE);
+        $profile_surname          = $this->input->post("profile_surname", TRUE);
+        $profile_email            = $this->input->post("profile_email", TRUE);
+        $profile_username         = $this->input->post("profile_username", TRUE);
+        $profile_new_password     = $this->input->post("profile_new_password", TRUE);
+        $profile_status           = $this->input->post("profile_status", TRUE);
+        $profile_config["upload_path"]      = "./file_manager/system/admin/";
+        $profile_config["allowed_types"]    = "ico|jpeg|jpg|png|svg|ICO|JPEG|JPG|PNG|SVG";
+        $profile_config["file_ext_tolower"] = TRUE;
+        $profile_config["remove_spaces"]    = TRUE;
+        $profile_config["encrypt_name"]     = TRUE;
+        $this->load->library("upload", $profile_config);
+        $this->upload->initialize($profile_config);
+        if ($this->upload->do_upload("profile_img")) {
+            if (!is_dir($current_profile_img_path) && file_exists($current_profile_img_path)) {
+                unlink($current_profile_img_path);
+            }
+            $profile_new_img = $this->upload->data();
+            if (
+                !empty($profile_name)
+                && !empty($profile_surname)
+                && !empty($profile_email)
+                && !empty($profile_username)
+                && !empty($profile_new_password)
+            ) {
+                $data = [
+                    "a_name" => $profile_name,
+                    "a_surname" => $profile_surname,
+                    "a_email" => $profile_email,
+                    "a_username" => $profile_username,
+                    "a_password" => hash("sha512", hash("md5", $profile_new_password)),
+                    "a_img" => $profile_new_img["file_name"],
+                    "a_status" => str_contains($profile_status, "on") ? TRUE : FALSE,
+                ];
+                $this->AdminModel->profile_admin_db_edit($id, $data);
+                $this->AlertFlashData(
+                    "success",
+                    "crud_alert",
+                    "Success!",
+                    "The profile has been successfully edited."
+                );
+                redirect(base_url("admin/profile-list"));
+            } else if (
+                !empty($profile_name)
+                && !empty($profile_surname)
+                && !empty($profile_email)
+                && !empty($profile_username)
+            ) {
+                $data = [
+                    "a_name" => $profile_name,
+                    "a_surname" => $profile_surname,
+                    "a_email" => $profile_email,
+                    "a_username" => $profile_username,
+                    "a_img" => $profile_new_img["file_name"],
+                    "a_status" => str_contains($profile_status, "on") ? TRUE : FALSE,
+                ];
+                $this->AdminModel->profile_admin_db_edit($id, $data);
+                $this->AlertFlashData(
+                    "success",
+                    "crud_alert",
+                    "Success!",
+                    "The profile has been successfully edited."
+                );
+                redirect(base_url("admin/profile-list"));
+            } else {
+                $this->AlertFlashData(
+                    "warning",
+                    "crud_alert",
+                    "Warning!",
+                    "Please, fill in all the fields."
+                );
+                redirect($_SERVER["HTTP_REFERER"]);
+            }
+        } else {
+            if (
+                !empty($profile_name)
+                && !empty($profile_surname)
+                && !empty($profile_email)
+                && !empty($profile_username)
+                && !empty($profile_new_password)
+            ) {
+                $data = [
+                    "a_name" => $profile_name,
+                    "a_surname" => $profile_surname,
+                    "a_email" => $profile_email,
+                    "a_username" => $profile_username,
+                    "a_password" => hash("sha512", hash("md5", $profile_new_password)),
+                    "a_status" => str_contains($profile_status, "on") ? TRUE : FALSE,
+                ];
+                $this->AdminModel->profile_admin_db_edit($id, $data);
+                $this->AlertFlashData(
+                    "success",
+                    "crud_alert",
+                    "Success!",
+                    "The profile has been successfully edited."
+                );
+                redirect(base_url("admin/profile-list"));
+            } else if (
+                !empty($profile_name)
+                && !empty($profile_surname)
+                && !empty($profile_email)
+                && !empty($profile_username)
+            ) {
+                $data = [
+                    "a_name" => $profile_name,
+                    "a_surname" => $profile_surname,
+                    "a_email" => $profile_email,
+                    "a_username" => $profile_username,
+                    "a_status" => str_contains($profile_status, "on") ? TRUE : FALSE,
+                ];
+                $this->AdminModel->profile_admin_db_edit($id, $data);
+                $this->AlertFlashData(
+                    "success",
+                    "crud_alert",
+                    "Success!",
+                    "The profile has been successfully edited."
+                );
+                redirect(base_url("admin/profile-list"));
+            } else {
+                $this->AlertFlashData(
+                    "warning",
+                    "crud_alert",
+                    "Warning!",
+                    "Please, fill in all the fields."
+                );
+                redirect($_SERVER["HTTP_REFERER"]);
+            }
+        }
     }
 
-
-
-
-
-
-
-
+    public function crud_profile_delete($id)
+    {
+        $current_profile_data     = $this->AdminModel->profile_admin_db_get($id);
+        $current_profile_img_path = "./file_manager/system/admin/" . $current_profile_data["a_img"];
+        if (!is_dir($current_profile_img_path) && file_exists($current_profile_img_path)) {
+            unlink($current_profile_img_path);
+        }
+        $this->AdminModel->profile_admin_db_delete($id);
+        $this->AlertFlashData(
+            "success",
+            "crud_alert",
+            "Success!",
+            "The profile has been successfully edited."
+        );
+        redirect(base_url("admin/profile-list"));
+    }
     /*=====GLOBAL ADMIN FUNCTION - ENDED=====*/
 
     /*=====DASHBOARD - START=====*/

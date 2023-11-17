@@ -19,9 +19,15 @@
             <div class="row">
                 <div class="col-md-12 my-5">
                     <div class="d-flex flex-row justify-content-center align-items-center">
-                        <a href="<?= base_url('file_manager/system/admin/') . $profile_data["a_img"]; ?>" data-lity>
-                            <img width="192" height="192" style="object-fit: cover;" class="rounded-circle bg-white" src="<?= base_url('file_manager/system/admin/') . $profile_data["a_img"]; ?>" title="<?= $profile_data["a_name"] . " " . $profile_data["a_surname"]; ?>" alt="Admin Image">
-                        </a>
+                        <?php if (!empty($profile_data["a_img"])) : ?>
+                            <a href="<?= base_url('file_manager/system/admin/') . $profile_data["a_img"]; ?>" data-lity>
+                                <img width="192" height="192" style="object-fit: cover;" class="rounded-circle bg-white" src="<?= base_url('file_manager/system/admin/') . $profile_data["a_img"]; ?>" title="<?= $profile_data["a_name"] . " " . $profile_data["a_surname"]; ?>" alt="Admin Image">
+                            </a>
+                        <?php else : ?>
+                            <a href="<?= base_url('public/admin/assets/img/user/profile.jpg'); ?>" data-lity>
+                                <img width="192" height="192" style="object-fit: cover;" class="rounded-circle bg-white" src="<?= base_url('public/admin/assets/img/user/profile.jpg'); ?>" title="<?= $profile_data["a_name"] . " " . $profile_data["a_surname"]; ?>" alt="Admin Image">
+                            </a>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -86,10 +92,10 @@
                         <tr>
                             <td class="fw-bold text-secondary text-uppercase">
                                 <i class="bi bi-patch-check text-info px-2"></i>
-                                Verified
+                                Status
                             </td>
                             <td class="text-uppercase">
-                                <?php if ($profile_data["a_verified"]) : ?>
+                                <?php if ($profile_data["a_status"]) : ?>
                                     <span class="text-success fw-bold">True</span>
                                 <?php else : ?>
                                     <span class="text-danger fw-bold">False</span>

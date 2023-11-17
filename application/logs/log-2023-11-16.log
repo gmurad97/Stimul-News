@@ -336,3 +336,6 @@ ERROR - 2023-11-16 06:56:23 --> Severity: Warning --> Undefined variable $partne
 ERROR - 2023-11-16 06:56:23 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile\Edit.php 74
 ERROR - 2023-11-16 06:56:40 --> Severity: Warning --> Undefined variable $partner_data C:\OSPanel\domains\stimul.news\application\views\admins\Profile\Edit.php 54
 ERROR - 2023-11-16 06:56:40 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Profile\Edit.php 54
+ERROR - 2023-11-16 23:15:47 --> Severity: Warning --> Undefined array key "a_verified" C:\OSPanel\domains\stimul.news\application\views\admins\Profile\List.php 72
+ERROR - 2023-11-16 23:15:47 --> Severity: Warning --> Undefined array key "a_verified" C:\OSPanel\domains\stimul.news\application\views\admins\Profile\List.php 72
+ERROR - 2023-11-16 23:16:19 --> Severity: Warning --> Undefined array key "a_verified" C:\OSPanel\domains\stimul.news\application\views\admins\Profile\Detail.php 92

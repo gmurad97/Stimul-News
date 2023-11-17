@@ -23,6 +23,7 @@ $route["admin/profile-list"]                   = "AdminController/crud_profile_l
 $route["admin/profile-detail/(.*)"]            = "AdminController/crud_profile_detail/$1";
 $route["admin/profile-edit/(.*)"]              = "AdminController/crud_profile_edit/$1";
 $route["admin/profile-edit-action/(.*)"]       = "AdminController/crud_profile_edit_action/$1";
+$route["admin/profile-delete/(.*)"]            = "AdminController/crud_profile_delete/$1";
 /*PROFILE ROUTES - ENDED*/
 
 /*AI GPT ROUTES - START*/
