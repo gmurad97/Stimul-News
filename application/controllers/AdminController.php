@@ -124,16 +124,26 @@ class AdminController extends CI_Controller
             if ($admin_captcha === $admin_session_captcha) {
                 $admin_data = $this->AdminModel->profile_admin_db_target($admin_login);
                 if (!empty($admin_data) && $admin_password === $admin_data["a_password"]) {
-                    $sess_data = [
-                        "admin_uid"        => $admin_data["a_uid"],
-                        "admin_first_name" => $admin_data["a_name"],
-                        "admin_last_name"  => $admin_data["a_surname"],
-                        "admin_img"        => $admin_data["a_img"],
-                        "admin_role"       => $admin_data["a_role"],
-                        "logged_in"        => TRUE
-                    ];
-                    $this->session->set_userdata("admin_auth", $sess_data);
-                    redirect(base_url("admin/dashboard"));
+                    if ($admin_data["a_status"]) {
+                        $sess_data = [
+                            "admin_uid"        => $admin_data["a_uid"],
+                            "admin_first_name" => $admin_data["a_name"],
+                            "admin_last_name"  => $admin_data["a_surname"],
+                            "admin_img"        => $admin_data["a_img"],
+                            "admin_role"       => $admin_data["a_role"],
+                            "logged_in"        => TRUE
+                        ];
+                        $this->session->set_userdata("admin_auth", $sess_data);
+                        redirect(base_url("admin/dashboard"));
+                    } else {
+                        $this->AlertFlashData(
+                            "warning",
+                            "crud_alert",
+                            "Warning!",
+                            "Account not activated."
+                        );
+                        redirect($_SERVER["HTTP_REFERER"]);
+                    }
                 } else {
                     $this->AlertFlashData(
                         "danger",
@@ -2077,4 +2087,83 @@ class AdminController extends CI_Controller
         redirect(base_url("admin/gallery-list"));
     }
     /*=====GALLERY CRUD - ENDED=====*/
+
+    /*=====SETTINGS CRUD - START=====*/
+    public function crud_settings_create()
+    {
+        $settings_db_row = $this->AdminModel->table_row_id("settings", "s_uid");
+        if ($settings_db_row == -1) {
+            $data["admin_page_name"] = "Settings Create";
+            $this->load->view("admins/Settings/Create", $data);
+        } else {
+            redirect(base_url("admin/settings-edit"));
+        }
+    }
+
+    public function crud_settings_create_action()
+    {
+        $settings_db_row = $this->AdminModel->table_row_id("settings", "s_uid");
+        if ($settings_db_row == -1) {
+        } else {
+            redirect(base_url("admin/settings-edit"));
+        }
+    }
+
+    public function crud_settings_edit()
+    {
+        $settings_db_row = $this->AdminModel->table_row_id("settings", "s_uid");
+        if ($settings_db_row == -1) {
+            redirect(base_url("admin/settings-create"));
+        } else {
+            $data["admin_page_name"] = "Settings Edit";
+            $this->load->view("admins/Settings/Edit", $data);
+        }
+    }
+
+    public function crud_settings_edit_action()
+    {
+        $settings_db_row = $this->AdminModel->table_row_id("settings", "s_uid");
+        if ($settings_db_row == -1) {
+            redirect(base_url("admin/settings-create"));
+        } else {
+        }
+    }
+
+    public function crud_settings_delete()
+    {
+    }
+
+    public function crud_settings_dump_db()
+    {
+        $this->load->dbutil();
+        $database_name = $this->db->database;
+        $dump_db = $this->dbutil->backup([
+            "tables"     => array(),
+            "ignore"     => array(),
+            "filename"   => $database_name . ".sql",
+            "format"     => "zip",
+            "add_drop"   => TRUE,
+            "add_insert" => TRUE,
+            "newline"    => "\n",
+        ]);
+        if (!empty($dump_db)) {
+            write_file("./file_manager/system/backup/" . $database_name . "_backup_" . time() . ".zip", $dump_db);
+            $this->AlertFlashData(
+                "success",
+                "crud_alert",
+                "Success!",
+                "The database dump has been successfully created."
+            );
+            redirect($_SERVER["HTTP_REFERER"]);
+        } else {
+            $this->AlertFlashData(
+                "danger",
+                "crud_alert",
+                "Danger!",
+                "Unknown error."
+            );
+            redirect($_SERVER["HTTP_REFERER"]);
+        }
+    }
+    /*=====SETTINGS CRUD - ENDED=====*/
 }

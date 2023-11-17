@@ -125,6 +125,7 @@ $route["admin/settings-create-action"]         = "AdminController/crud_settings_
 $route["admin/settings-edit"]                  = "AdminController/crud_settings_edit";
 $route["admin/settings-edit-action"]           = "AdminController/crud_settings_edit_action";
 $route["admin/settings-delete"]                = "AdminController/crud_settings_delete";
+$route["admin/settings-dump-db"]               = "AdminController/crud_settings_dump_db";
 /*=====SETTINGS ROUTES - ENDED=====*/
 
 /*==========ADMIN CONTROLLER - ENDED==========*/

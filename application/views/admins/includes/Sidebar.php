@@ -189,40 +189,16 @@
             </div>
             <!--=====SUBSCRIBERS - ENDED=====-->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             <!--=====ABOUT-US - START=====-->
-            <div class="menu-item <?= str_contains($segment_name, 'about-us') ? 'active' : ''; ?>">
+            <div class="menu-item <?= MenuState($segment_name, 'about-us', 'active'); ?>">
                 <a href="<?= base_url('admin/about-us-create'); ?>" class="menu-link">
                     <span class="menu-icon">
-                        <i class="fa-regular fa-address-card"></i>
+                        <i class="fa-regular fa-address-card <?= MenuState($segment_name, 'about-us', 'fa-fade'); ?>"></i>
                     </span>
-                    <span class="menu-text">About Us*</span>
+                    <span class="menu-text">About Us</span>
                 </a>
             </div>
             <!--=====ABOUT-US - ENDED=====-->
-
-
-
-
-
-
-
-
-
-
 
             <!--=====CONTACTS - START=====-->
             <div class="menu-item <?= MenuState($segment_name, 'contacts', 'active'); ?>">
@@ -261,34 +237,16 @@
             </div>
             <!--=====GALLERY - ENDED=====-->
 
-
-
-
-
-
-
-
-
             <!--=====SETTINGS - START=====-->
-            <div class="menu-item <?= str_contains($segment_name, 'settings') ? 'active' : ''; ?>">
+            <div class="menu-item <?= MenuState($segment_name, 'settings', 'active'); ?>">
                 <a href="<?= base_url('admin/settings-create'); ?>" class="menu-link">
                     <span class="menu-icon">
-                        <i class="bi bi-gear"></i>
+                        <i class="bi bi-gear <?= MenuState($segment_name, 'settings', 'fa-fade'); ?>"></i>
                     </span>
-                    <span class="menu-text">Settings*</span>
+                    <span class="menu-text">Settings</span>
                 </a>
             </div>
             <!--=====SETTINGS - ENDED=====-->
-
-
-
-
-
-
-
-
-
-
 
             <!--=====CHAT GPT 4F - START=====-->
             <div class="menu-item <?= MenuState($segment_name, 'gpt', 'active'); ?>">

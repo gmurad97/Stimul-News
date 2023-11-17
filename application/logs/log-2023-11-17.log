@@ -1,4 +1,0 @@
-ERROR - 2023-11-17 00:12:12 --> Severity: error --> Exception: syntax error, unexpected variable "$profile_data", expecting "," or ";" C:\OSPanel\domains\stimul.news\application\views\admins\Profile\Edit.php 8
-ERROR - 2023-11-17 01:14:27 --> Severity: error --> Exception: syntax error, unexpected token "}" C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 336
-ERROR - 2023-11-17 01:14:29 --> Severity: error --> Exception: syntax error, unexpected token "}" C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 336
-ERROR - 2023-11-17 01:14:39 --> Severity: error --> Exception: syntax error, unexpected token "}" C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 335

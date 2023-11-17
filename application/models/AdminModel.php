@@ -30,7 +30,7 @@ class AdminModel extends CI_Model
 
     public function profile_admin_db_target($admin_login)
     {
-        return $this->db->or_where(["a_username" => $admin_login, "a_email" => $admin_login])->get("admin")->row_array();
+        return $this->db->or_where(["a_username" => $admin_login, "a_email" => $admin_login])->get(self::ADMIN_TABLE_NAME)->row_array();
     }
 
     public function profile_admin_db_get_all()
@@ -308,5 +308,15 @@ class AdminModel extends CI_Model
         $this->db->delete(self::GALLERY_TABLE_NAME, self::GALLERY_ID_NAME . "=" . $id);
     }
     /*=====GALLERY MODEL - ENDED=====*/
+
+    /*=====SETTINGS MODEL - START=====*/
+    private const SETTINGS_TABLE_NAME = "settings";
+    private const SETTINGS_ID_NAME = "s_uid";
+
+    public function settings_admin_db_insert($data)
+    {
+        $this->db->insert(self::SETTINGS_TABLE_NAME, $data);
+    }
+    /*=====SETTINGS MODEL - ENDED=====*/
 }
     /*====================CRUD MODEL - ENDED====================*/
