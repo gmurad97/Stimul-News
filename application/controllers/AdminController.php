@@ -16,12 +16,15 @@ class AdminController extends CI_Controller
     {
         parent::__construct();
         $this->load->model("AdminModel");
+        $settings_db_row = $this->AdminModel->table_row_id("settings", "s_uid");
+        $data["global_settings_data"] = json_decode($this->AdminModel->settings_admin_db_get($settings_db_row)["s_data"] ?? '{}', FALSE);
+        $this->load->vars($data);
     }
 
     /*=====LOCAL ADMIN CONTROLLER FUNCTION - START=====*/
     protected function SendEmail(array $eTo, string $eSubject, string $eMessage): bool
     {
-        $eFrom = "murad.dev@rrshipping.global";
+        $eFrom = "murad.dev@carsleon.com";
         $eFromName = "STIMUL NEWS";
         $this->email->clear();
         $this->email->from($eFrom, $eFromName);

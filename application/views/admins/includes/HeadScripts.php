@@ -1,11 +1,8 @@
-<?php
-$settings_data = json_decode($settings_db["s_data"], FALSE);
-?>
 <!DOCTYPE html>
-<html lang="en" <?= $settings_data->dark_mode_cms ? "data-bs-theme=\"dark\"" : "" ?>>
-//lazy & no time&& change this code
+<html lang="en" data-bs-theme="<?= ($global_settings_data->dark_mode_cms ?? 'dark') ? 'dark' : ''; ?>">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset=" UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stimul News CMS - <?= $admin_page_name; ?></title>
     <link rel="shortcut icon" href="<?= base_url('public/admin/assets/css/images/favicon.ico'); ?>" type="image/x-icon">

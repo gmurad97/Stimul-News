@@ -34,7 +34,7 @@
                         <div class="card bg-edit border-edit bg-opacity-5">
                             <div class="card-body">
                                 <a href="<?= base_url('file_manager/gallery/' . $gallery_image['g_img']); ?>" data-fancybox="gallery">
-                                    <img src="<?= base_url('file_manager/gallery/' . $gallery_image['g_img']); ?>" alt="Gallery Image" style="width: 100%; height:150px;">
+                                    <img src="<?= base_url('file_manager/gallery/' . $gallery_image['g_img']); ?>" alt="Gallery Image" style="width: 100%; height:150px;object-fit:cover;">
                                 </a>
                             </div>
                             <div class="card-footer">

@@ -56,7 +56,7 @@
             </ul>
         </form>
     </div>
-    <div class="card-footer">
+    <div class="card-footer border-success">
         <?php if (empty($latest_dump_db_file)) : ?>
             <a href="javascript:void(0);" class="btn btn-sm btn-danger rounded-2">
                 <i class="bi bi-database"></i>

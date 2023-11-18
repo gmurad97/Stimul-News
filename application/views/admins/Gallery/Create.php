@@ -8,7 +8,7 @@
             Gallery Create
         </div>
         <div>
-            <a href="<?= base_url('admin/subscribers-list'); ?>" class="btn btn-outline-info btn-sm rounded-2">
+            <a href="<?= base_url('admin/gallery-list'); ?>" class="btn btn-outline-info btn-sm rounded-2">
                 <i class="bi bi-list-nested me-1"></i>
                 List
             </a>

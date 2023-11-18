@@ -3,11 +3,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 /*=====START - IMPORTANT MAIL SETTINGS=====*/
 $config["protocol"]    = "smtp";
-$config["smtp_host"]   = "mail.rrshipping.global";
+$config["smtp_host"]   = "mail.carsleon.com";
 $config["smtp_port"]   = 25;
 $config["smtp_crypto"] = "";
-$config["smtp_user"]   = "murad.dev@rrshipping.global";
-$config["smtp_pass"]   = "jV7vG5zC7l";
+$config["smtp_user"]   = "murad.dev@carsleon.com";
+$config["smtp_pass"]   = "xY2wQ0bM3r";
 /*=====ENDED - IMPORTANT MAIL SETTINGS=====*/
 
 /*=====START - NOT IMPORTANT MAIL SETTINGS=====*/
