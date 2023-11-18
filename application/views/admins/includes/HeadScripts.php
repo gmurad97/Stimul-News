@@ -1,6 +1,9 @@
+<?php
+$settings_data = json_decode($settings_db["s_data"], FALSE);
+?>
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
-
+<html lang="en" <?= $settings_data->dark_mode_cms ? "data-bs-theme=\"dark\"" : "" ?>>
+//lazy & no time&& change this code
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

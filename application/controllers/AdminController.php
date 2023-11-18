@@ -61,6 +61,13 @@ class AdminController extends CI_Controller
         );
     }
 
+    protected function LatestCreatedFile($folderPath, $fileType)
+    {
+        return  array_reduce(glob($folderPath . "*." . $fileType), function ($result, $file) {
+            return filemtime($file) > filemtime($result) ? $file : $result;
+        }, "");
+    }
+
     protected function CryptoPrice($cryptoLimit)
     {
         $curl_crypto_price = curl_init("https://api.binance.com/api/v3/ticker/price");
@@ -2094,6 +2101,7 @@ class AdminController extends CI_Controller
         $settings_db_row = $this->AdminModel->table_row_id("settings", "s_uid");
         if ($settings_db_row == -1) {
             $data["admin_page_name"] = "Settings Create";
+            $data["latest_dump_db_file"] = $this->LatestCreatedFile("./file_manager/system/backup/", "zip");
             $this->load->view("admins/Settings/Create", $data);
         } else {
             redirect(base_url("admin/settings-edit"));
@@ -2104,6 +2112,24 @@ class AdminController extends CI_Controller
     {
         $settings_db_row = $this->AdminModel->table_row_id("settings", "s_uid");
         if ($settings_db_row == -1) {
+            $under_construction = $this->input->post("under_construction", TRUE);
+            $dark_mode_cms      = $this->input->post("dark_mode_cms", TRUE);
+            $decoded_json_data = [
+                "under_construction" => str_contains($under_construction, "on") ? TRUE : FALSE,
+                "dark_mode_cms" => str_contains($dark_mode_cms, "on") ? TRUE : FALSE
+            ];
+            $encoded_json_data = json_encode($decoded_json_data);
+            $data = [
+                "s_data" => $encoded_json_data
+            ];
+            $this->AdminModel->settings_admin_db_insert($data);
+            $this->AlertFlashData(
+                "success",
+                "crud_alert",
+                "Success!",
+                "The settings has been successfully created."
+            );
+            redirect(base_url("admin/settings-edit"));
         } else {
             redirect(base_url("admin/settings-edit"));
         }
@@ -2116,6 +2142,8 @@ class AdminController extends CI_Controller
             redirect(base_url("admin/settings-create"));
         } else {
             $data["admin_page_name"] = "Settings Edit";
+            $data["latest_dump_db_file"] = $this->LatestCreatedFile("./file_manager/system/backup/", "zip");
+            $data["settings_db"] = $this->AdminModel->settings_admin_db_get($settings_db_row);
             $this->load->view("admins/Settings/Edit", $data);
         }
     }
@@ -2126,11 +2154,38 @@ class AdminController extends CI_Controller
         if ($settings_db_row == -1) {
             redirect(base_url("admin/settings-create"));
         } else {
+            $under_construction = $this->input->post("under_construction", TRUE);
+            $dark_mode_cms      = $this->input->post("dark_mode_cms", TRUE);
+            $decoded_json_data = [
+                "under_construction" => str_contains($under_construction, "on") ? TRUE : FALSE,
+                "dark_mode_cms" => str_contains($dark_mode_cms, "on") ? TRUE : FALSE
+            ];
+            $encoded_json_data = json_encode($decoded_json_data);
+            $data = [
+                "s_data" => $encoded_json_data
+            ];
+            $this->AdminModel->settings_admin_db_edit($settings_db_row, $data);
+            $this->AlertFlashData(
+                "success",
+                "crud_alert",
+                "Success!",
+                "The settings has been successfully edited."
+            );
+            redirect(base_url("admin/settings-edit"));
         }
     }
 
     public function crud_settings_delete()
     {
+        $settings_db_row = $this->AdminModel->table_row_id("settings", "s_uid");
+        $this->AdminModel->settings_admin_db_delete($settings_db_row);
+        $this->AlertFlashData(
+            "success",
+            "crud_alert",
+            "Success!",
+            "The settings has been successfully removed."
+        );
+        redirect(base_url("admin/settings-create"));
     }
 
     public function crud_settings_dump_db()

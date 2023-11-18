@@ -1,0 +1,4 @@
+ERROR - 2023-11-18 07:17:52 --> Severity: Warning --> Undefined property: stdClass::$dark C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 5
+ERROR - 2023-11-18 07:18:13 --> Severity: Warning --> Undefined variable $settings_db C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 2
+ERROR - 2023-11-18 07:18:13 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 2
+ERROR - 2023-11-18 07:18:13 --> Severity: Warning --> Attempt to read property "dark_mode_cms" on null C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 5

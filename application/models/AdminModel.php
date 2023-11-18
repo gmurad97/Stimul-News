@@ -317,6 +317,22 @@ class AdminModel extends CI_Model
     {
         $this->db->insert(self::SETTINGS_TABLE_NAME, $data);
     }
+
+    public function settings_admin_db_get($id)
+    {
+        return $this->db->where(self::SETTINGS_ID_NAME, $id)->get(self::SETTINGS_TABLE_NAME, 1)->row_array();
+    }
+
+    public function settings_admin_db_edit($id, $data)
+    {
+        $this->db->update(self::SETTINGS_TABLE_NAME, $data, self::SETTINGS_ID_NAME . "=" . $id);
+    }
+
+    public function settings_admin_db_delete($id)
+    {
+        $this->db->delete(self::SETTINGS_TABLE_NAME, self::SETTINGS_ID_NAME . "=" . $id);
+    }
+
     /*=====SETTINGS MODEL - ENDED=====*/
 }
     /*====================CRUD MODEL - ENDED====================*/

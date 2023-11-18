@@ -14,7 +14,7 @@
             </button>
             <a href="<?= base_url('admin/settings-dump-db'); ?>" class="btn btn-sm btn-outline-success rounded-2">
                 <i class="bi bi-database-down me-1"></i>
-                DUMP DB
+                Dump DB
             </a>
         </div>
     </div>
@@ -33,7 +33,10 @@
             <ul class="list-group list-group-flush mb-3">
                 <li class="list-group-item">
                     <div class="d-flex flex-row justify-content-between align-items-center">
-                        <label for="under_construction_label">Under Construction</label>
+                        <label for="under_construction_label">
+                            <i class="fa-solid fa-screwdriver-wrench text-success me-1"></i>
+                            Under Construction
+                        </label>
                         <div class="form-check form-switch">
                             <input name="under_construction" type="checkbox" class="form-check-input" id="under_construction_label">
                         </div>
@@ -41,9 +44,12 @@
                 </li>
                 <li class="list-group-item">
                     <div class="d-flex flex-row justify-content-between align-items-center">
-                        <label for="topbar_time_label">Dark Mode (CMS)</label>
+                        <label for="dark_mode_cms_label">
+                            <i class="fa-solid fa-palette text-success me-1"></i>
+                            Dark Mode (CMS)
+                        </label>
                         <div class="form-check form-switch">
-                            <input name="topbar_time" type="checkbox" class="form-check-input" id="topbar_time_label">
+                            <input name="dark_mode_cms" type="checkbox" class="form-check-input" id="dark_mode_cms_label">
                         </div>
                     </div>
                 </li>
@@ -51,11 +57,17 @@
         </form>
     </div>
     <div class="card-footer">
-        <span>Current copy: not found!</span>
-        <br>
-        <span>Current copy: 111.zip date:01.01.1970 time set</span>
-        <br>
-        <span>Download!This DUMP db File.zip</span>
+        <?php if (empty($latest_dump_db_file)) : ?>
+            <a href="javascript:void(0);" class="btn btn-sm btn-danger rounded-2">
+                <i class="bi bi-database"></i>
+                <strong>DB Backup:</strong> Not Found Latest Dump DB
+            </a>
+        <?php else : ?>
+            <a href="<?= base_url($latest_dump_db_file); ?>" class="btn btn-sm btn-success rounded-2">
+                <i class="bi bi-database"></i>
+                <strong>DB Backup:</strong> Latest Dump DB (Download)
+            </a>
+        <?php endif; ?>
     </div>
     <div class="card-arrow">
         <div class="card-arrow-top-left"></div>
