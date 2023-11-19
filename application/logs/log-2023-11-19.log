@@ -1,0 +1,7 @@
+ERROR - 2023-11-19 02:23:01 --> Severity: Warning --> Trying to access array offset on value of type bool C:\OSPanel\domains\stimul.news\application\hooks\AdminAuthCheck.php 48
+ERROR - 2023-11-19 02:23:22 --> Severity: Warning --> Trying to access array offset on value of type bool C:\OSPanel\domains\stimul.news\application\hooks\AdminAuthCheck.php 48
+ERROR - 2023-11-19 02:23:27 --> Severity: Warning --> Trying to access array offset on value of type bool C:\OSPanel\domains\stimul.news\application\hooks\AdminAuthCheck.php 48
+ERROR - 2023-11-19 02:23:38 --> Severity: Warning --> Undefined array key "a_role" C:\OSPanel\domains\stimul.news\application\hooks\AdminAuthCheck.php 48
+ERROR - 2023-11-19 02:29:46 --> Severity: Warning --> Undefined array key "a_role" C:\OSPanel\domains\stimul.news\application\hooks\AdminAuthCheck.php 48
+ERROR - 2023-11-19 02:29:50 --> Severity: Warning --> Undefined array key "a_role" C:\OSPanel\domains\stimul.news\application\hooks\AdminAuthCheck.php 48
+ERROR - 2023-11-19 04:51:30 --> Severity: error --> Exception: Class "AdminRole" not found C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 21

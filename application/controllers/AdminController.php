@@ -16,6 +16,8 @@ class AdminController extends CI_Controller
     {
         parent::__construct();
         $this->load->model("AdminModel");
+        $current_role = $this->session->has_userdata("admin_auth") ? $this->session->userdata("admin_auth")["admin_role"] : "000";
+        $this->isAdmin = ($current_role === 999 || $current_role === 666);
         $settings_db_row = $this->AdminModel->table_row_id("settings", "s_uid");
         $data["global_settings_data"] = json_decode($this->AdminModel->settings_admin_db_get($settings_db_row)["s_data"] ?? '{}', FALSE);
         $this->load->vars($data);
@@ -2082,6 +2084,15 @@ class AdminController extends CI_Controller
 
     public function crud_gallery_delete($id)
     {
+        if (!$this->isAdmin) {
+            $this->AlertFlashData(
+                "warning",
+                "crud_alert",
+                "Warning!",
+                "You don't have the permission to do this."
+            );
+            redirect($_SERVER["HTTP_REFERER"]);
+        }
         $gallery_data = $this->AdminModel->gallery_admin_db_get($id);
         $gallery_img_path = "./file_manager/gallery/" . $gallery_data["g_img"];
         if (!is_dir($gallery_img_path) && file_exists($gallery_img_path)) {

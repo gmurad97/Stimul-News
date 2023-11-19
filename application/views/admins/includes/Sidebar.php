@@ -3,6 +3,8 @@
         <div class="menu">
             <!--=====FUNCTION MENU STATE - START=====-->
             <?php
+            $current_role = $this->session->userdata("admin_auth")["admin_role"];
+            $isAdmin = $current_role === AdminRole::ROLE_ROOT_CODE || $current_role === AdminRole::ROLE_ADMIN_CODE;
             $segment_name = $this->uri->segment(2);
             function MenuState(string $segmentName, string $pageName, string $className)
             {
@@ -38,77 +40,85 @@
             <div class="menu-header">Content Manager</div>
 
             <!--=====TOPBAR - START=====-->
-            <div class="menu-item <?= MenuState($segment_name, 'topbar', 'active'); ?>">
-                <a href="<?= base_url('admin/topbar-create'); ?>" class="menu-link">
-                    <span class="menu-icon">
-                        <i class="bi bi-distribute-vertical <?= MenuState($segment_name, 'topbar', 'fa-fade'); ?>"></i>
-                    </span>
-                    <span class="menu-text">Topbar</span>
-                </a>
-            </div>
+            <?php if ($isAdmin) : ?>
+                <div class="menu-item <?= MenuState($segment_name, 'topbar', 'active'); ?>">
+                    <a href="<?= base_url('admin/topbar-create'); ?>" class="menu-link">
+                        <span class="menu-icon">
+                            <i class="bi bi-distribute-vertical <?= MenuState($segment_name, 'topbar', 'fa-fade'); ?>"></i>
+                        </span>
+                        <span class="menu-text">Topbar</span>
+                    </a>
+                </div>
+            <?php endif; ?>
             <!--=====TOPBAR - ENDED=====-->
 
             <!--=====BRANDING - START=====-->
-            <div class="menu-item <?= MenuState($segment_name, 'branding', 'active'); ?>">
-                <a href="<?= base_url('admin/branding-create'); ?>" class="menu-link">
-                    <span class="menu-icon">
-                        <i class="bi bi-flower1 <?= MenuState($segment_name, 'branding', 'fa-fade'); ?>"></i>
-                    </span>
-                    <span class="menu-text">Branding</span>
-                </a>
-            </div>
+            <?php if ($isAdmin) : ?>
+                <div class="menu-item <?= MenuState($segment_name, 'branding', 'active'); ?>">
+                    <a href="<?= base_url('admin/branding-create'); ?>" class="menu-link">
+                        <span class="menu-icon">
+                            <i class="bi bi-flower1 <?= MenuState($segment_name, 'branding', 'fa-fade'); ?>"></i>
+                        </span>
+                        <span class="menu-text">Branding</span>
+                    </a>
+                </div>
+            <?php endif; ?>
             <!--=====BRANDING - ENDED=====-->
 
             <!--=====PARTNERS - START=====-->
-            <div class="menu-item has-sub <?= MenuState($segment_name, 'partners', 'active'); ?>">
-                <a href="javascript:void(0);" class="menu-link">
-                    <span class="menu-icon">
-                        <i class="bi bi-people <?= MenuState($segment_name, 'partners', 'fa-fade'); ?>"></i>
-                    </span>
-                    <span class="menu-text">Partners</span>
-                    <span class="menu-caret">
-                        <b class="caret"></b>
-                    </span>
-                </a>
-                <div class="menu-submenu">
-                    <div class="menu-item <?= MenuState($segment_name, 'partners-create', 'active'); ?>">
-                        <a href="<?= base_url('admin/partners-create'); ?>" class="menu-link">
-                            <span class="menu-text">Create</span>
-                        </a>
-                    </div>
-                    <div class="menu-item <?= MenuState($segment_name, 'partners-list', 'active'); ?>">
-                        <a href="<?= base_url('admin/partners-list'); ?>" class="menu-link">
-                            <span class="menu-text">List</span>
-                        </a>
+            <?php if ($isAdmin) : ?>
+                <div class="menu-item has-sub <?= MenuState($segment_name, 'partners', 'active'); ?>">
+                    <a href="javascript:void(0);" class="menu-link">
+                        <span class="menu-icon">
+                            <i class="bi bi-people <?= MenuState($segment_name, 'partners', 'fa-fade'); ?>"></i>
+                        </span>
+                        <span class="menu-text">Partners</span>
+                        <span class="menu-caret">
+                            <b class="caret"></b>
+                        </span>
+                    </a>
+                    <div class="menu-submenu">
+                        <div class="menu-item <?= MenuState($segment_name, 'partners-create', 'active'); ?>">
+                            <a href="<?= base_url('admin/partners-create'); ?>" class="menu-link">
+                                <span class="menu-text">Create</span>
+                            </a>
+                        </div>
+                        <div class="menu-item <?= MenuState($segment_name, 'partners-list', 'active'); ?>">
+                            <a href="<?= base_url('admin/partners-list'); ?>" class="menu-link">
+                                <span class="menu-text">List</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <?php endif; ?>
             <!--=====PARTNERS - ENDED=====-->
 
             <!--=====CATEGORIES - START=====-->
-            <div class="menu-item has-sub <?= MenuState($segment_name, 'categories', 'active'); ?>">
-                <a href="javascript:void(0);" class="menu-link">
-                    <span class="menu-icon">
-                        <i class="bi bi-tags <?= MenuState($segment_name, 'categories', 'fa-fade'); ?>"></i>
-                    </span>
-                    <span class="menu-text">Categories</span>
-                    <span class="menu-caret">
-                        <b class="caret"></b>
-                    </span>
-                </a>
-                <div class="menu-submenu">
-                    <div class="menu-item <?= MenuState($segment_name, 'categories-create', 'active'); ?>">
-                        <a href="<?= base_url('admin/categories-create'); ?>" class="menu-link">
-                            <span class="menu-text">Create</span>
-                        </a>
-                    </div>
-                    <div class="menu-item <?= MenuState($segment_name, 'categories-list', 'active'); ?>">
-                        <a href="<?= base_url('admin/categories-list'); ?>" class="menu-link">
-                            <span class="menu-text">List</span>
-                        </a>
+            <?php if ($isAdmin) : ?>
+                <div class="menu-item has-sub <?= MenuState($segment_name, 'categories', 'active'); ?>">
+                    <a href="javascript:void(0);" class="menu-link">
+                        <span class="menu-icon">
+                            <i class="bi bi-tags <?= MenuState($segment_name, 'categories', 'fa-fade'); ?>"></i>
+                        </span>
+                        <span class="menu-text">Categories</span>
+                        <span class="menu-caret">
+                            <b class="caret"></b>
+                        </span>
+                    </a>
+                    <div class="menu-submenu">
+                        <div class="menu-item <?= MenuState($segment_name, 'categories-create', 'active'); ?>">
+                            <a href="<?= base_url('admin/categories-create'); ?>" class="menu-link">
+                                <span class="menu-text">Create</span>
+                            </a>
+                        </div>
+                        <div class="menu-item <?= MenuState($segment_name, 'categories-list', 'active'); ?>">
+                            <a href="<?= base_url('admin/categories-list'); ?>" class="menu-link">
+                                <span class="menu-text">List</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <?php endif; ?>
             <!--=====CATEGORIES - ENDED=====-->
 
             <!--=====NEWS - START=====-->
@@ -138,77 +148,85 @@
             <!--=====NEWS - ENDED=====-->
 
             <!--=====SLIDER - START=====-->
-            <div class="menu-item has-sub <?= MenuState($segment_name, 'slider', 'active'); ?>">
-                <a href="javascript:void(0);" class="menu-link">
-                    <span class="menu-icon">
-                        <i class="bi bi-bezier <?= MenuState($segment_name, 'slider', 'fa-fade'); ?>"></i>
-                    </span>
-                    <span class="menu-text">Slider</span>
-                    <span class="menu-caret">
-                        <b class="caret"></b>
-                    </span>
-                </a>
-                <div class="menu-submenu">
-                    <div class="menu-item <?= MenuState($segment_name, 'slider-create', 'active'); ?>">
-                        <a href="<?= base_url('admin/slider-create'); ?>" class="menu-link">
-                            <span class="menu-text">Create</span>
-                        </a>
-                    </div>
-                    <div class="menu-item <?= MenuState($segment_name, 'slider-list', 'active'); ?>">
-                        <a href="<?= base_url('admin/slider-list'); ?>" class="menu-link">
-                            <span class="menu-text">List</span>
-                        </a>
+            <?php if ($isAdmin) : ?>
+                <div class="menu-item has-sub <?= MenuState($segment_name, 'slider', 'active'); ?>">
+                    <a href="javascript:void(0);" class="menu-link">
+                        <span class="menu-icon">
+                            <i class="bi bi-bezier <?= MenuState($segment_name, 'slider', 'fa-fade'); ?>"></i>
+                        </span>
+                        <span class="menu-text">Slider</span>
+                        <span class="menu-caret">
+                            <b class="caret"></b>
+                        </span>
+                    </a>
+                    <div class="menu-submenu">
+                        <div class="menu-item <?= MenuState($segment_name, 'slider-create', 'active'); ?>">
+                            <a href="<?= base_url('admin/slider-create'); ?>" class="menu-link">
+                                <span class="menu-text">Create</span>
+                            </a>
+                        </div>
+                        <div class="menu-item <?= MenuState($segment_name, 'slider-list', 'active'); ?>">
+                            <a href="<?= base_url('admin/slider-list'); ?>" class="menu-link">
+                                <span class="menu-text">List</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <?php endif; ?>
             <!--=====SLIDER - ENDED=====-->
 
             <!--=====SUBSCRIBERS - START=====-->
-            <div class="menu-item has-sub <?= MenuState($segment_name, 'subscribers', 'active'); ?>">
-                <a href="javascript:void(0);" class="menu-link">
-                    <span class="menu-icon">
-                        <i class="fa-solid fa-people-group <?= MenuState($segment_name, 'subscribers', 'fa-fade'); ?>"></i>
-                    </span>
-                    <span class="menu-text">Subscribers</span>
-                    <span class="menu-caret">
-                        <b class="caret"></b>
-                    </span>
-                </a>
-                <div class="menu-submenu">
-                    <div class="menu-item <?= MenuState($segment_name, 'subscribers-create', 'active'); ?>">
-                        <a href="<?= base_url('admin/subscribers-create'); ?>" class="menu-link">
-                            <span class="menu-text">Create</span>
-                        </a>
-                    </div>
-                    <div class="menu-item <?= MenuState($segment_name, 'subscribers-list', 'active'); ?>">
-                        <a href="<?= base_url('admin/subscribers-list'); ?>" class="menu-link">
-                            <span class="menu-text">List</span>
-                        </a>
+            <?php if ($isAdmin) : ?>
+                <div class="menu-item has-sub <?= MenuState($segment_name, 'subscribers', 'active'); ?>">
+                    <a href="javascript:void(0);" class="menu-link">
+                        <span class="menu-icon">
+                            <i class="fa-solid fa-people-group <?= MenuState($segment_name, 'subscribers', 'fa-fade'); ?>"></i>
+                        </span>
+                        <span class="menu-text">Subscribers</span>
+                        <span class="menu-caret">
+                            <b class="caret"></b>
+                        </span>
+                    </a>
+                    <div class="menu-submenu">
+                        <div class="menu-item <?= MenuState($segment_name, 'subscribers-create', 'active'); ?>">
+                            <a href="<?= base_url('admin/subscribers-create'); ?>" class="menu-link">
+                                <span class="menu-text">Create</span>
+                            </a>
+                        </div>
+                        <div class="menu-item <?= MenuState($segment_name, 'subscribers-list', 'active'); ?>">
+                            <a href="<?= base_url('admin/subscribers-list'); ?>" class="menu-link">
+                                <span class="menu-text">List</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <?php endif; ?>
             <!--=====SUBSCRIBERS - ENDED=====-->
 
             <!--=====ABOUT-US - START=====-->
-            <div class="menu-item <?= MenuState($segment_name, 'about-us', 'active'); ?>">
-                <a href="<?= base_url('admin/about-us-create'); ?>" class="menu-link">
-                    <span class="menu-icon">
-                        <i class="fa-regular fa-address-card <?= MenuState($segment_name, 'about-us', 'fa-fade'); ?>"></i>
-                    </span>
-                    <span class="menu-text">About Us</span>
-                </a>
-            </div>
+            <?php if ($isAdmin) : ?>
+                <div class="menu-item <?= MenuState($segment_name, 'about-us', 'active'); ?>">
+                    <a href="<?= base_url('admin/about-us-create'); ?>" class="menu-link">
+                        <span class="menu-icon">
+                            <i class="fa-regular fa-address-card <?= MenuState($segment_name, 'about-us', 'fa-fade'); ?>"></i>
+                        </span>
+                        <span class="menu-text">About Us</span>
+                    </a>
+                </div>
+            <?php endif; ?>
             <!--=====ABOUT-US - ENDED=====-->
 
             <!--=====CONTACTS - START=====-->
-            <div class="menu-item <?= MenuState($segment_name, 'contacts', 'active'); ?>">
-                <a href="<?= base_url('admin/contacts-create'); ?>" class="menu-link">
-                    <span class="menu-icon">
-                        <i class="bi bi-headset <?= MenuState($segment_name, 'contacts', 'fa-fade'); ?>"></i>
-                    </span>
-                    <span class="menu-text">Contacts</span>
-                </a>
-            </div>
+            <?php if ($isAdmin) : ?>
+                <div class="menu-item <?= MenuState($segment_name, 'contacts', 'active'); ?>">
+                    <a href="<?= base_url('admin/contacts-create'); ?>" class="menu-link">
+                        <span class="menu-icon">
+                            <i class="bi bi-headset <?= MenuState($segment_name, 'contacts', 'fa-fade'); ?>"></i>
+                        </span>
+                        <span class="menu-text">Contacts</span>
+                    </a>
+                </div>
+            <?php endif; ?>
             <!--=====CONTACTS - ENDED=====-->
 
             <!--=====GALLERY - START=====-->
@@ -238,14 +256,16 @@
             <!--=====GALLERY - ENDED=====-->
 
             <!--=====SETTINGS - START=====-->
-            <div class="menu-item <?= MenuState($segment_name, 'settings', 'active'); ?>">
-                <a href="<?= base_url('admin/settings-create'); ?>" class="menu-link">
-                    <span class="menu-icon">
-                        <i class="bi bi-gear <?= MenuState($segment_name, 'settings', 'fa-fade'); ?>"></i>
-                    </span>
-                    <span class="menu-text">Settings</span>
-                </a>
-            </div>
+            <?php if ($isAdmin) : ?>
+                <div class="menu-item <?= MenuState($segment_name, 'settings', 'active'); ?>">
+                    <a href="<?= base_url('admin/settings-create'); ?>" class="menu-link">
+                        <span class="menu-icon">
+                            <i class="bi bi-gear <?= MenuState($segment_name, 'settings', 'fa-fade'); ?>"></i>
+                        </span>
+                        <span class="menu-text">Settings</span>
+                    </a>
+                </div>
+            <?php endif; ?>
             <!--=====SETTINGS - ENDED=====-->
 
             <!--=====CHAT GPT 4F - START=====-->
