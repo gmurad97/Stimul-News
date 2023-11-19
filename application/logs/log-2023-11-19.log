@@ -30,3 +30,80 @@ ERROR - 2023-11-19 05:12:00 --> Severity: Warning --> Undefined variable $isAdmi
 ERROR - 2023-11-19 05:12:00 --> Severity: Warning --> Undefined variable $isAdmin C:\OSPanel\domains\stimul.news\application\views\admins\Profile\List.php 56
 ERROR - 2023-11-19 05:12:18 --> Severity: Warning --> Undefined variable $isAdmin C:\OSPanel\domains\stimul.news\application\views\admins\Profile\List.php 56
 ERROR - 2023-11-19 05:12:18 --> Severity: Warning --> Undefined variable $isAdmin C:\OSPanel\domains\stimul.news\application\views\admins\Profile\List.php 56
+ERROR - 2023-11-19 06:14:53 --> Severity: Warning --> Undefined variable $isCurrentUser C:\OSPanel\domains\stimul.news\application\views\admins\Gallery\List.php 43
+ERROR - 2023-11-19 06:14:53 --> Severity: Warning --> Undefined variable $isCurrentUser C:\OSPanel\domains\stimul.news\application\views\admins\Gallery\List.php 43
+ERROR - 2023-11-19 06:39:09 --> Severity: Warning --> Undefined variable $page_name C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 6
+ERROR - 2023-11-19 06:39:09 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 7
+ERROR - 2023-11-19 06:39:09 --> Severity: Warning --> Attempt to read property "favicon" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 7
+ERROR - 2023-11-19 06:39:09 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 7
+ERROR - 2023-11-19 06:39:09 --> Severity: Warning --> Undefined variable $topbar_options C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 81
+ERROR - 2023-11-19 06:39:09 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 134
+ERROR - 2023-11-19 06:39:09 --> Severity: Warning --> Attempt to read property "logo_dark" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 134
+ERROR - 2023-11-19 06:39:09 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 134
+ERROR - 2023-11-19 06:39:09 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-19 06:39:09 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-19 06:39:09 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-19 06:39:09 --> Severity: Warning --> Undefined variable $page_name C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 6
+ERROR - 2023-11-19 06:39:09 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 7
+ERROR - 2023-11-19 06:39:09 --> Severity: Warning --> Attempt to read property "favicon" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 7
+ERROR - 2023-11-19 06:39:09 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 7
+ERROR - 2023-11-19 06:39:09 --> Severity: Warning --> Undefined variable $topbar_options C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 81
+ERROR - 2023-11-19 06:39:09 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 134
+ERROR - 2023-11-19 06:39:09 --> Severity: Warning --> Attempt to read property "logo_dark" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 134
+ERROR - 2023-11-19 06:39:09 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 134
+ERROR - 2023-11-19 06:39:09 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-19 06:39:09 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-19 06:39:09 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-19 06:44:49 --> Severity: Warning --> Undefined variable $page_name C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 6
+ERROR - 2023-11-19 06:44:49 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 7
+ERROR - 2023-11-19 06:44:49 --> Severity: Warning --> Attempt to read property "favicon" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 7
+ERROR - 2023-11-19 06:44:49 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 7
+ERROR - 2023-11-19 06:44:49 --> Severity: Warning --> Undefined variable $topbar_options C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 81
+ERROR - 2023-11-19 06:44:49 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 134
+ERROR - 2023-11-19 06:44:49 --> Severity: Warning --> Attempt to read property "logo_dark" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 134
+ERROR - 2023-11-19 06:44:49 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 134
+ERROR - 2023-11-19 06:44:49 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-19 06:44:49 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-19 06:44:49 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-19 07:28:56 --> Severity: Warning --> Undefined variable $page_name C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 6
+ERROR - 2023-11-19 07:28:56 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 7
+ERROR - 2023-11-19 07:28:56 --> Severity: Warning --> Attempt to read property "favicon" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 7
+ERROR - 2023-11-19 07:28:56 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 7
+ERROR - 2023-11-19 07:28:56 --> Severity: Warning --> Undefined variable $topbar_options C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 81
+ERROR - 2023-11-19 07:28:56 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 134
+ERROR - 2023-11-19 07:28:56 --> Severity: Warning --> Attempt to read property "logo_dark" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 134
+ERROR - 2023-11-19 07:28:56 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 134
+ERROR - 2023-11-19 07:28:56 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-19 07:28:56 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-19 07:28:56 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-19 07:29:55 --> Severity: Warning --> Undefined array key "t_id" C:\OSPanel\domains\stimul.news\application\models\UserModel.php 13
+ERROR - 2023-11-19 07:29:55 --> Query error: Unknown column 't_id' in 'where clause' - Invalid query: SELECT *
+FROM `topbar`
+WHERE `t_id` IS NULL
+ LIMIT 1
+ERROR - 2023-11-19 07:31:18 --> Severity: Warning --> Undefined array key "t_id" C:\OSPanel\domains\stimul.news\application\models\UserModel.php 13
+ERROR - 2023-11-19 07:31:18 --> Query error: Unknown column 't_id' in 'where clause' - Invalid query: SELECT *
+FROM `topbar`
+WHERE `t_id` IS NULL
+ LIMIT 1
+ERROR - 2023-11-19 07:31:27 --> Query error: Unknown column 't_id' in 'where clause' - Invalid query: SELECT *
+FROM `topbar`
+WHERE `t_id` = '1'
+ LIMIT 1
+ERROR - 2023-11-19 07:31:43 --> Severity: Warning --> Undefined variable $page_name C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 6
+ERROR - 2023-11-19 07:31:43 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 7
+ERROR - 2023-11-19 07:31:43 --> Severity: Warning --> Attempt to read property "favicon" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 7
+ERROR - 2023-11-19 07:31:43 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 7
+ERROR - 2023-11-19 07:31:43 --> Severity: Warning --> Undefined variable $topbar_options C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 81
+ERROR - 2023-11-19 07:31:43 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 134
+ERROR - 2023-11-19 07:31:43 --> Severity: Warning --> Attempt to read property "logo_dark" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 134
+ERROR - 2023-11-19 07:31:43 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 134
+ERROR - 2023-11-19 07:31:43 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-19 07:31:43 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-19 07:31:43 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-19 23:07:08 --> Severity: Warning --> Undefined variable $global_is_admin C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 109
+ERROR - 2023-11-19 23:07:22 --> Severity: Warning --> Undefined variable $data C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 109
+ERROR - 2023-11-19 23:07:22 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 109
+ERROR - 2023-11-19 23:07:30 --> Severity: Warning --> Undefined variable $global_is_admin C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 109
+ERROR - 2023-11-19 23:07:35 --> Severity: Warning --> Undefined variable $global_is_admin C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 109
+ERROR - 2023-11-19 23:07:35 --> Severity: Warning --> Undefined property: AdminController::$ C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 109

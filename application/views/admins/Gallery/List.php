@@ -40,7 +40,7 @@
                             <div class="card-footer">
                                 <div class="row">
                                     <div class="col-12 col-md-6 text-center">
-                                        <a href="javascript:void(0);" class="theme-red text-decoration-none" data-link="<?= base_url('admin/gallery-delete/' . $gallery_image["g_uid"]); ?>" data-bs-toggle="modal" data-bs-target="#danger_modal">
+                                        <a href="javascript:void(0);" class="nav-link <?= $global_is_admin ? '' : 'disabled'; ?> theme-red text-decoration-none" data-link="<?= base_url('admin/gallery-delete/' . $gallery_image["g_uid"]); ?>" data-bs-toggle="modal" data-bs-target="#danger_modal">
                                             <i class="bi bi-trash fs-5"></i>
                                             Remove
                                         </a>

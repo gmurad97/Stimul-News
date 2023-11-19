@@ -2,12 +2,13 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
- * AUTHOR: Murad Gazymagomedov
- * USERNAME: gmurad97
- * USER TEMPLATE: MORUS NEWS
- * ADMIN TEMPLATE: HUD ADMIN
- * VERSION: 2.1
+ * AUTHOR:            Murad Gazymagomedov
+ * USERNAME:          GMurad97 || ASProgerHack
+ * USER TEMPLATE:     MORUS NEWS
+ * ADMIN TEMPLATE:    HUD ADMIN
+ * VERSION:           2.1
  * USED LOCAL SERVER: OPENSERVER 5.4.3
+ * SERVER VERSION:    APACHE 2.4 + PHP 8.0-8.1 + NGINX 1.23
  **/
 
 class AdminController extends CI_Controller
@@ -17,7 +18,7 @@ class AdminController extends CI_Controller
         parent::__construct();
         $this->load->model("AdminModel");
         $current_role = $this->session->has_userdata("admin_auth") ? $this->session->userdata("admin_auth")["admin_role"] : "000";
-        $this->isAdmin = ($current_role === 999 || $current_role === 666);
+        $this->isAdmin = ($current_role == 999 || $current_role == 666);
         $settings_db_row = $this->AdminModel->table_row_id("settings", "s_uid");
         $data["global_is_admin"] = $this->isAdmin;
         $data["global_settings_data"] = json_decode($this->AdminModel->settings_admin_db_get($settings_db_row)["s_data"] ?? '{}', FALSE);
@@ -311,7 +312,7 @@ class AdminController extends CI_Controller
 
     public function crud_profile_detail($id)
     {
-        if ($this->isAdmin || $id === $this->session->userdata("admin_auth")["admin_uid"]) {
+        if ($this->isAdmin || $id == $this->session->userdata("admin_auth")["admin_uid"]) {
             $data["admin_page_name"] = "Profile Detail";
             $data["profile_data"] = $this->AdminModel->profile_admin_db_get($id);
             $this->load->view("admins/Profile/Detail", $data);
@@ -328,160 +329,190 @@ class AdminController extends CI_Controller
 
     public function crud_profile_edit($id)
     {
-        $data["admin_page_name"] = "Profile Edit";
-        $data["profile_data"] = $this->AdminModel->profile_admin_db_get($id);
-        $this->load->view("admins/Profile/Edit", $data);
+        if ($this->isAdmin || $id == $this->session->userdata("admin_auth")["admin_uid"]) {
+            $data["admin_page_name"] = "Profile Edit";
+            $data["profile_data"] = $this->AdminModel->profile_admin_db_get($id);
+            $this->load->view("admins/Profile/Edit", $data);
+        } else {
+            $this->AlertFlashData(
+                "warning",
+                "crud_alert",
+                "Warning!",
+                "You don't have the permission to do this."
+            );
+            redirect(base_url("admin/profile-list"));
+        }
     }
 
     public function crud_profile_edit_action($id)
     {
-        $current_profile_data      = $this->AdminModel->profile_admin_db_get($id);
-        $current_profile_img_path  = "./file_manager/system/admin/" . $current_profile_data["a_img"];
-        $profile_name             = $this->input->post("profile_name", TRUE);
-        $profile_surname          = $this->input->post("profile_surname", TRUE);
-        $profile_email            = $this->input->post("profile_email", TRUE);
-        $profile_username         = $this->input->post("profile_username", TRUE);
-        $profile_new_password     = $this->input->post("profile_new_password", TRUE);
-        $profile_status           = $this->input->post("profile_status", TRUE);
-        $profile_config["upload_path"]      = "./file_manager/system/admin/";
-        $profile_config["allowed_types"]    = "ico|jpeg|jpg|png|svg|ICO|JPEG|JPG|PNG|SVG";
-        $profile_config["file_ext_tolower"] = TRUE;
-        $profile_config["remove_spaces"]    = TRUE;
-        $profile_config["encrypt_name"]     = TRUE;
-        $this->load->library("upload", $profile_config);
-        $this->upload->initialize($profile_config);
-        if ($this->upload->do_upload("profile_img")) {
-            if (!is_dir($current_profile_img_path) && file_exists($current_profile_img_path)) {
-                unlink($current_profile_img_path);
-            }
-            $profile_new_img = $this->upload->data();
-            if (
-                !empty($profile_name)
-                && !empty($profile_surname)
-                && !empty($profile_email)
-                && !empty($profile_username)
-                && !empty($profile_new_password)
-            ) {
-                $data = [
-                    "a_name" => $profile_name,
-                    "a_surname" => $profile_surname,
-                    "a_email" => $profile_email,
-                    "a_username" => $profile_username,
-                    "a_password" => hash("sha512", hash("md5", $profile_new_password)),
-                    "a_img" => $profile_new_img["file_name"],
-                    "a_status" => str_contains($profile_status, "on") ? TRUE : FALSE,
-                ];
-                $this->AdminModel->profile_admin_db_edit($id, $data);
-                $this->AlertFlashData(
-                    "success",
-                    "crud_alert",
-                    "Success!",
-                    "The profile has been successfully edited."
-                );
-                redirect(base_url("admin/profile-list"));
-            } else if (
-                !empty($profile_name)
-                && !empty($profile_surname)
-                && !empty($profile_email)
-                && !empty($profile_username)
-            ) {
-                $data = [
-                    "a_name" => $profile_name,
-                    "a_surname" => $profile_surname,
-                    "a_email" => $profile_email,
-                    "a_username" => $profile_username,
-                    "a_img" => $profile_new_img["file_name"],
-                    "a_status" => str_contains($profile_status, "on") ? TRUE : FALSE,
-                ];
-                $this->AdminModel->profile_admin_db_edit($id, $data);
-                $this->AlertFlashData(
-                    "success",
-                    "crud_alert",
-                    "Success!",
-                    "The profile has been successfully edited."
-                );
-                redirect(base_url("admin/profile-list"));
+        if ($this->isAdmin || $id == $this->session->userdata("admin_auth")["admin_uid"]) {
+            $current_profile_data      = $this->AdminModel->profile_admin_db_get($id);
+            $current_profile_img_path  = "./file_manager/system/admin/" . $current_profile_data["a_img"];
+            $profile_name             = $this->input->post("profile_name", TRUE);
+            $profile_surname          = $this->input->post("profile_surname", TRUE);
+            $profile_email            = $this->input->post("profile_email", TRUE);
+            $profile_username         = $this->input->post("profile_username", TRUE);
+            $profile_new_password     = $this->input->post("profile_new_password", TRUE);
+            $profile_status           = $this->input->post("profile_status", TRUE);
+            $profile_config["upload_path"]      = "./file_manager/system/admin/";
+            $profile_config["allowed_types"]    = "ico|jpeg|jpg|png|svg|ICO|JPEG|JPG|PNG|SVG";
+            $profile_config["file_ext_tolower"] = TRUE;
+            $profile_config["remove_spaces"]    = TRUE;
+            $profile_config["encrypt_name"]     = TRUE;
+            $this->load->library("upload", $profile_config);
+            $this->upload->initialize($profile_config);
+            if ($this->upload->do_upload("profile_img")) {
+                if (!is_dir($current_profile_img_path) && file_exists($current_profile_img_path)) {
+                    unlink($current_profile_img_path);
+                }
+                $profile_new_img = $this->upload->data();
+                if (
+                    !empty($profile_name)
+                    && !empty($profile_surname)
+                    && !empty($profile_email)
+                    && !empty($profile_username)
+                    && !empty($profile_new_password)
+                ) {
+                    $data = [
+                        "a_name" => $profile_name,
+                        "a_surname" => $profile_surname,
+                        "a_email" => $profile_email,
+                        "a_username" => $profile_username,
+                        "a_password" => hash("sha512", hash("md5", $profile_new_password)),
+                        "a_img" => $profile_new_img["file_name"],
+                        "a_status" => str_contains($profile_status, "on") ? TRUE : FALSE,
+                    ];
+                    $this->AdminModel->profile_admin_db_edit($id, $data);
+                    $this->AlertFlashData(
+                        "success",
+                        "crud_alert",
+                        "Success!",
+                        "The profile has been successfully edited."
+                    );
+                    redirect(base_url("admin/profile-list"));
+                } else if (
+                    !empty($profile_name)
+                    && !empty($profile_surname)
+                    && !empty($profile_email)
+                    && !empty($profile_username)
+                ) {
+                    $data = [
+                        "a_name" => $profile_name,
+                        "a_surname" => $profile_surname,
+                        "a_email" => $profile_email,
+                        "a_username" => $profile_username,
+                        "a_img" => $profile_new_img["file_name"],
+                        "a_status" => str_contains($profile_status, "on") ? TRUE : FALSE,
+                    ];
+                    $this->AdminModel->profile_admin_db_edit($id, $data);
+                    $this->AlertFlashData(
+                        "success",
+                        "crud_alert",
+                        "Success!",
+                        "The profile has been successfully edited."
+                    );
+                    redirect(base_url("admin/profile-list"));
+                } else {
+                    $this->AlertFlashData(
+                        "warning",
+                        "crud_alert",
+                        "Warning!",
+                        "Please, fill in all the fields."
+                    );
+                    redirect($_SERVER["HTTP_REFERER"]);
+                }
             } else {
-                $this->AlertFlashData(
-                    "warning",
-                    "crud_alert",
-                    "Warning!",
-                    "Please, fill in all the fields."
-                );
-                redirect($_SERVER["HTTP_REFERER"]);
+                if (
+                    !empty($profile_name)
+                    && !empty($profile_surname)
+                    && !empty($profile_email)
+                    && !empty($profile_username)
+                    && !empty($profile_new_password)
+                ) {
+                    $data = [
+                        "a_name" => $profile_name,
+                        "a_surname" => $profile_surname,
+                        "a_email" => $profile_email,
+                        "a_username" => $profile_username,
+                        "a_password" => hash("sha512", hash("md5", $profile_new_password)),
+                        "a_status" => str_contains($profile_status, "on") ? TRUE : FALSE,
+                    ];
+                    $this->AdminModel->profile_admin_db_edit($id, $data);
+                    $this->AlertFlashData(
+                        "success",
+                        "crud_alert",
+                        "Success!",
+                        "The profile has been successfully edited."
+                    );
+                    redirect(base_url("admin/profile-list"));
+                } else if (
+                    !empty($profile_name)
+                    && !empty($profile_surname)
+                    && !empty($profile_email)
+                    && !empty($profile_username)
+                ) {
+                    $data = [
+                        "a_name" => $profile_name,
+                        "a_surname" => $profile_surname,
+                        "a_email" => $profile_email,
+                        "a_username" => $profile_username,
+                        "a_status" => str_contains($profile_status, "on") ? TRUE : FALSE,
+                    ];
+                    $this->AdminModel->profile_admin_db_edit($id, $data);
+                    $this->AlertFlashData(
+                        "success",
+                        "crud_alert",
+                        "Success!",
+                        "The profile has been successfully edited."
+                    );
+                    redirect(base_url("admin/profile-list"));
+                } else {
+                    $this->AlertFlashData(
+                        "warning",
+                        "crud_alert",
+                        "Warning!",
+                        "Please, fill in all the fields."
+                    );
+                    redirect($_SERVER["HTTP_REFERER"]);
+                }
             }
         } else {
-            if (
-                !empty($profile_name)
-                && !empty($profile_surname)
-                && !empty($profile_email)
-                && !empty($profile_username)
-                && !empty($profile_new_password)
-            ) {
-                $data = [
-                    "a_name" => $profile_name,
-                    "a_surname" => $profile_surname,
-                    "a_email" => $profile_email,
-                    "a_username" => $profile_username,
-                    "a_password" => hash("sha512", hash("md5", $profile_new_password)),
-                    "a_status" => str_contains($profile_status, "on") ? TRUE : FALSE,
-                ];
-                $this->AdminModel->profile_admin_db_edit($id, $data);
-                $this->AlertFlashData(
-                    "success",
-                    "crud_alert",
-                    "Success!",
-                    "The profile has been successfully edited."
-                );
-                redirect(base_url("admin/profile-list"));
-            } else if (
-                !empty($profile_name)
-                && !empty($profile_surname)
-                && !empty($profile_email)
-                && !empty($profile_username)
-            ) {
-                $data = [
-                    "a_name" => $profile_name,
-                    "a_surname" => $profile_surname,
-                    "a_email" => $profile_email,
-                    "a_username" => $profile_username,
-                    "a_status" => str_contains($profile_status, "on") ? TRUE : FALSE,
-                ];
-                $this->AdminModel->profile_admin_db_edit($id, $data);
-                $this->AlertFlashData(
-                    "success",
-                    "crud_alert",
-                    "Success!",
-                    "The profile has been successfully edited."
-                );
-                redirect(base_url("admin/profile-list"));
-            } else {
-                $this->AlertFlashData(
-                    "warning",
-                    "crud_alert",
-                    "Warning!",
-                    "Please, fill in all the fields."
-                );
-                redirect($_SERVER["HTTP_REFERER"]);
-            }
+            $this->AlertFlashData(
+                "warning",
+                "crud_alert",
+                "Warning!",
+                "You don't have the permission to do this."
+            );
+            redirect(base_url("admin/profile-list"));
         }
     }
 
     public function crud_profile_delete($id)
     {
-        $current_profile_data     = $this->AdminModel->profile_admin_db_get($id);
-        $current_profile_img_path = "./file_manager/system/admin/" . $current_profile_data["a_img"];
-        if (!is_dir($current_profile_img_path) && file_exists($current_profile_img_path)) {
-            unlink($current_profile_img_path);
+        if ($this->isAdmin) {
+            $current_profile_data     = $this->AdminModel->profile_admin_db_get($id);
+            $current_profile_img_path = "./file_manager/system/admin/" . $current_profile_data["a_img"];
+            if (!is_dir($current_profile_img_path) && file_exists($current_profile_img_path)) {
+                unlink($current_profile_img_path);
+            }
+            $this->AdminModel->profile_admin_db_delete($id);
+            $this->AlertFlashData(
+                "success",
+                "crud_alert",
+                "Success!",
+                "The profile has been successfully edited."
+            );
+            redirect(base_url("admin/profile-list"));
+        } else {
+            $this->AlertFlashData(
+                "warning",
+                "crud_alert",
+                "Warning!",
+                "You don't have the permission to do this."
+            );
+            redirect(base_url("admin/profile-list"));
         }
-        $this->AdminModel->profile_admin_db_delete($id);
-        $this->AlertFlashData(
-            "success",
-            "crud_alert",
-            "Success!",
-            "The profile has been successfully edited."
-        );
-        redirect(base_url("admin/profile-list"));
     }
     /*=====GLOBAL ADMIN FUNCTION - ENDED=====*/
 

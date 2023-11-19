@@ -3,9 +3,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class AdminRole
 {
-    const ROLE_ROOT_CODE = "999";
-    const ROLE_ADMIN_CODE = "666";
-    const ROLE_REDACTOR_CODE = "333";
+    const ROLE_ROOT_CODE = 999;
+    const ROLE_ADMIN_CODE = 666;
+    const ROLE_REDACTOR_CODE = 333;
 }
 
 class AdminAuthCheck
@@ -30,29 +30,26 @@ class AdminAuthCheck
     {
         $CI = &get_instance();
         $current_route = $CI->uri->uri_string();
-
-        $unauthorized_allowed_routes_prefix = [
+        $authorized_not_allowed_routes_prefix = [
             "admin/auth",
             "admin/register",
         ];
-
-        $admin_allowed_routes_prefix = [
-            "admin/"
-        ];
-
         $redactor_allowed_routes_prefix = [
             "admin/dashboard",
             "admin/gallery",
             "admin/news",
             "admin/gpt",
             "admin/profile",
-            "admin/logout"
+            "admin/logout",
         ];
-
         if ($this->isAuthenticated()) {
             $current_role = $CI->session->userdata("admin_auth")["admin_role"];
-            if ($current_role === AdminRole::ROLE_REDACTOR_CODE) {
-                if (!$this->in_array_prefix($current_route, $redactor_allowed_routes_prefix)) {
+            if ($current_role == AdminRole::ROLE_ROOT_CODE || $current_role == AdminRole::ROLE_ADMIN_CODE) {
+                if ($this->in_array_prefix($current_route, $authorized_not_allowed_routes_prefix)) {
+                    redirect(base_url("admin/dashboard"));
+                }
+            } elseif ($current_role == AdminRole::ROLE_REDACTOR_CODE) {
+                if (!$this->in_array_prefix($current_route, $redactor_allowed_routes_prefix) && str_contains($current_route, "admin")) {
                     $CI->session->set_flashdata(
                         "crud_alert",
                         [
@@ -67,13 +64,7 @@ class AdminAuthCheck
                 }
             }
         } else {
-        }
-
-
-
-
-        /* if (!$this->isAuthenticated()) {
-            if ($current_route != "admin/auth" && !in_array($current_route, $unauthorized_allowed_routes_prefix)) {
+            if (!$this->in_array_prefix($current_route, $authorized_not_allowed_routes_prefix) && str_contains($current_route, "admin")) {
                 $CI->session->set_flashdata(
                     "crud_alert",
                     [
@@ -86,12 +77,6 @@ class AdminAuthCheck
                 );
                 redirect(base_url("admin/auth"));
             }
-        } else if ($this->isAuthenticated()) {
-            if ($CI->session->userdata("admin_auth")["admin_role"] === "333") {
-                if (!str_starts_with($current_route, "admin/news")) {
-                    redirect(base_url("admin/news-list"));
-                }
-            }
-        } */
+        }
     }
 }

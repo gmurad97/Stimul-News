@@ -43,7 +43,7 @@
                     <ul class="list-group list-group-flush mb-3">
                         <li class="list-group-item">
                             <div class="row">
-                                <h1 class="h5 text-success mb-3">Base Text</h1>
+                                <h1 class="h5 text-success mb-3">Base Settings</h1>
                             </div>
                             <div class="row d-flex flex-row justify-content-between align-items-center mb-2">
                                 <div class="col-md-3">

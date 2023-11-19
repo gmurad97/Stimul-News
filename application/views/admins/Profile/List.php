@@ -35,7 +35,8 @@
             <tbody>
                 <?php $id_counter = 1; ?>
                 <?php foreach ($profiles_data as $profile_data) : ?>
-                    <tr>
+                    <?php $isCurrentUser =  $profile_data["a_uid"] === $this->session->userdata('admin_auth')['admin_uid']; ?>
+                    <tr class="<?= $isCurrentUser ? 'bg-indigo bg-opacity-20' : ''; ?>">
                         <td><?= $id_counter++; ?></td>
                         <td>
                             <?php if (!empty($profile_data["a_img"])) : ?>
@@ -53,7 +54,7 @@
                         </td>
                         <td><?= $profile_data["a_surname"]; ?></td>
                         <td>
-                            <?php if ($global_is_admin || $profile_data["a_uid"] === $this->session->userdata('admin_auth')['admin_uid']) : ?>
+                            <?php if ($global_is_admin || $isCurrentUser) : ?>
                                 <?= $profile_data["a_username"]; ?>
                             <?php else : ?>
                                 <?= str_repeat("*", strlen($profile_data["a_username"])); ?>
@@ -98,12 +99,12 @@
                         <td>
                             <nav class="nav flex-row">
 
-                                <a href="<?= base_url('admin/profile-detail/') . $profile_data['a_uid']; ?>" class="nav-link <?= $global_is_admin || $profile_data["a_uid"] === $this->session->userdata('admin_auth')['admin_uid'] ? '' : 'disabled'; ?> theme-info p-0 me-3">
+                                <a href="<?= base_url('admin/profile-detail/') . $profile_data['a_uid']; ?>" class="nav-link <?= $global_is_admin || $isCurrentUser ? '' : 'disabled'; ?> theme-info p-0 me-3">
                                     <i class="bi bi-eye fs-5"></i>
                                 </a>
 
 
-                                <a href="<?= base_url('admin/profile-edit/') . $profile_data["a_uid"]; ?>" class="nav-link <?= $global_is_admin || $profile_data["a_uid"] === $this->session->userdata('admin_auth')['admin_uid'] ? '' : 'disabled'; ?> theme-warning p-0 me-3">
+                                <a href="<?= base_url('admin/profile-edit/') . $profile_data["a_uid"]; ?>" class="nav-link <?= $global_is_admin || $isCurrentUser ? '' : 'disabled'; ?> theme-warning p-0 me-3">
                                     <i class="bi bi-pencil-square fs-5"></i>
                                 </a>
 
