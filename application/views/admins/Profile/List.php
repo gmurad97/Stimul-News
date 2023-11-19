@@ -52,7 +52,13 @@
                             <?= $profile_data["a_name"]; ?>
                         </td>
                         <td><?= $profile_data["a_surname"]; ?></td>
-                        <td><?= $profile_data["a_username"]; ?></td>
+                        <td>
+                            <?php if ($global_is_admin || $profile_data["a_uid"] === $this->session->userdata('admin_auth')['admin_uid']) : ?>
+                                <?= $profile_data["a_username"]; ?>
+                            <?php else : ?>
+                                <?= str_repeat("*", strlen($profile_data["a_username"])); ?>
+                            <?php endif; ?>
+                        </td>
                         <td>
                             <?php if ($profile_data["a_role"] === "999") : ?>
                                 <span class="badge bg-warning w-90px py-2 text-uppercase">
@@ -91,15 +97,23 @@
                         </td>
                         <td>
                             <nav class="nav flex-row">
-                                <a href="<?= base_url('admin/profile-detail/') . $profile_data['a_uid']; ?>" class="nav-link theme-info p-0 me-3">
+
+                                <a href="<?= base_url('admin/profile-detail/') . $profile_data['a_uid']; ?>" class="nav-link <?= $global_is_admin || $profile_data["a_uid"] === $this->session->userdata('admin_auth')['admin_uid'] ? '' : 'disabled'; ?> theme-info p-0 me-3">
                                     <i class="bi bi-eye fs-5"></i>
                                 </a>
-                                <a href="<?= base_url('admin/profile-edit/') . $profile_data["a_uid"]; ?>" class="nav-link theme-warning p-0 me-3">
+
+
+                                <a href="<?= base_url('admin/profile-edit/') . $profile_data["a_uid"]; ?>" class="nav-link <?= $global_is_admin || $profile_data["a_uid"] === $this->session->userdata('admin_auth')['admin_uid'] ? '' : 'disabled'; ?> theme-warning p-0 me-3">
                                     <i class="bi bi-pencil-square fs-5"></i>
                                 </a>
-                                <a href="javascript:void(0);" class="nav-link theme-danger p-0" data-link="<?= base_url('admin/profile-delete/') . $profile_data["a_uid"]; ?>" data-bs-toggle="modal" data-bs-target="#danger_modal">
+
+
+                                <a href="javascript:void(0);" class="nav-link <?= $global_is_admin ? '' : 'disabled'; ?> theme-danger p-0" data-link="<?= base_url('admin/profile-delete/') . $profile_data["a_uid"]; ?>" data-bs-toggle="modal" data-bs-target="#danger_modal">
                                     <i class="bi bi-trash fs-5"></i>
                                 </a>
+
+
+
                             </nav>
                         </td>
                     </tr>

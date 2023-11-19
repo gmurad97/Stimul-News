@@ -3,8 +3,6 @@
         <div class="menu">
             <!--=====FUNCTION MENU STATE - START=====-->
             <?php
-            $current_role = $this->session->userdata("admin_auth")["admin_role"];
-            $isAdmin = $current_role === AdminRole::ROLE_ROOT_CODE || $current_role === AdminRole::ROLE_ADMIN_CODE;
             $segment_name = $this->uri->segment(2);
             function MenuState(string $segmentName, string $pageName, string $className)
             {
@@ -40,7 +38,7 @@
             <div class="menu-header">Content Manager</div>
 
             <!--=====TOPBAR - START=====-->
-            <?php if ($isAdmin) : ?>
+            <?php if ($global_is_admin) : ?>
                 <div class="menu-item <?= MenuState($segment_name, 'topbar', 'active'); ?>">
                     <a href="<?= base_url('admin/topbar-create'); ?>" class="menu-link">
                         <span class="menu-icon">
@@ -53,7 +51,7 @@
             <!--=====TOPBAR - ENDED=====-->
 
             <!--=====BRANDING - START=====-->
-            <?php if ($isAdmin) : ?>
+            <?php if ($global_is_admin) : ?>
                 <div class="menu-item <?= MenuState($segment_name, 'branding', 'active'); ?>">
                     <a href="<?= base_url('admin/branding-create'); ?>" class="menu-link">
                         <span class="menu-icon">
@@ -66,7 +64,7 @@
             <!--=====BRANDING - ENDED=====-->
 
             <!--=====PARTNERS - START=====-->
-            <?php if ($isAdmin) : ?>
+            <?php if ($global_is_admin) : ?>
                 <div class="menu-item has-sub <?= MenuState($segment_name, 'partners', 'active'); ?>">
                     <a href="javascript:void(0);" class="menu-link">
                         <span class="menu-icon">
@@ -94,7 +92,7 @@
             <!--=====PARTNERS - ENDED=====-->
 
             <!--=====CATEGORIES - START=====-->
-            <?php if ($isAdmin) : ?>
+            <?php if ($global_is_admin) : ?>
                 <div class="menu-item has-sub <?= MenuState($segment_name, 'categories', 'active'); ?>">
                     <a href="javascript:void(0);" class="menu-link">
                         <span class="menu-icon">
@@ -148,7 +146,7 @@
             <!--=====NEWS - ENDED=====-->
 
             <!--=====SLIDER - START=====-->
-            <?php if ($isAdmin) : ?>
+            <?php if ($global_is_admin) : ?>
                 <div class="menu-item has-sub <?= MenuState($segment_name, 'slider', 'active'); ?>">
                     <a href="javascript:void(0);" class="menu-link">
                         <span class="menu-icon">
@@ -176,7 +174,7 @@
             <!--=====SLIDER - ENDED=====-->
 
             <!--=====SUBSCRIBERS - START=====-->
-            <?php if ($isAdmin) : ?>
+            <?php if ($global_is_admin) : ?>
                 <div class="menu-item has-sub <?= MenuState($segment_name, 'subscribers', 'active'); ?>">
                     <a href="javascript:void(0);" class="menu-link">
                         <span class="menu-icon">
@@ -204,7 +202,7 @@
             <!--=====SUBSCRIBERS - ENDED=====-->
 
             <!--=====ABOUT-US - START=====-->
-            <?php if ($isAdmin) : ?>
+            <?php if ($global_is_admin) : ?>
                 <div class="menu-item <?= MenuState($segment_name, 'about-us', 'active'); ?>">
                     <a href="<?= base_url('admin/about-us-create'); ?>" class="menu-link">
                         <span class="menu-icon">
@@ -217,7 +215,7 @@
             <!--=====ABOUT-US - ENDED=====-->
 
             <!--=====CONTACTS - START=====-->
-            <?php if ($isAdmin) : ?>
+            <?php if ($global_is_admin) : ?>
                 <div class="menu-item <?= MenuState($segment_name, 'contacts', 'active'); ?>">
                     <a href="<?= base_url('admin/contacts-create'); ?>" class="menu-link">
                         <span class="menu-icon">
@@ -256,7 +254,7 @@
             <!--=====GALLERY - ENDED=====-->
 
             <!--=====SETTINGS - START=====-->
-            <?php if ($isAdmin) : ?>
+            <?php if ($global_is_admin) : ?>
                 <div class="menu-item <?= MenuState($segment_name, 'settings', 'active'); ?>">
                     <a href="<?= base_url('admin/settings-create'); ?>" class="menu-link">
                         <span class="menu-icon">

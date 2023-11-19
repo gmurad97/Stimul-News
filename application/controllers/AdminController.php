@@ -19,6 +19,7 @@ class AdminController extends CI_Controller
         $current_role = $this->session->has_userdata("admin_auth") ? $this->session->userdata("admin_auth")["admin_role"] : "000";
         $this->isAdmin = ($current_role === 999 || $current_role === 666);
         $settings_db_row = $this->AdminModel->table_row_id("settings", "s_uid");
+        $data["global_is_admin"] = $this->isAdmin;
         $data["global_settings_data"] = json_decode($this->AdminModel->settings_admin_db_get($settings_db_row)["s_data"] ?? '{}', FALSE);
         $this->load->vars($data);
     }
@@ -310,9 +311,19 @@ class AdminController extends CI_Controller
 
     public function crud_profile_detail($id)
     {
-        $data["admin_page_name"] = "Profile Detail";
-        $data["profile_data"] = $this->AdminModel->profile_admin_db_get($id);
-        $this->load->view("admins/Profile/Detail", $data);
+        if ($this->isAdmin || $id === $this->session->userdata("admin_auth")["admin_uid"]) {
+            $data["admin_page_name"] = "Profile Detail";
+            $data["profile_data"] = $this->AdminModel->profile_admin_db_get($id);
+            $this->load->view("admins/Profile/Detail", $data);
+        } else {
+            $this->AlertFlashData(
+                "warning",
+                "crud_alert",
+                "Warning!",
+                "You don't have the permission to do this."
+            );
+            redirect(base_url("admin/profile-list"));
+        }
     }
 
     public function crud_profile_edit($id)
