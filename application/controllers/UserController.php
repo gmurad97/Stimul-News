@@ -31,19 +31,10 @@ class UserController extends CI_Controller
         $data["branding_data"] = json_decode($this->UserModel->branding_user_db_get($branding_data_uid)["b_data"] ?? NULL, FALSE);
         $data["topbar_data"]["info"] = $this->topbarInfo();
         $data["topbar_data"]["options"] = json_decode($this->UserModel->topbar_user_db_get($topbar_data_uid)["t_data"] ?? NULL, FALSE);
+        $data["categories_list"] = $this->UserModel->categories_user_db_get();
         $this->load->view("users/Index", $data);
     }
 
-    public function indexcol()
-    {
-        $branding_data_uid = $this->UserModel->table_row_id("branding", "b_uid");
-        $topbar_data_uid = $this->UserModel->table_row_id("topbar", "t_uid");
-        $data["user_page_name"] = "Home2";
-        $data["branding_data"] = json_decode($this->UserModel->branding_user_db_get($branding_data_uid)["b_data"] ?? NULL, FALSE);
-        $data["topbar_data"]["info"] = $this->topbarInfo();
-        $data["topbar_data"]["options"] = json_decode($this->UserModel->topbar_user_db_get($topbar_data_uid)["t_data"] ?? NULL, FALSE);
-        $this->load->view("users/Index2", $data);
-    }
 
 
 

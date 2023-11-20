@@ -133,6 +133,8 @@ $route["admin/settings-dump-db"]               = "AdminController/crud_settings_
 
 
 /*=====USER CONTROLLER - START=====*/
+$route["switch-lang/(.*)"] = "LanguageSwitcher/SwitchLang/$1";
+
+
 $route["home"] = "UserController/index";
-$route["homecol"] = "UserController/indexcol";
 /*=====USER CONTROLLER - ENDED=====*/

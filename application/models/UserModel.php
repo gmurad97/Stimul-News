@@ -27,4 +27,9 @@ class UserModel extends CI_Model
     {
         return $this->db->where("b_uid", $id)->get("branding")->row_array();
     }
+
+    public function categories_user_db_get()
+    {
+        return $this->db->get("categories")->result_array();
+    }
 }

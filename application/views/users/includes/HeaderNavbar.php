@@ -50,14 +50,13 @@
 
 
 
-
     <div class="container">
         <nav class="navbar navbar-expand-lg">
             <?php if (!is_null($branding_data) && $branding_data->logo_dark->visibility) : ?>
                 <a class="navbar-brand" href="<?= base_url('home'); ?>">
                     <img class="logo_dark" src="<?= base_url('file_manager/branding/') . $branding_data->logo_dark->file_name; ?>" width="200" alt="Logo">
                 </a>
-            <?php else : ?>
+            <?php elseif (is_null($branding_data)) : ?>
                 <a class="navbar-brand" href="<?= base_url('home'); ?>">
                     <img class="logo_dark" src="<?= base_url('public/user/assets/images/logo/logo_dark.png'); ?>" width="200" alt="Logo">
                 </a>
@@ -72,8 +71,6 @@
             <?php $current_segment = $this->uri->segment(1); ?>
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav">
-
-
                     <li>
                         <a href="<?= base_url('home'); ?>" class="nav-link nav_item <?= $current_segment == 'home' ? 'active' : ''; ?>">
                             Home
@@ -88,21 +85,18 @@
                         </a>
                         <div class="dropdown-menu">
                             <ul>
-                                <li>
-                                    <a href="#" class="dropdown-item nav-link nav_item">
-                                        Categories #1
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="dropdown-item nav-link nav_item">
-                                        Categories #2
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="dropdown-item nav-link nav_item">
-                                        Categories #3
-                                    </a>
-                                </li>
+
+                                <?php
+                                foreach ($categories_list as $category_data) :
+                                ?>
+                                    <li>
+                                        <a href="#" class="dropdown-item nav-link nav_item">
+                                            <?= base64_decode(json_decode($category_data["c_name"],TRUE)["en"]); ?>
+                                        </a>
+                                    </li>
+
+                                <?php endforeach; ?>
+
                                 <li>
                                     <a href="#" class="dropdown-item nav-link nav_item">
                                         Show All Categories
@@ -121,7 +115,7 @@
 
 
 
-                    
+
                     <li>
                         <a href="<?= base_url('about-us'); ?>" class="nav-link nav_item <?= $current_segment == 'about-us' ? 'active' : ''; ?>">
                             About us

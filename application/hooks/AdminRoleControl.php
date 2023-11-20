@@ -8,7 +8,7 @@ class AdminRole
     const ROLE_REDACTOR_CODE = 333;
 }
 
-class AdminAuthCheck
+class AdminRoleControl
 {
     protected function in_array_prefix($needle, array $haystack)
     {
