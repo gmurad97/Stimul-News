@@ -9,25 +9,50 @@ class UserController extends CI_Controller
         $this->load->model("UserModel");
     }
 
-    private function topbarInfo()
+    /*=====LOCAL USER CONTROLLER FUNCTION - START=====*/
+    protected function topbarInfo()
     {
         date_default_timezone_set("Asia/Baku");
-        $weather = json_decode(file_get_contents("https://api.weatherapi.com/v1/current.json?key=971b3ecf18ae495d845142406230209&q=Baku&aqi=no"));
-        return [
+        $weather = json_decode(file_get_contents("https://api.weatherapi.com/v1/current.json?key=a548983232374eafb8002027232011&q=Baku&aqi=no"));
+        return (object) [
             "date" => date("d.m.Y"),
             "time" => date("H:i"),
             "weather" => $weather->current->temp_c
         ];
     }
+    /*=====LOCAL USER CONTROLLER FUNCTION - ENDED=====*/
 
+    /*=====GLOBAL USERS PAGES - START=====*/
     public function index()
     {
-        $data["page_name"] = "Home";
-        $data["topbar_info"] = $this->topbarInfo();
-        $data["topbar_options"] = json_decode($this->UserModel->topbar_user_db_get($this->UserModel->table_row_id("topbar", "t_uid"))["t_data"] ?? NULL);
-        $data["branding_options"] = json_decode($this->UserModel->branding_user_db_get($this->UserModel->table_row_id("branding", "b_uid"))["b_data"] ?? NULL);
-        $this->load->view("users/Index",$data);
+        $branding_data_uid = $this->UserModel->table_row_id("branding", "b_uid");
+        $topbar_data_uid = $this->UserModel->table_row_id("topbar", "t_uid");
+        $data["user_page_name"] = "Home";
+        $data["branding_data"] = json_decode($this->UserModel->branding_user_db_get($branding_data_uid)["b_data"] ?? NULL, FALSE);
+        $data["topbar_data"]["info"] = $this->topbarInfo();
+        $data["topbar_data"]["options"] = json_decode($this->UserModel->topbar_user_db_get($topbar_data_uid)["t_data"] ?? NULL, FALSE);
+        $this->load->view("users/Index", $data);
     }
+
+    public function indexcol()
+    {
+        $branding_data_uid = $this->UserModel->table_row_id("branding", "b_uid");
+        $topbar_data_uid = $this->UserModel->table_row_id("topbar", "t_uid");
+        $data["user_page_name"] = "Home2";
+        $data["branding_data"] = json_decode($this->UserModel->branding_user_db_get($branding_data_uid)["b_data"] ?? NULL, FALSE);
+        $data["topbar_data"]["info"] = $this->topbarInfo();
+        $data["topbar_data"]["options"] = json_decode($this->UserModel->topbar_user_db_get($topbar_data_uid)["t_data"] ?? NULL, FALSE);
+        $this->load->view("users/Index2", $data);
+    }
+
+
+
+
+
+
+
+
+
 
     public function pageNotFound()
     {
@@ -35,4 +60,6 @@ class UserController extends CI_Controller
         $data["topbar_info"] = $this->topbarInfo();
         $this->load->view("users/contents/PageNotFound", $data);
     }
+
+    /*=====GLOBAL USERS PAGES - ENDED=====*/
 }
