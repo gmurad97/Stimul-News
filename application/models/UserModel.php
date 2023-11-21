@@ -30,6 +30,7 @@ class UserModel extends CI_Model
 
     public function categories_user_db_get($limit)
     {
+        //status check
         return $this->db->order_by("c_uid", "DESC")->get("categories", $limit)->result_array();
     }
 

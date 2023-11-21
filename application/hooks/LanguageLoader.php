@@ -11,6 +11,7 @@ class LanguageLoader
         if ($current_lang) {
             $CI->lang->load("message", $current_lang);
         } else {
+            $CI->session->set_userdata("site_lang", "en");
             $CI->lang->load("message", "en");
         }
     }

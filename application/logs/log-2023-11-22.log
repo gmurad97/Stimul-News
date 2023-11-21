@@ -1,0 +1,124 @@
+ERROR - 2023-11-22 00:27:23 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:27:23 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:27:23 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:30:29 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:30:29 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:30:29 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:30:44 --> Severity: Warning --> Undefined array key "slider_info" C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1744
+ERROR - 2023-11-22 00:30:44 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1744
+ERROR - 2023-11-22 00:30:45 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:30:45 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:30:45 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:31:05 --> Severity: Warning --> Undefined array key "slider_info" C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1744
+ERROR - 2023-11-22 00:31:05 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1744
+ERROR - 2023-11-22 00:31:08 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:31:08 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:31:08 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:31:23 --> Severity: Warning --> Undefined array key "slider_info" C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1744
+ERROR - 2023-11-22 00:31:23 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1744
+ERROR - 2023-11-22 00:31:26 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:31:26 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:31:26 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:31:37 --> Severity: Warning --> Undefined array key "slider_info" C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1744
+ERROR - 2023-11-22 00:31:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1744
+ERROR - 2023-11-22 00:31:39 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:31:39 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:31:39 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:31:53 --> Severity: Warning --> Undefined array key "slider_info" C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1744
+ERROR - 2023-11-22 00:31:53 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1744
+ERROR - 2023-11-22 00:31:55 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:31:55 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:31:55 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:35:11 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:35:11 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:35:11 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:36:49 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:36:49 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:36:49 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:38:40 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:38:40 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:38:40 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:39:14 --> Severity: Warning --> Trying to access array offset on value of type bool C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderSlider.php 38
+ERROR - 2023-11-22 00:39:14 --> Severity: Warning --> Trying to access array offset on value of type bool C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderSlider.php 39
+ERROR - 2023-11-22 00:39:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderSlider.php 41
+ERROR - 2023-11-22 00:39:14 --> Severity: Warning --> Trying to access array offset on value of type bool C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderSlider.php 43
+ERROR - 2023-11-22 00:39:14 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:39:14 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:39:14 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:41:11 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:41:11 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:41:11 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:41:23 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:41:23 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:41:23 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:46:05 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:46:05 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:46:05 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:59:54 --> Severity: Warning --> Undefined array key "slider_info" C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1744
+ERROR - 2023-11-22 00:59:54 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 1744
+ERROR - 2023-11-22 00:59:58 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:59:58 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 00:59:58 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:06:43 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:06:43 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:06:43 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:06:56 --> Could not find the language line "categories_navbar"
+ERROR - 2023-11-22 01:06:56 --> Could not find the language line "categories_navbar_all"
+ERROR - 2023-11-22 01:06:56 --> Could not find the language line "about_us_navbar"
+ERROR - 2023-11-22 01:06:56 --> Could not find the language line "contacts_navbar"
+ERROR - 2023-11-22 01:06:56 --> Could not find the language line "read_more"
+ERROR - 2023-11-22 01:06:56 --> Could not find the language line "read_more"
+ERROR - 2023-11-22 01:06:56 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:06:56 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:06:56 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:07:05 --> Could not find the language line "categories_navbar"
+ERROR - 2023-11-22 01:07:05 --> Could not find the language line "categories_navbar_all"
+ERROR - 2023-11-22 01:07:05 --> Could not find the language line "about_us_navbar"
+ERROR - 2023-11-22 01:07:05 --> Could not find the language line "contacts_navbar"
+ERROR - 2023-11-22 01:07:05 --> Could not find the language line "read_more"
+ERROR - 2023-11-22 01:07:05 --> Could not find the language line "read_more"
+ERROR - 2023-11-22 01:07:05 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:07:05 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:07:05 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:07:11 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:07:11 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:07:11 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:15:53 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:15:53 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:15:53 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:25:08 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:25:08 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:25:08 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:25:37 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:25:37 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:25:37 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:26:32 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:26:32 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:26:32 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:28:43 --> Could not find the language line "categories_navbar"
+ERROR - 2023-11-22 01:28:43 --> Could not find the language line "categories_navbar_all"
+ERROR - 2023-11-22 01:28:43 --> Could not find the language line "about_us_navbar"
+ERROR - 2023-11-22 01:28:43 --> Could not find the language line "contacts_navbar"
+ERROR - 2023-11-22 01:28:43 --> Could not find the language line "read_more"
+ERROR - 2023-11-22 01:28:43 --> Could not find the language line "read_more"
+ERROR - 2023-11-22 01:28:43 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:28:43 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:28:43 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:28:48 --> Could not find the language line "categories_navbar"
+ERROR - 2023-11-22 01:28:48 --> Could not find the language line "categories_navbar_all"
+ERROR - 2023-11-22 01:28:48 --> Could not find the language line "about_us_navbar"
+ERROR - 2023-11-22 01:28:48 --> Could not find the language line "contacts_navbar"
+ERROR - 2023-11-22 01:28:48 --> Could not find the language line "read_more"
+ERROR - 2023-11-22 01:28:48 --> Could not find the language line "read_more"
+ERROR - 2023-11-22 01:28:48 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:28:48 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:28:48 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:28:52 --> Could not find the language line "categories_navbar"
+ERROR - 2023-11-22 01:28:52 --> Could not find the language line "categories_navbar_all"
+ERROR - 2023-11-22 01:28:52 --> Could not find the language line "about_us_navbar"
+ERROR - 2023-11-22 01:28:52 --> Could not find the language line "contacts_navbar"
+ERROR - 2023-11-22 01:28:52 --> Could not find the language line "read_more"
+ERROR - 2023-11-22 01:28:52 --> Could not find the language line "read_more"
+ERROR - 2023-11-22 01:28:52 --> Severity: Warning --> Undefined variable $branding_options C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:28:52 --> Severity: Warning --> Attempt to read property "logo_light" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8
+ERROR - 2023-11-22 01:28:52 --> Severity: Warning --> Attempt to read property "file_name" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 8

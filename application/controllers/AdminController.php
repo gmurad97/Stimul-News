@@ -2134,7 +2134,7 @@ class AdminController extends CI_Controller
                 "Warning!",
                 "You don't have the permission to do this."
             );
-            redirect($_SERVER["HTTP_REFERER"]);
+            redirect(base_url("admin/gallery-list"));
         }
         $gallery_data = $this->AdminModel->gallery_admin_db_get($id);
         $gallery_img_path = "./file_manager/gallery/" . $gallery_data["g_img"];

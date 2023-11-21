@@ -64,12 +64,12 @@
                     </li>
                     <li class="dropdown">
                         <a href="javascript:void(0);" data-toggle="dropdown" class="nav-link">
-                            Categories
+                            <?= $this->lang->line("categories_navbar"); ?>
                             <i class="fas fa-angle-down"></i>
                         </a>
                         <div class="dropdown-menu">
                             <ul>
-                                <?php foreach ($categories_list as $category_data) : ?>
+                                <?php foreach ($categories_navbar as $category_data) : ?>
                                     <?php $category_name =  base64_decode(json_decode($category_data["c_name"], TRUE)[$this->session->userdata("site_lang")]); ?>
                                     <li>
                                         <a href="#" class="dropdown-item nav-link nav_item">

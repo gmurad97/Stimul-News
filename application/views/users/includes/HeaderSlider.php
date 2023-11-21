@@ -34,73 +34,60 @@
                     $news_target = array_filter($news_list, function ($news_item) use ($slider_data) {
                         return $news_item["n_uid"] == $slider_data["slider_uid"] ? $news_item : NULL;
                     });
-                    $flat_news_target = reset($news_target);
-                    $flat_news_target_title = json_decode($flat_news_target["n_title"], TRUE);
-                    $flat_news_target_full = json_decode($flat_news_target["n_full"], TRUE);
-
-                    $averageReadingSpeed = 250;
-                    $wordCount = str_word_count(strip_tags(base64_decode($flat_news_target_full["en"])));
-                    $readingTimeMinutes = ceil($wordCount / $averageReadingSpeed);
-
-
-                    $flat_news_category_name = json_decode($flat_news_target["c_name"], TRUE);
-/*                     print_r("<pre>");
-                    print_r(base64_decode($flat_news_target_full["en"]));
-                    die(); */
                     if (!empty($news_target) && !is_null($news_target)) :
+                        $flat_news_target = reset($news_target);
+                        $flat_news_target_title = json_decode($flat_news_target["n_title"], TRUE);
+                        $flat_news_target_full = json_decode($flat_news_target["n_full"], TRUE);
+                        $averageReadingSpeed = 250;
+                        $wordCount = str_word_count(strip_tags(base64_decode($flat_news_target_full["en"])));
+                        $readingTimeMinutes = ceil($wordCount / $averageReadingSpeed);
+                        $flat_news_category_name = json_decode($flat_news_target["c_name"], TRUE);
+                        if (!empty($news_target) && !is_null($news_target)) :
                     ?>
-                        <div class="item background_bg overlay_bg_60" data-img-src="<?= base_url('file_manager/news/' . $flat_news_target['n_preview_img']); ?>">
-                            <div class="banner_slide_content">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-xl-6 col-md-8 col-sm-12">
-                                            <div class="banner_content">
-                                                <div class="blog_tags">
-                                                    <a href="#" class="blog_tags_cat" style="background-color: <?= $flat_news_target['c_bg_color'];  ?>;"><?= htmlentities(base64_decode($flat_news_category_name[$this->session->userdata("site_lang")])); ?></a>
+                            <div class="item background_bg overlay_bg_60" data-img-src="<?= base_url('file_manager/news/' . $flat_news_target['n_preview_img']); ?>">
+                                <div class="banner_slide_content">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-xl-6 col-md-8 col-sm-12">
+                                                <div class="banner_content">
+                                                    <div class="blog_tags">
+                                                        <a href="#" class="blog_tags_cat" style="background-color: <?= $flat_news_target['c_bg_color'];  ?>;"><?= htmlentities(base64_decode($flat_news_category_name[$this->session->userdata("site_lang")])); ?></a>
+                                                    </div>
+                                                    <h2 class="blog_heading">
+                                                        <a href="#">
+                                                            <?= htmlentities(base64_decode($flat_news_target_title[$this->session->userdata("site_lang")])); ?>
+                                                        </a>
+                                                    </h2>
+                                                    <ul class="blog_meta">
+                                                        <li>
+                                                            <a href="javascript:void(0);">
+                                                                <i class="far fa-calendar-alt"></i>
+                                                                <span><?= $flat_news_target["n_created_date"]; ?></span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="javascript:void(0);">
+                                                                <i class="far fa-clock"></i>
+                                                                <span><?= $flat_news_target["n_created_time"]; ?></span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="javascript:void(0);">
+                                                                <i class="ion-android-stopwatch"></i>
+                                                                <span><?= $readingTimeMinutes; ?> minutes</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
                                                 </div>
-                                                <h2 class="blog_heading">
-                                                    <a href="#">
-                                                        <?= htmlentities(base64_decode($flat_news_target_title[$this->session->userdata("site_lang")])); ?>
-                                                    </a>
-                                                </h2>
-                                                <ul class="blog_meta">
-                                                    <li>
-                                                        <a href="javascript:void(0);">
-                                                            <i class="far fa-calendar-alt"></i>
-                                                            <span><?= $flat_news_target["n_created_date"]; ?></span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">
-                                                            <i class="far fa-clock"></i>
-                                                            <span><?= $flat_news_target["n_created_time"]; ?></span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">
-                                                            <i class="ion-android-stopwatch"></i>
-                                                            <span><?= $readingTimeMinutes; ?> minutes</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
+                        <?php endif; ?>
                     <?php endif; ?>
                 <?php endif; ?>
-
-
             <?php endforeach; ?>
-
-
-
-
-
         </div>
     </div>
-
 <?php endif; ?>
