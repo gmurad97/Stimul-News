@@ -28,8 +28,22 @@ class UserModel extends CI_Model
         return $this->db->where("b_uid", $id)->get("branding")->row_array();
     }
 
-    public function categories_user_db_get()
+    public function categories_user_db_get($limit)
     {
-        return $this->db->get("categories")->result_array();
+        return $this->db->order_by("c_uid", "DESC")->get("categories", $limit)->result_array();
+    }
+
+    public function slider_user_db_get()
+    {
+        return $this->db->order_by("s_uid", "DESC")->where("s_status", 1)->get("slider")->result_array();
+    }
+
+    public function news_user_db_get()
+    {
+        return $this->db->order_by("n_uid", "DESC")
+            ->where("n_status", 1)
+            ->join("categories", "c_uid=n_category_uid", "left")
+            ->get("news")
+            ->result_array();
     }
 }

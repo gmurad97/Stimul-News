@@ -1,16 +1,9 @@
 <?php
+defined('BASEPATH') or exit('No direct script access allowed');
 
-$lang["welcome_message"] = "Hello";
-
-
-/**
- * <?php
-$lang['home'] = 'Ana səhifə';
-$lang['staff'] = 'Ustalarımız';
-$lang['about'] = 'Haqqımızda';
-$lang['services'] = 'Xidmətlər';
-$lang['gallery'] = 'Qalereya';
-$lang['contact'] = 'Əlaqə';
-$lang['exp'] = 'İş təcrübəsi:';
-$lang['year'] = 'il';
- */
+$lang["home_navbar"] = "Home";
+$lang["categories_navbar"] = "Categories";
+$lang["categories_navbar_all"] = "All Categories";
+$lang["about_us_navbar"] = "About Us";
+$lang["contacts_navbar"] = "Contacts";
+$lang["read_more"] = "Read More";

@@ -37,13 +37,13 @@
             <tbody>
                 <?php if (!empty($slider_results)) : ?>
                     <?php
-                    $id_counter = 0;
+                    $id_counter = 1;
                     foreach ($slider_results as $slider_item) :
                         $slider_id = $slider_item["s_uid"];
                         $slider_item_data = json_decode($slider_item["s_data"], FALSE);
                     ?>
                         <tr>
-                            <td><?= ++$id_counter; ?></td>
+                            <td><?= $id_counter++; ?></td>
                             <td>
                                 <?php if ($slider_item_data->slider_type == "slider_custom") : ?>
                                     <i class="bi bi-cc-square text-indigo"></i>
@@ -54,7 +54,7 @@
                                 <?php endif; ?>
                             </td>
                             <td>
-                                <?php if ($slider_item_data->slider_info->slider_status) : ?>
+                                <?php if ($slider_item["s_status"]) : ?>
                                     <span class="badge bg-success p-2 w-75px text-uppercase">Active</span>
                                 <?php else : ?>
                                     <span class="badge bg-danger p-2 w-75px text-uppercase">Inactive</span>

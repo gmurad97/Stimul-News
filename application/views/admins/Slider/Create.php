@@ -55,22 +55,57 @@
                             </div>
                         </li>
                         <li class="list-group-item">
-                            <div class="row d-flex flex-row justify-content-between align-items-center mb-2">
-                                <div class="col-md-3">
-                                    <label for="slider_custom_large_text_label">Large text</label>
+                            <ul class="nav nav-tabs nav-tabs-v2">
+                                <li class="nav-item me-3">
+                                    <a href="#tabs_slider_custom_en_text" class="nav-link active" data-bs-toggle="tab">EN</a>
+                                </li>
+                                <li class="nav-item me-3">
+                                    <a href="#tabs_slider_custom_ru_text" class="nav-link" data-bs-toggle="tab">RU</a>
+                                </li>
+                                <li class="nav-item me-3">
+                                    <a href="#tabs_slider_custom_az_text" class="nav-link" data-bs-toggle="tab">AZ</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content py-3">
+                                <div class="tab-pane fade show active" id="tabs_slider_custom_en_text">
+                                    <div class="row d-flex flex-row justify-content-between align-items-center mb-2">
+                                        <div class="col-md-3">
+                                            <label for="slider_custom_text_en_label">Text</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input name="slider_custom_text_en" type="text" class="form-control form-control-sm" id="slider_custom_text_en_label" placeholder="Example">
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-md-9">
-                                    <input name="slider_custom_large_text" type="text" class="form-control form-control-sm" id="slider_custom_large_text_label">
+                                <div class="tab-pane fade" id="tabs_slider_custom_ru_text">
+                                    <div class="row d-flex flex-row justify-content-between align-items-center mb-2">
+                                        <div class="col-md-3">
+                                            <label for="slider_custom_text_ru_label">Text</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input name="slider_custom_text_ru" type="text" class="form-control form-control-sm" id="slider_custom_text_ru_label" placeholder="Пример">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="tabs_slider_custom_az_text">
+                                    <div class="row d-flex flex-row justify-content-between align-items-center mb-2">
+                                        <div class="col-md-3">
+                                            <label for="slider_custom_text_az_label">Text</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input name="slider_custom_text_az" type="text" class="form-control form-control-sm" id="slider_custom_text_az_label" placeholder="Nümunə">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </li>
                         <li class="list-group-item">
                             <div class="row d-flex flex-row justify-content-between align-items-center mb-2">
                                 <div class="col-md-3">
-                                    <label for="slider_custom_small_text_label">Small text</label>
+                                    <label for="slider_custom_text_link_label">Text Link</label>
                                 </div>
                                 <div class="col-md-9">
-                                    <input name="slider_custom_small_text" type="text" class="form-control form-control-sm" id="slider_custom_small_text_label">
+                                    <input name="slider_custom_text_link" type="url" class="form-control" placeholder="https://example.com/" id="slider_custom_text_link_label">
                                 </div>
                             </div>
                         </li>
@@ -82,23 +117,14 @@
                                 <h1 class="h5 text-success my-3">Settings</h1>
                             </div>
                             <div class="d-flex flex-row justify-content-between align-items-center">
-                                <label for="slider_custom_large_text_color_label">Larger Text Color</label>
+                                <label for="slider_custom_text_color_label">Text Color</label>
                                 <div class="form-check form-switch">
-                                    <input required name="slider_custom_large_text_color" type="text" value="#00AA00" class="form-control" id="slider_custom_large_text_color_label">
+                                    <input required name="slider_custom_text_color" type="text" value="#00AA00" class="form-control" id="slider_custom_text_color_label">
                                 </div>
                             </div>
                         </li>
-                        <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
-                            <label for="slider_custom_small_text_color_label">Small Text Color</label>
-                            <div class="form-check form-switch">
-                                <input required name="slider_custom_small_text_color" type="text" value="#00AA00" class="form-control" id="slider_custom_small_text_color_label">
-                            </div>
-                        </li>
                         <script>
-                            $('#slider_custom_large_text_color_label').spectrum({
-                                "showInput": true
-                            });
-                            $('#slider_custom_small_text_color_label').spectrum({
+                            $('#slider_custom_text_color_label').spectrum({
                                 "showInput": true
                             });
                         </script>

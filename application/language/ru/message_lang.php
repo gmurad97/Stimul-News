@@ -1,3 +1,4 @@
 <?php
+defined('BASEPATH') or exit('No direct script access allowed');
 
-$lang["welcome_message"] = "Привет";
+$lang["home_navbar"] = "Главная";

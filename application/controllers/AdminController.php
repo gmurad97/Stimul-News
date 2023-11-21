@@ -70,7 +70,7 @@ class AdminController extends CI_Controller
 
     protected function LatestCreatedFile($folderPath, $fileType)
     {
-        return  array_reduce(glob($folderPath . "*." . $fileType), function ($result, $file) {
+        return array_reduce(glob($folderPath . "*." . $fileType), function ($result, $file) {
             return filemtime($file) > filemtime($result) ? $file : $result;
         }, "");
     }
@@ -78,7 +78,7 @@ class AdminController extends CI_Controller
     protected function CryptoPrice($cryptoLimit)
     {
         $curl_crypto_price = curl_init("https://api.binance.com/api/v3/ticker/price");
-        curl_setopt($curl_crypto_price, CURLOPT_USERAGENT, "StimulNewsClient-v1.3");
+        curl_setopt($curl_crypto_price, CURLOPT_USERAGENT, "StimulNewsClient-v2.1");
         curl_setopt($curl_crypto_price, CURLOPT_RETURNTRANSFER, TRUE);
         $response_result = array_values(array_filter(json_decode(curl_exec($curl_crypto_price), FALSE), function ($cryptoPair) {
             if (str_ends_with($cryptoPair->symbol, "USDT")) {
@@ -92,7 +92,7 @@ class AdminController extends CI_Controller
     protected function FiatPrice(array $currencyFiat)
     {
         $curl_fiat_price = curl_init("https://openexchangerates.org/api/latest.json?app_id=65d9e0d1a009445c9f96ceb8caed66bb&symbols=" . join(",", $currencyFiat));
-        curl_setopt($curl_fiat_price, CURLOPT_USERAGENT, "StimulNewsClient-v1.3");
+        curl_setopt($curl_fiat_price, CURLOPT_USERAGENT, "StimulNewsClient-v2.1");
         curl_setopt($curl_fiat_price, CURLOPT_RETURNTRANSFER, TRUE);
         $response_result = curl_exec($curl_fiat_price);
         curl_close($curl_fiat_price);
@@ -542,7 +542,7 @@ class AdminController extends CI_Controller
             "stream" => false
         ];
         $curl_api_gpt = curl_init("https://chatg.io/wp-json/mwai-ui/v1/chats/submit");
-        curl_setopt($curl_api_gpt, CURLOPT_USERAGENT, "StimulNewsClient-v1.3");
+        curl_setopt($curl_api_gpt, CURLOPT_USERAGENT, "StimulNewsClient-v2.1");
         curl_setopt($curl_api_gpt, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt(
             $curl_api_gpt,
@@ -1614,13 +1614,11 @@ class AdminController extends CI_Controller
         }
         $json_data_decoded = [
             "slider_type" => "slider_news",
-            "slider_info" => [
-                "slider_uid" => $slider_news_uid,
-                "slider_status" => str_contains($slider_news_status, "on") ? TRUE : FALSE
-            ]
+            "slider_uid" => $slider_news_uid,
         ];
         $data = [
-            "s_data" => json_encode($json_data_decoded)
+            "s_data" => json_encode($json_data_decoded),
+            "s_status" => str_contains($slider_news_status, "on") ? TRUE : FALSE
         ];
         $this->AdminModel->slider_admin_db_insert($data);
         $this->AlertFlashData(
@@ -1634,10 +1632,11 @@ class AdminController extends CI_Controller
 
     public function crud_slider_custom_create_action()
     {
-        $slider_custom_large_text       = $this->input->post("slider_custom_large_text", TRUE);
-        $slider_custom_small_text       = $this->input->post("slider_custom_small_text", TRUE);
-        $slider_custom_large_text_color = $this->input->post("slider_custom_large_text_color", TRUE);
-        $slider_custom_small_text_color = $this->input->post("slider_custom_small_text_color", TRUE);
+        $slider_custom_text_en          = $this->input->post("slider_custom_text_en", TRUE);
+        $slider_custom_text_az          = $this->input->post("slider_custom_text_az", TRUE);
+        $slider_custom_text_ru          = $this->input->post("slider_custom_text_ru", TRUE);
+        $slider_custom_text_link        = $this->input->post("slider_custom_text_link", TRUE);
+        $slider_custom_text_color       = $this->input->post("slider_custom_text_color", TRUE);
         $slider_custom_status           = $this->input->post("slider_custom_status", TRUE);
         $slider_custom_config["upload_path"]      = "./file_manager/slider/";
         $slider_custom_config["allowed_types"]    = "ico|jpeg|jpg|png|svg|ICO|JPEG|JPG|PNG|SVG";
@@ -1650,17 +1649,18 @@ class AdminController extends CI_Controller
             $slider_custom_img = $this->upload->data()["file_name"];
             $json_data_decoded = [
                 "slider_type" => "slider_custom",
-                "slider_info" => [
-                    "slider_img" => $slider_custom_img,
-                    "slider_large_text" => base64_encode($slider_custom_large_text),
-                    "slider_small_text" => base64_encode($slider_custom_small_text),
-                    "slider_large_text_color" => $slider_custom_large_text_color,
-                    "slider_small_text_color" => $slider_custom_small_text_color,
-                    "slider_status" => str_contains($slider_custom_status, "on") ? TRUE : FALSE,
-                ]
+                "slider_img" => $slider_custom_img,
+                "slider_text" => [
+                    "en" => base64_encode($slider_custom_text_en),
+                    "az" => base64_encode($slider_custom_text_az),
+                    "ru" => base64_encode($slider_custom_text_ru)
+                ],
+                "slider_text_link" => base64_encode($slider_custom_text_link),
+                "slider_text_color" => base64_encode($slider_custom_text_color),
             ];
             $data = [
-                "s_data" => json_encode($json_data_decoded)
+                "s_data" => json_encode($json_data_decoded),
+                "s_status" => str_contains($slider_custom_status, "on") ? TRUE : FALSE
             ];
             $this->AdminModel->slider_admin_db_insert($data);
             $this->AlertFlashData(
@@ -1726,13 +1726,11 @@ class AdminController extends CI_Controller
             }
             $json_data_decoded = [
                 "slider_type" => "slider_news",
-                "slider_info" => [
-                    "slider_uid" => $slider_news_uid,
-                    "slider_status" => str_contains($slider_news_status, "on") ? TRUE : FALSE
-                ]
+                "slider_uid" => $slider_news_uid
             ];
             $data = [
-                "s_data" => json_encode($json_data_decoded)
+                "s_data" => json_encode($json_data_decoded),
+                "s_status" => str_contains($slider_news_status, "on") ? TRUE : FALSE
             ];
             $this->AdminModel->slider_admin_db_update($id, $data);
             $this->AlertFlashData(
@@ -1744,10 +1742,11 @@ class AdminController extends CI_Controller
             redirect(base_url("admin/slider-list"));
         } else if ($slider_type === "slider_custom") {
             $slider_img_path = "./file_manager/slider/" . $slider_data["slider_info"]["slider_img"];
-            $slider_custom_large_text       = $this->input->post("slider_custom_large_text", TRUE);
-            $slider_custom_small_text       = $this->input->post("slider_custom_small_text", TRUE);
-            $slider_custom_large_text_color = $this->input->post("slider_custom_large_text_color", TRUE);
-            $slider_custom_small_text_color = $this->input->post("slider_custom_small_text_color", TRUE);
+            $slider_custom_text_en          = $this->input->post("slider_custom_text_en", TRUE);
+            $slider_custom_text_az          = $this->input->post("slider_custom_text_az", TRUE);
+            $slider_custom_text_ru          = $this->input->post("slider_custom_text_ru", TRUE);
+            $slider_custom_text_link        = $this->input->post("slider_custom_text_link", TRUE);
+            $slider_custom_text_color       = $this->input->post("slider_custom_text_color", TRUE);
             $slider_custom_status           = $this->input->post("slider_custom_status", TRUE);
             $slider_custom_config["upload_path"]      = "./file_manager/slider/";
             $slider_custom_config["allowed_types"]    = "ico|jpeg|jpg|png|svg|ICO|JPEG|JPG|PNG|SVG";
@@ -1763,17 +1762,18 @@ class AdminController extends CI_Controller
                 $slider_custom_img = $this->upload->data()["file_name"];
                 $json_data_decoded = [
                     "slider_type" => "slider_custom",
-                    "slider_info" => [
-                        "slider_img" => $slider_custom_img,
-                        "slider_large_text" => base64_encode($slider_custom_large_text),
-                        "slider_small_text" => base64_encode($slider_custom_small_text),
-                        "slider_large_text_color" => $slider_custom_large_text_color,
-                        "slider_small_text_color" => $slider_custom_small_text_color,
-                        "slider_status" => str_contains($slider_custom_status, "on") ? TRUE : FALSE,
-                    ]
+                    "slider_img" => $slider_custom_img,
+                    "slider_text" => [
+                        "en" => base64_encode($slider_custom_text_en),
+                        "az" => base64_encode($slider_custom_text_az),
+                        "ru" => base64_encode($slider_custom_text_ru),
+                    ],
+                    "slider_text_link" => base64_encode($slider_custom_text_link),
+                    "slider_text_color" => base64_encode($slider_custom_text_color)
                 ];
                 $data = [
-                    "s_data" => json_encode($json_data_decoded)
+                    "s_data" => json_encode($json_data_decoded),
+                    "s_status" => str_contains($slider_custom_status, "on") ? TRUE : FALSE
                 ];
                 $this->AdminModel->slider_admin_db_update($id, $data);
                 $this->AlertFlashData(
@@ -1786,17 +1786,18 @@ class AdminController extends CI_Controller
             } else {
                 $json_data_decoded = [
                     "slider_type" => "slider_custom",
-                    "slider_info" => [
-                        "slider_img" => $slider_data["slider_info"]["slider_img"],
-                        "slider_large_text" => base64_encode($slider_custom_large_text),
-                        "slider_small_text" => base64_encode($slider_custom_small_text),
-                        "slider_large_text_color" => $slider_custom_large_text_color,
-                        "slider_small_text_color" => $slider_custom_small_text_color,
-                        "slider_status" => str_contains($slider_custom_status, "on") ? TRUE : FALSE,
-                    ]
+                    "slider_img" => $slider_data["slider_img"],
+                    "slider_text" => [
+                        "en" => base64_encode($slider_custom_text_en),
+                        "az" => base64_encode($slider_custom_text_az),
+                        "ru" => base64_encode($slider_custom_text_ru),
+                    ],
+                    "slider_text_link" => base64_encode($slider_custom_text_link),
+                    "slider_text_color" => base64_encode($slider_custom_text_color),
                 ];
                 $data = [
-                    "s_data" => json_encode($json_data_decoded)
+                    "s_data" => json_encode($json_data_decoded),
+                    "s_status" => str_contains($slider_custom_status, "on") ? TRUE : FALSE
                 ];
                 $this->AdminModel->slider_admin_db_update($id, $data);
                 $this->AlertFlashData(
@@ -1822,7 +1823,7 @@ class AdminController extends CI_Controller
     {
         $slider_data = json_decode($this->AdminModel->slider_admin_db_get($id)["s_data"], TRUE);
         if (!($slider_data["slider_type"] == "slider_news")) {
-            $slider_img_path = "./file_manager/slider/" . $slider_data["slider_info"]["slider_img"];
+            $slider_img_path = "./file_manager/slider/" . $slider_data["slider_img"];
             if (!is_dir($slider_img_path) && file_exists($slider_img_path)) {
                 unlink($slider_img_path);
             }

@@ -3290,6 +3290,7 @@ header.vertical_menu .navbar-collapse .navbar-nav {
 .blog_heading {
 	font-weight: 700;
 	line-height: normal;
+	transition: transform 0.5s ease-in-out;
 }
 
 .blog_tags {

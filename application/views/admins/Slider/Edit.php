@@ -56,9 +56,9 @@ $s_type = $slider_info->slider_type == "slider_news" ? TRUE : FALSE;
                             <li class="list-group-item">
                                 <div class="d-flex flex-row justify-content-between align-items-center">
                                     <label class="fw-bold text-warning">Current Image</label>
-                                    <a href="<?= base_url('file_manager/slider/') . $slider_info->slider_info->slider_img; ?>" class="btn btn-outline-yellow btn-sm rounded-2" data-lity>
+                                    <a href="<?= base_url('file_manager/slider/') . $slider_info->slider_img; ?>" class="btn btn-outline-yellow btn-sm rounded-2" data-lity>
                                         Show Image
-                                        <span class="img" style="background-image: url(<?= base_url('file_manager/slider/') . $slider_info->slider_info->slider_img; ?>)"></span>
+                                        <span class="img" style="background-image: url(<?= base_url('file_manager/slider/') . $slider_info->slider_img; ?>)"></span>
                                     </a>
                                 </div>
                             </li>
@@ -76,22 +76,57 @@ $s_type = $slider_info->slider_type == "slider_news" ? TRUE : FALSE;
                                 </div>
                             </li>
                             <li class="list-group-item">
-                                <div class="row d-flex flex-row justify-content-between align-items-center mb-2">
-                                    <div class="col-md-3">
-                                        <label for="slider_custom_large_text_label">Large text</label>
+                                <ul class="nav nav-tabs nav-tabs-v2">
+                                    <li class="nav-item me-3">
+                                        <a href="#tabs_slider_custom_en_text" class="nav-link active" data-bs-toggle="tab">EN</a>
+                                    </li>
+                                    <li class="nav-item me-3">
+                                        <a href="#tabs_slider_custom_ru_text" class="nav-link" data-bs-toggle="tab">RU</a>
+                                    </li>
+                                    <li class="nav-item me-3">
+                                        <a href="#tabs_slider_custom_az_text" class="nav-link" data-bs-toggle="tab">AZ</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content py-3">
+                                    <div class="tab-pane fade show active" id="tabs_slider_custom_en_text">
+                                        <div class="row d-flex flex-row justify-content-between align-items-center mb-2">
+                                            <div class="col-md-3">
+                                                <label for="slider_custom_text_en_label">Text</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <input name="slider_custom_text_en" type="text" class="form-control form-control-sm" id="slider_custom_text_en_label" placeholder="Example" value="<?= htmlentities(base64_decode($slider_info->slider_text->en)); ?>">
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-md-9">
-                                        <input name="slider_custom_large_text" type="text" class="form-control form-control-sm" id="slider_custom_large_text_label" value="<?= base64_decode($slider_info->slider_info->slider_large_text); ?>">
+                                    <div class="tab-pane fade" id="tabs_slider_custom_ru_text">
+                                        <div class="row d-flex flex-row justify-content-between align-items-center mb-2">
+                                            <div class="col-md-3">
+                                                <label for="slider_custom_text_ru_label">Text</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <input name="slider_custom_text_ru" type="text" class="form-control form-control-sm" id="slider_custom_text_ru_label" placeholder="Пример" value="<?= htmlentities(base64_decode($slider_info->slider_text->ru)); ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="tabs_slider_custom_az_text">
+                                        <div class="row d-flex flex-row justify-content-between align-items-center mb-2">
+                                            <div class="col-md-3">
+                                                <label for="slider_custom_text_az_label">Text</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <input name="slider_custom_text_az" type="text" class="form-control form-control-sm" id="slider_custom_text_az_label" placeholder="Nümunə" value="<?= htmlentities(base64_decode($slider_info->slider_text->az)); ?>">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="row d-flex flex-row justify-content-between align-items-center mb-2">
                                     <div class="col-md-3">
-                                        <label for="slider_custom_small_text_label">Small text</label>
+                                        <label for="slider_custom_text_link_label">Text Link</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input name="slider_custom_small_text" type="text" class="form-control form-control-sm" id="slider_custom_small_text_label" value="<?= base64_decode($slider_info->slider_info->slider_small_text); ?>">
+                                        <input name="slider_custom_text_link" type="url" class="form-control" placeholder="https://example.com/" id="slider_custom_text_link_label" value="<?= htmlentities(base64_decode($slider_info->slider_text_link)); ?>">
                                     </div>
                                 </div>
                             </li>
@@ -103,30 +138,21 @@ $s_type = $slider_info->slider_type == "slider_news" ? TRUE : FALSE;
                                     <h1 class="h5 text-warning my-3">Settings</h1>
                                 </div>
                                 <div class="d-flex flex-row justify-content-between align-items-center">
-                                    <label for="slider_custom_large_text_color_label">Larger Text Color</label>
+                                    <label for="slider_custom_text_color_label">Text Color</label>
                                     <div class="form-check form-switch">
-                                        <input required name="slider_custom_large_text_color" type="text" value="<?= $slider_info->slider_info->slider_large_text_color; ?>" class="form-control" id="slider_custom_large_text_color_label">
+                                        <input required name="slider_custom_text_color" type="text" value="<?= htmlentities(base64_decode($slider_info->slider_text_color)); ?>" class="form-control" id="slider_custom_text_color_label">
                                     </div>
                                 </div>
                             </li>
-                            <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
-                                <label for="slider_custom_small_text_color_label">Small Text Color</label>
-                                <div class="form-check form-switch">
-                                    <input required name="slider_custom_small_text_color" type="text" value="<?= $slider_info->slider_info->slider_small_text_color; ?>" class="form-control" id="slider_custom_small_text_color_label">
-                                </div>
-                            </li>
                             <script>
-                                $('#slider_custom_large_text_color_label').spectrum({
-                                    "showInput": true
-                                });
-                                $('#slider_custom_small_text_color_label').spectrum({
+                                $('#slider_custom_text_color_label').spectrum({
                                     "showInput": true
                                 });
                             </script>
                             <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
                                 <label for="slider_custom_status_label">Status</label>
                                 <div class="form-check form-switch">
-                                    <input name="slider_custom_status" type="checkbox" class="form-check-input" id="slider_custom_status_label" <?= $slider_info->slider_info->slider_status ? 'checked' : ''; ?>>
+                                    <input name="slider_custom_status" type="checkbox" class="form-check-input" id="slider_custom_status_label" <?= $slider_data["s_status"] ? 'checked' : ''; ?>>
                                 </div>
                             </li>
                         </ul>
@@ -145,7 +171,7 @@ $s_type = $slider_info->slider_type == "slider_news" ? TRUE : FALSE;
                                         <label for="slider_news_uid_label">News UID</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input value="<?= $slider_info->slider_info->slider_uid; ?>" required name="slider_news_uid" type="number" class="form-control form-control-sm" id="slider_news_uid_label">
+                                        <input value="<?= $slider_info->slider_uid; ?>" required name="slider_news_uid" type="number" class="form-control form-control-sm" id="slider_news_uid_label">
                                     </div>
                                 </div>
                             </li>
@@ -156,7 +182,7 @@ $s_type = $slider_info->slider_type == "slider_news" ? TRUE : FALSE;
                                 <div class="d-flex flex-row justify-content-between align-items-center">
                                     <label for="slider_news_status_label">Status</label>
                                     <div class="form-check form-switch">
-                                        <input name="slider_news_status" type="checkbox" class="form-check-input" id="slider_news_status_label" <?= $slider_info->slider_info->slider_status ? 'checked' : ''; ?>>
+                                        <input name="slider_news_status" type="checkbox" class="form-check-input" id="slider_news_status_label" <?= $slider_data["s_status"] ? 'checked' : ''; ?>>
                                     </div>
                                 </div>
                             </li>

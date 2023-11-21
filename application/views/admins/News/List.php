@@ -61,8 +61,8 @@
                                 </p>
                             </td>
                             <td>
-                                <p class="text-white text-truncate px-2 py-1 m-0 rounded-5" style="text-align:center; max-width:150px; background-color:<?= $news_data_item["c_bg_color"]; ?>">
-                                    <?= htmlentities(base64_decode($news_category_name->en)); ?>
+                                <p class="text-white text-truncate px-2 py-1 m-0 rounded-5" style="text-align:center; max-width:150px; background-color:<?= $news_data_item["c_bg_color"] ?? "#a30b0b"; ?>">
+                                    <?= !is_null($news_category_name) ? htmlentities(base64_decode($news_category_name->en)) : "Deleted"; ?>
                                 </p>
                             </td>
                             <td>

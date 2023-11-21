@@ -31,7 +31,9 @@ class UserController extends CI_Controller
         $data["branding_data"] = json_decode($this->UserModel->branding_user_db_get($branding_data_uid)["b_data"] ?? NULL, FALSE);
         $data["topbar_data"]["info"] = $this->topbarInfo();
         $data["topbar_data"]["options"] = json_decode($this->UserModel->topbar_user_db_get($topbar_data_uid)["t_data"] ?? NULL, FALSE);
-        $data["categories_list"] = $this->UserModel->categories_user_db_get();
+        $data["categories_list"] = $this->UserModel->categories_user_db_get(5);
+        $data["slider_list"] = $this->UserModel->slider_user_db_get();
+        $data["news_list"] = $this->UserModel->news_user_db_get();
         $this->load->view("users/Index", $data);
     }
 
@@ -45,12 +47,12 @@ class UserController extends CI_Controller
 
 
 
-    public function pageNotFound()
+/*     public function pageNotFound()
     {
         $data["page_name"] = "404NOT FOUD";
         $data["topbar_info"] = $this->topbarInfo();
         $this->load->view("users/contents/PageNotFound", $data);
-    }
+    } */
 
     /*=====GLOBAL USERS PAGES - ENDED=====*/
 }
