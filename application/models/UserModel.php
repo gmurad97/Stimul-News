@@ -4,6 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class UserModel extends CI_Model
 {
 
+
     /*=====GLOBAL MODEL - START=====*/
     public function table_row_id($tableName, $idName)
     {
@@ -15,6 +16,17 @@ class UserModel extends CI_Model
         } else {
             return -1;
         }
+    }
+
+    public function topbarInfo()
+    {
+        date_default_timezone_set("Asia/Baku");
+        $weather = json_decode(file_get_contents("https://api.weatherapi.com/v1/current.json?key=a548983232374eafb8002027232011&q=Baku&aqi=no"));
+        return (object) [
+            "date" => date("d.m.Y"),
+            "time" => date("H:i"),
+            "weather" => $weather->current->temp_c
+        ];
     }
     /*=====GLOBAL MODEL - ENDED=====*/
 
