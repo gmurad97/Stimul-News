@@ -34,7 +34,13 @@ class UserController extends CI_Controller
         $data["categories_navbar"] = $this->UserModel->categories_user_db_get(5);
         $data["categories_list"] = $this->UserModel->categories_user_db_get(NULL);
         $data["slider_list"] = $this->UserModel->slider_user_db_get();
-        $data["news_list"] = $this->UserModel->news_user_db_get();
+
+        $data["news_list"] = $this->UserModel->news_user_db_get(NULL);
+
+        $data["news_last_list"] = $this->UserModel->news_user_db_get(6);
+
+        $data["partners_list"] = $this->UserModel->partners_user_db_get();
+
         $this->load->view("users/Index", $data);
     }
 

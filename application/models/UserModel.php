@@ -30,8 +30,7 @@ class UserModel extends CI_Model
 
     public function categories_user_db_get($limit)
     {
-        //status check
-        return $this->db->order_by("c_uid", "DESC")->get("categories", $limit)->result_array();
+        return $this->db->order_by("c_uid", "DESC")->where("c_status", 1)->get("categories", $limit)->result_array();
     }
 
     public function slider_user_db_get()
@@ -39,12 +38,17 @@ class UserModel extends CI_Model
         return $this->db->order_by("s_uid", "DESC")->where("s_status", 1)->get("slider")->result_array();
     }
 
-    public function news_user_db_get()
+    public function news_user_db_get($limit)
     {
         return $this->db->order_by("n_uid", "DESC")
             ->where("n_status", 1)
             ->join("categories", "c_uid=n_category_uid", "left")
-            ->get("news")
+            ->get("news", $limit)
             ->result_array();
+    }
+
+    public function partners_user_db_get()
+    {
+        return $this->db->order_by("p_uid", "DESC")->where("p_status", 1)->get("partners")->result_array();
     }
 }
