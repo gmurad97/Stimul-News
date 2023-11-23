@@ -1,0 +1,26 @@
+ERROR - 2023-11-24 00:00:03 --> Severity: Warning --> Undefined array key "s_uid" C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 49
+ERROR - 2023-11-24 00:00:03 --> Severity: error --> Exception: Array callback must have exactly two elements C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 50
+ERROR - 2023-11-24 00:03:00 --> Severity: Warning --> Undefined array key 0 C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 48
+ERROR - 2023-11-24 00:03:00 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 48
+ERROR - 2023-11-24 00:03:00 --> Severity: Warning --> Undefined array key 0 C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 50
+ERROR - 2023-11-24 00:03:00 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 50
+ERROR - 2023-11-24 00:03:17 --> Severity: Warning --> Undefined array key 0 C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 48
+ERROR - 2023-11-24 00:03:17 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 48
+ERROR - 2023-11-24 00:03:17 --> Severity: Warning --> Undefined array key 0 C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 50
+ERROR - 2023-11-24 00:03:17 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 50
+ERROR - 2023-11-24 00:03:45 --> Severity: Warning --> Undefined array key 0 C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 48
+ERROR - 2023-11-24 00:03:45 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 48
+ERROR - 2023-11-24 00:03:45 --> Severity: Warning --> Undefined array key 0 C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 50
+ERROR - 2023-11-24 00:03:45 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 50
+ERROR - 2023-11-24 00:03:54 --> Severity: Warning --> Undefined array key 0 C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 48
+ERROR - 2023-11-24 00:03:54 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 48
+ERROR - 2023-11-24 00:03:54 --> Severity: Warning --> Undefined array key 0 C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 50
+ERROR - 2023-11-24 00:03:54 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 50
+ERROR - 2023-11-24 00:05:30 --> Severity: Warning --> Undefined array key 0 C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 47
+ERROR - 2023-11-24 00:05:30 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 47
+ERROR - 2023-11-24 00:05:30 --> Severity: Warning --> Undefined array key 0 C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 49
+ERROR - 2023-11-24 00:05:30 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 49
+ERROR - 2023-11-24 01:12:33 --> Severity: error --> Exception: Array callback must have exactly two elements C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 40
+ERROR - 2023-11-24 02:11:26 --> Could not find the language line "subscribe_news_unsubscribe"
+ERROR - 2023-11-24 02:20:24 --> Severity: error --> Exception: Object of class stdClass could not be converted to string C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 82
+ERROR - 2023-11-24 02:20:27 --> Severity: error --> Exception: Object of class stdClass could not be converted to string C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 82

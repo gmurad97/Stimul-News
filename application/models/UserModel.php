@@ -3,8 +3,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class UserModel extends CI_Model
 {
-
-
     /*=====GLOBAL MODEL - START=====*/
     public function table_row_id($tableName, $idName)
     {
@@ -17,60 +15,90 @@ class UserModel extends CI_Model
             return -1;
         }
     }
-
-    public function topbarInfo()
-    {
-        date_default_timezone_set("Asia/Baku");
-        $weather = json_decode(file_get_contents("https://api.weatherapi.com/v1/current.json?key=a548983232374eafb8002027232011&q=Baku&aqi=no"));
-        return (object) [
-            "date" => date("d.m.Y"),
-            "time" => date("H:i"),
-            "weather" => $weather->current->temp_c
-        ];
-    }
     /*=====GLOBAL MODEL - ENDED=====*/
 
-    public function topbar_user_db_get($id)
+    public function topbar_user_db_get()
     {
-        return $this->db->where("t_uid", $id)->get("topbar")->row_array();
+        return $this->db
+            ->order_by("t_uid", "DESC")
+            ->get("topbar", 1)
+            ->row_array();
     }
 
-    public function branding_user_db_get($id)
+    public function branding_user_db_get()
     {
-        return $this->db->where("b_uid", $id)->get("branding")->row_array();
+        return $this->db
+            ->order_by("b_uid", "DESC")
+            ->get("branding", 1)
+            ->row_array();
     }
 
-    public function categories_user_db_get($limit)
+    public function categories_user_db_get($limit = NULL)
     {
-        return $this->db->order_by("c_uid", "DESC")->where("c_status", 1)->get("categories", $limit)->result_array();
+        return $this->db
+            ->order_by("c_uid", "DESC")
+            ->get_where("categories", "c_status=" . TRUE, $limit)
+            ->result_array();
     }
 
     public function slider_user_db_get()
     {
-        return $this->db->order_by("s_uid", "DESC")->where("s_status", 1)->get("slider")->result_array();
+        return $this->db
+            ->order_by("s_uid", "DESC")
+            ->get_where("slider", "s_status=" . TRUE)
+            ->result_array();
     }
 
-    public function news_user_db_get($limit)
+    public function news_user_db_get($limit = NULL)
     {
-        return $this->db->order_by("n_uid", "DESC")
-            ->where("n_status", 1)
-            ->join("categories", "c_uid=n_category_uid", "left")
-            ->get("news", $limit)
+        return $this->db
+            ->order_by("n_uid", "DESC")
+            ->join("categories", "c_uid = n_category_uid", "left")
+            ->get_where("news", "n_status=" . TRUE, $limit)
             ->result_array();
     }
 
     public function partners_user_db_get()
     {
-        return $this->db->order_by("p_uid", "DESC")->where("p_status", 1)->get("partners")->result_array();
+        return $this->db
+            ->order_by("p_uid", "DESC")
+            ->get_where("partners", "p_status=" . TRUE)
+            ->result_array();
     }
+
+    public function contacts_user_db_get()
+    {
+        return $this->db
+            ->order_by("c_uid", "DESC")
+            ->get("contacts", 1)
+            ->row_array();
+    }
+
+
+
+
+
+
+
+
+
 
     public function subscribers_user_db_insert($data)
     {
-        $this->db->insert("subscribers", $data);
+        $this->db
+            ->insert("subscribers", $data);
     }
 
-    public function contacts_user_db_get($id)
+    public function subscribers_user_db_update($id, $data)
     {
-        return $this->db->where("c_uid",$id)->get("contacts")->row_array();
+        return $this->db
+            ->where("s_uid", $id)
+            ->update("subscribers", $data);
+    }
+
+    public function subscribers_user_db_get()
+    {
+        return $this->db
+            ->get("subscribers")->result_array();
     }
 }

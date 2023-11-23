@@ -1,26 +1,26 @@
 <header class="header_wrap dark_skin fixed-top">
-    <?php if (!is_null($topbar_data["options"]) && $topbar_data["options"]->topbar_self) : ?>
+    <?php if (!is_null($topbar["options"]) && $topbar["options"]->topbar_self) : ?>
         <div class="top-header bg_dark light_skin">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-7">
                         <ul class="header_list text-center text-md-left">
-                            <?php if ($topbar_data["options"]->topbar_date) : ?>
+                            <?php if ($topbar["options"]->topbar_date) : ?>
                                 <li>
                                     <i class="far fa-calendar-alt"></i>
-                                    <span><?= $topbar_data["info"]->date; ?></span>
+                                    <span><?= $topbar["data"]->date; ?></span>
                                 </li>
                             <?php endif; ?>
-                            <?php if ($topbar_data["options"]->topbar_time) : ?>
+                            <?php if ($topbar["options"]->topbar_time) : ?>
                                 <li>
                                     <i class="far fa-clock"></i>
-                                    <span><?= $topbar_data["info"]->time; ?></span>
+                                    <span><?= $topbar["data"]->time; ?></span>
                                 </li>
                             <?php endif; ?>
-                            <?php if ($topbar_data["options"]->topbar_weather) : ?>
+                            <?php if ($topbar["options"]->topbar_weather) : ?>
                                 <li>
                                     <i class="fas fa-cloud-sun-rain"></i>
-                                    <span><?= $topbar_data["info"]->weather; ?>℃</span>
+                                    <span><?= $topbar["data"]->weather; ?>℃</span>
                                 </li>
                             <?php endif; ?>
                         </ul>
@@ -46,10 +46,6 @@
                 <a class="navbar-brand" href="<?= base_url('home'); ?>">
                     <img class="logo_dark" src="<?= base_url('file_manager/branding/') . $branding_data->logo_dark->file_name; ?>" width="200" alt="Logo">
                 </a>
-            <?php elseif (is_null($branding_data) || !$branding_data->logo_dark->visibility) : ?>
-                <a class="navbar-brand" href="<?= base_url('home'); ?>">
-                    <img class="logo_dark" src="<?= base_url('public/user/assets/images/logo/logo_dark.png'); ?>" width="200" alt="Logo">
-                </a>
             <?php endif; ?>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="ion-android-menu"></span>
@@ -62,6 +58,11 @@
                             <?= $this->lang->line("home_navbar"); ?>
                         </a>
                     </li>
+                    <li>
+                        <a href="#" class="nav-link nav_item">
+                            <?= $this->lang->line("news_navbar"); ?>
+                        </a>
+                    </li>
                     <li class="dropdown">
                         <a href="javascript:void(0);" data-toggle="dropdown" class="nav-link">
                             <?= $this->lang->line("categories_navbar"); ?>
@@ -69,8 +70,8 @@
                         </a>
                         <div class="dropdown-menu">
                             <ul>
-                                <?php foreach ($categories_navbar as $category_data) : ?>
-                                    <?php $category_name =  base64_decode(json_decode($category_data["c_name"], TRUE)[$this->session->userdata("site_lang")]); ?>
+                                <?php foreach ($categories_nav_ul as $category_item) : ?>
+                                    <?php $category_name =  htmlentities(base64_decode(json_decode($category_item["c_name"], TRUE)[$this->session->userdata("site_lang")])); ?>
                                     <li>
                                         <a href="#" class="dropdown-item nav-link nav_item">
                                             <i class="far fa-circle"></i>

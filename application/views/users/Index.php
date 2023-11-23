@@ -10,7 +10,7 @@
                     <h4><?= $this->lang->line("all_categories"); ?></h4>
                 </div>
                 <div class="carousel_slider owl-carousel owl-theme nav_style4" data-margin="20" data-smart-speed="1024" data-dots="false" data-nav="true" data-loop="true" data-autoplay="true" data-autoplay-timeout="3072" data-autoplay-hover-pause="true" data-responsive='{"0":{"items": "1"}, "380":{"items": "2"}, "767":{"items": "3"}}'>
-                    <?php if (!empty($categories_list) || !is_null($$categories_list)) : ?>
+                    <?php if (!empty($categories_list) || !is_null($categories_list)) : ?>
                         <?php foreach ($categories_list as $category_item) : ?>
                             <?php if ($category_item["c_status"]) : ?>
                                 <?php $category_name = json_decode($category_item["c_name"], TRUE); ?>
@@ -40,8 +40,8 @@
             </div>
         </div>
         <div class="row">
-            <?php if (!empty($news_last_list) || !is_null($news_last_list)) : ?>
-                <?php foreach ($news_last_list as $news_item) : ?>
+            <?php if (!empty($news_recent_six) || !is_null($news_recent_six)) : ?>
+                <?php foreach ($news_recent_six as $news_item) : ?>
                     <?php
                     $news_category_name = json_decode($news_item["c_name"], TRUE);
                     $news_title = json_decode($news_item["n_title"], TRUE);
@@ -89,7 +89,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="heading_s2">
-                            <h4><?= htmlentities(base64_decode($category_item_name[$this->session->userdata("site_lang")])); ?> - <?= $this->lang->line("latest_news"); ?></h4>
+                            <h4><?= htmlentities(base64_decode($category_item_name[$this->session->userdata("site_lang")])); ?> - <?= $this->lang->line("recent_news"); ?></h4>
                         </div>
                         <div class="carousel_slider owl-carousel owl-theme nav_style1" data-margin="15" data-autoplay="true" data-loop="true" data-dots="false" data-nav="true" data-responsive='{"0":{"items": "1"}, "480":{"items": "2"}, "991":{"items": "3"}, "1199":{"items": "4"}}'>
                             <?php
