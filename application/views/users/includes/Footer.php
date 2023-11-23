@@ -5,10 +5,16 @@
                 <div class="col-xl-4 col-md-8 col-sm-12">
                     <div class="widget">
 
-                        <?php if (!is_null($branding_options->logo_light->file_name) && $branding_options->logo_light->visibility) : ?>
+                        <?php if (!is_null($branding_data) && $branding_data->logo_light->visibility) : ?>
                             <div class="footer_logo">
                                 <a href="<?= base_url('home'); ?>">
-                                    <img src="<?= base_url('file_manager/branding/').$branding_options->logo_light->file_name; ?>" width="200" alt="Logo">
+                                    <img src="<?= base_url('file_manager/branding/') . $branding_data->logo_light->file_name; ?>" width="200" alt="Logo">
+                                </a>
+                            </div>
+                        <?php elseif (is_null($branding_data) || !$branding_data->logo_light->visibility) : ?>
+                            <div class="footer_logo">
+                                <a href="<?= base_url('home'); ?>">
+                                    <img src="<?= base_url('public/user/assets/images/logo/logo_light.png'); ?>" width="200" alt="Logo">
                                 </a>
                             </div>
                         <?php endif; ?>
@@ -20,85 +26,56 @@
                             Asperiores, sit fuga.
                         </p>
                     </div>
-                    <div class="widget">
-                        <h6 class="widget_title">Popular categories</h6>
-                        <div class="tags">
-                            <a href="#">Categori1</a>
-                            <a href="#">Categori2</a>
-                            <a href="#">Categori3</a>
-                            <a href="#">Categori4</a>
-                            <a href="#">Categori5</a>
-                            <a href="#">Categori6</a>
-                        </div>
-                    </div>
+
                 </div>
                 <div class="col-xl-3 col-md-6 col-sm-7">
                     <div class="widget">
                         <h6 class="widget_title">Recent News</h6>
                         <ul class="widget_recent_post">
-                            <li>
-                                <div class="post_footer">
-                                    <div class="post_img">
-                                        <a href="#">
-                                            <img class="rounded-circle" src="<?= base_url('public/user/assets/images/letest_post1.jpg'); ?>" alt="Latest News #1">
-                                        </a>
-                                    </div>
-                                    <div class="post_content">
-                                        <h6>
-                                            <a href="#">Which Is The Saying From Toil And Pain</a>
-                                        </h6>
-                                        <p class="small m-0">01.01.1970</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="post_footer">
-                                    <div class="post_img">
-                                        <a href="#">
-                                            <img class="rounded-circle" src="<?= base_url('public/user/assets/images/letest_post2.jpg'); ?>" alt="Latest News #2">
-                                        </a>
-                                    </div>
-                                    <div class="post_content">
-                                        <h6>
-                                            <a href="#">Which Is The Saying From Toil And Pain</a>
-                                        </h6>
-                                        <p class="small m-0">01.01.1970</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="post_footer">
-                                    <div class="post_img">
-                                        <a href="#">
-                                            <img class="rounded-circle" src="<?= base_url('public/user/assets/images/letest_post3.jpg'); ?>" alt="Latest News #3">
-                                        </a>
-                                    </div>
-                                    <div class="post_content">
-                                        <h6>
-                                            <a href="#">Which Is The Saying From Toil And Pain</a>
-                                        </h6>
-                                        <p class="small m-0">01.01.1970</p>
-                                    </div>
-                                </div>
-                            </li>
+                            <?php if (!empty($news_recent_list) || !is_null($news_recent_list)) : ?>
+                                <?php foreach ($news_recent_list as $news_item) : ?>
+                                    <?php
+                                    $news_title = json_decode($news_item["n_title"], TRUE);
+                                    ?>
+                                    <li>
+                                        <div class="post_footer">
+                                            <div class="post_img">
+                                                <a href="#">
+                                                    <img style="object-fit: cover;" class="rounded-circle" src="<?= base_url('file_manager/news/' . $news_item['n_preview_img']); ?>" alt="Latest News #1">
+                                                </a>
+                                            </div>
+                                            <div class="post_content">
+                                                <h6>
+                                                    <a href="#"><?= htmlentities(base64_decode($news_title[$this->session->userdata("site_lang")])); ?></a>
+                                                </h6>
+                                                <p class="small m-0"><?= $news_item["n_created_date"]; ?></p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+
                         </ul>
                     </div>
                 </div>
+
+
+
                 <div class="col-xl-3 col-md-6 col-sm-12">
                     <div class="widget">
                         <h6 class="widget_title">Contact Info</h6>
                         <ul class="contact_info contact_info_light">
                             <li>
                                 <i class="ti-location-pin"></i>
-                                <a href="#">Azerbaijan Baku, Caspian Plaza</a>
+                                <a href="#"><?= htmlentities(base64_decode($contacts_data["information"]["address"]["info"])); ?></a>
                             </li>
                             <li>
                                 <i class="ti-email"></i>
-                                <a href="mailto:info@sitename.com">info@sitename.com</a>
+                                <a href="mailto:info@sitename.com"><?= htmlentities(base64_decode($contacts_data["information"]["mail"]["info"])); ?></a>
                             </li>
                             <li>
                                 <i class="ti-mobile"></i>
-                                <a href="tel:+12345678901">+ 123 456 789 01</a>
+                                <a href="tel:+12345678901"><?= htmlentities(base64_decode($contacts_data["information"]["phone"]["info"])); ?></a>
                             </li>
                         </ul>
                     </div>

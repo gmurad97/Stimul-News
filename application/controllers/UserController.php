@@ -18,6 +18,7 @@ class UserController extends CI_Controller
     {
         $branding_data_uid = $this->UserModel->table_row_id("branding", "b_uid");
         $topbar_data_uid = $this->UserModel->table_row_id("topbar", "t_uid");
+        $contacts_data_uid = $this->UserModel->table_row_id("contacts", "c_uid");
         $data["user_page_name"] = "Home";
         $data["branding_data"] = json_decode($this->UserModel->branding_user_db_get($branding_data_uid)["b_data"] ?? NULL, FALSE);
         $data["topbar_data"]["info"] = $this->UserModel->topbarInfo();
@@ -29,8 +30,12 @@ class UserController extends CI_Controller
         $data["news_list"] = $this->UserModel->news_user_db_get(NULL);
 
         $data["news_last_list"] = $this->UserModel->news_user_db_get(6);
-
+        $data["news_recent_list"] = $this->UserModel->news_user_db_get(3);
         $data["partners_list"] = $this->UserModel->partners_user_db_get();
+
+
+        $data["contacts_data"] = json_decode($this->UserModel->contacts_user_db_get($contacts_data_uid)["c_data"], TRUE);
+
 
         $this->load->view("users/Index", $data);
     }

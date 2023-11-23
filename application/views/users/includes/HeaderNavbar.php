@@ -46,7 +46,7 @@
                 <a class="navbar-brand" href="<?= base_url('home'); ?>">
                     <img class="logo_dark" src="<?= base_url('file_manager/branding/') . $branding_data->logo_dark->file_name; ?>" width="200" alt="Logo">
                 </a>
-            <?php elseif (is_null($branding_data)) : ?>
+            <?php elseif (is_null($branding_data) || !$branding_data->logo_dark->visibility) : ?>
                 <a class="navbar-brand" href="<?= base_url('home'); ?>">
                     <img class="logo_dark" src="<?= base_url('public/user/assets/images/logo/logo_dark.png'); ?>" width="200" alt="Logo">
                 </a>

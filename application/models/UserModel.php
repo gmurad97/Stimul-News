@@ -63,4 +63,14 @@ class UserModel extends CI_Model
     {
         return $this->db->order_by("p_uid", "DESC")->where("p_status", 1)->get("partners")->result_array();
     }
+
+    public function subscribers_user_db_insert($data)
+    {
+        $this->db->insert("subscribers", $data);
+    }
+
+    public function contacts_user_db_get($id)
+    {
+        return $this->db->where("c_uid",$id)->get("contacts")->row_array();
+    }
 }

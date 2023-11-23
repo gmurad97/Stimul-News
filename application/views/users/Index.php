@@ -35,7 +35,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="heading_s2">
-                    <h4><?= $this->lang->line("last_news"); ?></h4>
+                    <h4><?= $this->lang->line("recent_news"); ?></h4>
                 </div>
             </div>
         </div>
@@ -91,7 +91,7 @@
                         <div class="heading_s2">
                             <h4><?= htmlentities(base64_decode($category_item_name[$this->session->userdata("site_lang")])); ?> - <?= $this->lang->line("latest_news"); ?></h4>
                         </div>
-                        <div class="carousel_slider owl-carousel owl-theme nav_style1" data-margin="15" data-loop="true" data-dots="false" data-nav="true" data-responsive='{"0":{"items": "1"}, "480":{"items": "2"}, "991":{"items": "3"}, "1199":{"items": "4"}}'>
+                        <div class="carousel_slider owl-carousel owl-theme nav_style1" data-margin="15" data-autoplay="true" data-loop="true" data-dots="false" data-nav="true" data-responsive='{"0":{"items": "1"}, "480":{"items": "2"}, "991":{"items": "3"}, "1199":{"items": "4"}}'>
                             <?php
                             $filtered_news = array_filter($news_list, function ($news_item) use ($category_item) {
                                 return $news_item["n_category_uid"] == $category_item["c_uid"] ? $news_item : NULL;

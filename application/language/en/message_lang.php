@@ -10,4 +10,4 @@ $lang["read_more"] = "Read More";
 $lang["all_categories"] = "All categories";
 $lang["last_news"] = "Last News";
 $lang["our_partners"] = "Our partners";
-$lang["latest_news"] = "Latest News";
+$lang["recent_news"] = "Recent News";
