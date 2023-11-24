@@ -1,26 +1,369 @@
-ERROR - 2023-11-24 00:00:03 --> Severity: Warning --> Undefined array key "s_uid" C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 49
-ERROR - 2023-11-24 00:00:03 --> Severity: error --> Exception: Array callback must have exactly two elements C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 50
-ERROR - 2023-11-24 00:03:00 --> Severity: Warning --> Undefined array key 0 C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 48
-ERROR - 2023-11-24 00:03:00 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 48
-ERROR - 2023-11-24 00:03:00 --> Severity: Warning --> Undefined array key 0 C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 50
-ERROR - 2023-11-24 00:03:00 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 50
-ERROR - 2023-11-24 00:03:17 --> Severity: Warning --> Undefined array key 0 C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 48
-ERROR - 2023-11-24 00:03:17 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 48
-ERROR - 2023-11-24 00:03:17 --> Severity: Warning --> Undefined array key 0 C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 50
-ERROR - 2023-11-24 00:03:17 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 50
-ERROR - 2023-11-24 00:03:45 --> Severity: Warning --> Undefined array key 0 C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 48
-ERROR - 2023-11-24 00:03:45 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 48
-ERROR - 2023-11-24 00:03:45 --> Severity: Warning --> Undefined array key 0 C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 50
-ERROR - 2023-11-24 00:03:45 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 50
-ERROR - 2023-11-24 00:03:54 --> Severity: Warning --> Undefined array key 0 C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 48
-ERROR - 2023-11-24 00:03:54 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 48
-ERROR - 2023-11-24 00:03:54 --> Severity: Warning --> Undefined array key 0 C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 50
-ERROR - 2023-11-24 00:03:54 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 50
-ERROR - 2023-11-24 00:05:30 --> Severity: Warning --> Undefined array key 0 C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 47
-ERROR - 2023-11-24 00:05:30 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 47
-ERROR - 2023-11-24 00:05:30 --> Severity: Warning --> Undefined array key 0 C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 49
-ERROR - 2023-11-24 00:05:30 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 49
-ERROR - 2023-11-24 01:12:33 --> Severity: error --> Exception: Array callback must have exactly two elements C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 40
-ERROR - 2023-11-24 02:11:26 --> Could not find the language line "subscribe_news_unsubscribe"
-ERROR - 2023-11-24 02:20:24 --> Severity: error --> Exception: Object of class stdClass could not be converted to string C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 82
-ERROR - 2023-11-24 02:20:27 --> Severity: error --> Exception: Object of class stdClass could not be converted to string C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 82
+ERROR - 2023-11-24 03:30:17 --> Severity: error --> Exception: Too few arguments to function UserController::news_list(), 0 passed in C:\OSPanel\domains\stimul.news\system\core\CodeIgniter.php on line 533 and exactly 1 expected C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 71
+ERROR - 2023-11-24 03:36:47 --> Severity: error --> Exception: Call to undefined method UserModel::topbarInfo() C:\OSPanel\domains\stimul.news\application\controllers\ErrorController.php 25
+ERROR - 2023-11-24 03:37:58 --> Severity: Warning --> Undefined variable $news_list C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderSlider.php 34
+ERROR - 2023-11-24 03:37:58 --> Severity: error --> Exception: array_filter(): Argument #1 ($array) must be of type array, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderSlider.php 36
+ERROR - 2023-11-24 03:38:09 --> Severity: Warning --> Undefined variable $news_list C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderSlider.php 34
+ERROR - 2023-11-24 03:38:09 --> Severity: error --> Exception: array_filter(): Argument #1 ($array) must be of type array, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderSlider.php 36
+ERROR - 2023-11-24 03:51:10 --> Severity: Warning --> Undefined variable $news_list C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderSlider.php 34
+ERROR - 2023-11-24 03:51:10 --> Severity: error --> Exception: array_filter(): Argument #1 ($array) must be of type array, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderSlider.php 36
+ERROR - 2023-11-24 03:52:01 --> Severity: Warning --> Undefined variable $news_list C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderSlider.php 34
+ERROR - 2023-11-24 03:52:01 --> Severity: error --> Exception: array_filter(): Argument #1 ($array) must be of type array, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderSlider.php 36
+ERROR - 2023-11-24 03:52:10 --> Severity: Warning --> Undefined variable $news_list C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderSlider.php 34
+ERROR - 2023-11-24 03:52:10 --> Severity: error --> Exception: array_filter(): Argument #1 ($array) must be of type array, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderSlider.php 36
+ERROR - 2023-11-24 03:52:40 --> Severity: error --> Exception: Call to undefined method UserModel::topbarInfo() C:\OSPanel\domains\stimul.news\application\controllers\ErrorController.php 25
+ERROR - 2023-11-24 03:53:50 --> Severity: Warning --> Undefined variable $topbar C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 2
+ERROR - 2023-11-24 03:53:50 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 2
+ERROR - 2023-11-24 03:53:50 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 03:53:50 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 03:53:50 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 03:53:50 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 03:53:50 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 03:54:13 --> Severity: Warning --> Undefined array key "options" C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 2
+ERROR - 2023-11-24 03:54:13 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 03:54:13 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 03:54:13 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 03:54:13 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 03:54:13 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 03:54:43 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 03:54:43 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 03:54:43 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 03:54:43 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 03:54:43 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 03:56:23 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 03:56:23 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 03:56:23 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 03:56:23 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 03:56:23 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 03:56:24 --> 404 Page Not Found: 
+ERROR - 2023-11-24 03:56:25 --> 404 Page Not Found: 
+ERROR - 2023-11-24 03:56:50 --> 404 Page Not Found: http://stimul.news/404_override
+ERROR - 2023-11-24 03:58:41 --> 404 Page Not Found: 404_override
+ERROR - 2023-11-24 03:59:07 --> 404 Page Not Found: http://stimul.news/ErrorController/Error404
+ERROR - 2023-11-24 04:00:09 --> 404 Page Not Found: http://stimul.news/ErrorController/Error404
+ERROR - 2023-11-24 04:00:12 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:00:12 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:00:12 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:00:12 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:00:12 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:00:26 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:00:26 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:00:26 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:00:26 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:00:26 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:06:05 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:06:05 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:06:05 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:06:05 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:06:05 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:06:14 --> Severity: error --> Exception: Call to undefined method CI_Loader::controller() C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 95
+ERROR - 2023-11-24 04:06:30 --> 404 Page Not Found: 
+ERROR - 2023-11-24 04:07:56 --> Severity: Warning --> Undefined property: UserController::$ErrorController C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 95
+ERROR - 2023-11-24 04:07:56 --> Severity: error --> Exception: Call to a member function Error404() on null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 95
+ERROR - 2023-11-24 04:08:22 --> Severity: error --> Exception: Call to undefined method CI_Loader::controller() C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 95
+ERROR - 2023-11-24 04:08:52 --> Unable to load the requested class: ErrorController
+ERROR - 2023-11-24 04:09:14 --> Unable to load the requested class: ErrorController
+ERROR - 2023-11-24 04:12:18 --> Severity: error --> Exception: syntax error, unexpected token "}" C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 96
+ERROR - 2023-11-24 04:12:21 --> 404 Page Not Found: 
+ERROR - 2023-11-24 04:12:40 --> 404 Page Not Found: 
+ERROR - 2023-11-24 04:12:50 --> 404 Page Not Found: 
+ERROR - 2023-11-24 04:12:55 --> 404 Page Not Found: 
+ERROR - 2023-11-24 04:13:13 --> 404 Page Not Found: 
+ERROR - 2023-11-24 04:13:18 --> 404 Page Not Found: 
+ERROR - 2023-11-24 04:13:18 --> Severity: Warning --> Undefined property: CI_Exceptions::$load C:\OSPanel\domains\stimul.news\application\views\errors\html\error_404.php 1
+ERROR - 2023-11-24 04:13:18 --> Severity: error --> Exception: Call to a member function view() on null C:\OSPanel\domains\stimul.news\application\views\errors\html\error_404.php 1
+ERROR - 2023-11-24 04:14:54 --> Severity: error --> Exception: Class "ErrorController" not found C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 95
+ERROR - 2023-11-24 04:15:32 --> Severity: Warning --> Undefined property: UserController::$ErrorController C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 96
+ERROR - 2023-11-24 04:15:32 --> Severity: error --> Exception: Class name must be a valid object or a string C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 96
+ERROR - 2023-11-24 04:15:41 --> Severity: Warning --> Undefined property: UserController::$ErrorController C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 96
+ERROR - 2023-11-24 04:15:41 --> Severity: error --> Exception: Class name must be a valid object or a string C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 96
+ERROR - 2023-11-24 04:15:55 --> Severity: Warning --> Undefined property: UserController::$ErrorController C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 96
+ERROR - 2023-11-24 04:15:55 --> Severity: error --> Exception: Class name must be a valid object or a string C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 96
+ERROR - 2023-11-24 04:15:57 --> Severity: Warning --> Undefined property: UserController::$ErrorController C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 96
+ERROR - 2023-11-24 04:15:57 --> Severity: error --> Exception: Class name must be a valid object or a string C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 96
+ERROR - 2023-11-24 04:18:30 --> Severity: Warning --> Undefined property: CI_Loader::$ErrorController C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 95
+ERROR - 2023-11-24 04:18:30 --> Severity: Warning --> Undefined property: UserController::$ErrorController C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 97
+ERROR - 2023-11-24 04:18:30 --> Severity: error --> Exception: Call to a member function Error404() on null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 97
+ERROR - 2023-11-24 04:19:59 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:19:59 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:19:59 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:19:59 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:19:59 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:23:12 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:23:12 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:23:12 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:23:12 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:23:12 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:25:22 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:25:22 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:25:22 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:25:22 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:25:22 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:25:26 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:25:26 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:25:26 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:25:26 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:25:26 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:26:53 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:26:53 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:26:53 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:26:53 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:26:53 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:28:44 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:28:44 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:28:44 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:28:44 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:28:44 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:29:04 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:29:04 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:29:04 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:29:04 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:29:04 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:29:09 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:29:09 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:29:09 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:29:09 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:29:09 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:29:24 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:29:24 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:29:24 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:29:24 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:29:24 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:29:27 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:29:27 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:29:27 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:29:27 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:29:27 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:29:32 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:29:32 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:29:32 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:29:32 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:29:32 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:29:39 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:29:39 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:29:39 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:29:39 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:29:39 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:29:43 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:29:43 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:29:43 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:29:43 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:29:43 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:29:51 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:29:51 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:29:51 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:29:51 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:29:51 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:30:44 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:30:44 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:30:44 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:30:44 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:30:44 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:30:56 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:30:56 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:30:56 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:30:56 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:30:56 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:31:02 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:31:02 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:31:02 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:31:02 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:31:02 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:31:11 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:31:11 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:31:11 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:31:11 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:31:11 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:31:12 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:31:12 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:31:12 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:31:12 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:31:12 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:31:18 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:31:18 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:31:18 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:31:18 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:31:18 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:32:21 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:32:21 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:32:21 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:32:21 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:32:21 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:32:22 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:32:22 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:32:22 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:32:22 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:32:22 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:33:44 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:33:44 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:33:44 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:33:44 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:33:44 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:40:42 --> Severity: Warning --> Undefined variable $total_rows C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 114
+ERROR - 2023-11-24 04:40:42 --> Severity: Warning --> Undefined property: UserController::$your_model C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 123
+ERROR - 2023-11-24 04:40:42 --> Severity: error --> Exception: Call to a member function get_news() on null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 123
+ERROR - 2023-11-24 04:50:06 --> Severity: error --> Exception: Too few arguments to function UserModel::news_pagination_user_db_get(), 0 passed in C:\OSPanel\domains\stimul.news\application\controllers\UserController.php on line 95 and exactly 2 expected C:\OSPanel\domains\stimul.news\application\models\UserModel.php 67
+ERROR - 2023-11-24 04:51:22 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:51:22 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:51:22 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:51:22 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:51:22 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:51:41 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:51:41 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:51:41 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:51:41 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:51:41 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:51:45 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:51:45 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:51:45 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:51:45 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:51:45 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:51:48 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:51:48 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:51:48 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:51:48 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:51:48 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:51:52 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:51:52 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:51:52 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:51:52 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:51:52 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:51:53 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:51:53 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 04:51:53 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 04:51:53 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 04:51:53 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 04:55:43 --> Severity: Warning --> Undefined variable $category_name C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 73
+ERROR - 2023-11-24 04:55:48 --> Severity: Warning --> Undefined variable $category_name C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 73
+ERROR - 2023-11-24 04:55:56 --> Severity: Warning --> Undefined variable $category_name C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 73
+ERROR - 2023-11-24 04:58:31 --> Severity: Warning --> Undefined property: CI_Loader::$pagination C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 72
+ERROR - 2023-11-24 04:58:31 --> Severity: error --> Exception: Call to a member function create_links() on null C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 72
+ERROR - 2023-11-24 04:58:37 --> Severity: Warning --> Undefined property: CI_Loader::$pagination C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 72
+ERROR - 2023-11-24 04:58:37 --> Severity: error --> Exception: Call to a member function create_links() on null C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 72
+ERROR - 2023-11-24 05:07:45 --> Severity: Warning --> Undefined variable $news_list C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderSlider.php 34
+ERROR - 2023-11-24 05:07:45 --> Severity: error --> Exception: array_filter(): Argument #1 ($array) must be of type array, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderSlider.php 36
+ERROR - 2023-11-24 05:07:50 --> Severity: Warning --> Undefined variable $news_list C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderSlider.php 34
+ERROR - 2023-11-24 05:07:50 --> Severity: error --> Exception: array_filter(): Argument #1 ($array) must be of type array, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderSlider.php 36
+ERROR - 2023-11-24 05:08:55 --> Severity: Warning --> Undefined variable $news_list C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderSlider.php 34
+ERROR - 2023-11-24 05:08:55 --> Severity: error --> Exception: array_filter(): Argument #1 ($array) must be of type array, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderSlider.php 36
+ERROR - 2023-11-24 05:08:57 --> Severity: Warning --> Undefined variable $news_list C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderSlider.php 34
+ERROR - 2023-11-24 05:08:57 --> Severity: error --> Exception: array_filter(): Argument #1 ($array) must be of type array, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderSlider.php 36
+ERROR - 2023-11-24 05:09:48 --> Severity: error --> Exception: array_filter(): Argument #1 ($array) must be of type array, string given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderSlider.php 36
+ERROR - 2023-11-24 05:09:52 --> Severity: error --> Exception: array_filter(): Argument #1 ($array) must be of type array, string given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderSlider.php 36
+ERROR - 2023-11-24 05:10:53 --> Severity: error --> Exception: array_filter(): Argument #1 ($array) must be of type array, string given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderSlider.php 36
+ERROR - 2023-11-24 05:17:04 --> Severity: error --> Exception: Too few arguments to function UserController::news_list(), 1 passed in C:\OSPanel\domains\stimul.news\system\core\CodeIgniter.php on line 533 and exactly 2 expected C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 71
+ERROR - 2023-11-24 05:17:13 --> Severity: 8192 --> Required parameter $page_number follows optional parameter $category_name C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 71
+ERROR - 2023-11-24 05:17:13 --> Severity: error --> Exception: Too few arguments to function UserController::news_list(), 1 passed in C:\OSPanel\domains\stimul.news\system\core\CodeIgniter.php on line 533 and exactly 2 expected C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 0
+ERROR - 2023-11-24 05:19:16 --> Severity: 8192 --> Required parameter $page_number follows optional parameter $category_name C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 71
+ERROR - 2023-11-24 05:19:16 --> Severity: error --> Exception: Too few arguments to function UserController::news_list(), 1 passed in C:\OSPanel\domains\stimul.news\system\core\CodeIgniter.php on line 533 and exactly 2 expected C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 0
+ERROR - 2023-11-24 05:19:17 --> Severity: 8192 --> Required parameter $page_number follows optional parameter $category_name C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 71
+ERROR - 2023-11-24 05:19:17 --> Severity: error --> Exception: Too few arguments to function UserController::news_list(), 1 passed in C:\OSPanel\domains\stimul.news\system\core\CodeIgniter.php on line 533 and exactly 2 expected C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 0
+ERROR - 2023-11-24 05:19:28 --> Severity: 8192 --> Required parameter $page_number follows optional parameter $category_name C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 71
+ERROR - 2023-11-24 05:19:28 --> Severity: error --> Exception: Too few arguments to function UserController::news_list(), 1 passed in C:\OSPanel\domains\stimul.news\system\core\CodeIgniter.php on line 533 and exactly 2 expected C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 0
+ERROR - 2023-11-24 05:19:32 --> Severity: 8192 --> Required parameter $page_number follows optional parameter $category_name C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 71
+ERROR - 2023-11-24 05:19:32 --> Severity: error --> Exception: Too few arguments to function UserController::news_list(), 1 passed in C:\OSPanel\domains\stimul.news\system\core\CodeIgniter.php on line 533 and exactly 2 expected C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 0
+ERROR - 2023-11-24 05:23:43 --> Severity: 8192 --> Required parameter $page_number follows optional parameter $category_name C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 71
+ERROR - 2023-11-24 05:23:43 --> Severity: error --> Exception: Too few arguments to function UserController::news_list(), 1 passed in C:\OSPanel\domains\stimul.news\system\core\CodeIgniter.php on line 533 and exactly 2 expected C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 0
+ERROR - 2023-11-24 05:23:45 --> Severity: 8192 --> Required parameter $page_number follows optional parameter $category_name C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 71
+ERROR - 2023-11-24 05:23:45 --> Severity: error --> Exception: Too few arguments to function UserController::news_list(), 0 passed in C:\OSPanel\domains\stimul.news\system\core\CodeIgniter.php on line 533 and exactly 2 expected C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 0
+ERROR - 2023-11-24 05:24:50 --> Severity: 8192 --> Required parameter $page_number follows optional parameter $category_name C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 71
+ERROR - 2023-11-24 05:24:51 --> Severity: error --> Exception: Too few arguments to function UserController::news_list(), 1 passed in C:\OSPanel\domains\stimul.news\system\core\CodeIgniter.php on line 533 and exactly 2 expected C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 0
+ERROR - 2023-11-24 05:25:05 --> Severity: 8192 --> Required parameter $page_number follows optional parameter $category_name C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 71
+ERROR - 2023-11-24 05:25:05 --> Severity: error --> Exception: Too few arguments to function UserController::news_list(), 1 passed in C:\OSPanel\domains\stimul.news\system\core\CodeIgniter.php on line 533 and exactly 2 expected C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 0
+ERROR - 2023-11-24 05:26:40 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 05:26:40 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 05:26:40 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 05:26:40 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 05:26:40 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 05:29:34 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 05:29:34 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 05:29:34 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 05:29:34 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 05:29:34 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 05:40:11 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-1, 1' at line 6 - Invalid query: SELECT *
+FROM `news`
+LEFT JOIN `categories` ON `c_uid` = `n_category_uid`
+WHERE `n_status` = 1
+ORDER BY `n_uid` DESC
+ LIMIT -1, 1
+ERROR - 2023-11-24 05:43:08 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 05:43:08 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 05:43:08 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 05:43:08 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 05:43:08 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 05:43:29 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 05:43:29 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 05:43:29 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 05:43:29 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 05:43:29 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 05:43:33 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 05:43:33 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 05:43:33 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 05:43:33 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 05:43:33 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 05:51:43 --> Severity: error --> Exception: Call to undefined method CI_Pagination::has_previous() C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 75
+ERROR - 2023-11-24 05:51:48 --> Severity: error --> Exception: Call to undefined method CI_Pagination::has_previous() C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 75
+ERROR - 2023-11-24 05:52:59 --> Severity: Warning --> foreach() argument must be of type array|object, string given C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 83
+ERROR - 2023-11-24 05:52:59 --> Severity: Warning --> Undefined property: CI_Pagination::$num_pages C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 89
+ERROR - 2023-11-24 05:53:41 --> Severity: error --> Exception: Cannot access protected property CI_Pagination::$num_links C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 83
+ERROR - 2023-11-24 05:53:45 --> Severity: error --> Exception: Cannot access protected property CI_Pagination::$num_links C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 83
+ERROR - 2023-11-24 05:54:08 --> Severity: error --> Exception: Call to undefined method CI_Pagination::num_links() C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 83
+ERROR - 2023-11-24 05:54:11 --> Severity: error --> Exception: Call to undefined method CI_Pagination::num_links() C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 83
+ERROR - 2023-11-24 05:54:40 --> Severity: Warning --> Undefined property: CI_Pagination::$num_pages C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 83
+ERROR - 2023-11-24 05:54:40 --> Severity: Warning --> Undefined property: CI_Pagination::$num_pages C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 89
+ERROR - 2023-11-24 05:55:13 --> Severity: Warning --> Undefined property: CI_Pagination::$total_pages C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 89
+ERROR - 2023-11-24 05:55:14 --> Severity: Warning --> Undefined property: CI_Pagination::$total_pages C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 89
+ERROR - 2023-11-24 05:55:20 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 05:55:20 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 05:55:20 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 05:55:20 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 05:55:20 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 05:55:58 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 05:55:58 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-24 05:55:58 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-24 05:55:58 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-24 05:55:58 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-24 05:56:01 --> Severity: error --> Exception: Call to undefined method CI_Pagination::get_total_pages() C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 83
+ERROR - 2023-11-24 05:56:04 --> Severity: error --> Exception: Call to undefined method CI_Pagination::get_total_pages() C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 83
+ERROR - 2023-11-24 05:56:31 --> Severity: Warning --> Undefined property: CI_Pagination::$num_pages C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 83
+ERROR - 2023-11-24 05:56:31 --> Severity: Warning --> Undefined property: CI_Pagination::$num_pages C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 89
+ERROR - 2023-11-24 05:58:13 --> Severity: Warning --> Undefined property: CI_Pagination::$num_pages C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 83
+ERROR - 2023-11-24 05:58:14 --> Severity: Warning --> Undefined property: CI_Pagination::$num_pages C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 89
+ERROR - 2023-11-24 06:29:10 --> Severity: error --> Exception: Call to undefined method CI_Pagination::get_total_pages() C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 80
+ERROR - 2023-11-24 06:29:14 --> Severity: error --> Exception: Call to undefined method CI_Pagination::get_total_pages() C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 80
+ERROR - 2023-11-24 06:29:32 --> Severity: error --> Exception: Call to undefined method CI_Pagination::num_pages() C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 80
+ERROR - 2023-11-24 06:29:46 --> Severity: error --> Exception: Call to undefined method CI_Pagination::num_links() C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 80
+ERROR - 2023-11-24 06:30:07 --> Severity: error --> Exception: Call to undefined method CI_Pagination::num_pages() C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 80
+ERROR - 2023-11-24 06:30:50 --> Severity: error --> Exception: Call to undefined method CI_Pagination::total_rows() C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 80
+ERROR - 2023-11-24 06:30:53 --> Severity: error --> Exception: Call to undefined method CI_Pagination::total_rows() C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 80
+ERROR - 2023-11-24 06:31:00 --> Severity: error --> Exception: Cannot access protected property CI_Pagination::$total_rows C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 80
+ERROR - 2023-11-24 06:31:12 --> Severity: error --> Exception: Cannot access protected property CI_Pagination::$total_rows C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 81
+ERROR - 2023-11-24 06:33:02 --> Severity: Warning --> Undefined property: UserController::$pagination C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 92
+ERROR - 2023-11-24 06:33:02 --> Severity: error --> Exception: Call to a member function create_links() on null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 92
+ERROR - 2023-11-24 06:33:37 --> Severity: Warning --> Undefined property: UserController::$pagination C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 92
+ERROR - 2023-11-24 06:33:37 --> Severity: error --> Exception: Call to a member function create_links() on null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 92
+ERROR - 2023-11-24 06:33:38 --> Severity: Warning --> Undefined property: UserController::$pagination C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 92
+ERROR - 2023-11-24 06:33:38 --> Severity: error --> Exception: Call to a member function create_links() on null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 92
+ERROR - 2023-11-24 06:34:29 --> Severity: Warning --> Undefined property: UserController::$pagination C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 92
+ERROR - 2023-11-24 06:34:29 --> Severity: error --> Exception: Call to a member function create_links() on null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 92
+ERROR - 2023-11-24 06:34:59 --> Severity: Warning --> Undefined array key "prev_link" C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 79
+ERROR - 2023-11-24 06:34:59 --> Severity: Warning --> foreach() argument must be of type array|object, string given C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 92
+ERROR - 2023-11-24 06:34:59 --> Severity: Warning --> Undefined array key "next_link" C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 99
+ERROR - 2023-11-24 06:35:37 --> Severity: Warning --> Undefined array key "prev_link" C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 79
+ERROR - 2023-11-24 06:35:37 --> Severity: Warning --> foreach() argument must be of type array|object, string given C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 92
+ERROR - 2023-11-24 06:39:27 --> Severity: Warning --> foreach() argument must be of type array|object, string given C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 79
+ERROR - 2023-11-24 06:40:08 --> Severity: Warning --> foreach() argument must be of type array|object, string given C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 75
+ERROR - 2023-11-24 06:40:28 --> Severity: Warning --> foreach() argument must be of type array|object, string given C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 75
+ERROR - 2023-11-24 06:46:39 --> Severity: error --> Exception: Cannot access offset of type string on string C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 77
+ERROR - 2023-11-24 06:46:44 --> Severity: error --> Exception: Cannot access offset of type string on string C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 77
+ERROR - 2023-11-24 06:47:15 --> Severity: error --> Exception: Cannot access offset of type string on string C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 77
+ERROR - 2023-11-24 06:47:18 --> Severity: error --> Exception: Cannot access offset of type string on string C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 77
+ERROR - 2023-11-24 06:48:03 --> Severity: error --> Exception: Cannot access offset of type string on string C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 77
+ERROR - 2023-11-24 06:48:07 --> Severity: error --> Exception: Cannot access offset of type string on string C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 77
+ERROR - 2023-11-24 06:48:56 --> Severity: Warning --> foreach() argument must be of type array|object, string given C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 72
+ERROR - 2023-11-24 06:48:57 --> Severity: Warning --> foreach() argument must be of type array|object, string given C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 72
+ERROR - 2023-11-24 06:49:33 --> Severity: Warning --> foreach() argument must be of type array|object, string given C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 72
+ERROR - 2023-11-24 06:55:47 --> Severity: Warning --> Undefined variable $pagination C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 74
+ERROR - 2023-11-24 06:55:54 --> Severity: Warning --> Undefined variable $pagination C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 74
+ERROR - 2023-11-24 07:14:06 --> Severity: Warning --> file_get_contents(https://api.weatherapi.com/v1/current.json?key=a548983232374eafb8002027232011&amp;q=Baku&amp;aqi=no): Failed to open stream: Попытка установить соединение была безуспешной, т.к. от другого компьютера за требуемое время не получен нужный отклик, или было разорвано уже установленное соединение из-за неверного отклика уже подключенного компьютера C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 16
+ERROR - 2023-11-24 07:14:06 --> Severity: Warning --> Attempt to read property "current" on null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 20
+ERROR - 2023-11-24 07:14:06 --> Severity: Warning --> Attempt to read property "temp_c" on null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 20

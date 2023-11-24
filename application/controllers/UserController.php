@@ -66,5 +66,73 @@ class UserController extends CI_Controller
         $data["contacts_data"] = json_decode($this->UserModel->contacts_user_db_get()["c_data"] ?? NULL, FALSE);
         $this->load->view("users/Index", $data);
     }
+
+
+    public function news_list()
+    {
+        $data["user_page_name"] = "All News";
+        $data["topbar"]["data"] = $this->topbarInfo();
+        $data["topbar"]["options"] = json_decode($this->UserModel->topbar_user_db_get()["t_data"] ?? NULL, FALSE);
+        $data["branding_data"] = json_decode($this->UserModel->branding_user_db_get()["b_data"] ?? NULL, FALSE);
+        $data["categories_nav_ul"] = $this->UserModel->categories_user_db_get(5);
+        $data["slider_list"] = $this->UserModel->slider_user_db_get();
+        $data["contacts_data"] = json_decode($this->UserModel->contacts_user_db_get()["c_data"] ?? NULL, FALSE);
+        $data["news_recent_three"] = $this->UserModel->news_user_db_get(3);
+        $data["categories_list"] = $this->UserModel->categories_user_db_get(NULL);
+        $config = [
+            "base_url" => base_url("news/page"),
+            "total_rows" => $this->UserModel->news_count_user_db_get(),
+            "per_page" => 1,
+            "uri_segment" => 3,
+            "num_links" => 1,
+            "use_page_numbers" => TRUE
+        ];
+
+        $config['first_link'] = '<i class="linearicons-arrow-left"></i>';
+        $config['last_link'] = '<i class="linearicons-arrow-right"></i>';
+        $config['next_link'] = FALSE;
+        $config['prev_link'] = FALSE;
+        $config['full_tag_open'] = '<ul class="pagination justify-content-center">';
+        $config['full_tag_close'] = '</ul>';
+        $config['first_tag_open'] = '<li class="page-item">';
+        $config['first_tag_close'] = '</li>';
+        $config['last_tag_open'] = '<li class="page-item">';
+        $config['last_tag_close'] = '</li>';
+        $config['next_tag_open'] = '<li class="page-item">';
+        $config['next_tag_close'] = '</li>';
+        $config['prev_tag_open'] = '<li class="page-item">';
+        $config['prev_tag_close'] = '</li>';
+        $config['num_tag_open'] = '<li class="page-item">';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
+        $config['cur_tag_close'] = '</a></li>';
+
+        $this->load->library("pagination");
+        $this->pagination->initialize($config);
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+        $data["news_list"] = $this->UserModel->news_pagination_user_db_get($config["per_page"], $page);
+        $this->load->view("users/NewsList", $data);
+
+
+
+
+
+        /* 
+                $category_list_name = array_map(function ($item) {
+            return strtolower(base64_decode(json_decode($item["c_name"], TRUE)["en"]));
+        }, $data["categories_list"]);
+        else if (in_array($category_name, $category_list_name)) {
+            $data["news_list"] = array_values(array_filter($this->UserModel->news_user_db_get(NULL), function ($news_item) use ($category_name) {
+                return strtolower(base64_decode(json_decode($news_item["c_name"], TRUE)["en"])) == $category_name;
+            }));
+            $this->load->view("users/NewsList", $data);
+        } */
+    }
+
+
+
+
+
+
     /*=====GLOBAL USERS PAGES - ENDED=====*/
 }

@@ -16,3 +16,4 @@ $lang["contact_info"] = "Contact Info";
 $lang["subscribe_news"] = "Subscribe Our Newsletter";
 $lang["subscribe_news_desc"] = "Stay ahead of the curve by subscribing to our news updates and be the first to receive the latest information.";
 $lang["sunscribe_news_unsubscribe"] = "To unsubscribe, simply re-enter your email address.";
+$lang["all_news"] = "All News";

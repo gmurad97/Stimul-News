@@ -58,6 +58,22 @@ class UserModel extends CI_Model
             ->result_array();
     }
 
+    public function news_count_user_db_get()
+    {
+        return $this->db
+            ->count_all("news");
+    }
+
+    public function news_pagination_user_db_get($limit, $offset)
+    {
+        return $this->db
+            ->order_by("n_uid", "DESC")
+            ->join("categories", "c_uid = n_category_uid", "left")
+            ->limit($limit, $offset)
+            ->get_where("news", "n_status=" . TRUE)
+            ->result_array();
+    }
+
     public function partners_user_db_get()
     {
         return $this->db
