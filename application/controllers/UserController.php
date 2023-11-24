@@ -68,6 +68,28 @@ class UserController extends CI_Controller
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     public function news_list()
     {
         $data["user_page_name"] = "All News";
@@ -112,10 +134,7 @@ class UserController extends CI_Controller
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
         $data["news_list"] = $this->UserModel->news_pagination_user_db_get($config["per_page"], $page);
 
-        // Проверяем, существуют ли данные на этой странице
-        if ($page > 0 && ($page - 1) * $config["per_page"] >= $config["total_rows"]) {
-            redirect(base_url("news/page")); // Редиректим на первую страницу
-        }
+
 
 
         $this->load->view("users/NewsList", $data);
@@ -137,9 +156,6 @@ class UserController extends CI_Controller
     }
 
 
-
-
-
     public function news_category($category_name)
     {
         $data["user_page_name"] = "All News";
@@ -151,11 +167,12 @@ class UserController extends CI_Controller
         $data["contacts_data"] = json_decode($this->UserModel->contacts_user_db_get()["c_data"] ?? NULL, FALSE);
         $data["news_recent_three"] = $this->UserModel->news_user_db_get(3);
         $data["categories_list"] = $this->UserModel->categories_user_db_get(NULL);
+
         $config = [
-            "base_url" => base_url("news-category".$category_name . "/page"),
+            "base_url" => base_url("news-category/" . $category_name . "/page"),
             "total_rows" => $this->UserModel->news_count_user_db_get(),
-            "per_page" => 5,
-            "uri_segment" => 3,
+            "per_page" => 10,
+            "uri_segment" => 4,
             "num_links" => 1,
             "use_page_numbers" => TRUE
         ];
@@ -179,34 +196,56 @@ class UserController extends CI_Controller
         $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
         $config['cur_tag_close'] = '</a></li>';
 
+        // ... Ваши настройки пагинации ...
+
         $this->load->library("pagination");
         $this->pagination->initialize($config);
-        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-        $data["news_list"] = $this->UserModel->news_pagination_user_db_get($config["per_page"], $page);
-
-        // Проверяем, существуют ли данные на этой странице
-        if ($page > 0 && ($page - 1) * $config["per_page"] >= $config["total_rows"]) {
-            redirect(base_url("news/page")); // Редиректим на первую страницу
-        }
+        $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
+        $page = max(0, $page - 1); // Уменьшаем $page на 1, но не меньше 0
 
 
-        $this->load->view("users/NewsList", $data);
-
-
-
-
-
-        
-                $category_list_name = array_map(function ($item) {
+        $category_list_name = array_map(function ($item) {
             return strtolower(base64_decode(json_decode($item["c_name"], TRUE)["en"]));
         }, $data["categories_list"]);
-        else if (in_array($category_name, $category_list_name)) {
-            $data["news_list"] = array_values(array_filter($this->UserModel->news_user_db_get(NULL), function ($news_item) use ($category_name) {
-                return strtolower(base64_decode(json_decode($news_item["c_name"], TRUE)["en"])) == $category_name;
-            }));
-            $this->load->view("users/NewsList", $data);
-        }
+
+
+        // Отладочный вывод
+        print_r("<pre>");
+        print_r($data["news_list"]);
+        die();
+
+
+        // Уточните, какой идентификатор категории вам нужен для метода
+        $n_category_uid = array_search($category_name, $category_list_name); // Поменяйте на необходимый идентификатор
+
+
+
+
+
+        $data["news_list"] = $this->UserModel->news_pagination_user_db_get_kus($config["per_page"], $page, $n_category_uid + 1);
+
+
+
+        // Загрузка представления
+        $this->load->view("users/NewsListCategory", $data);
     }
+
+
+
+
+
+    public function contacts()
+    {
+    }
+
+    public function about_us()
+    {
+    }
+
+    public function categories_list()
+    {
+    }
+
 
 
 

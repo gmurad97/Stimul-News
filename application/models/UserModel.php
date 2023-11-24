@@ -70,7 +70,21 @@ class UserModel extends CI_Model
             ->order_by("n_uid", "DESC")
             ->join("categories", "c_uid = n_category_uid", "left")
             ->limit($limit, $offset)
-            ->get_where("news", "n_status=" . TRUE)
+            ->where("n_status", TRUE)
+            ->get("news")
+            ->result_array();
+    }
+
+    
+    public function news_pagination_user_db_get_kus($limit, $offset, $n_category_uid)
+    {
+        return $this->db
+            ->order_by("n_uid", "DESC")
+            ->join("categories", "c_uid = n_category_uid", "left")
+            ->limit($limit, $offset)
+            ->where("n_status", TRUE)
+            ->where("n_category_uid", $n_category_uid)
+            ->get("news")
             ->result_array();
     }
 
