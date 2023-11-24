@@ -142,6 +142,9 @@ $route["home"] = "UserController/index";
 $route["news"] = "UserController/news_list";
 $route["news/page/(:num)"] = "UserController/news_list/$1";
 
+$route["news-category"] = "UserController/news_category";
+$route["news-category/page/(:num)"] = "UserController/news_category/$1";
+
 
 $route["news/(:any)"] = "UserController/news_list/$1";
 $route["news/(:any)/page/(:num)"] = "UserController/news_list/$1/$2";
