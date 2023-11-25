@@ -130,22 +130,23 @@ $route["admin/settings-dump-db"]               = "AdminController/crud_settings_
 
 /*==========ADMIN CONTROLLER - ENDED==========*/
 
-
-
 /*=====USER CONTROLLER - START=====*/
-$route["switch-lang/(:any)"] = "LanguageSwitcher/SwitchLang/$1";
-$route["subscribe-action"] = "UserController/crud_subscribe_action";
-
-$route["home"] = "UserController/index";
-
-
-$route["news"] = "UserController/news_list";
-$route["news/page/(:num)"] = "UserController/news_list/$1";
-
-$route["news-category/(:any)"] = "UserController/news_category/$1";
-$route["news-category/(:any)/page/(:num)"] = "UserController/news_category/$1/page/$2";
+$route["switch-lang/(:any)"]                   = "LanguageSwitcher/SwitchLang/$1";
+$route["subscribe-action"]                     = "UserController/crud_subscribe_action";
+$route["home"]                                 = "UserController/index";
+$route["news"]                                 = "Usercontroller/news_list";
+$route["news/(:num)"]                          = "Usercontroller/news_list/$1";
+$route["news/category/(:any)"]                 = "Usercontroller/news_list/$1";
+$route["news/category/(:any)/(:num)"]          = "Usercontroller/news_list/$1/$2";
 
 
-$route["news/(:any)"] = "UserController/news_list/$1";
-$route["news/(:any)/page/(:num)"] = "UserController/news_list/$1/$2";
+
+
+
+
+
+
+
+
+$route["about"] = "UserController/about_us";
 /*=====USER CONTROLLER - ENDED=====*/

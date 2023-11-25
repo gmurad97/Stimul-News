@@ -10,7 +10,7 @@
             <div class="col-lg-12">
                 <div class="blog_list list_post">
                     <div class="heading_s2">
-                        <h4><?= $this->lang->line("all_news"); ?></h4>
+                        <h4><?= isset($user_category_page_name) ? htmlentities(base64_decode($user_category_page_name[$this->session->userdata("site_lang")]))." - " : ""; ?><?= $this->lang->line("all_news"); ?></h4>
                     </div>
                     <?php foreach ($news_list as $news_item) : ?>
                         <?php
@@ -68,7 +68,7 @@
 
 
 
-                <div class="py-3 py-md-4 mt-2 mt-sm-0 mt-lg-5 border-top border-bottom">
+
                 <?php 
                 
                 $rest = $this->pagination->create_links();
@@ -77,7 +77,7 @@
                 echo $rest;
                 
                 ?>
-                </div>
+
 
 
 <!--                 <div class="py-3 py-md-4 mt-2 mt-sm-0 mt-lg-5 border-top border-bottom">

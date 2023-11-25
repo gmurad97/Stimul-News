@@ -1,0 +1,51 @@
+ERROR - 2023-11-25 04:33:45 --> Severity: Warning --> Array to string conversion C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 13
+ERROR - 2023-11-25 04:34:57 --> Severity: Warning --> Undefined array key -1 C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 105
+ERROR - 2023-11-25 04:34:57 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 105
+ERROR - 2023-11-25 04:34:58 --> Severity: Warning --> Undefined variable $user_category_page_name C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 13
+ERROR - 2023-11-25 04:34:58 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 13
+ERROR - 2023-11-25 04:35:05 --> Severity: Warning --> Undefined array key -1 C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 105
+ERROR - 2023-11-25 04:35:05 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 105
+ERROR - 2023-11-25 04:35:05 --> Severity: Warning --> Undefined variable $user_category_page_name C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 13
+ERROR - 2023-11-25 04:35:05 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 13
+ERROR - 2023-11-25 04:35:37 --> Severity: Warning --> Undefined variable $user_category_page_name C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 13
+ERROR - 2023-11-25 04:35:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 13
+ERROR - 2023-11-25 04:36:35 --> Severity: Warning --> Undefined variable $user_category_page_name C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 13
+ERROR - 2023-11-25 04:36:35 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\NewsList.php 13
+ERROR - 2023-11-25 04:37:57 --> Could not find the language line "news_navbar"
+ERROR - 2023-11-25 04:37:57 --> Could not find the language line "categories_navbar"
+ERROR - 2023-11-25 04:37:57 --> Could not find the language line "categories_navbar_all"
+ERROR - 2023-11-25 04:37:57 --> Could not find the language line "about_us_navbar"
+ERROR - 2023-11-25 04:37:57 --> Could not find the language line "contacts_navbar"
+ERROR - 2023-11-25 04:37:57 --> Could not find the language line "read_more"
+ERROR - 2023-11-25 04:37:57 --> Could not find the language line "read_more"
+ERROR - 2023-11-25 04:37:57 --> Could not find the language line "all_news"
+ERROR - 2023-11-25 04:37:57 --> Could not find the language line "subscribe_news"
+ERROR - 2023-11-25 04:37:57 --> Could not find the language line "subscribe_news_desc"
+ERROR - 2023-11-25 04:37:57 --> Could not find the language line "sunscribe_news_unsubscribe"
+ERROR - 2023-11-25 04:37:57 --> Could not find the language line "recent_news"
+ERROR - 2023-11-25 04:37:57 --> Could not find the language line "contact_info"
+ERROR - 2023-11-25 04:38:05 --> Could not find the language line "news_navbar"
+ERROR - 2023-11-25 04:38:05 --> Could not find the language line "categories_navbar"
+ERROR - 2023-11-25 04:38:05 --> Could not find the language line "categories_navbar_all"
+ERROR - 2023-11-25 04:38:05 --> Could not find the language line "about_us_navbar"
+ERROR - 2023-11-25 04:38:05 --> Could not find the language line "contacts_navbar"
+ERROR - 2023-11-25 04:38:05 --> Could not find the language line "read_more"
+ERROR - 2023-11-25 04:38:05 --> Could not find the language line "read_more"
+ERROR - 2023-11-25 04:38:05 --> Could not find the language line "all_news"
+ERROR - 2023-11-25 04:38:05 --> Could not find the language line "subscribe_news"
+ERROR - 2023-11-25 04:38:05 --> Could not find the language line "subscribe_news_desc"
+ERROR - 2023-11-25 04:38:05 --> Could not find the language line "sunscribe_news_unsubscribe"
+ERROR - 2023-11-25 04:38:05 --> Could not find the language line "recent_news"
+ERROR - 2023-11-25 04:38:05 --> Could not find the language line "contact_info"
+ERROR - 2023-11-25 04:38:34 --> Could not find the language line "news_navbar"
+ERROR - 2023-11-25 04:38:34 --> Could not find the language line "categories_navbar"
+ERROR - 2023-11-25 04:38:34 --> Could not find the language line "categories_navbar_all"
+ERROR - 2023-11-25 04:38:34 --> Could not find the language line "about_us_navbar"
+ERROR - 2023-11-25 04:38:34 --> Could not find the language line "contacts_navbar"
+ERROR - 2023-11-25 04:38:34 --> Could not find the language line "read_more"
+ERROR - 2023-11-25 04:38:34 --> Could not find the language line "read_more"
+ERROR - 2023-11-25 04:38:34 --> Could not find the language line "subscribe_news"
+ERROR - 2023-11-25 04:38:34 --> Could not find the language line "subscribe_news_desc"
+ERROR - 2023-11-25 04:38:34 --> Could not find the language line "sunscribe_news_unsubscribe"
+ERROR - 2023-11-25 04:38:34 --> Could not find the language line "recent_news"
+ERROR - 2023-11-25 04:38:34 --> Could not find the language line "contact_info"

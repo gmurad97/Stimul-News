@@ -58,35 +58,66 @@ class UserModel extends CI_Model
             ->result_array();
     }
 
-    public function news_count_user_db_get()
+
+    public function news_pagination_user_db_get($limit, $offset, $n_category_uid = NULL)
     {
-        return $this->db
-            ->count_all("news");
+
+        if ($n_category_uid) {
+            return $this->db
+                ->order_by("n_uid", "DESC")
+                ->join("categories", "c_uid = n_category_uid", "left")
+                ->limit($limit, $offset)
+                ->where("n_status", TRUE)
+                ->where("c_uid", $n_category_uid)
+                ->get("news")
+                ->result_array();
+        } else {
+            return $this->db
+                ->order_by("n_uid", "DESC")
+                ->join("categories", "c_uid = n_category_uid", "left")
+                ->limit($limit, $offset)
+                ->where("n_status", TRUE)
+                ->get("news")
+                ->result_array();
+        }
     }
 
-    public function news_pagination_user_db_get($limit, $offset)
+    public function news_count_user_db_get($category_uid = NULL)
     {
-        return $this->db
-            ->order_by("n_uid", "DESC")
-            ->join("categories", "c_uid = n_category_uid", "left")
-            ->limit($limit, $offset)
-            ->where("n_status", TRUE)
-            ->get("news")
-            ->result_array();
+        if ($category_uid) {
+            return $this->db
+                ->where('n_category_uid', $category_uid)
+                ->where('n_status', TRUE)
+                ->from('news')
+                ->count_all_results();
+        } else {
+            return $this->db
+                ->where('n_status', TRUE)
+                ->from('news')
+                ->count_all_results();
+        }
     }
 
-    
-    public function news_pagination_user_db_get_kus($limit, $offset, $n_category_uid)
-    {
-        return $this->db
-            ->order_by("n_uid", "DESC")
-            ->join("categories", "c_uid = n_category_uid", "left")
-            ->limit($limit, $offset)
-            ->where("n_status", TRUE)
-            ->where("n_category_uid", $n_category_uid)
-            ->get("news")
-            ->result_array();
-    }
+    /* public function news_count_user_db_get($n_category_uid = NULL){
+        if ($n_category_uid) {
+            return $this->db
+                ->order_by("n_uid", "DESC")
+                ->join("categories", "c_uid = n_category_uid", "left")
+                ->limit($limit, $offset)
+                ->where("n_status", TRUE)
+                ->where("c_uid", $n_category_uid)
+                ->get("news")
+                ->result_array();
+        } else {
+            return $this->db
+                ->order_by("n_uid", "DESC")
+                ->join("categories", "c_uid = n_category_uid", "left")
+                ->limit($limit, $offset)
+                ->where("n_status", TRUE)
+                ->get("news")
+                ->result_array();
+        }
+    } */
 
     public function partners_user_db_get()
     {
