@@ -58,10 +58,8 @@ class UserModel extends CI_Model
             ->result_array();
     }
 
-
     public function news_pagination_user_db_get($limit, $offset, $n_category_uid = NULL)
     {
-
         if ($n_category_uid) {
             return $this->db
                 ->order_by("n_uid", "DESC")
@@ -98,27 +96,6 @@ class UserModel extends CI_Model
         }
     }
 
-    /* public function news_count_user_db_get($n_category_uid = NULL){
-        if ($n_category_uid) {
-            return $this->db
-                ->order_by("n_uid", "DESC")
-                ->join("categories", "c_uid = n_category_uid", "left")
-                ->limit($limit, $offset)
-                ->where("n_status", TRUE)
-                ->where("c_uid", $n_category_uid)
-                ->get("news")
-                ->result_array();
-        } else {
-            return $this->db
-                ->order_by("n_uid", "DESC")
-                ->join("categories", "c_uid = n_category_uid", "left")
-                ->limit($limit, $offset)
-                ->where("n_status", TRUE)
-                ->get("news")
-                ->result_array();
-        }
-    } */
-
     public function partners_user_db_get()
     {
         return $this->db
@@ -134,15 +111,6 @@ class UserModel extends CI_Model
             ->get("contacts", 1)
             ->row_array();
     }
-
-
-
-
-
-
-
-
-
 
     public function subscribers_user_db_insert($data)
     {

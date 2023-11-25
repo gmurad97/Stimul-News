@@ -97,12 +97,18 @@ class UserController extends CI_Controller
             'cur_tag_open'     => '<li class="page-item active"><a class="page-link" href="javascript:void(0);">',
             'cur_tag_close'    => '</a></li>',
         ];
-        if (!is_null($category_name) && !empty($category_name) && !is_numeric($category_name)) {
+        if (!is_null($category_name) && !empty($category_name)) {
+            if (is_numeric($category_name)) {
+                redirect(base_url("news"));
+            }
             $data["user_page_name"] = ucfirst($category_name) . " News";
             $uid_category_name = current(array_column(array_filter($data["categories_list"], function ($category_item) use ($category_name) {
                 return strtolower(base64_decode(json_decode($category_item["c_name"], TRUE)["en"])) == $category_name;
             }), "c_uid"));
-            $data["user_category_page_name"] = json_decode($data["categories_list"][$uid_category_name - 1]["c_name"], TRUE);
+            $data["breadcrumb_data"] = [
+                "page_name" => json_decode($data["categories_list"][$uid_category_name - 1]["c_name"], TRUE),
+                "img_file_name" => $data["categories_list"][$uid_category_name - 1]["c_img"]
+            ];
             if (is_null($uid_category_name) || empty($uid_category_name)) {
                 redirect(base_url("news"));
             }
@@ -120,13 +126,16 @@ class UserController extends CI_Controller
             $this->pagination->initialize($config);
             $this->load->view("users/NewsList", $data);
         } else {
-            $data["user_page_name"] = "All News";
+            $data["user_page_name"] = "News";
             $config["per_page"] = 5;
             $config["uri_segment"] = 2;
             $config["use_page_numbers"] = TRUE;
             $current_page = !empty($this->uri->segment(2)) && !is_null($this->uri->segment(2)) && is_numeric($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
             $page_offset = ($current_page - 1) * (int)$config["per_page"] < 0 ? 0 : ($current_page - 1) * (int)$config["per_page"];
             $data["news_list"] = $this->UserModel->news_pagination_user_db_get($config["per_page"], $page_offset);
+            
+
+            
             $config["base_url"] = base_url("news");
             $config["total_rows"] = $this->UserModel->news_count_user_db_get();
             if ($current_page > ceil((int)$config["total_rows"] / (int)$config["per_page"]))

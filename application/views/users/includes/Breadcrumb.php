@@ -1,25 +1,23 @@
-<div class="section breadcrumb_section background_bg overlay_bg_70 page_title_light" data-img-src="<?= base_url('public/user/assets/images/breadcrumb/about_bg.jpg'); ?>">
+<div class="section breadcrumb_section background_bg overlay_bg_80 page_title_light" data-img-src="<?= str_contains($this->uri->uri_string(),'categories') ? base_url('file_manager/categories/'.$breadcrumb_data["img_file_name"]): base_url('public/user/assets/images/breadcrumb/newsletters_bg.jpg'); ?>">
     <div class="container">
         <div class="row dalign-items-center">
             <div class="col-md-6">
                 <div class="page-title">
-                    <h1>Page Title</h1>
+                    <h1><?= isset($breadcrumb_data["page_name"]) ? htmlentities(base64_decode($breadcrumb_data["page_name"][$this->session->userdata("site_lang")])) : $this->lang->line("all_news"); ?></h1>
                 </div>
             </div>
             <div class="col-md-6">
                 <ol class="breadcrumb justify-content-md-end">
                     <li class="breadcrumb-item">
-                        <a href="#">Home</a>
+                        <a href="<?= base_url('home'); ?>">Home</a>
                     </li>
-                    <li class="breadcrumb-item">
-                        <a href="#">Categories</a>
-                    </li>
-                    <li class="breadcrumb-item">
-                        <a href="#">Category #1</a>
-                    </li>
-                    <li class="breadcrumb-item active">
-                        Lorem ipsum dolor.
-                    </li>
+                    <?php $combine_segment = base_url(); ?>
+                    <?php foreach ($this->uri->segment_array() as $current_index => $current_segment) : ?>
+                        <?php $combine_segment .= ($current_index === 1) ? $current_segment : "/" . $current_segment; ?>
+                        <li class="breadcrumb-item">
+                            <a href="<?= $combine_segment; ?>"><?= !is_numeric($current_segment) ? ucfirst($current_segment) : "Page #" . ucfirst($current_segment); ?></a>
+                        </li>
+                    <?php endforeach; ?>
                 </ol>
             </div>
         </div>

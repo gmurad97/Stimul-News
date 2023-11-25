@@ -1,17 +1,12 @@
 <?php $this->load->view("users/includes/HeadScripts"); ?>
 <?php $this->load->view("users/includes/PreLoader"); ?>
 <?php $this->load->view("users/includes/HeaderNavbar"); ?>
-<?php $this->load->view("users/includes/HeaderSlider"); ?>
+<?php $this->load->view("users/includes/Breadcrumb"); ?>
 <div class="section">
     <div class="container">
         <div class="row">
-
-
             <div class="col-lg-12">
                 <div class="blog_list list_post">
-                    <div class="heading_s2">
-                        <h4><?= isset($user_category_page_name) ? htmlentities(base64_decode($user_category_page_name[$this->session->userdata("site_lang")]))." - " : ""; ?><?= $this->lang->line("all_news"); ?></h4>
-                    </div>
                     <?php foreach ($news_list as $news_item) : ?>
                         <?php
                         $news_item_title = json_decode($news_item["n_title"], TRUE);
@@ -20,6 +15,7 @@
                         ?>
                         <div class="blog_post d-flex flex-row align-items-center">
 
+
                             <div class="col-lg-6">
                                 <div class="blog_img" style="width: 100% !important;">
                                     <a href="#">
@@ -27,6 +23,8 @@
                                     </a>
                                 </div>
                             </div>
+
+
                             <div class="col-lg-6">
                                 <div class="blog_content">
                                     <div class="blog_text">
