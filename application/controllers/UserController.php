@@ -105,9 +105,12 @@ class UserController extends CI_Controller
             $uid_category_name = current(array_column(array_filter($data["categories_list"], function ($category_item) use ($category_name) {
                 return strtolower(base64_decode(json_decode($category_item["c_name"], TRUE)["en"])) == $category_name;
             }), "c_uid"));
+            $breadcrumb_category = current(array_filter($data["categories_list"], function ($category_item) use ($uid_category_name) {
+                return $category_item["c_uid"] == $uid_category_name;
+            }));
             $data["breadcrumb_data"] = [
-                "page_name" => json_decode($data["categories_list"][$uid_category_name - 1]["c_name"], TRUE),
-                "img_file_name" => $data["categories_list"][$uid_category_name - 1]["c_img"]
+                "page_name" => json_decode($breadcrumb_category["c_name"], TRUE),
+                "img_file_name" => $breadcrumb_category["c_img"]
             ];
             if (is_null($uid_category_name) || empty($uid_category_name)) {
                 redirect(base_url("news"));
@@ -133,9 +136,9 @@ class UserController extends CI_Controller
             $current_page = !empty($this->uri->segment(2)) && !is_null($this->uri->segment(2)) && is_numeric($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
             $page_offset = ($current_page - 1) * (int)$config["per_page"] < 0 ? 0 : ($current_page - 1) * (int)$config["per_page"];
             $data["news_list"] = $this->UserModel->news_pagination_user_db_get($config["per_page"], $page_offset);
-            
 
-            
+
+
             $config["base_url"] = base_url("news");
             $config["total_rows"] = $this->UserModel->news_count_user_db_get();
             if ($current_page > ceil((int)$config["total_rows"] / (int)$config["per_page"]))
