@@ -59,6 +59,7 @@
             </div>
         <?php endif; ?>
         <form action="<?= base_url('admin/branding-edit-action'); ?>" method="POST" enctype="multipart/form-data" class="was-validated" id="crud_form">
+            <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>">
             <ul class="list-group list-group-flush mb-3">
                 <li class="list-group-item">
                     <h1 class="h5 text-warning mb-3">Image</h1>

@@ -16,6 +16,7 @@
         <div class="login">
             <div class="login-content">
                 <form action="<?= base_url('admin/auth-action'); ?>" method="POST" enctype="application/x-www-form-urlencoded" class="was-validated">
+                    <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>">
                     <h1 class="text-center">Sign In</h1>
                     <div class="text-inverse text-opacity-50 text-center mb-4">
                         For your protection, please verify your identity.

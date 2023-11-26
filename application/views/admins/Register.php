@@ -16,6 +16,7 @@
         <div class="register">
             <div class="register-content">
                 <form action="<?= base_url('admin/register-action'); ?>" method="POST" enctype="application/x-www-form-urlencoded" class="was-validated">
+                    <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>">
                     <h1 class="text-center">Sign Up</h1>
                     <p class="text-inverse text-opacity-50 text-center">One Admin ID is all you need to access all the Admin services.</p>
                     <?php if ($this->session->flashdata("crud_alert")) : ?>

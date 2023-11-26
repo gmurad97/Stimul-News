@@ -52,6 +52,7 @@ $s_type = $slider_info->slider_type == "slider_news" ? TRUE : FALSE;
             <?php if ($s_type == FALSE) : ?>
                 <div class="tab-pane fade show active" id="slider_custom">
                     <form action="<?= base_url('admin/slider-edit-action/') . $slider_id; ?>" method="POST" enctype="multipart/form-data" class="was-validated" id="slider_custom_form">
+                        <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>">
                         <ul class="list-group list-group-flush mb-3">
                             <li class="list-group-item">
                                 <div class="d-flex flex-row justify-content-between align-items-center">
@@ -161,6 +162,7 @@ $s_type = $slider_info->slider_type == "slider_news" ? TRUE : FALSE;
             <?php else : ?>
                 <div class="tab-pane fade show active" id="slider_news">
                     <form action="<?= base_url('admin/slider-edit-action/') . $slider_id; ?>" method="POST" enctype="multipart/form-data" class="was-validated" id="slider_news_form">
+                        <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>">
                         <ul class="list-group list-group-flush mb-3">
                             <li class="list-group-item">
                                 <div class="row">

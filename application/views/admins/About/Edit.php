@@ -35,6 +35,7 @@
             $about_full = json_decode($about_data["a_full"], FALSE);
             $about_copyright = json_decode($about_data["a_copyright"], FALSE);
             ?>
+            <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>">
             <ul class="list-group list-group-flush mb-3">
                 <ul class="nav nav-tabs nav-tabs-v2 ps-4">
                     <li class="nav-item me-3">

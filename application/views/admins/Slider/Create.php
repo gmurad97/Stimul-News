@@ -40,6 +40,7 @@
         <div class="tab-content p-4">
             <div class="tab-pane fade show active" id="slider_custom">
                 <form action="<?= base_url('admin/slider-custom-create-action'); ?>" method="POST" enctype="multipart/form-data" class="was-validated" id="slider_custom_form">
+                    <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>">
                     <ul class="list-group list-group-flush mb-3">
                         <li class="list-group-item">
                             <div class="row">
@@ -139,6 +140,7 @@
             </div>
             <div class="tab-pane fade" id="slider_news">
                 <form action="<?= base_url('admin/slider-news-create-action'); ?>" method="POST" enctype="multipart/form-data" class="was-validated" id="slider_news_form">
+                    <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>">
                     <ul class="list-group list-group-flush mb-3">
                         <li class="list-group-item">
                             <div class="row">

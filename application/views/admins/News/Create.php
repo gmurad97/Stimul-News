@@ -30,6 +30,7 @@
             </div>
         <?php endif; ?>
         <form action="<?= base_url('admin/news-create-action'); ?>" method="POST" enctype="multipart/form-data" class="was-validated" id="crud_form">
+            <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>">
             <ul class="list-group list-group-flush mb-3">
                 <li class="list-group ms-4">
                     <div class="row">

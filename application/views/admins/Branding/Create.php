@@ -26,6 +26,7 @@
             </div>
         <?php endif; ?>
         <form action="<?= base_url('admin/branding-create-action'); ?>" method="POST" enctype="multipart/form-data" class="was-validated" id="crud_form">
+            <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                     <h1 class="h5 text-success mb-3">Image</h1>

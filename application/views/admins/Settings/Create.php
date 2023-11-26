@@ -30,6 +30,7 @@
             </div>
         <?php endif; ?>
         <form action="<?= base_url('admin/settings-create-action'); ?>" method="POST" enctype="application/x-www-form-urlencoded" id="crud_form">
+            <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>">
             <ul class="list-group list-group-flush mb-3">
                 <li class="list-group-item">
                     <div class="d-flex flex-row justify-content-between align-items-center">

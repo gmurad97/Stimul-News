@@ -31,6 +31,7 @@
         <?php endif; ?>
         <?php $category_name = json_decode($category_data["c_name"], FALSE); ?>
         <form action="<?= base_url('admin/categories-edit-action/') . $category_data["c_uid"]; ?>" method="POST" enctype="multipart/form-data" class="was-validated" id="categories_form">
+            <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>">
             <ul class="list-group list-group-flush mb-3">
                 <li class="list-group-item">
                     <div class="d-flex flex-row justify-content-between align-items-center">

@@ -35,6 +35,7 @@
         $news_full  = json_decode($news_data["n_full"], FALSE);
         ?>
         <form action="<?= base_url('admin/news-edit-action/') . $news_data["n_uid"]; ?>" method="POST" enctype="multipart/form-data" class="was-validated" id="crud_form">
+            <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>">
             <ul class="list-group list-group-flush mb-3">
                 <li class="list-group-item mb-3">
                     <div class="d-flex flex-row justify-content-between align-items-center">
