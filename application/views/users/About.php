@@ -1,20 +1,20 @@
 <?php $this->load->view("users/includes/HeadScripts"); ?>
 <?php $this->load->view("users/includes/PreLoader"); ?>
 <?php $this->load->view("users/includes/HeaderNavbar"); ?>
-<?php $this->load->view("users/includes/HeaderSlider"); ?>
+<?php $this->load->view("users/includes/Breadcrumb"); ?>
 
+
+<?php
+$about_short = json_decode($about_data["a_short"], TRUE);
+$about_full = json_decode($about_data["a_full"], TRUE);
+$about_copyright = json_decode($about_data["a_copyright"], TRUE);
+?>
 <!-- START ABOUT US -->
 <div class="section">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <img class="mb-4" src="public/user/assets/images/about_author.jpg" alt="about_author" />
-                <h4>Hello i'm Murad ASProgerHack</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur malesuada malesuada metus ut placerat. Cras a porttitor quam, eget ornare sapien. In sit amet vulputate metus. Nullam eget rutrum nisl. Sed tincidunt lorem sed maximus interdum. Interdum malesuada fames ante ipsum primis in faucibus. Aenean scelerisque efficitur mauris nec tincidunt. cursus leo ultricies magna faucibus id.</p>
-                <blockquote class="blockquote_style1">
-                    <p>Integer is metus site turpis facilisis customers. elementum an mauris in venenatis consectetur east. Praesent condimentum bibendum Morbi sit amet commodo pellentesque at fringilla tincidunt risus.</p>
-                </blockquote>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur malesuada malesuada metus ut placerat. Cras a porttitor quam, eget ornare sapien. In sit amet vulputate metus. Nullam eget rutrum nisl. Sed tincidunt lorem sed maximus interdum. Interdum malesuada fames ante ipsum primis in faucibus. Aenean scelerisque efficitur mauris nec tincidunt. cursus leo ultricies magna faucibus id.</p>
+                <?php echo base64_decode($about_full[$this->session->userdata("site_lang")]); ?>
             </div>
         </div>
     </div>

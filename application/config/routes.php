@@ -104,11 +104,11 @@ $route["admin/subscribers-delete/(:any)"]        = "AdminController/crud_subscri
 /*=====SUBSCRIBERS ROUTES - ENDED=====*/
 
 /*=====ABOUT-US ROUTES - START=====*/
-$route["admin/about-us-create"]                = "AdminController/crud_about_us_create";
-$route["admin/about-us-create-action"]         = "AdminController/crud_about_us_create_action";
-$route["admin/about-us-edit"]                  = "AdminController/crud_about_us_edit";
-$route["admin/about-us-edit-action"]           = "AdminController/crud_about_us_edit_action";
-$route["admin/about-us-delete"]                = "AdminController/crud_about_us_delete";
+$route["admin/about-create"]                = "AdminController/crud_about_create";
+$route["admin/about-create-action"]         = "AdminController/crud_about_create_action";
+$route["admin/about-edit"]                  = "AdminController/crud_about_edit";
+$route["admin/about-edit-action"]           = "AdminController/crud_about_edit_action";
+$route["admin/about-delete"]                = "AdminController/crud_about_delete";
 /*=====ABOUT-US ROUTES - ENDED=====*/
 
 /*=====CONTACTS ROUTES - START=====*/
@@ -140,7 +140,7 @@ $route["news/category/(:any)"]                 = "Usercontroller/news_list/$1";
 $route["news/category/(:any)/(:num)"]          = "Usercontroller/news_list/$1/$2";
 
 
-
+$route["categories-list"]                                 = "UserController/categories_list";
 
 
 

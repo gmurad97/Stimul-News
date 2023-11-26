@@ -130,4 +130,11 @@ class UserModel extends CI_Model
         return $this->db
             ->get("subscribers")->result_array();
     }
+
+    public function about_user_db_get(){
+        return $this->db
+            ->order_by("a_uid", "DESC")
+            ->get("about", 1)
+            ->row_array();
+    }
 }

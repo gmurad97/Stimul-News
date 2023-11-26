@@ -203,10 +203,10 @@
 
             <!--=====ABOUT-US - START=====-->
             <?php if ($global_is_admin) : ?>
-                <div class="menu-item <?= MenuState($segment_name, 'about-us', 'active'); ?>">
-                    <a href="<?= base_url('admin/about-us-create'); ?>" class="menu-link">
+                <div class="menu-item <?= MenuState($segment_name, 'about', 'active'); ?>">
+                    <a href="<?= base_url('admin/about-create'); ?>" class="menu-link">
                         <span class="menu-icon">
-                            <i class="fa-regular fa-address-card <?= MenuState($segment_name, 'about-us', 'fa-fade'); ?>"></i>
+                            <i class="fa-regular fa-address-card <?= MenuState($segment_name, 'about', 'fa-fade'); ?>"></i>
                         </span>
                         <span class="menu-text">About Us</span>
                     </a>

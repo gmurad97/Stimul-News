@@ -2152,6 +2152,176 @@ class AdminController extends CI_Controller
     }
     /*=====GALLERY CRUD - ENDED=====*/
 
+    /*=====ABOUT CRUD - ENDED=====*/
+    public function crud_about_create()
+    {
+        $about_db_row = $this->AdminModel->table_row_id("about", "a_uid");
+        if ($about_db_row == -1) {
+            $data["admin_page_name"] = "About Create";
+            $this->load->view("admins/About/Create", $data);
+        } else {
+            redirect(base_url("admin/about-edit"));
+        }
+    }
+
+    public function crud_about_create_action()
+    {
+        $about_db_row = $this->AdminModel->table_row_id("about", "a_uid");
+        if ($about_db_row == -1) {
+            $about_short_description_en = $this->input->post("about_short_description_en", TRUE);
+            $about_full_description_en  = $this->input->post("about_full_description_en");
+            $about_copyright_en         = $this->input->post("about_copyright_en", TRUE);
+            $about_short_description_ru = $this->input->post("about_short_description_ru", TRUE);
+            $about_full_description_ru  = $this->input->post("about_full_description_ru");
+            $about_copyright_ru         = $this->input->post("about_copyright_ru", TRUE);
+            $about_short_description_az = $this->input->post("about_short_description_az", TRUE);
+            $about_full_description_az  = $this->input->post("about_full_description_az");
+            $about_copyright_az         = $this->input->post("about_copyright_az", TRUE);
+            if (
+                !empty($about_short_description_en)
+                && !empty($about_full_description_en)
+                && !empty($about_copyright_en)
+                && !empty($about_short_description_ru)
+                && !empty($about_full_description_ru)
+                && !empty($about_copyright_ru)
+                && !empty($about_short_description_az)
+                && !empty($about_full_description_az)
+                && !empty($about_copyright_az)
+            ) {
+                $json_decoded_short_data = [
+                    "en" => base64_encode($about_short_description_en),
+                    "ru" => base64_encode($about_short_description_ru),
+                    "az" => base64_encode($about_short_description_az),
+                ];
+                $json_decoded_full_data = [
+                    "en" => base64_encode($about_full_description_en),
+                    "ru" => base64_encode($about_full_description_ru),
+                    "az" => base64_encode($about_full_description_az),
+                ];
+                $json_decoded_copyright_data = [
+                    "en" => base64_encode($about_copyright_en),
+                    "ru" => base64_encode($about_copyright_ru),
+                    "az" => base64_encode($about_copyright_az),
+                ];
+                $data = [
+                    "a_short" => json_encode($json_decoded_short_data),
+                    "a_full" => json_encode($json_decoded_full_data),
+                    "a_copyright" => json_encode($json_decoded_copyright_data)
+                ];
+                $this->AdminModel->about_admin_db_insert($data);
+                $this->AlertFlashData(
+                    "success",
+                    "crud_alert",
+                    "Success!",
+                    "The about has been successfully created."
+                );
+                redirect(base_url("admin/about-edit"));
+            } else {
+                $this->AlertFlashData(
+                    "warning",
+                    "crud_alert",
+                    "Warning!",
+                    "Please, fill in all the fields."
+                );
+                redirect($_SERVER["HTTP_REFERER"]);
+            }
+        } else {
+            redirect(base_url("admin/about-edit"));
+        }
+    }
+
+    public function crud_about_edit()
+    {
+        $about_db_row = $this->AdminModel->table_row_id("about", "a_uid");
+        if ($about_db_row == -1) {
+            redirect(base_url("admin/about-create"));
+        } else {
+            $data["admin_page_name"] = "About Edit";
+            $data["about_data"] = $this->AdminModel->about_admin_db_get($about_db_row);
+            $this->load->view("admins/About/Edit", $data);
+        }
+    }
+
+    public function crud_about_edit_action()
+    {
+        $about_db_row = $this->AdminModel->table_row_id("about", "a_uid");
+        if ($about_db_row == -1) {
+            redirect(base_url("admin/about-create"));
+        } else {
+            $about_short_description_en = $this->input->post("about_short_description_en", TRUE);
+            $about_full_description_en  = $this->input->post("about_full_description_en");
+            $about_copyright_en         = $this->input->post("about_copyright_en", TRUE);
+            $about_short_description_ru = $this->input->post("about_short_description_ru", TRUE);
+            $about_full_description_ru  = $this->input->post("about_full_description_ru");
+            $about_copyright_ru         = $this->input->post("about_copyright_ru", TRUE);
+            $about_short_description_az = $this->input->post("about_short_description_az", TRUE);
+            $about_full_description_az  = $this->input->post("about_full_description_az");
+            $about_copyright_az         = $this->input->post("about_copyright_az", TRUE);
+            if (
+                !empty($about_short_description_en)
+                && !empty($about_full_description_en)
+                && !empty($about_copyright_en)
+                && !empty($about_short_description_ru)
+                && !empty($about_full_description_ru)
+                && !empty($about_copyright_ru)
+                && !empty($about_short_description_az)
+                && !empty($about_full_description_az)
+                && !empty($about_copyright_az)
+            ) {
+                $json_decoded_short_data = [
+                    "en" => base64_encode($about_short_description_en),
+                    "ru" => base64_encode($about_short_description_ru),
+                    "az" => base64_encode($about_short_description_az),
+                ];
+                $json_decoded_full_data = [
+                    "en" => base64_encode($about_full_description_en),
+                    "ru" => base64_encode($about_full_description_ru),
+                    "az" => base64_encode($about_full_description_az),
+                ];
+                $json_decoded_copyright_data = [
+                    "en" => base64_encode($about_copyright_en),
+                    "ru" => base64_encode($about_copyright_ru),
+                    "az" => base64_encode($about_copyright_az),
+                ];
+                $data = [
+                    "a_short" => json_encode($json_decoded_short_data),
+                    "a_full" => json_encode($json_decoded_full_data),
+                    "a_copyright" => json_encode($json_decoded_copyright_data)
+                ];
+                $this->AdminModel->about_admin_db_edit($about_db_row, $data);
+                $this->AlertFlashData(
+                    "success",
+                    "crud_alert",
+                    "Success!",
+                    "The about has been successfully edited."
+                );
+                redirect(base_url("admin/about-edit"));
+            } else {
+                $this->AlertFlashData(
+                    "warning",
+                    "crud_alert",
+                    "Warning!",
+                    "Please, fill in all the fields."
+                );
+                redirect($_SERVER["HTTP_REFERER"]);
+            }
+        }
+    }
+
+    public function crud_about_delete()
+    {
+        $about_db_row = $this->AdminModel->table_row_id("about", "a_uid");
+        $this->AdminModel->about_admin_db_delete($about_db_row);
+        $this->AlertFlashData(
+            "success",
+            "crud_alert",
+            "Success!",
+            "The about has been successfully deleted."
+        );
+        redirect(base_url("admin/about-create"));
+    }
+    /*=====ABOUT CRUD - ENDED=====*/
+
     /*=====SETTINGS CRUD - START=====*/
     public function crud_settings_create()
     {

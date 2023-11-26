@@ -1,0 +1,92 @@
+ERROR - 2023-11-26 01:47:28 --> Query error: Table 'stimul_news_db.about' doesn't exist - Invalid query: SELECT COUNT(*) AS `numrows`
+FROM `about`
+ERROR - 2023-11-26 02:18:57 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 7
+ERROR - 2023-11-26 03:44:19 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 7
+ERROR - 2023-11-26 03:45:58 --> Severity: Warning --> Undefined variable $admin_page_name C:\OSPanel\domains\stimul.news\application\views\admins\includes\HeadScripts.php 7
+ERROR - 2023-11-26 04:58:54 --> Query error: Invalid JSON text: "not a JSON text, may need CAST" at position 0 in value for column 'about.a_short'. - Invalid query: INSERT INTO `about` (`a_short`, `a_full`, `a_copyright`) VALUES (0, 0, 0)
+ERROR - 2023-11-26 05:03:09 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-26 05:03:09 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-26 05:03:09 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-26 05:03:09 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-26 05:03:09 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-26 05:04:12 --> Severity: Warning --> Undefined variable $admin_topbar C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 39
+ERROR - 2023-11-26 05:04:12 --> Severity: Warning --> Attempt to read property "topbar_self" on null C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 39
+ERROR - 2023-11-26 05:04:12 --> Severity: Warning --> Undefined variable $admin_topbar C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 47
+ERROR - 2023-11-26 05:04:12 --> Severity: Warning --> Attempt to read property "topbar_date" on null C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 47
+ERROR - 2023-11-26 05:04:12 --> Severity: Warning --> Undefined variable $admin_topbar C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 55
+ERROR - 2023-11-26 05:04:12 --> Severity: Warning --> Attempt to read property "topbar_time" on null C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 55
+ERROR - 2023-11-26 05:04:12 --> Severity: Warning --> Undefined variable $admin_topbar C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 63
+ERROR - 2023-11-26 05:04:12 --> Severity: Warning --> Attempt to read property "topbar_weather" on null C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 63
+ERROR - 2023-11-26 05:04:16 --> Severity: Warning --> Undefined variable $admin_topbar C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 39
+ERROR - 2023-11-26 05:04:16 --> Severity: Warning --> Attempt to read property "topbar_self" on null C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 39
+ERROR - 2023-11-26 05:04:16 --> Severity: Warning --> Undefined variable $admin_topbar C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 47
+ERROR - 2023-11-26 05:04:16 --> Severity: Warning --> Attempt to read property "topbar_date" on null C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 47
+ERROR - 2023-11-26 05:04:16 --> Severity: Warning --> Undefined variable $admin_topbar C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 55
+ERROR - 2023-11-26 05:04:16 --> Severity: Warning --> Attempt to read property "topbar_time" on null C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 55
+ERROR - 2023-11-26 05:04:16 --> Severity: Warning --> Undefined variable $admin_topbar C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 63
+ERROR - 2023-11-26 05:04:16 --> Severity: Warning --> Attempt to read property "topbar_weather" on null C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 63
+ERROR - 2023-11-26 05:04:37 --> Severity: Warning --> Undefined variable $admin_topbar C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 39
+ERROR - 2023-11-26 05:04:37 --> Severity: Warning --> Attempt to read property "topbar_self" on null C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 39
+ERROR - 2023-11-26 05:04:37 --> Severity: Warning --> Undefined variable $admin_topbar C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 47
+ERROR - 2023-11-26 05:04:37 --> Severity: Warning --> Attempt to read property "topbar_date" on null C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 47
+ERROR - 2023-11-26 05:04:37 --> Severity: Warning --> Undefined variable $admin_topbar C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 55
+ERROR - 2023-11-26 05:04:37 --> Severity: Warning --> Attempt to read property "topbar_time" on null C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 55
+ERROR - 2023-11-26 05:04:37 --> Severity: Warning --> Undefined variable $admin_topbar C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 63
+ERROR - 2023-11-26 05:04:37 --> Severity: Warning --> Attempt to read property "topbar_weather" on null C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 63
+ERROR - 2023-11-26 05:04:38 --> Severity: Warning --> Undefined variable $admin_topbar C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 39
+ERROR - 2023-11-26 05:04:38 --> Severity: Warning --> Attempt to read property "topbar_self" on null C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 39
+ERROR - 2023-11-26 05:04:38 --> Severity: Warning --> Undefined variable $admin_topbar C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 47
+ERROR - 2023-11-26 05:04:38 --> Severity: Warning --> Attempt to read property "topbar_date" on null C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 47
+ERROR - 2023-11-26 05:04:38 --> Severity: Warning --> Undefined variable $admin_topbar C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 55
+ERROR - 2023-11-26 05:04:38 --> Severity: Warning --> Attempt to read property "topbar_time" on null C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 55
+ERROR - 2023-11-26 05:04:38 --> Severity: Warning --> Undefined variable $admin_topbar C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 63
+ERROR - 2023-11-26 05:04:38 --> Severity: Warning --> Attempt to read property "topbar_weather" on null C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 63
+ERROR - 2023-11-26 05:11:53 --> Severity: error --> Exception: Cannot use object of type stdClass as array C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 61
+ERROR - 2023-11-26 05:11:56 --> Severity: error --> Exception: Cannot use object of type stdClass as array C:\OSPanel\domains\stimul.news\application\views\admins\About\Edit.php 61
+ERROR - 2023-11-26 05:56:25 --> Severity: Warning --> Undefined variable $branding_data C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 7
+ERROR - 2023-11-26 05:56:25 --> Severity: Warning --> Undefined variable $user_page_name C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 11
+ERROR - 2023-11-26 05:56:25 --> Severity: Warning --> Undefined variable $topbar C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 2
+ERROR - 2023-11-26 05:56:25 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 2
+ERROR - 2023-11-26 05:56:25 --> Severity: Warning --> Undefined variable $branding_data C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 45
+ERROR - 2023-11-26 05:56:25 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-26 05:56:25 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-26 05:56:25 --> Severity: Warning --> Undefined variable $about_data C:\OSPanel\domains\stimul.news\application\views\users\About.php 8
+ERROR - 2023-11-26 05:56:25 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\About.php 8
+ERROR - 2023-11-26 05:56:25 --> Severity: Warning --> Undefined variable $about_data C:\OSPanel\domains\stimul.news\application\views\users\About.php 9
+ERROR - 2023-11-26 05:56:25 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\About.php 9
+ERROR - 2023-11-26 05:56:25 --> Severity: Warning --> Undefined variable $about_data C:\OSPanel\domains\stimul.news\application\views\users\About.php 10
+ERROR - 2023-11-26 05:56:25 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\About.php 10
+ERROR - 2023-11-26 05:56:25 --> Severity: Warning --> Undefined variable $branding_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 7
+ERROR - 2023-11-26 05:56:25 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-26 05:56:25 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-26 05:56:25 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-26 05:57:07 --> Severity: Warning --> Undefined variable $news_list C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderSlider.php 34
+ERROR - 2023-11-26 05:57:07 --> Severity: error --> Exception: array_filter(): Argument #1 ($array) must be of type array, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderSlider.php 36
+ERROR - 2023-11-26 05:57:25 --> Severity: Warning --> Undefined variable $news_list C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderSlider.php 34
+ERROR - 2023-11-26 05:57:25 --> Severity: error --> Exception: array_filter(): Argument #1 ($array) must be of type array, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderSlider.php 36
+ERROR - 2023-11-26 05:59:27 --> Severity: error --> Exception: base64_decode(): Argument #1 ($string) must be of type string, array given C:\OSPanel\domains\stimul.news\application\views\users\About.php 17
+ERROR - 2023-11-26 06:10:08 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-26 06:10:08 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-26 06:10:08 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-26 06:10:08 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-26 06:10:08 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-26 06:21:26 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-26 06:21:26 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-26 06:21:26 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-26 06:21:26 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-26 06:21:26 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-26 06:22:18 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-26 06:22:18 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-26 06:22:18 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 25
+ERROR - 2023-11-26 06:22:18 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 54
+ERROR - 2023-11-26 06:22:18 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 78
+ERROR - 2023-11-26 06:22:43 --> Severity: Warning --> Undefined variable $category_item C:\OSPanel\domains\stimul.news\application\views\users\CategoryList.php 17
+ERROR - 2023-11-26 06:22:43 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\CategoryList.php 17
+ERROR - 2023-11-26 06:22:43 --> Severity: Warning --> Undefined variable $category_name C:\OSPanel\domains\stimul.news\application\views\users\CategoryList.php 17
+ERROR - 2023-11-26 06:22:43 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\CategoryList.php 17
+ERROR - 2023-11-26 06:22:43 --> Severity: Warning --> Undefined variable $category_name C:\OSPanel\domains\stimul.news\application\views\users\CategoryList.php 18
+ERROR - 2023-11-26 06:22:43 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\CategoryList.php 18
+ERROR - 2023-11-26 06:23:59 --> Severity: Warning --> Undefined variable $category_name C:\OSPanel\domains\stimul.news\application\views\users\CategoryList.php 18
+ERROR - 2023-11-26 06:23:59 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\CategoryList.php 18
+ERROR - 2023-11-26 06:24:56 --> Severity: Warning --> Undefined variable $category_name C:\OSPanel\domains\stimul.news\application\views\users\CategoryList.php 18
+ERROR - 2023-11-26 06:24:56 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\CategoryList.php 18

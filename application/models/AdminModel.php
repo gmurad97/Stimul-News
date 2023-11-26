@@ -334,5 +334,30 @@ class AdminModel extends CI_Model
     }
 
     /*=====SETTINGS MODEL - ENDED=====*/
+
+    /*==========ABOUT MODEL - START==========*/
+    private const ABOUT_TABLE_NAME = "about";
+    private const ABOUT_ID_NAME = "a_uid";
+
+    public function about_admin_db_insert($data)
+    {
+        $this->db->insert(self::ABOUT_TABLE_NAME, $data);
+    }
+
+    public function about_admin_db_get($id)
+    {
+        return $this->db->where(self::ABOUT_ID_NAME, $id)->get(self::ABOUT_TABLE_NAME, 1)->row_array();
+    }
+
+    public function about_admin_db_edit($id, $data)
+    {
+        $this->db->update(self::ABOUT_TABLE_NAME, $data, self::ABOUT_ID_NAME . "=" . $id);
+    }
+
+    public function about_admin_db_delete($id)
+    {
+        $this->db->delete(self::ABOUT_TABLE_NAME, self::ABOUT_ID_NAME . "=" . $id);
+    }
+    /*==========ABOUT MODEL - ENDED==========*/
 }
     /*====================CRUD MODEL - ENDED====================*/
