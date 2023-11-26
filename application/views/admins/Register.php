@@ -57,7 +57,7 @@
                     </div>
                     <div class="mb-3">
                         <div class="d-flex">
-                            <label for="admin_captcha_label" class="form-label">Captcha</label>
+                            <label for="admin_captcha_label" class="form-label">Captcha <span class="text-success">(not case-sensitive)</span></label>
                         </div>
                         <div class="d-flex">
                             <img src="<?= base_url('file_manager/system/captcha/') . $admin_auth_captcha["filename"]; ?>" class="me-3" style="border-radius:8px;" alt="Captcha">

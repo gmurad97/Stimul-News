@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class AdminModel extends CI_Model
 {
-    /*====================GLOBAL MODEL - START====================*/
+    /*==========GLOBAL MODEL - START==========*/
     public function table_row_id($tableName, $idName)
     {
         $rows_count = $this->db->count_all_results($tableName, TRUE);
@@ -15,11 +15,13 @@ class AdminModel extends CI_Model
             return -1;
         }
     }
-    /*====================GLOBAL MODEL - ENDED====================*/
+    /*==========GLOBAL MODEL - ENDED==========*/
 
-    /*====================CRUD MODEL - START====================*/
 
-    /*==========ADMIN MODEL - START==========*/
+
+    /*==========CRUD MODEL - START==========*/
+
+    /*ADMIN MODEL - START*/
     private const ADMIN_TABLE_NAME = "admin";
     private const ADMIN_ID_NAME = "a_uid";
 
@@ -52,9 +54,9 @@ class AdminModel extends CI_Model
     {
         $this->db->where(self::ADMIN_ID_NAME, $id)->delete(self::ADMIN_TABLE_NAME);
     }
-    /*==========ADMIN MODEL - ENDED==========*/
+    /*ADMIN MODEL - ENDED*/
 
-    /*==========TOPBAR MODEL - START==========*/
+    /*TOPBAR MODEL - START*/
     private const TOPBAR_TABLE_NAME = "topbar";
     private const TOPBAR_ID_NAME = "t_uid";
 
@@ -77,9 +79,9 @@ class AdminModel extends CI_Model
     {
         $this->db->delete(self::TOPBAR_TABLE_NAME, self::TOPBAR_ID_NAME . "=" . $id);
     }
-    /*==========TOPBAR MODEL - ENDED==========*/
+    /*TOPBAR MODEL - ENDED*/
 
-    /*=====BRANDING MODEL - START=====*/
+    /*BRANDING MODEL - START*/
     private const BRANDING_TABLE_NAME = "branding";
     private const BRANDING_ID_NAME = "b_uid";
 
@@ -102,9 +104,9 @@ class AdminModel extends CI_Model
     {
         $this->db->delete(self::BRANDING_TABLE_NAME, self::BRANDING_ID_NAME . "=" . $id);
     }
-    /*=====BRANDING MODEL - ENDED=====*/
+    /*BRANDING MODEL - ENDED*/
 
-    /*=====PARTNERS MODEL - START=====*/
+    /*PARTNERS MODEL - START*/
     private const PARTNERS_TABLE_NAME = "partners";
     private const PARTNERS_ID_NAME = "p_uid";
 
@@ -132,9 +134,9 @@ class AdminModel extends CI_Model
     {
         $this->db->delete("partners", self::PARTNERS_ID_NAME . "=" . $id);
     }
-    /*=====PARTNERS MODEL - ENDED=====*/
+    /*PARTNERS MODEL - ENDED*/
 
-    /*=====CATEGORIES MODEL - START=====*/
+    /*CATEGORIES MODEL - START*/
     private const CATEGORIES_TABLE_NAME = "categories";
     private const CATEGORIES_ID_NAME = "c_uid";
 
@@ -162,9 +164,9 @@ class AdminModel extends CI_Model
     {
         $this->db->delete(self::CATEGORIES_TABLE_NAME, self::CATEGORIES_ID_NAME . "=" . $id);
     }
-    /*=====CATEGORIES MODEL - ENDED=====*/
+    /*CATEGORIES MODEL - ENDED*/
 
-    /*=====NEWS MODEL - START=====*/
+    /*NEWS MODEL - START*/
     private const NEWS_TABLE_NAME = "news";
     private const NEWS_ID_NAME = "n_uid";
 
@@ -192,9 +194,9 @@ class AdminModel extends CI_Model
     {
         $this->db->delete(self::NEWS_TABLE_NAME, self::NEWS_ID_NAME . "=" . $id);
     }
-    /*=====NEWS MODEL - ENDED=====*/
+    /*NEWS MODEL - ENDED*/
 
-    /*=====SUBSCRIBERS MODEL - START=====*/
+    /*SUBSCRIBERS MODEL - START*/
     private const SUBSCRIBERS_TABLE_NAME = "subscribers";
     private const SUBSCRIBERS_ID_NAME = "s_uid";
 
@@ -222,9 +224,9 @@ class AdminModel extends CI_Model
     {
         $this->db->delete(self::SUBSCRIBERS_TABLE_NAME, self::SUBSCRIBERS_ID_NAME . "=" . $id);
     }
-    /*=====SUBSCRIBERS MODEL - ENDED=====*/
+    /*SUBSCRIBERS MODEL - ENDED*/
 
-    /*=====SLIDER MODEL - START=====*/
+    /*SLIDER MODEL - START*/
     private const SLIDER_TABLE_NAME = "slider";
     private const SLIDER_ID_NAME = "s_uid";
 
@@ -252,9 +254,9 @@ class AdminModel extends CI_Model
     {
         $this->db->delete(self::SLIDER_TABLE_NAME, self::SLIDER_ID_NAME . "=" . $id);
     }
-    /*=====SLIDER MODEL - ENDED=====*/
+    /*SLIDER MODEL - ENDED*/
 
-    /*=====CONTACTS MODEL - START=====*/
+    /*CONTACTS MODEL - START*/
     private const CONTACTS_TABLE_NAME = "contacts";
     private const CONTACTS_ID_NAME = "c_uid";
 
@@ -277,9 +279,9 @@ class AdminModel extends CI_Model
     {
         $this->db->delete(self::CONTACTS_TABLE_NAME, self::CONTACTS_ID_NAME . "=" . $id);
     }
-    /*=====CONTACTS MODEL - ENDED=====*/
+    /*CONTACTS MODEL - ENDED*/
 
-    /*=====GALLERY MODEL - START=====*/
+    /*GALLERY MODEL - START*/
     private const GALLERY_TABLE_NAME = "gallery";
     private const GALLERY_ID_NAME = "g_uid";
 
@@ -307,9 +309,9 @@ class AdminModel extends CI_Model
     {
         $this->db->delete(self::GALLERY_TABLE_NAME, self::GALLERY_ID_NAME . "=" . $id);
     }
-    /*=====GALLERY MODEL - ENDED=====*/
+    /*GALLERY MODEL - ENDED*/
 
-    /*=====SETTINGS MODEL - START=====*/
+    /*SETTINGS MODEL - START*/
     private const SETTINGS_TABLE_NAME = "settings";
     private const SETTINGS_ID_NAME = "s_uid";
 
@@ -333,9 +335,9 @@ class AdminModel extends CI_Model
         $this->db->delete(self::SETTINGS_TABLE_NAME, self::SETTINGS_ID_NAME . "=" . $id);
     }
 
-    /*=====SETTINGS MODEL - ENDED=====*/
+    /*SETTINGS MODEL - ENDED*/
 
-    /*==========ABOUT MODEL - START==========*/
+    /*ABOUT MODEL - START*/
     private const ABOUT_TABLE_NAME = "about";
     private const ABOUT_ID_NAME = "a_uid";
 
@@ -358,6 +360,7 @@ class AdminModel extends CI_Model
     {
         $this->db->delete(self::ABOUT_TABLE_NAME, self::ABOUT_ID_NAME . "=" . $id);
     }
-    /*==========ABOUT MODEL - ENDED==========*/
+    /*ABOUT MODEL - ENDED*/
+
+    /*==========CRUD MODEL - ENDED==========*/
 }
-    /*====================CRUD MODEL - ENDED====================*/

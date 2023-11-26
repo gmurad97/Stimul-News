@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class UserModel extends CI_Model
 {
-    /*=====GLOBAL MODEL - START=====*/
+    /*==========GLOBAL MODEL - START==========*/
     public function table_row_id($tableName, $idName)
     {
         $rows_count = $this->db->count_all_results($tableName, TRUE);
@@ -15,7 +15,11 @@ class UserModel extends CI_Model
             return -1;
         }
     }
-    /*=====GLOBAL MODEL - ENDED=====*/
+    /*==========GLOBAL MODEL - ENDED==========*/
+
+
+
+    /*==========CRUD MODEL - START==========*/
 
     public function topbar_user_db_get()
     {
@@ -131,10 +135,13 @@ class UserModel extends CI_Model
             ->get("subscribers")->result_array();
     }
 
-    public function about_user_db_get(){
+    public function about_user_db_get()
+    {
         return $this->db
             ->order_by("a_uid", "DESC")
             ->get("about", 1)
             ->row_array();
     }
+
+    /*==========CRUD MODEL - ENDED==========*/
 }

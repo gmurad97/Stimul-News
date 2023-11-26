@@ -12,7 +12,7 @@ class ErrorController extends CI_Controller
     public function topbarInfo()
     {
         date_default_timezone_set("Asia/Baku");
-        $weather = json_decode(file_get_contents("https://api.weatherapi.com/v1/current.json?key=a548983232374eafb8002027232011&q=Baku&aqi=no"));
+        $weather = json_decode(file_get_contents("https://api.weatherapi.com/v1/current.json?key=83de84c69a3749b89c0221349232611&q=Baku&aqi=no"));
         return (object) [
             "date" => date("d.m.Y"),
             "time" => date("H:i"),
@@ -28,6 +28,9 @@ class ErrorController extends CI_Controller
             $this->output->set_status_header(404);
             $this->load->view("admins/Error404", $data);
         } else {
+            $data["contacts_data"] = json_decode($this->UserModel->contacts_user_db_get()["c_data"] ?? NULL, FALSE);
+            $data["news_recent_three"] = $this->UserModel->news_user_db_get(3);
+            $data["categories_nav_ul"] = $this->UserModel->categories_user_db_get(5);
             $branding_data_uid = $this->UserModel->table_row_id("branding", "b_uid");
             $topbar_data_uid = $this->UserModel->table_row_id("topbar", "t_uid");
             $data["user_page_name"] = "Page Not Found";

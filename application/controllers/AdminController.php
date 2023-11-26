@@ -2,13 +2,12 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
- * AUTHOR:            Murad Gazymagomedov
- * USERNAME:          GMurad97 || ASProgerHack
- * USER TEMPLATE:     MORUS NEWS
- * ADMIN TEMPLATE:    HUD ADMIN
- * VERSION:           2.1
- * USED LOCAL SERVER: OPENSERVER 5.4.3
- * SERVER VERSION:    APACHE 2.4 + PHP 8.0-8.1 + NGINX 1.23
+ * AUTHOR:         Murad Gazymagomedov
+ * USERNAME:       GMURAD97 || ASProgerHack
+ * VERSION:        3.1
+ * LOCAL SERVER:   OPENSERVER 5.4.3
+ * SERVER VERSION: APACHE 2.4 + PHP 8.0-8.1 + NGINX 1.23
+ * PHP VERSION:    PHP 8.0
  **/
 
 class AdminController extends CI_Controller
@@ -91,8 +90,8 @@ class AdminController extends CI_Controller
 
     protected function FiatPrice(array $currencyFiat)
     {
-        $curl_fiat_price = curl_init("https://openexchangerates.org/api/latest.json?app_id=65d9e0d1a009445c9f96ceb8caed66bb&symbols=" . join(",", $currencyFiat));
-        curl_setopt($curl_fiat_price, CURLOPT_USERAGENT, "StimulNewsClient-v2.1");
+        $curl_fiat_price = curl_init("https://openexchangerates.org/api/latest.json?app_id=100e3fd863554e1494d0aa094e8efe77&symbols=" . join(",", $currencyFiat));
+        curl_setopt($curl_fiat_price, CURLOPT_USERAGENT, "StimulNewsClient-v3.1");
         curl_setopt($curl_fiat_price, CURLOPT_RETURNTRANSFER, TRUE);
         $response_result = curl_exec($curl_fiat_price);
         curl_close($curl_fiat_price);
@@ -135,7 +134,7 @@ class AdminController extends CI_Controller
         $admin_password = hash("sha512", hash("md5", $this->input->post("admin_password", TRUE)));
         $admin_captcha  = strtoupper($this->input->post("admin_captcha", TRUE));
         if (!empty($admin_login) && !empty($admin_password) && !empty($admin_captcha)) {
-            if (TRUE/* $admin_captcha === $admin_session_captcha */) {
+            if ($admin_captcha === $admin_session_captcha) {
                 $admin_data = $this->AdminModel->profile_admin_db_target($admin_login);
                 if (!empty($admin_data) && $admin_password === $admin_data["a_password"]) {
                     if ($admin_data["a_status"]) {
