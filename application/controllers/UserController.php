@@ -87,7 +87,7 @@ class UserController extends CI_Controller
         $data["contacts_data"] = json_decode($this->UserModel->contacts_user_db_get()["c_data"] ?? NULL, FALSE);
         $data["about_data"] = $this->UserModel->about_user_db_get();
         $data["news_single_data"] = $this->UserModel->news_single_db_get($id);
-        $this->load->view("users/contents/SingleNews",$data);
+        $this->load->view("users/contents/SingleNews", $data);
     }
 
     public function news_list($category_name = NULL)
@@ -189,7 +189,15 @@ class UserController extends CI_Controller
 
 
 
-
+    public function maintenance()
+    {
+        $settings = json_decode($this->UserModel->settings_db_get()["s_data"] ?? NULL, FALSE);;
+        if ($settings->under_construction) {
+            $this->load->view("users/contents/Maintenance");
+        } else {
+            redirect(base_url("home"));
+        }
+    }
 
 
 
@@ -201,6 +209,7 @@ class UserController extends CI_Controller
 
     public function contacts()
     {
+        $data["settings"] = json_decode($this->UserModel->settings_db_get()["s_data"] ?? NULL, FALSE);
         $data["user_page_name"] = "about us";
         $data["news_list"] = $this->UserModel->news_user_db_get(NULL);
         $data["topbar"]["data"] = $this->topbarInfo();

@@ -17,10 +17,7 @@ class UserModel extends CI_Model
     }
     /*==========GLOBAL MODEL - ENDED==========*/
 
-
-
     /*==========CRUD MODEL - START==========*/
-
     public function topbar_user_db_get()
     {
         return $this->db
@@ -152,5 +149,12 @@ class UserModel extends CI_Model
             ->row_array();
     }
 
+    public function settings_db_get()
+    {
+        return $this->db
+            ->order_by("s_uid", "DESC")
+            ->get("settings", 1)
+            ->row_array();
+    }
     /*==========CRUD MODEL - ENDED==========*/
 }

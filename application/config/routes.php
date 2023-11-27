@@ -19,6 +19,8 @@ $route["categories"]                           = "UserController/categories";
 $route["about"]                                = "UserController/about";
 $route["contacts"]                             = "UserController/contacts";
 
+$route["maintenance"]                          = "UserController/maintenance";
+
 /*==========USER CONTROLLER - ENDED==========*/
 
 

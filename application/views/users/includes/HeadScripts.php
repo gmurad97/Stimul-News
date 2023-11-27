@@ -1,3 +1,8 @@
+<?php
+if ($settings->under_construction) {
+    redirect(base_url("maintenance"));
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
