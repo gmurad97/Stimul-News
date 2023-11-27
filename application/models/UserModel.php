@@ -143,5 +143,14 @@ class UserModel extends CI_Model
             ->row_array();
     }
 
+    public function news_single_db_get($id)
+    {
+        return $this->db
+            ->join("categories", "c_uid = n_category_uid", "left")
+            ->where("n_uid", $id)
+            ->get("news")
+            ->row_array();
+    }
+
     /*==========CRUD MODEL - ENDED==========*/
 }

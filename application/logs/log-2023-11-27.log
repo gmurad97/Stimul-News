@@ -1,0 +1,19 @@
+ERROR - 2023-11-27 06:25:51 --> Severity: Warning --> Undefined variable $branding_data C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 7
+ERROR - 2023-11-27 06:25:51 --> Severity: Warning --> Undefined variable $user_page_name C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 11
+ERROR - 2023-11-27 06:25:51 --> Severity: Warning --> Undefined variable $topbar C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 2
+ERROR - 2023-11-27 06:25:51 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 2
+ERROR - 2023-11-27 06:25:51 --> Severity: Warning --> Undefined variable $branding_data C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 45
+ERROR - 2023-11-27 06:25:51 --> Severity: Warning --> Undefined variable $categories_nav_ul C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-27 06:25:51 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\OSPanel\domains\stimul.news\application\views\users\includes\HeaderNavbar.php 73
+ERROR - 2023-11-27 06:25:51 --> Severity: Warning --> Undefined variable $branding_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 7
+ERROR - 2023-11-27 06:25:51 --> Severity: Warning --> Undefined variable $about_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 15
+ERROR - 2023-11-27 06:25:51 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 15
+ERROR - 2023-11-27 06:25:51 --> Severity: Warning --> Undefined variable $about_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 16
+ERROR - 2023-11-27 06:25:51 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 16
+ERROR - 2023-11-27 06:25:51 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 19
+ERROR - 2023-11-27 06:25:51 --> Severity: Warning --> Undefined variable $news_recent_three C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 27
+ERROR - 2023-11-27 06:25:51 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 56
+ERROR - 2023-11-27 06:25:51 --> Severity: Warning --> Undefined variable $contacts_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 80
+ERROR - 2023-11-27 06:25:51 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 135
+ERROR - 2023-11-27 06:55:50 --> Could not find the language line "subscriber_placeholder"
+ERROR - 2023-11-27 06:55:50 --> Could not find the language line "subscribe"

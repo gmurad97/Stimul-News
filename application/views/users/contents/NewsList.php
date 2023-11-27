@@ -33,7 +33,7 @@
                                         <ul class="blog_meta">
                                             <li>
                                                 <a href="javascript:void(0);">
-                                                    <i class="ti-calendar"></i>
+                                                    <i class="far fa-calendar-alt"></i>
                                                     <span><?= $news_item["n_created_date"]; ?></span>
                                                 </a>
                                             </li>

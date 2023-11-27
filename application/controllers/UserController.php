@@ -45,8 +45,7 @@ class UserController extends CI_Controller
                 $this->UserModel->subscribers_user_db_insert($data);
                 redirect($_SERVER["HTTP_REFERER"]);
             }
-        }
-        else{
+        } else {
             redirect($_SERVER["HTTP_REFERER"]);
         }
     }
@@ -69,6 +68,26 @@ class UserController extends CI_Controller
         $data["contacts_data"] = json_decode($this->UserModel->contacts_user_db_get()["c_data"] ?? NULL, FALSE);
         $data["about_data"] = $this->UserModel->about_user_db_get();
         $this->load->view("users/Index", $data);
+    }
+
+
+    public function news_single($id)
+    {
+        $data["user_page_name"] = "Home";
+        $data["topbar"]["data"] = $this->topbarInfo();
+        $data["topbar"]["options"] = json_decode($this->UserModel->topbar_user_db_get()["t_data"] ?? NULL, FALSE);
+        $data["branding_data"] = json_decode($this->UserModel->branding_user_db_get()["b_data"] ?? NULL, FALSE);
+        $data["categories_nav_ul"] = $this->UserModel->categories_user_db_get(5);
+        $data["categories_list"] = $this->UserModel->categories_user_db_get(NULL);
+        $data["slider_list"] = $this->UserModel->slider_user_db_get();
+        $data["news_list"] = $this->UserModel->news_user_db_get(NULL);
+        $data["news_recent_six"] = $this->UserModel->news_user_db_get(6);
+        $data["news_recent_three"] = $this->UserModel->news_user_db_get(3);
+        $data["partners_list"] = $this->UserModel->partners_user_db_get();
+        $data["contacts_data"] = json_decode($this->UserModel->contacts_user_db_get()["c_data"] ?? NULL, FALSE);
+        $data["about_data"] = $this->UserModel->about_user_db_get();
+        $data["news_single_data"] = $this->UserModel->news_single_db_get($id);
+        $this->load->view("users/contents/SingleNews",$data);
     }
 
     public function news_list($category_name = NULL)
