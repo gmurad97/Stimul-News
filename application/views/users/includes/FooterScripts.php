@@ -11,4 +11,5 @@
 <script src="<?= base_url('public/user/assets/js/jquery.fitvids.js'); ?>"></script>
 <script src="<?= base_url('public/user/assets/js/scripts.js'); ?>"></script>
 </body>
+
 </html>

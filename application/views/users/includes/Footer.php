@@ -11,10 +11,12 @@
                                 </a>
                             </div>
                         <?php endif; ?>
+                        <?php
+                        $about_short = json_decode($about_data["a_short"], TRUE);
+                        $about_copyright = json_decode($about_data["a_copyright"], TRUE);
+                        ?>
                         <p>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                            Minus corporis odio, repellat provident culpa error, ducimus asperiores fugiat iste natus ullam rem ea quis officiis praesentium quam reiciendis cumque!
-                            Asperiores, sit fuga.
+                            <?= htmlentities(base64_decode($about_short[$this->session->userdata("site_lang")])); ?>
                         </p>
                     </div>
                 </div>
@@ -130,7 +132,7 @@
             <div class="row">
                 <div class="col-12">
                     <p class="copyright m-0 text-center">
-                        © 2023 All Rights Reserved By <a href="#" class="text_default">GMurad97</a>
+                        <?= htmlentities(base64_decode($about_copyright[$this->session->userdata("site_lang")])); ?>
                     </p>
                 </div>
             </div>

@@ -77,7 +77,7 @@ class AdminController extends CI_Controller
     protected function CryptoPrice($cryptoLimit)
     {
         $curl_crypto_price = curl_init("https://api.binance.com/api/v3/ticker/price");
-        curl_setopt($curl_crypto_price, CURLOPT_USERAGENT, "StimulNewsClient-v2.1");
+        curl_setopt($curl_crypto_price, CURLOPT_USERAGENT, "StimulNewsClient-v3.1");
         curl_setopt($curl_crypto_price, CURLOPT_RETURNTRANSFER, TRUE);
         $response_result = array_values(array_filter(json_decode(curl_exec($curl_crypto_price), FALSE), function ($cryptoPair) {
             if (str_ends_with($cryptoPair->symbol, "USDT")) {

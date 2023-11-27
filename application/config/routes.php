@@ -1,21 +1,23 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-$route["default_controller"]    = "UserController";
-$route["404_override"]          = "ErrorController/Error404";
-$route["translate_uri_dashes"]  = FALSE;
+$route["default_controller"]                   = "UserController";
+$route["404_override"]                         = "ErrorController/Error404";
+$route["switch-lang/(:any)"]                   = "LanguageSwitcher/SwitchLang/$1";
+$route["translate_uri_dashes"]                 = FALSE;
 
 /*==========USER CONTROLLER - START==========*/
 
-$route["switch-lang/(:any)"]                   = "LanguageSwitcher/SwitchLang/$1";
 $route["subscribe-action"]                     = "UserController/crud_subscribe_action";
 $route["home"]                                 = "UserController/index";
-$route["news"]                                 = "Usercontroller/news_list";
-$route["news/(:num)"]                          = "Usercontroller/news_list/$1";
-$route["news/category/(:any)"]                 = "Usercontroller/news_list/$1";
-$route["news/category/(:any)/(:num)"]          = "Usercontroller/news_list/$1/$2";
-$route["categories-list"]                      = "UserController/categories_list";
-$route["about"]                                = "UserController/about_us";
+$route["news"]                                 = "UserController/news_list";
+$route["news/(:num)"]                          = "UserController/news_list/$1";
+$route["news/category/(:any)"]                 = "UserController/news_list/$1";
+$route["news/category/(:any)/(:num)"]          = "UserController/news_list/$1/$2";
+$route["news-single/(:any)"]                   = "UserController/news_single/$1";
+$route["categories"]                           = "UserController/categories";
+$route["about"]                                = "UserController/about";
+$route["contacts"]                             = "UserController/contacts";
 
 /*==========USER CONTROLLER - ENDED==========*/
 

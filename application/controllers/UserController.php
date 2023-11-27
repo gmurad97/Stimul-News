@@ -46,6 +46,9 @@ class UserController extends CI_Controller
                 redirect($_SERVER["HTTP_REFERER"]);
             }
         }
+        else{
+            redirect($_SERVER["HTTP_REFERER"]);
+        }
     }
     /*=====GLOBAL USERS CRUD - ENDED =====*/
 
@@ -64,6 +67,7 @@ class UserController extends CI_Controller
         $data["news_recent_three"] = $this->UserModel->news_user_db_get(3);
         $data["partners_list"] = $this->UserModel->partners_user_db_get();
         $data["contacts_data"] = json_decode($this->UserModel->contacts_user_db_get()["c_data"] ?? NULL, FALSE);
+        $data["about_data"] = $this->UserModel->about_user_db_get();
         $this->load->view("users/Index", $data);
     }
 
@@ -127,10 +131,10 @@ class UserController extends CI_Controller
                 redirect(base_url("news/category/" . $category_name));
             $this->load->library("pagination");
             $this->pagination->initialize($config);
-            $this->load->view("users/NewsList", $data);
+            $this->load->view("users/contents/NewsList", $data);
         } else {
             $data["user_page_name"] = "News";
-            $config["per_page"] = 5;
+            $config["per_page"] = 10;
             $config["uri_segment"] = 2;
             $config["use_page_numbers"] = TRUE;
             $current_page = !empty($this->uri->segment(2)) && !is_null($this->uri->segment(2)) && is_numeric($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
@@ -145,7 +149,7 @@ class UserController extends CI_Controller
                 redirect(base_url("news/category/" . $category_name));
             $this->load->library("pagination");
             $this->pagination->initialize($config);
-            $this->load->view("users/NewsList", $data);
+            $this->load->view("users/contents/NewsList", $data);
         }
     }
 
@@ -177,9 +181,21 @@ class UserController extends CI_Controller
 
     public function contacts()
     {
+        $data["user_page_name"] = "about us";
+        $data["news_list"] = $this->UserModel->news_user_db_get(NULL);
+        $data["topbar"]["data"] = $this->topbarInfo();
+        $data["topbar"]["options"] = json_decode($this->UserModel->topbar_user_db_get()["t_data"] ?? NULL, FALSE);
+        $data["branding_data"] = json_decode($this->UserModel->branding_user_db_get()["b_data"] ?? NULL, FALSE);
+        $data["categories_nav_ul"] = $this->UserModel->categories_user_db_get(5);
+        $data["slider_list"] = $this->UserModel->slider_user_db_get();
+        $data["contacts_data"] = json_decode($this->UserModel->contacts_user_db_get()["c_data"] ?? NULL, FALSE);
+        $data["news_recent_three"] = $this->UserModel->news_user_db_get(3);
+        $data["categories_list"] = $this->UserModel->categories_user_db_get(NULL);
+        $data["about_data"] = $this->UserModel->about_user_db_get();
+        $this->load->view("users/contents/Contacts", $data);
     }
 
-    public function about_us()
+    public function about()
     {
         $data["user_page_name"] = "about us";
         $data["news_list"] = $this->UserModel->news_user_db_get(NULL);
@@ -192,10 +208,10 @@ class UserController extends CI_Controller
         $data["news_recent_three"] = $this->UserModel->news_user_db_get(3);
         $data["categories_list"] = $this->UserModel->categories_user_db_get(NULL);
         $data["about_data"] = $this->UserModel->about_user_db_get();
-        $this->load->view("users/About",$data);
+        $this->load->view("users/contents/About", $data);
     }
 
-    public function categories_list()
+    public function categories()
     {
         $data["user_page_name"] = "about us";
         $data["news_list"] = $this->UserModel->news_user_db_get(NULL);
@@ -208,8 +224,8 @@ class UserController extends CI_Controller
         $data["news_recent_three"] = $this->UserModel->news_user_db_get(3);
         $data["categories_list"] = $this->UserModel->categories_user_db_get(NULL);
         $data["about_data"] = $this->UserModel->about_user_db_get();
-        
-        $this->load->view("users/CategoryList",$data);
+
+        $this->load->view("users/contents/CategoryList", $data);
     }
 
 

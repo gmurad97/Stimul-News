@@ -20,7 +20,7 @@
                             <?php if ($topbar["options"]->topbar_weather) : ?>
                                 <li>
                                     <i class="fas fa-cloud-sun-rain"></i>
-                                    <span><?= $topbar["data"]->weather; ?>℃</span>
+                                    <span><?= $topbar["data"]->weather; ?>℃ Baku</span>
                                 </li>
                             <?php endif; ?>
                         </ul>
@@ -54,17 +54,17 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li>
-                        <a href="<?= base_url('home'); ?>" class="nav-link nav_item <?= $current_segment == 'home' ? 'active' : ''; ?>">
+                        <a href="<?= base_url('home'); ?>" class="nav-link nav_item <?= $current_segment == 'home' || $current_segment == '' ? 'active' : ''; ?>">
                             <?= $this->lang->line("home_navbar"); ?>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link nav_item">
+                        <a href="<?= base_url('news'); ?>" class="nav-link nav_item <?= $current_segment == 'news' && is_null($this->uri->segment(2)) ? 'active' : ''; ?>">
                             <?= $this->lang->line("news_navbar"); ?>
                         </a>
                     </li>
                     <li class="dropdown">
-                        <a href="javascript:void(0);" data-toggle="dropdown" class="nav-link">
+                        <a href="javascript:void(0);" data-toggle="dropdown" class="nav-link <?= $current_segment == 'categories' || $this->uri->segment(2) == 'category' ? 'active' : ''; ?>">
                             <?= $this->lang->line("categories_navbar"); ?>
                             <i class="fas fa-angle-down"></i>
                         </a>
@@ -73,14 +73,14 @@
                                 <?php foreach ($categories_nav_ul as $category_item) : ?>
                                     <?php $category_name =  htmlentities(base64_decode(json_decode($category_item["c_name"], TRUE)[$this->session->userdata("site_lang")])); ?>
                                     <li>
-                                        <a href="#" class="dropdown-item nav-link nav_item">
+                                        <a href="<?= base_url('news/category/' . strtolower($category_name)); ?>" class="dropdown-item nav-link nav_item <?= $this->uri->segment(3) == strtolower($category_name) ? 'active' : ''; ?>">
                                             <i class="far fa-circle"></i>
                                             <?= $category_name; ?>
                                         </a>
                                     </li>
                                 <?php endforeach; ?>
                                 <li>
-                                    <a href="#" class="dropdown-item nav-link nav_item">
+                                    <a href="<?= base_url('categories'); ?>" class="dropdown-item nav-link nav_item <?= $current_segment == 'categories' ? 'active' : ''; ?>">
                                         <i class="fas fa-circle"></i>
                                         <?= $this->lang->line("categories_navbar_all"); ?>
                                     </a>
@@ -89,8 +89,8 @@
                         </div>
                     </li>
                     <li>
-                        <a href="<?= base_url('about-us'); ?>" class="nav-link nav_item <?= $current_segment == 'about-us' ? 'active' : ''; ?>">
-                            <?= $this->lang->line("about_us_navbar"); ?>
+                        <a href="<?= base_url('about'); ?>" class="nav-link nav_item <?= $current_segment == 'about' ? 'active' : ''; ?>">
+                            <?= $this->lang->line("about_navbar"); ?>
                         </a>
                     </li>
                     <li>

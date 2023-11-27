@@ -15,8 +15,9 @@
             <div class="col-lg-6 col-md-6">
                 <div class="newsletter_form input_tran_white">
                     <form action="<?= base_url('subscribe-action'); ?>" method="POST" enctype="application/x-www-form-urlencoded">
-                        <input name="subscriber_email" type="text" class="form-control form-control-sm rounded-input" placeholder="Your email address...">
-                        <button type="submit" class="btn btn-default btn-radius btn-sm">Subscribe</button>
+                        <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>">
+                        <input name="subscriber_email" type="text" class="form-control form-control-sm rounded-input" placeholder="<?= $this->lang->line("subscriber_placeholder"); ?>">
+                        <button type="submit" class="btn btn-default btn-radius btn-sm"><?= $this->lang->line("subscribe"); ?></button>
                     </form>
                 </div>
             </div>
