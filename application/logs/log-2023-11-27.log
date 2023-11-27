@@ -1,0 +1,14 @@
+ERROR - 2023-11-27 04:35:26 --> Severity: Warning --> Undefined variable $about_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 15
+ERROR - 2023-11-27 04:35:26 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 15
+ERROR - 2023-11-27 04:35:26 --> Severity: Warning --> Undefined variable $about_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 16
+ERROR - 2023-11-27 04:35:26 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 16
+ERROR - 2023-11-27 04:35:26 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 19
+ERROR - 2023-11-27 04:35:26 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 135
+ERROR - 2023-11-27 04:37:20 --> Severity: Warning --> Undefined variable $about_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 15
+ERROR - 2023-11-27 04:37:20 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 15
+ERROR - 2023-11-27 04:37:20 --> Severity: Warning --> Undefined variable $about_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 16
+ERROR - 2023-11-27 04:37:20 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 16
+ERROR - 2023-11-27 04:37:20 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 19
+ERROR - 2023-11-27 04:37:20 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\includes\Footer.php 135
+ERROR - 2023-11-27 04:50:55 --> Severity: error --> Exception: MenuState(): Argument #1 ($segmentName) must be of type string, null given, called in C:\OSPanel\domains\stimul.news\application\views\admins\includes\Sidebar.php on line 17 C:\OSPanel\domains\stimul.news\application\views\admins\includes\Sidebar.php 7
+ERROR - 2023-11-27 04:51:11 --> Severity: error --> Exception: MenuState(): Argument #1 ($segmentName) must be of type string, null given, called in C:\OSPanel\domains\stimul.news\application\views\admins\includes\Sidebar.php on line 17 C:\OSPanel\domains\stimul.news\application\views\admins\includes\Sidebar.php 7

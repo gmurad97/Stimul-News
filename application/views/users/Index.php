@@ -16,7 +16,7 @@
                                 <?php $category_name = json_decode($category_item["c_name"], TRUE); ?>
                                 <div class="item">
                                     <div class="service_box">
-                                        <a href="#">
+                                        <a href="<?= strtolower(base_url('news/category/' . htmlentities(base64_decode($category_name["en"])))); ?>">
                                             <img src="<?= base_url('file_manager/categories/') . $category_item["c_img"]; ?>" alt="<?= htmlentities(base64_decode($category_name[$this->session->userdata("site_lang")])); ?>">
                                             <span class="lable"><?= htmlentities(base64_decode($category_name[$this->session->userdata("site_lang")])); ?></span>
                                         </a>
@@ -56,16 +56,16 @@
                             <div class="blog_content">
                                 <div class="blog_text">
                                     <div class="blog_tags">
-                                        <a class="blog_tags_cat" style="background-color: <?= $news_item['c_bg_color']; ?>;" href="#"><?= htmlentities(base64_decode($news_category_name[$this->session->userdata("site_lang")])); ?></a>
+                                        <a class="blog_tags_cat" style="background-color: <?= $news_item['c_bg_color']; ?>;" href="<?= base_url('news/category/' . strtolower(htmlentities(base64_decode($news_category_name['en'])))); ?>"><?= htmlentities(base64_decode($news_category_name[$this->session->userdata("site_lang")])); ?></a>
                                     </div>
                                     <h5 class="blog_heading">
-                                        <a href="#">
+                                        <a href="<?= base_url('news-single/' . $news_item['n_uid']); ?>">
                                             <?= htmlentities(base64_decode($news_title[$this->session->userdata('site_lang')])); ?>
                                         </a>
                                     </h5>
                                     <ul class="blog_meta">
                                         <li>
-                                            <a href="#">
+                                            <a href="javascript:void(0);">
                                                 <i class="far fa-calendar-alt"></i>
                                                 <span><?= $news_item["n_created_date"]; ?></span>
                                             </a>
@@ -105,25 +105,25 @@
                                 <div class="item">
                                     <div class="blog_post blog_grid_overlay">
                                         <div class="blog_img">
-                                            <a href="#">
+                                            <a href="javascript:void(0);">
                                                 <img height="384" style="object-fit: cover;" src="<?= base_url('file_manager/news/' . $filtered_news_item['n_preview_img']); ?>" alt="<?= htmlentities(base64_decode($filtered_news_item_title[$this->session->userdata('site_lang')])); ?>">
                                             </a>
                                         </div>
                                         <div class="blog_content">
                                             <div class="blog_text">
                                                 <div class="blog_tags">
-                                                    <a class="blog_tags_cat" style="background-color: <?= $filtered_news_item['c_bg_color']; ?>;" href="#">
+                                                    <a class="blog_tags_cat" style="background-color: <?= $filtered_news_item['c_bg_color']; ?>;" href="<?= base_url('news/category/' . strtolower(htmlentities(base64_decode($filtered_news_item_category_name['en'])))); ?>">
                                                         <?= htmlentities(base64_decode($filtered_news_item_category_name[$this->session->userdata("site_lang")])); ?>
                                                     </a>
                                                 </div>
                                                 <h5 class="blog_heading">
-                                                    <a href="#">
+                                                    <a href="<?= base_url('news-single/' . $filtered_news_item["n_uid"]); ?>">
                                                         <?= htmlentities(base64_decode($filtered_news_item_title[$this->session->userdata("site_lang")])); ?>
                                                     </a>
                                                 </h5>
                                                 <ul class="blog_meta">
                                                     <li>
-                                                        <a href="#">
+                                                        <a href="javascript:void(0);">
                                                             <i class="far fa-calendar-alt"></i>
                                                             <span><?= $filtered_news_item["n_created_date"]; ?></span>
                                                         </a>

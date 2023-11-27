@@ -25,6 +25,7 @@ $route["contacts"]                             = "UserController/contacts";
 
 /*==========ADMIN CONTROLLER - START==========*/
 
+$route["admin"]                                = "AdminController/dashboard";
 $route["admin/dashboard"]                      = "AdminController/dashboard";
 
 /*AUTH & REG ROUTES - START*/

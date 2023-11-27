@@ -3,7 +3,7 @@
         <div class="menu">
             <!--=====FUNCTION MENU STATE - START=====-->
             <?php
-            $segment_name = $this->uri->segment(2);
+            $segment_name = $this->uri->segment(2) ?? $this->uri->segment(1);
             function MenuState(string $segmentName, string $pageName, string $className)
             {
                 return str_contains($segmentName, $pageName) ? $className : "";
