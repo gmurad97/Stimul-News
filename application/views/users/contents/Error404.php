@@ -7,10 +7,10 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="page-title w-100 d-flex flex-column justify-content-center align-items-center">
-                    <h1 class="text-uppercase mb-5">Page Not Found</h1>
-                    <h5 class="mb-3">oops! The page you requested was not found!</h5>
-                    <p class="mb-5">The page you are looking for was removed, renamed or might never existed.</p>
-                    <a href="<?= base_url('home'); ?>" class="btn btn-default">Back To Home</a>
+                    <h1 class="text-uppercase mb-5"><?= $this->lang->line("page_not_found"); ?></h1>
+                    <h5 class="mb-3"><?= $this->lang->line("page_not_found_first_message"); ?></h5>
+                    <p class="mb-5"><?= $this->lang->line("page_not_found_second_message"); ?></p>
+                    <a href="<?= base_url('home'); ?>" class="btn btn-default"><?= $this->lang->line("back_to_home"); ?></a>
                 </div>
             </div>
         </div>

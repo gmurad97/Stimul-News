@@ -1,102 +1,28 @@
 <?php $this->load->view("users/includes/HeadScripts"); ?>
 <?php $this->load->view("users/includes/PreLoader"); ?>
 <?php $this->load->view("users/includes/HeaderNavbar"); ?>
-<?php $this->load->view("users/includes/HeaderSlider"); ?>
-<div class="section pb-0">
+<?php $this->load->view("users/includes/Breadcrumb"); ?>
+<div class="section">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="heading_s2">
                     <h4><?= $this->lang->line("all_categories"); ?></h4>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="service_box">
-                                    <a href="#">
-                                        <img src="public/user/assets/images/blog_img13.jpg">
-                                        <span class="lable">Categories</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="service_box">
-                                    <a href="#">
-                                        <img src="public/user/assets/images/blog_img13.jpg">
-                                        <span class="lable">Categories</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="service_box">
-                                    <a href="#">
-                                        <img src="public/user/assets/images/blog_img13.jpg">
-                                        <span class="lable">Categories</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="service_box">
-                                    <a href="#">
-                                        <img src="public/user/assets/images/blog_img13.jpg">
-                                        <span class="lable">Categories</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="service_box">
-                                    <a href="#">
-                                        <img src="public/user/assets/images/blog_img13.jpg">
-                                        <span class="lable">Categories</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="service_box">
-                                    <a href="#">
-                                        <img src="public/user/assets/images/blog_img13.jpg">
-                                        <span class="lable">Categories</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="service_box">
-                                    <a href="#">
-                                        <img src="public/user/assets/images/blog_img13.jpg">
-                                        <span class="lable">Categories</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="service_box">
-                                    <a href="#">
-                                        <img src="public/user/assets/images/blog_img13.jpg">
-                                        <span class="lable">Categories</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="service_box">
-                                    <a href="#">
-                                        <img src="public/user/assets/images/blog_img13.jpg">
-                                        <span class="lable">Categories</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="service_box">
-                                    <a href="#">
-                                        <img src="public/user/assets/images/blog_img13.jpg">
-                                        <span class="lable">Categories</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
+            </div>
+        </div>
+        <div class="row">
+            <?php foreach ($categories_list as $category_item) : ?>
+                <?php $category_item_name = json_decode($category_item["c_name"], TRUE); ?>
+                <div class="col-md-4 mb-4">
+                    <div class="service_box">
+                        <a href="<?= base_url('news/category/' . strtolower(htmlentities(base64_decode($category_item_name['en'])))); ?>">
+                            <img src="<?= base_url('file_manager/categories/' . $category_item['c_img']); ?>">
+                            <span class="lable"><?= htmlentities(base64_decode($category_item_name[$this->session->userdata("site_lang")])); ?></span>
+                        </a>
                     </div>
                 </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </div>

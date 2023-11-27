@@ -22,6 +22,12 @@ $lang["subscribe"] = "Subscribe";
 $lang["subscriber_placeholder"] = "Your email address...";
 
 
+$lang["page_not_found"] = "Page Not Found";
+$lang["page_not_found_first_message"] = "oops! The page you requested was not found!";
+$lang["page_not_found_second_message"] = "The page you are looking for was removed, renamed or might never existed.";
+$lang["back_to_home"] = "Back To Home";
+
+
 /* $lang[""] = "Your email address...";
 $lang[""] = "";
 $lang[""] = ""; */
