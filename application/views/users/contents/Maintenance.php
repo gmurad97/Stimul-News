@@ -13,7 +13,6 @@
             font-family: "Open Sans", sans-serif;
             background: #000;
             color: #fafafa;
-
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;

@@ -9,7 +9,7 @@ class UserController extends CI_Controller
         $this->load->model("UserModel");
     }
 
-    /*=====LOCAL USER CONTROLLER FUNCTION - START=====*/
+    /*==========LOCAL USER CONTROLLER FUNCTION - START==========*/
     public function topbarInfo()
     {
         date_default_timezone_set("Asia/Baku");
@@ -20,9 +20,28 @@ class UserController extends CI_Controller
             "weather" => $weather->current->temp_c
         ];
     }
-    /*=====LOCAL USER CONTROLLER FUNCTION - ENDED=====*/
+    /*==========LOCAL USER CONTROLLER FUNCTION - ENDED==========*/
 
-    /*=====GLOBAL USERS CRUD - START =====*/
+    /*==========GLOBAL USERS PAGES - START==========*/
+    public function index()
+    {
+        $data["user_page_name"] = "Home";
+        $data["topbar"]["data"] = $this->topbarInfo();
+        $data["topbar"]["options"] = json_decode($this->UserModel->topbar_user_db_get()["t_data"] ?? NULL, FALSE);
+        $data["branding_data"] = json_decode($this->UserModel->branding_user_db_get()["b_data"] ?? NULL, FALSE);
+        $data["categories_nav_ul"] = $this->UserModel->categories_user_db_get(5);
+        $data["categories_list"] = $this->UserModel->categories_user_db_get(NULL);
+        $data["slider_list"] = $this->UserModel->slider_user_db_get();
+        $data["news_list"] = $this->UserModel->news_user_db_get(NULL);
+        $data["news_recent_six"] = $this->UserModel->news_user_db_get(6);
+        $data["news_recent_three"] = $this->UserModel->news_user_db_get(3);
+        $data["partners_list"] = $this->UserModel->partners_user_db_get();
+        $data["contacts_data"] = json_decode($this->UserModel->contacts_user_db_get()["c_data"] ?? NULL, FALSE);
+        $data["about_data"] = $this->UserModel->about_user_db_get();
+        $data["settings"] = json_decode($this->UserModel->settings_db_get()["s_data"] ?? NULL, FALSE);
+        $this->load->view("users/Index", $data);
+    }
+
     public function crud_subscribe_action()
     {
         $subscriber_email = $this->input->post("subscriber_email", TRUE);
@@ -49,31 +68,9 @@ class UserController extends CI_Controller
             redirect($_SERVER["HTTP_REFERER"]);
         }
     }
-    /*=====GLOBAL USERS CRUD - ENDED =====*/
-
-    /*=====GLOBAL USERS PAGES - START=====*/
-    public function index()
-    {
-        $data["user_page_name"] = "Home";
-        $data["topbar"]["data"] = $this->topbarInfo();
-        $data["topbar"]["options"] = json_decode($this->UserModel->topbar_user_db_get()["t_data"] ?? NULL, FALSE);
-        $data["branding_data"] = json_decode($this->UserModel->branding_user_db_get()["b_data"] ?? NULL, FALSE);
-        $data["categories_nav_ul"] = $this->UserModel->categories_user_db_get(5);
-        $data["categories_list"] = $this->UserModel->categories_user_db_get(NULL);
-        $data["slider_list"] = $this->UserModel->slider_user_db_get();
-        $data["news_list"] = $this->UserModel->news_user_db_get(NULL);
-        $data["news_recent_six"] = $this->UserModel->news_user_db_get(6);
-        $data["news_recent_three"] = $this->UserModel->news_user_db_get(3);
-        $data["partners_list"] = $this->UserModel->partners_user_db_get();
-        $data["contacts_data"] = json_decode($this->UserModel->contacts_user_db_get()["c_data"] ?? NULL, FALSE);
-        $data["about_data"] = $this->UserModel->about_user_db_get();
-        $this->load->view("users/Index", $data);
-    }
-
 
     public function news_single($id)
     {
-        $data["user_page_name"] = "Home";
         $data["topbar"]["data"] = $this->topbarInfo();
         $data["topbar"]["options"] = json_decode($this->UserModel->topbar_user_db_get()["t_data"] ?? NULL, FALSE);
         $data["branding_data"] = json_decode($this->UserModel->branding_user_db_get()["b_data"] ?? NULL, FALSE);
@@ -83,10 +80,16 @@ class UserController extends CI_Controller
         $data["news_list"] = $this->UserModel->news_user_db_get(NULL);
         $data["news_recent_six"] = $this->UserModel->news_user_db_get(6);
         $data["news_recent_three"] = $this->UserModel->news_user_db_get(3);
+        $data["news_single_data"] = $this->UserModel->news_single_db_get($id);
         $data["partners_list"] = $this->UserModel->partners_user_db_get();
         $data["contacts_data"] = json_decode($this->UserModel->contacts_user_db_get()["c_data"] ?? NULL, FALSE);
         $data["about_data"] = $this->UserModel->about_user_db_get();
-        $data["news_single_data"] = $this->UserModel->news_single_db_get($id);
+        $data["settings"] = json_decode($this->UserModel->settings_db_get()["s_data"] ?? NULL, FALSE);
+        $data["user_page_name"] = htmlentities(base64_decode(json_decode($data["news_single_data"]["n_title"], TRUE)[$this->session->userdata("site_lang")]));
+        $data["breadcrumb_data"] = [
+            "page_name" => json_decode($data["news_single_data"]["n_title"], TRUE),
+            "img_file_name" => "file_manager/news/" . $data["news_single_data"]["n_preview_img"]
+        ];
         $this->load->view("users/contents/SingleNews", $data);
     }
 
@@ -101,6 +104,7 @@ class UserController extends CI_Controller
         $data["news_recent_three"] = $this->UserModel->news_user_db_get(3);
         $data["categories_list"] = $this->UserModel->categories_user_db_get(NULL);
         $data["about_data"] = $this->UserModel->about_user_db_get();
+        $data["settings"] = json_decode($this->UserModel->settings_db_get()["s_data"] ?? NULL, FALSE);
         $config = [
             'first_link'       => '<i class="linearicons-arrow-left"></i>',
             'last_link'        => '<i class="linearicons-arrow-right"></i>',
@@ -160,9 +164,6 @@ class UserController extends CI_Controller
             $current_page = !empty($this->uri->segment(2)) && !is_null($this->uri->segment(2)) && is_numeric($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
             $page_offset = ($current_page - 1) * (int)$config["per_page"] < 0 ? 0 : ($current_page - 1) * (int)$config["per_page"];
             $data["news_list"] = $this->UserModel->news_pagination_user_db_get($config["per_page"], $page_offset);
-
-
-
             $config["base_url"] = base_url("news");
             $config["total_rows"] = $this->UserModel->news_count_user_db_get();
             if ($current_page > ceil((int)$config["total_rows"] / (int)$config["per_page"]))
@@ -173,94 +174,89 @@ class UserController extends CI_Controller
         }
     }
 
+    public function contacts()
+    {
+        $data["user_page_name"] = "Contacts";
+        $data["news_list"] = $this->UserModel->news_user_db_get(NULL);
+        $data["topbar"]["data"] = $this->topbarInfo();
+        $data["topbar"]["options"] = json_decode($this->UserModel->topbar_user_db_get()["t_data"] ?? NULL, FALSE);
+        $data["branding_data"] = json_decode($this->UserModel->branding_user_db_get()["b_data"] ?? NULL, FALSE);
+        $data["categories_nav_ul"] = $this->UserModel->categories_user_db_get(5);
+        $data["slider_list"] = $this->UserModel->slider_user_db_get();
+        $data["contacts_data"] = json_decode($this->UserModel->contacts_user_db_get()["c_data"] ?? NULL, FALSE);
+        $data["news_recent_three"] = $this->UserModel->news_user_db_get(3);
+        $data["categories_list"] = $this->UserModel->categories_user_db_get(NULL);
+        $data["about_data"] = $this->UserModel->about_user_db_get();
+        $data["settings"] = json_decode($this->UserModel->settings_db_get()["s_data"] ?? NULL, FALSE);
+        $data["breadcrumb_data"] = [
+            "page_name" => [
+                "en" => base64_encode("Contacts"),
+                "ru" => base64_encode("Контакты"),
+                "az" => base64_encode("Əlaqələr")
+            ],
+            "img_file_name" => "public/users/assets/images/breadcrumb/contact_bg.jpg"
+        ];
+        $this->load->view("users/contents/Contacts", $data);
+    }
 
+    public function about()
+    {
+        $data["user_page_name"] = "About";
+        $data["news_list"] = $this->UserModel->news_user_db_get(NULL);
+        $data["topbar"]["data"] = $this->topbarInfo();
+        $data["topbar"]["options"] = json_decode($this->UserModel->topbar_user_db_get()["t_data"] ?? NULL, FALSE);
+        $data["branding_data"] = json_decode($this->UserModel->branding_user_db_get()["b_data"] ?? NULL, FALSE);
+        $data["categories_nav_ul"] = $this->UserModel->categories_user_db_get(5);
+        $data["slider_list"] = $this->UserModel->slider_user_db_get();
+        $data["contacts_data"] = json_decode($this->UserModel->contacts_user_db_get()["c_data"] ?? NULL, FALSE);
+        $data["news_recent_three"] = $this->UserModel->news_user_db_get(3);
+        $data["categories_list"] = $this->UserModel->categories_user_db_get(NULL);
+        $data["about_data"] = $this->UserModel->about_user_db_get();
+        $data["settings"] = json_decode($this->UserModel->settings_db_get()["s_data"] ?? NULL, FALSE);
+        $data["breadcrumb_data"] = [
+            "page_name" => [
+                "en" => base64_encode("About"),
+                "ru" => base64_encode("О нас"),
+                "az" => base64_encode("Haqqında")
+            ],
+            "img_file_name" => "public/users/assets/images/breadcrumb/about_bg.jpg"
+        ];
+        $this->load->view("users/contents/About", $data);
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public function categories()
+    {
+        $data["user_page_name"] = "Categories";
+        $data["news_list"] = $this->UserModel->news_user_db_get(NULL);
+        $data["topbar"]["data"] = $this->topbarInfo();
+        $data["topbar"]["options"] = json_decode($this->UserModel->topbar_user_db_get()["t_data"] ?? NULL, FALSE);
+        $data["branding_data"] = json_decode($this->UserModel->branding_user_db_get()["b_data"] ?? NULL, FALSE);
+        $data["categories_nav_ul"] = $this->UserModel->categories_user_db_get(5);
+        $data["slider_list"] = $this->UserModel->slider_user_db_get();
+        $data["contacts_data"] = json_decode($this->UserModel->contacts_user_db_get()["c_data"] ?? NULL, FALSE);
+        $data["news_recent_three"] = $this->UserModel->news_user_db_get(3);
+        $data["categories_list"] = $this->UserModel->categories_user_db_get(NULL);
+        $data["about_data"] = $this->UserModel->about_user_db_get();
+        $data["settings"] = json_decode($this->UserModel->settings_db_get()["s_data"] ?? NULL, FALSE);
+        $data["breadcrumb_data"] = [
+            "page_name" => [
+                "en" => base64_encode("Categories"),
+                "ru" => base64_encode("Категории"),
+                "az" => base64_encode("Kateqoriyalar")
+            ],
+            "img_file_name" => "public/users/assets/images/breadcrumb/newsletters_bg.jpg"
+        ];
+        $this->load->view("users/contents/CategoryList", $data);
+    }
 
     public function maintenance()
     {
-        $settings = json_decode($this->UserModel->settings_db_get()["s_data"] ?? NULL, FALSE);;
+        $settings = json_decode($this->UserModel->settings_db_get()["s_data"] ?? NULL, FALSE);
         if ($settings->under_construction) {
             $this->load->view("users/contents/Maintenance");
         } else {
             redirect(base_url("home"));
         }
     }
-
-
-
-
-
-
-
-
-
-    public function contacts()
-    {
-        $data["settings"] = json_decode($this->UserModel->settings_db_get()["s_data"] ?? NULL, FALSE);
-        $data["user_page_name"] = "about us";
-        $data["news_list"] = $this->UserModel->news_user_db_get(NULL);
-        $data["topbar"]["data"] = $this->topbarInfo();
-        $data["topbar"]["options"] = json_decode($this->UserModel->topbar_user_db_get()["t_data"] ?? NULL, FALSE);
-        $data["branding_data"] = json_decode($this->UserModel->branding_user_db_get()["b_data"] ?? NULL, FALSE);
-        $data["categories_nav_ul"] = $this->UserModel->categories_user_db_get(5);
-        $data["slider_list"] = $this->UserModel->slider_user_db_get();
-        $data["contacts_data"] = json_decode($this->UserModel->contacts_user_db_get()["c_data"] ?? NULL, FALSE);
-        $data["news_recent_three"] = $this->UserModel->news_user_db_get(3);
-        $data["categories_list"] = $this->UserModel->categories_user_db_get(NULL);
-        $data["about_data"] = $this->UserModel->about_user_db_get();
-        $this->load->view("users/contents/Contacts", $data);
-    }
-
-    public function about()
-    {
-        $data["user_page_name"] = "about us";
-        $data["news_list"] = $this->UserModel->news_user_db_get(NULL);
-        $data["topbar"]["data"] = $this->topbarInfo();
-        $data["topbar"]["options"] = json_decode($this->UserModel->topbar_user_db_get()["t_data"] ?? NULL, FALSE);
-        $data["branding_data"] = json_decode($this->UserModel->branding_user_db_get()["b_data"] ?? NULL, FALSE);
-        $data["categories_nav_ul"] = $this->UserModel->categories_user_db_get(5);
-        $data["slider_list"] = $this->UserModel->slider_user_db_get();
-        $data["contacts_data"] = json_decode($this->UserModel->contacts_user_db_get()["c_data"] ?? NULL, FALSE);
-        $data["news_recent_three"] = $this->UserModel->news_user_db_get(3);
-        $data["categories_list"] = $this->UserModel->categories_user_db_get(NULL);
-        $data["about_data"] = $this->UserModel->about_user_db_get();
-        $this->load->view("users/contents/About", $data);
-    }
-
-    public function categories()
-    {
-        $data["user_page_name"] = "about us";
-        $data["news_list"] = $this->UserModel->news_user_db_get(NULL);
-        $data["topbar"]["data"] = $this->topbarInfo();
-        $data["topbar"]["options"] = json_decode($this->UserModel->topbar_user_db_get()["t_data"] ?? NULL, FALSE);
-        $data["branding_data"] = json_decode($this->UserModel->branding_user_db_get()["b_data"] ?? NULL, FALSE);
-        $data["categories_nav_ul"] = $this->UserModel->categories_user_db_get(5);
-        $data["slider_list"] = $this->UserModel->slider_user_db_get();
-        $data["contacts_data"] = json_decode($this->UserModel->contacts_user_db_get()["c_data"] ?? NULL, FALSE);
-        $data["news_recent_three"] = $this->UserModel->news_user_db_get(3);
-        $data["categories_list"] = $this->UserModel->categories_user_db_get(NULL);
-        $data["about_data"] = $this->UserModel->about_user_db_get();
-
-        $this->load->view("users/contents/CategoryList", $data);
-    }
-
-
-
-
-
-
     /*=====GLOBAL USERS PAGES - ENDED=====*/
 }

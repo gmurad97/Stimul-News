@@ -38,6 +38,7 @@ class ErrorController extends CI_Controller
             $data["news_recent_three"] = $this->UserModel->news_user_db_get(3);
             $data["contacts_data"] = json_decode($this->UserModel->contacts_user_db_get()["c_data"] ?? NULL, FALSE);
             $data["about_data"] = $this->UserModel->about_user_db_get();
+            $data["settings"] = json_decode($this->UserModel->settings_db_get()["s_data"] ?? NULL, FALSE);
             $this->output->set_status_header(404);
             $this->load->view("users/contents/Error404", $data);
         }

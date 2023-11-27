@@ -1,22 +1,24 @@
-ERROR - 2023-11-27 07:21:59 --> Severity: Warning --> Undefined variable $settings_data C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 2
-ERROR - 2023-11-27 07:21:59 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 2
-ERROR - 2023-11-27 07:21:59 --> Severity: Warning --> Attempt to read property "under_construction" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 4
-ERROR - 2023-11-27 07:22:02 --> Severity: Warning --> Undefined property: UserController::$AdminModel C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 207
-ERROR - 2023-11-27 07:22:02 --> Severity: error --> Exception: Call to a member function settings_db_get() on null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 207
-ERROR - 2023-11-27 07:23:03 --> Severity: Warning --> Undefined variable $settings_data C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 2
-ERROR - 2023-11-27 07:23:03 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 2
-ERROR - 2023-11-27 07:23:03 --> Severity: Warning --> Attempt to read property "under_construction" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 4
-ERROR - 2023-11-27 07:23:09 --> Severity: Warning --> Undefined variable $settings_data C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 2
-ERROR - 2023-11-27 07:23:09 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 2
-ERROR - 2023-11-27 07:23:09 --> Severity: Warning --> Attempt to read property "under_construction" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 4
-ERROR - 2023-11-27 07:25:03 --> Severity: Warning --> Undefined variable $settings_data C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 2
-ERROR - 2023-11-27 07:25:03 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 2
-ERROR - 2023-11-27 07:25:03 --> Severity: Warning --> Attempt to read property "under_construction" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 3
-ERROR - 2023-11-27 07:27:04 --> Severity: Warning --> Undefined variable $settings C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 2
-ERROR - 2023-11-27 07:27:04 --> Severity: Warning --> Attempt to read property "under_construction" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 2
-ERROR - 2023-11-27 07:27:06 --> Severity: Warning --> Undefined variable $settings C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 2
-ERROR - 2023-11-27 07:27:06 --> Severity: Warning --> Attempt to read property "under_construction" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 2
-ERROR - 2023-11-27 07:27:07 --> Severity: Warning --> Undefined variable $settings C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 2
-ERROR - 2023-11-27 07:27:07 --> Severity: Warning --> Attempt to read property "under_construction" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 2
-ERROR - 2023-11-27 07:27:48 --> Severity: Warning --> Undefined variable $settings C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 2
-ERROR - 2023-11-27 07:27:48 --> Severity: Warning --> Attempt to read property "under_construction" on null C:\OSPanel\domains\stimul.news\application\views\users\includes\HeadScripts.php 2
+ERROR - 2023-11-27 12:38:09 --> Severity: Warning --> Trying to access array offset on value of type bool C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 140
+ERROR - 2023-11-27 12:38:09 --> Severity: Warning --> Trying to access array offset on value of type bool C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 141
+ERROR - 2023-11-27 12:38:10 --> Severity: Warning --> Undefined variable $breadcrumb_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Breadcrumb.php 1
+ERROR - 2023-11-27 12:38:10 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\includes\Breadcrumb.php 1
+ERROR - 2023-11-27 12:38:29 --> Severity: Warning --> Trying to access array offset on value of type bool C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 140
+ERROR - 2023-11-27 12:38:29 --> Severity: Warning --> Trying to access array offset on value of type bool C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 141
+ERROR - 2023-11-27 12:38:29 --> Severity: Warning --> Undefined variable $breadcrumb_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Breadcrumb.php 1
+ERROR - 2023-11-27 12:38:29 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\includes\Breadcrumb.php 1
+ERROR - 2023-11-27 12:39:50 --> Severity: Warning --> Undefined variable $breadcrumb_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Breadcrumb.php 1
+ERROR - 2023-11-27 12:39:50 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\includes\Breadcrumb.php 1
+ERROR - 2023-11-27 12:40:17 --> Severity: Warning --> Undefined variable $breadcrumb_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Breadcrumb.php 1
+ERROR - 2023-11-27 12:40:17 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\includes\Breadcrumb.php 1
+ERROR - 2023-11-27 12:40:58 --> Severity: Warning --> Undefined variable $breadcrumb_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Breadcrumb.php 1
+ERROR - 2023-11-27 12:40:58 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\includes\Breadcrumb.php 1
+ERROR - 2023-11-27 12:41:57 --> Severity: Warning --> Trying to access array offset on value of type bool C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 140
+ERROR - 2023-11-27 12:41:57 --> Severity: Warning --> Trying to access array offset on value of type bool C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 141
+ERROR - 2023-11-27 12:41:57 --> Severity: Warning --> Undefined variable $breadcrumb_data C:\OSPanel\domains\stimul.news\application\views\users\includes\Breadcrumb.php 1
+ERROR - 2023-11-27 12:41:57 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\users\includes\Breadcrumb.php 1
+ERROR - 2023-11-27 12:43:05 --> Severity: Warning --> Trying to access array offset on value of type bool C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 180
+ERROR - 2023-11-27 12:43:05 --> Severity: Warning --> Trying to access array offset on value of type bool C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 181
+ERROR - 2023-11-27 12:43:59 --> Severity: Warning --> Trying to access array offset on value of type bool C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 140
+ERROR - 2023-11-27 12:43:59 --> Severity: Warning --> Trying to access array offset on value of type bool C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 141
+ERROR - 2023-11-27 12:44:11 --> Severity: Warning --> Trying to access array offset on value of type bool C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 140
+ERROR - 2023-11-27 12:44:11 --> Severity: Warning --> Trying to access array offset on value of type bool C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 141

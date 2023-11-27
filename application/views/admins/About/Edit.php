@@ -4,8 +4,8 @@
 <div class="card bg-edit border-edit bg-opacity-5">
     <div class="card-header border-edit fw-bold d-flex flex-row justify-content-between align-items-center">
         <div class="h5 text-uppercase text-warning text-header-shadow m-0">
-            <i class="bi bi-distribute-vertical me-1"></i>
-            Topbar Edit
+            <i class="fa-regular fa-address-card me-1"></i>
+            About Edit
         </div>
         <div>
             <button type="button" class="btn btn-outline-danger btn-sm rounded-2" data-bs-toggle="modal" data-bs-target="#danger_modal">

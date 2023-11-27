@@ -73,7 +73,7 @@
                                 <?php foreach ($categories_nav_ul as $category_item) : ?>
                                     <?php $category_name =  htmlentities(base64_decode(json_decode($category_item["c_name"], TRUE)[$this->session->userdata("site_lang")])); ?>
                                     <li>
-                                        <a href="<?= base_url('news/category/' . strtolower($category_name)); ?>" class="dropdown-item nav-link nav_item <?= $this->uri->segment(3) == strtolower($category_name) ? 'active' : ''; ?>">
+                                        <a href="<?= base_url('news/category/' . strtolower(htmlentities(base64_decode(json_decode($category_item["c_name"], TRUE)['en'])))); ?>" class="dropdown-item nav-link nav_item <?= $this->uri->segment(3) == strtolower($category_name) ? 'active' : ''; ?>">
                                             <i class="far fa-circle"></i>
                                             <?= $category_name; ?>
                                         </a>

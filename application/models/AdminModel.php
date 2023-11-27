@@ -17,8 +17,6 @@ class AdminModel extends CI_Model
     }
     /*==========GLOBAL MODEL - ENDED==========*/
 
-
-
     /*==========CRUD MODEL - START==========*/
 
     /*ADMIN MODEL - START*/
