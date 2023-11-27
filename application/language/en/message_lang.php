@@ -28,6 +28,11 @@ $lang["page_not_found_second_message"] = "The page you are looking for was remov
 $lang["back_to_home"] = "Back To Home";
 
 
+$lang["address"] = "Address";
+$lang["phone"] = "Phone";
+$lang["email_address"] = "Email Address";
+
+
 /* $lang[""] = "Your email address...";
 $lang[""] = "";
 $lang[""] = ""; */

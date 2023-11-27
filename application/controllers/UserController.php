@@ -81,6 +81,7 @@ class UserController extends CI_Controller
         $data["contacts_data"] = json_decode($this->UserModel->contacts_user_db_get()["c_data"] ?? NULL, FALSE);
         $data["news_recent_three"] = $this->UserModel->news_user_db_get(3);
         $data["categories_list"] = $this->UserModel->categories_user_db_get(NULL);
+        $data["about_data"] = $this->UserModel->about_user_db_get();
         $config = [
             'first_link'       => '<i class="linearicons-arrow-left"></i>',
             'last_link'        => '<i class="linearicons-arrow-right"></i>',

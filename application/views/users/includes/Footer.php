@@ -32,13 +32,13 @@
                                     <li>
                                         <div class="post_footer">
                                             <div class="post_img">
-                                                <a href="#">
+                                                <a href="<?= base_url('news-single/' . $news_item['n_uid']); ?>">
                                                     <img style="width:70px;height:70px;object-fit: cover;" class="rounded-circle" src="<?= base_url('file_manager/news/' . $news_item['n_preview_img']); ?>" alt="Latest News #1">
                                                 </a>
                                             </div>
                                             <div class="post_content">
                                                 <h6>
-                                                    <a href="#"><?= htmlentities(base64_decode($news_title[$this->session->userdata("site_lang")])); ?></a>
+                                                    <a href="<?= base_url('news-single/' . $news_item['n_uid']); ?>"><?= htmlentities(base64_decode($news_title[$this->session->userdata("site_lang")])); ?></a>
                                                 </h6>
                                                 <p class="small m-0"><?= $news_item["n_created_date"]; ?></p>
                                             </div>
@@ -57,7 +57,7 @@
                                 <?php if ($contacts_data->information->address->status) :  ?>
                                     <li>
                                         <i class="ti-location-pin"></i>
-                                        <a href="#"><?= htmlentities(base64_decode($contacts_data->information->address->info)); ?></a>
+                                        <a target="_blank" href="https://maps.google.com/?q=<?= htmlentities(base64_decode($contacts_data->information->address->info)); ?>"><?= htmlentities(base64_decode($contacts_data->information->address->info)); ?></a>
                                     </li>
                                 <?php endif; ?>
                                 <?php if ($contacts_data->information->mail->status) :  ?>
@@ -80,42 +80,42 @@
                             <?php if (!is_null($contacts_data)) : ?>
                                 <?php if ($contacts_data->social->facebook->status) : ?>
                                     <li>
-                                        <a href="<?= htmlentities(base64_decode($contacts_data->social->facebook->link)); ?>" class="sc_facebook">
+                                        <a target="_blank" href="<?= htmlentities(base64_decode($contacts_data->social->facebook->link)); ?>" class="sc_facebook">
                                             <i class="ion-social-facebook"></i>
                                         </a>
                                     </li>
                                 <?php endif; ?>
                                 <?php if ($contacts_data->social->twitter->status) : ?>
                                     <li>
-                                        <a href="<?= htmlentities(base64_decode($contacts_data->social->twitter->link)); ?>" class="sc_twitter">
+                                        <a target="_blank" href="<?= htmlentities(base64_decode($contacts_data->social->twitter->link)); ?>" class="sc_twitter">
                                             <i class="ion-social-twitter"></i>
                                         </a>
                                     </li>
                                 <?php endif; ?>
                                 <?php if ($contacts_data->social->google_plus->status) : ?>
                                     <li>
-                                        <a href="<?= htmlentities(base64_decode($contacts_data->social->google_plus->link)); ?>" class="sc_gplus">
+                                        <a target="_blank" href="<?= htmlentities(base64_decode($contacts_data->social->google_plus->link)); ?>" class="sc_gplus">
                                             <i class="ion-social-googleplus"></i>
                                         </a>
                                     </li>
                                 <?php endif; ?>
                                 <?php if ($contacts_data->social->youtube->status) : ?>
                                     <li>
-                                        <a href="<?= htmlentities(base64_decode($contacts_data->social->youtube->link)); ?>" class="sc_youtube">
+                                        <a target="_blank" href="<?= htmlentities(base64_decode($contacts_data->social->youtube->link)); ?>" class="sc_youtube">
                                             <i class="ion-social-youtube-outline"></i>
                                         </a>
                                     </li>
                                 <?php endif; ?>
                                 <?php if ($contacts_data->social->instagram->status) : ?>
                                     <li>
-                                        <a href="<?= htmlentities(base64_decode($contacts_data->social->instagram->link)); ?>" class="sc_instagram">
+                                        <a target="_blank" href="<?= htmlentities(base64_decode($contacts_data->social->instagram->link)); ?>" class="sc_instagram">
                                             <i class="ion-social-instagram-outline"></i>
                                         </a>
                                     </li>
                                 <?php endif; ?>
                                 <?php if ($contacts_data->social->pinterest->status) : ?>
                                     <li>
-                                        <a href="<?= htmlentities(base64_decode($contacts_data->social->pinterest->link)); ?>" class="sc_pinterest">
+                                        <a target="_blank" href="<?= htmlentities(base64_decode($contacts_data->social->pinterest->link)); ?>" class="sc_pinterest">
                                             <i class="ion-social-pinterest-outline"></i>
                                         </a>
                                     </li>
