@@ -1,5 +1,5 @@
 <?php
-if ($settings->under_construction) {
+if ($settings->under_construction && !$this->session->userdata("admin_auth")) {
     redirect(base_url("maintenance"));
 }
 ?>

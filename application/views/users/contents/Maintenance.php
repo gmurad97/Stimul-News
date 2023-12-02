@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maintenance</title>
+    <?php if (!is_null($branding_data)) : ?>
+        <link rel="shortcut icon" href="<?= base_url('file_manager/branding/' . $branding_data->favicon->file_name); ?>" type="<?= $branding_data->favicon->file_type; ?>">
+    <?php else : ?>
+        <link rel="shortcut icon" href="<?= base_url('public/user/assets/images/logo/favicon.ico'); ?>" type="image/x-icon">
+    <?php endif; ?>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 

@@ -252,7 +252,7 @@ class UserController extends CI_Controller
     public function maintenance()
     {
         $settings = json_decode($this->UserModel->settings_db_get()["s_data"] ?? NULL, FALSE);
-        if ($settings->under_construction) {
+        if ($settings->under_construction && !$this->session->userdata("admin_auth")) {
             $this->load->view("users/contents/Maintenance");
         } else {
             redirect(base_url("home"));
