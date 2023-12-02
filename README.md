@@ -13,3 +13,7 @@
 | Database encoding | utf8mb4_general_ci |
 
 The project is created to obtain a certificate in the Stimul course. Thanks!
+
+## Authors
+
+- [@gmurad97](https://www.github.com/gmurad97)
