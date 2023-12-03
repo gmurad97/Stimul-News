@@ -143,7 +143,7 @@ class UserController extends CI_Controller
             if (is_null($uid_category_name) || empty($uid_category_name)) {
                 redirect(base_url("news"));
             }
-            $config["per_page"] = 10;
+            $config["per_page"] = 5;
             $config["uri_segment"] = 4;
             $config["use_page_numbers"] = TRUE;
             $current_page = !empty($this->uri->segment(4)) && !is_null($this->uri->segment(4)) && is_numeric($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
@@ -158,7 +158,7 @@ class UserController extends CI_Controller
             $this->load->view("users/contents/NewsList", $data);
         } else {
             $data["user_page_name"] = "News";
-            $config["per_page"] = 10;
+            $config["per_page"] = 5;
             $config["uri_segment"] = 2;
             $config["use_page_numbers"] = TRUE;
             $current_page = !empty($this->uri->segment(2)) && !is_null($this->uri->segment(2)) && is_numeric($this->uri->segment(2)) ? $this->uri->segment(2) : 0;

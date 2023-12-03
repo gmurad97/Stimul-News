@@ -11,13 +11,29 @@
                     <li class="breadcrumb-item">
                         <a href="<?= base_url('home'); ?>">Home</a>
                     </li>
-                    <?php $combine_segment = base_url(); ?>
+
+
+
+                    <?php $combine_segment = ""; ?>
                     <?php foreach ($this->uri->segment_array() as $current_index => $current_segment) : ?>
                         <?php $combine_segment .= ($current_index === 1) ? $current_segment : "/" . $current_segment; ?>
                         <li class="breadcrumb-item">
-                            <a href="<?= $combine_segment; ?>"><?= !is_numeric($current_segment) ? ucfirst($current_segment) : "Page #" . ucfirst($current_segment); ?></a>
+                            <a href="<?= base_url($combine_segment); ?>">
+                                <?php if (!is_numeric($current_segment)) : ?>
+                                    <?= ucfirst($current_segment); ?>
+                                <?php elseif (is_numeric($current_segment) || str_contains($combine_segment, "news-signle")) : ?>
+                                    <?= "This not page this is id #" . ucfirst($current_segment); ?>
+                                <?php elseif (is_numeric($current_segment) || !str_contains($combine_segment, "news-signle")) : ?>
+                                    <?= "THIS IS Page #" . ucfirst($current_segment); ?>
+                                <?php endif; ?>
+                            </a>
                         </li>
                     <?php endforeach; ?>
+
+
+
+
+
                 </ol>
             </div>
         </div>
