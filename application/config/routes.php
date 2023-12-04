@@ -11,9 +11,12 @@ $route["translate_uri_dashes"]                 = FALSE;
 $route["subscribe-action"]                     = "UserController/crud_subscribe_action";
 $route["home"]                                 = "UserController/index";
 $route["news"]                                 = "UserController/news_list";
-$route["news/(:num)"]                          = "UserController/news_list/$1";
-$route["news/category/(:any)"]                 = "UserController/news_list/$1";
-$route["news/category/(:any)/(:num)"]          = "UserController/news_list/$1/$2";
+$route["news/page/(:num)"]                     = "UserController/news_list/$1";
+$route["news/(:any)"]                          = "UserController/news_list_target/$1";
+$route["news/(:any)/page/(:num)"]              = "UserController/news_list_target/$1/$2";
+
+
+
 $route["news-single/(:any)"]                   = "UserController/news_single/$1";
 $route["categories"]                           = "UserController/categories";
 $route["about"]                                = "UserController/about";
