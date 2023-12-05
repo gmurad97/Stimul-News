@@ -23,6 +23,7 @@ class UserController extends CI_Controller
     /*==========LOCAL USER CONTROLLER FUNCTION - ENDED==========*/
 
     /*==========GLOBAL USERS PAGES - START==========*/
+
     public function index()
     {
         $data["user_page_name"] = "Home";
@@ -55,21 +56,21 @@ class UserController extends CI_Controller
                     "s_status" => !$existing_subscriber["s_status"],
                 ];
                 $this->UserModel->subscribers_user_db_update($existing_subscriber["s_uid"], $data);
-                redirect($_SERVER["HTTP_REFERER"]);
+                redirect(base_url("home"));
             } else {
                 $data = [
                     "s_email" => $subscriber_email,
                     "s_status" => TRUE,
                 ];
                 $this->UserModel->subscribers_user_db_insert($data);
-                redirect($_SERVER["HTTP_REFERER"]);
+                redirect(base_url("home"));
             }
         } else {
-            redirect($_SERVER["HTTP_REFERER"]);
+            redirect(base_url("home"));
         }
     }
 
-    public function news_list()
+    public function news_list() //target 
     {
         $data["topbar"]["data"] = $this->topbarInfo();
         $data["topbar"]["options"] = json_decode($this->UserModel->topbar_user_db_get()["t_data"] ?? NULL, FALSE);
@@ -102,7 +103,7 @@ class UserController extends CI_Controller
             'cur_tag_close'    => '</a></li>',
         ];
         $data["user_page_name"] = "News";
-        $config["per_page"] = 1;
+        $config["per_page"] = 10;
         $config["uri_segment"] = 3;
         $config["use_page_numbers"] = TRUE;
         $current_page = !empty($this->uri->segment(3)) && !is_null($this->uri->segment(3)) && is_numeric($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
@@ -115,7 +116,15 @@ class UserController extends CI_Controller
         $this->load->view("users/contents/NewsList", $data);
     }
 
-    public function news_list_target($category_name)
+
+
+
+
+
+
+
+
+    public function news_list_target($category_name) //target
     {
         $data["topbar"]["data"] = $this->topbarInfo();
         $data["topbar"]["options"] = json_decode($this->UserModel->topbar_user_db_get()["t_data"] ?? NULL, FALSE);
@@ -164,13 +173,13 @@ class UserController extends CI_Controller
         if (is_null($uid_category_name) || empty($uid_category_name)) {
             redirect(base_url("news"));
         }
-        $config["per_page"] = 1;
+        $config["per_page"] = 10;
         $config["uri_segment"] = 4;
         $config["use_page_numbers"] = TRUE;
         $current_page = !empty($this->uri->segment(4)) && !is_null($this->uri->segment(4)) && is_numeric($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
         $page_offset = ($current_page - 1) * (int)$config["per_page"] < 0 ? 0 : ($current_page - 1) * (int)$config["per_page"];
         $data["news_list"] = $this->UserModel->news_pagination_user_db_get($config["per_page"], $page_offset, $uid_category_name);
-        $config["base_url"] = base_url("news/" . $category_name . "/page");
+        $config["base_url"] = base_url("news/" . $category_name . "page");
         $config["total_rows"] = $this->UserModel->news_count_user_db_get($uid_category_name);
         $this->load->library("pagination");
         $this->pagination->initialize($config);
@@ -189,7 +198,7 @@ class UserController extends CI_Controller
 
 
 
-    public function news_single($id)
+    public function news_single($id) //target
     {
         $data["topbar"]["data"] = $this->topbarInfo();
         $data["topbar"]["options"] = json_decode($this->UserModel->topbar_user_db_get()["t_data"] ?? NULL, FALSE);
@@ -213,7 +222,7 @@ class UserController extends CI_Controller
         $this->load->view("users/contents/SingleNews", $data);
     }
 
-    public function contacts()
+    public function contacts() //target
     {
         $data["user_page_name"] = "Contacts";
         $data["news_list"] = $this->UserModel->news_user_db_get(NULL);
@@ -238,7 +247,7 @@ class UserController extends CI_Controller
         $this->load->view("users/contents/Contacts", $data);
     }
 
-    public function about()
+    public function about() //target
     {
         $data["user_page_name"] = "About";
         $data["news_list"] = $this->UserModel->news_user_db_get(NULL);
@@ -263,7 +272,7 @@ class UserController extends CI_Controller
         $this->load->view("users/contents/About", $data);
     }
 
-    public function categories()
+    public function categories() //target
     {
         $data["user_page_name"] = "Categories";
         $data["news_list"] = $this->UserModel->news_user_db_get(NULL);
@@ -288,7 +297,7 @@ class UserController extends CI_Controller
         $this->load->view("users/contents/CategoryList", $data);
     }
 
-    public function maintenance()
+    public function maintenance() //target
     {
         $settings = json_decode($this->UserModel->settings_db_get()["s_data"] ?? NULL, FALSE);
         if ($settings->under_construction && !$this->session->userdata("admin_auth")) {
