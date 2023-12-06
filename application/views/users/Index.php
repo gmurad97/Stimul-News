@@ -50,7 +50,7 @@
                         <div class="blog_post blog_grid_overlay">
                             <div class="blog_img">
                                 <a href="javascript:void(0);">
-                                    <img width="370" height="550" style="object-fit: cover;" src="<?= base_url('file_manager/news/' . $news_item['n_preview_img']); ?>" alt="<?= htmlentities(base64_decode($news_title[$this->session->userdata('site_lang')])); ?>">
+                                    <img width="370" height="350" style="object-fit: cover;" src="<?= base_url('file_manager/news/' . $news_item['n_preview_img']); ?>" alt="<?= htmlentities(base64_decode($news_title[$this->session->userdata('site_lang')])); ?>">
                                 </a>
                             </div>
                             <div class="blog_content">

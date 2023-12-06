@@ -1740,7 +1740,7 @@ class AdminController extends CI_Controller
             );
             redirect(base_url("admin/slider-list"));
         } else if ($slider_type === "slider_custom") {
-            $slider_img_path = "./file_manager/slider/" . $slider_data["slider_info"]["slider_img"];
+            $slider_img_path = "./file_manager/slider/" . $slider_data["slider_img"];
             $slider_custom_text_en          = $this->input->post("slider_custom_text_en", TRUE);
             $slider_custom_text_az          = $this->input->post("slider_custom_text_az", TRUE);
             $slider_custom_text_ru          = $this->input->post("slider_custom_text_ru", TRUE);

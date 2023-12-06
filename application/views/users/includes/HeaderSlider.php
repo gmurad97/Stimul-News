@@ -51,10 +51,10 @@
                                             <div class="col-xl-6 col-md-8 col-sm-12">
                                                 <div class="banner_content">
                                                     <div class="blog_tags">
-                                                        <a href="<?= base_url('news/category/' . strtolower(htmlentities(base64_decode($flat_news_category_name["en"])))); ?>" class="blog_tags_cat" style="background-color: <?= $flat_news_target['c_bg_color'];  ?>;"><?= htmlentities(base64_decode($flat_news_category_name[$this->session->userdata("site_lang")])); ?></a>
+                                                        <a href="<?= base_url('news/' . strtolower(htmlentities(base64_decode($flat_news_category_name["en"])))); ?>" class="blog_tags_cat" style="background-color: <?= $flat_news_target['c_bg_color'];  ?>;"><?= htmlentities(base64_decode($flat_news_category_name[$this->session->userdata("site_lang")])); ?></a>
                                                     </div>
                                                     <h2 class="blog_heading">
-                                                        <a href="<?= base_url('news-single/' . $flat_news_target['n_uid']); ?>">
+                                                        <a href="<?= base_url('news-detail/' . $flat_news_target['n_uid']); ?>">
                                                             <?= htmlentities(base64_decode($flat_news_target_title[$this->session->userdata("site_lang")])); ?>
                                                         </a>
                                                     </h2>

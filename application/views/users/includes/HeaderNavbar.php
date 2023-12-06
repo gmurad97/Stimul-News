@@ -97,6 +97,12 @@
                             <?= $this->lang->line("contacts_navbar"); ?>
                         </a>
                     </li>
+                    <li>
+                        <a target="_blank" href="https://github.com/gmurad97" class="nav-link nav_item text-uppercase text-success">
+                            <i class="fab fa-github-alt"></i>
+                            gmurad97
+                        </a>
+                    </li>
                 </ul>
             </div>
         </nav>
