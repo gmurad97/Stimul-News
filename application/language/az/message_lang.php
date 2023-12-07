@@ -26,3 +26,4 @@ $lang["back_to_home"] = "Ana səhifə qayıt";
 $lang["address"] = "Ünvan";
 $lang["phone"] = "Telefon";
 $lang["email_address"] = "E-poçt Ünvanı";
+$lang["minutes"] = "Dəqiqə";

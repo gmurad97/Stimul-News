@@ -39,7 +39,7 @@
                         $flat_news_target_title = json_decode($flat_news_target["n_title"], TRUE);
                         $flat_news_target_full = json_decode($flat_news_target["n_full"], TRUE);
                         $averageReadingSpeed = 250;
-                        $wordCount = str_word_count(strip_tags(base64_decode($flat_news_target_full["en"])));
+                        $wordCount = str_word_count(strip_tags(base64_decode($flat_news_target_full[$this->session->userdata("site_lang")])));
                         $readingTimeMinutes = ceil($wordCount / $averageReadingSpeed);
                         $flat_news_category_name = json_decode($flat_news_target["c_name"], TRUE);
                         if (!empty($news_target) && !is_null($news_target)) :
@@ -74,7 +74,7 @@
                                                         <li>
                                                             <a href="javascript:void(0);">
                                                                 <i class="ion-android-stopwatch"></i>
-                                                                <span><?= $readingTimeMinutes; ?> minutes</span>
+                                                                <span><?= $readingTimeMinutes . " " . $this->lang->line("minutes"); ?></span>
                                                             </a>
                                                         </li>
                                                     </ul>

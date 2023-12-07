@@ -26,3 +26,4 @@ $lang["back_to_home"] = "Вернуться на главную";
 $lang["address"] = "Адрес";
 $lang["phone"] = "Телефон";
 $lang["email_address"] = "Адрес электронной почты";
+$lang["minutes"] = "Минут";

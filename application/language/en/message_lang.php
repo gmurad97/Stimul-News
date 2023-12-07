@@ -26,3 +26,4 @@ $lang["back_to_home"] = "Back To Home";
 $lang["address"] = "Address";
 $lang["phone"] = "Phone";
 $lang["email_address"] = "Email Address";
+$lang["minutes"] = "Minutes";
