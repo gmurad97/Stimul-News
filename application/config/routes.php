@@ -16,6 +16,7 @@ $route["news/(:any)"]                          = "UserController/news_list_targe
 $route["news/(:any)/page/(:num)"]              = "UserController/news_list_target/$1/$2";
 $route["news-detail/(:any)"]                   = "UserController/news_single/$1";
 $route["categories"]                           = "UserController/categories";
+$route["categories/page/(:num)"]               = "UserController/categories/$1";
 $route["about"]                                = "UserController/about";
 $route["contacts"]                             = "UserController/contacts";
 $route["maintenance"]                          = "UserController/maintenance";

@@ -103,7 +103,7 @@ class UserController extends CI_Controller
             'cur_tag_close'    => '</a></li>',
         ];
         $data["user_page_name"] = "News";
-        $config["per_page"] = 10;
+        $config["per_page"] = 2;
         $config["uri_segment"] = 3;
         $config["use_page_numbers"] = TRUE;
         $current_page = !empty($this->uri->segment(3)) && !is_null($this->uri->segment(3)) && is_numeric($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
@@ -173,16 +173,19 @@ class UserController extends CI_Controller
         if (is_null($uid_category_name) || empty($uid_category_name)) {
             redirect(base_url("news"));
         }
-        $config["per_page"] = 10;
+        $config["per_page"] = 2;
         $config["uri_segment"] = 4;
         $config["use_page_numbers"] = TRUE;
         $current_page = !empty($this->uri->segment(4)) && !is_null($this->uri->segment(4)) && is_numeric($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
         $page_offset = ($current_page - 1) * (int)$config["per_page"] < 0 ? 0 : ($current_page - 1) * (int)$config["per_page"];
         $data["news_list"] = $this->UserModel->news_pagination_user_db_get($config["per_page"], $page_offset, $uid_category_name);
-        $config["base_url"] = base_url("news/" . $category_name . "page");
+        $config["base_url"] = base_url("news/" . $category_name . "/page");
         $config["total_rows"] = $this->UserModel->news_count_user_db_get($uid_category_name);
         $this->load->library("pagination");
         $this->pagination->initialize($config);
+
+
+
         $this->load->view("users/contents/NewsList", $data);
     }
 
@@ -272,6 +275,15 @@ class UserController extends CI_Controller
         $this->load->view("users/contents/About", $data);
     }
 
+
+
+
+
+
+
+
+
+
     public function categories() //target
     {
         $data["user_page_name"] = "Categories";
@@ -283,7 +295,6 @@ class UserController extends CI_Controller
         $data["slider_list"] = $this->UserModel->slider_user_db_get();
         $data["contacts_data"] = json_decode($this->UserModel->contacts_user_db_get()["c_data"] ?? NULL, FALSE);
         $data["news_recent_three"] = $this->UserModel->news_user_db_get(3);
-        $data["categories_list"] = $this->UserModel->categories_user_db_get(NULL);
         $data["about_data"] = $this->UserModel->about_user_db_get();
         $data["settings"] = json_decode($this->UserModel->settings_db_get()["s_data"] ?? NULL, FALSE);
         $data["breadcrumb_data"] = [
@@ -294,8 +305,79 @@ class UserController extends CI_Controller
             ],
             "img_file_name" => "public/users/assets/images/breadcrumb/newsletters_bg.jpg"
         ];
+
+
+
+        $config = [
+            'first_link'       => '<i class="linearicons-arrow-left"></i>',
+            'last_link'        => '<i class="linearicons-arrow-right"></i>',
+            'next_link'        => FALSE,
+            'prev_link'        => FALSE,
+            'full_tag_open'    => '<div class="py-3 py-md-4 mt-2 mt-sm-0 mt-lg-5 border-top border-bottom"><ul class="pagination justify-content-center">',
+            'full_tag_close'   => '</ul></div>',
+            'first_tag_open'   => '<li class="page-item">',
+            'first_tag_close'  => '</li>',
+            'last_tag_open'    => '<li class="page-item">',
+            'last_tag_close'   => '</li>',
+            'next_tag_open'    => '<li class="page-item">',
+            'next_tag_close'   => '</li>',
+            'prev_tag_open'    => '<li class="page-item">',
+            'prev_tag_close'   => '</li>',
+            'num_tag_open'     => '<li class="page-item">',
+            'num_tag_close'    => '</li>',
+            'cur_tag_open'     => '<li class="page-item active"><a class="page-link" href="javascript:void(0);">',
+            'cur_tag_close'    => '</a></li>',
+        ];
+        $config["per_page"] = 2;
+        $config["uri_segment"] = 3;
+        $config["use_page_numbers"] = TRUE;
+
+
+        $current_page = !empty($this->uri->segment(3)) && !is_null($this->uri->segment(3)) && is_numeric($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+
+        $page_offset = ($current_page - 1) * (int)$config["per_page"] < 0 ? 0 : ($current_page - 1) * (int)$config["per_page"];
+
+        
+
+        $data["categories_list"] = $this->UserModel->categories_pagination_user_db_get($config["per_page"], $page_offset);
+        $config["first_url"] = base_url("categories");
+        $config["base_url"] = base_url("categories/page/");
+        $config["total_rows"] = $this->UserModel->categories_count_user_db_get();
+        $this->load->library("pagination");
+        $this->pagination->initialize($config);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         $this->load->view("users/contents/CategoryList", $data);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function maintenance() //target
     {

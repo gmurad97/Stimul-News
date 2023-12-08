@@ -156,5 +156,32 @@ class UserModel extends CI_Model
             ->get("settings", 1)
             ->row_array();
     }
+
+
+
+
+
+
+
+
+
+
+    public function categories_pagination_user_db_get($limit, $offset)
+    {
+        return $this->db
+            ->order_by("c_uid", "DESC")
+            ->limit($limit, $offset)
+            ->where("c_status", TRUE)
+            ->get("categories")
+            ->result_array();
+    }
+
+    public function categories_count_user_db_get()
+    {
+        return $this->db
+            ->where('c_status', TRUE)
+            ->from('categories')
+            ->count_all_results();
+    }
     /*==========CRUD MODEL - ENDED==========*/
 }

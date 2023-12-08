@@ -6,6 +6,9 @@
 $news_title = json_decode($news_single_data["n_title"], TRUE);
 $news_full = json_decode($news_single_data["n_full"], TRUE);
 $news_category_name = json_decode($news_single_data["c_name"], TRUE);
+$averageReadingSpeed = 250;
+$wordCount = str_word_count(strip_tags(base64_decode($news_full[$this->session->userdata("site_lang")])));
+$readingTimeMinutes = ceil($wordCount / $averageReadingSpeed);
 ?>
 <div class="section">
     <div class="container">
@@ -13,9 +16,9 @@ $news_category_name = json_decode($news_single_data["c_name"], TRUE);
             <div class="col-12">
                 <div class="single_post">
                     <div class="blog_img">
-                        <img src="<?= base_url('file_manager/news/' . $news_single_data['n_preview_img']); ?>" alt="<?= htmlentities(base64_decode($news_title['en'])); ?>">
+                        <img style="object-fit: cover;" src="<?= base_url('file_manager/news/' . $news_single_data['n_preview_img']); ?>" alt="<?= htmlentities(base64_decode($news_title[$this->session->userdata("site_lang")])); ?>">
                         <div class="blog_tags">
-                            <a class="blog_tags_cat" style="background-color: <?= $news_single_data["c_bg_color"]; ?>;" href="<?= base_url('news/category/' . strtolower(htmlentities(base64_decode($news_category_name['en'])))); ?>"><?= htmlentities(base64_decode($news_category_name[$this->session->userdata("site_lang")])); ?></a>
+                            <a class="blog_tags_cat" style="background-color: <?= $news_single_data["c_bg_color"]; ?>;" href="<?= base_url('news/' . strtolower(htmlentities(base64_decode($news_category_name['en'])))); ?>"><?= htmlentities(base64_decode($news_category_name[$this->session->userdata("site_lang")])); ?></a>
                         </div>
                     </div>
                     <div class="blog_content">
@@ -26,6 +29,18 @@ $news_category_name = json_decode($news_single_data["c_name"], TRUE);
                                     <a href="javascript:void(0);">
                                         <i class="far fa-calendar-alt"></i>
                                         <?= $news_single_data["n_created_date"] ?>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">
+                                        <i class="far fa-clock"></i>
+                                        <span><?= $news_single_data["n_created_time"]; ?></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">
+                                        <i class="ion-android-stopwatch"></i>
+                                        <span><?= $readingTimeMinutes . " " . $this->lang->line("minutes"); ?></span>
                                     </a>
                                 </li>
                             </ul>

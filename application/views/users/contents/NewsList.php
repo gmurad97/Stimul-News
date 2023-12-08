@@ -11,12 +11,16 @@
                         <?php
                         $news_item_title = json_decode($news_item["n_title"], TRUE);
                         $news_item_short = json_decode($news_item["n_short"], TRUE);
+                        $news_item_full = json_decode($news_item["n_full"], TRUE);
                         $news_item_category = json_decode($news_item["c_name"], TRUE);
+                        $averageReadingSpeed = 250;
+                        $wordCount = str_word_count(strip_tags(base64_decode($news_item_full[$this->session->userdata("site_lang")])));
+                        $readingTimeMinutes = ceil($wordCount / $averageReadingSpeed);
                         ?>
                         <div class="blog_post d-flex flex-row align-items-center">
                             <div class="col-lg-6">
                                 <div class="blog_img" style="width: 100% !important;">
-                                    <a href="<?= base_url('news-single/' . $news_item['n_uid']); ?>">
+                                    <a href="<?= base_url('news-detail/' . $news_item['n_uid']); ?>">
                                         <img style="width: 100%; height: 333px; object-fit: cover;" src="<?= base_url('file_manager/news/' . $news_item['n_preview_img']); ?>" alt="<?= htmlentities(base64_decode($news_item_title[$this->session->userdata('site_lang')])); ?>">
                                     </a>
                                 </div>
@@ -25,10 +29,10 @@
                                 <div class="blog_content">
                                     <div class="blog_text">
                                         <div class="blog_tags">
-                                            <a class="blog_tags_cat" style="background-color: <?= $news_item['c_bg_color']; ?>;" href="<?= base_url('news/category/' . strtolower(htmlentities(base64_decode($news_item_category['en'])))); ?>"><?= htmlentities(base64_decode($news_item_category[$this->session->userdata('site_lang')])); ?></a>
+                                            <a class="blog_tags_cat" style="background-color: <?= $news_item['c_bg_color']; ?>;" href="<?= base_url('news/' . strtolower(htmlentities(base64_decode($news_item_category['en'])))); ?>"><?= htmlentities(base64_decode($news_item_category[$this->session->userdata('site_lang')])); ?></a>
                                         </div>
                                         <h5 class="blog_heading">
-                                            <a href="<?= base_url('news-single/' . $news_item['n_uid']); ?>"><?= htmlentities(base64_decode($news_item_title[$this->session->userdata('site_lang')])); ?></a>
+                                            <a href="<?= base_url('news-detail/' . $news_item['n_uid']); ?>"><?= htmlentities(base64_decode($news_item_title[$this->session->userdata('site_lang')])); ?></a>
                                         </h5>
                                         <ul class="blog_meta">
                                             <li>
@@ -37,11 +41,23 @@
                                                     <span><?= $news_item["n_created_date"]; ?></span>
                                                 </a>
                                             </li>
+                                            <li>
+                                                <a href="javascript:void(0);">
+                                                    <i class="far fa-clock"></i>
+                                                    <span><?= $news_item["n_created_time"]; ?></span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">
+                                                    <i class="ion-android-stopwatch"></i>
+                                                    <span><?= $readingTimeMinutes . " " . $this->lang->line("minutes"); ?></span>
+                                                </a>
+                                            </li>
                                         </ul>
                                         <p>
                                             <?= htmlentities(base64_decode($news_item_short[$this->session->userdata('site_lang')])); ?>
                                         </p>
-                                        <a href="<?= base_url('news-single/' . $news_item['n_uid']); ?>" class="btn btn-dark btn-sm"><?= $this->lang->line("read_more"); ?></a>
+                                        <a href="<?= base_url('news-detail/' . $news_item['n_uid']); ?>" class="btn btn-dark btn-sm"><?= $this->lang->line("read_more"); ?></a>
                                     </div>
                                 </div>
                             </div>

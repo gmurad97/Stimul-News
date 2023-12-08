@@ -32,13 +32,13 @@
                                     <li>
                                         <div class="post_footer">
                                             <div class="post_img">
-                                                <a href="<?= base_url('news-single/' . $news_item['n_uid']); ?>">
-                                                    <img style="width:70px;height:70px;object-fit: cover;" class="rounded-circle" src="<?= base_url('file_manager/news/' . $news_item['n_preview_img']); ?>" alt="Latest News #1">
+                                                <a href="<?= base_url('news-detail/' . $news_item['n_uid']); ?>">
+                                                    <img width="70" height="70" style="object-fit: cover;" class="rounded-circle" src="<?= base_url('file_manager/news/' . $news_item['n_preview_img']); ?>" alt="Recent News">
                                                 </a>
                                             </div>
                                             <div class="post_content">
                                                 <h6>
-                                                    <a href="<?= base_url('news-single/' . $news_item['n_uid']); ?>"><?= htmlentities(base64_decode($news_title[$this->session->userdata("site_lang")])); ?></a>
+                                                    <a href="<?= base_url('news-detail/' . $news_item['n_uid']); ?>"><?= htmlentities(base64_decode($news_title[$this->session->userdata("site_lang")])); ?></a>
                                                 </h6>
                                                 <p class="small m-0"><?= $news_item["n_created_date"]; ?></p>
                                             </div>
