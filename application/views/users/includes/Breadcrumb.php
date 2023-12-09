@@ -1,34 +1,25 @@
-<div class="section breadcrumb_section background_bg overlay_bg_80 page_title_light" data-img-src="<?= str_contains($this->uri->uri_string(), 'category') ? base_url('file_manager/categories/' . $breadcrumb_data["img_file_name"]) : base_url('public/user/assets/images/breadcrumb/newsletters_bg.jpg'); ?>">
+<div class="section breadcrumb_section background_bg overlay_bg_80 page_title_light" data-img-src="<?= $breadcrumb_data['img_file_name']; ?>">
     <div class="container">
         <div class="row d-flex flex-row align-items-center">
             <div class="col-md-6">
                 <div class="page-title">
-                    <h1><?= isset($breadcrumb_data["page_name"]) ? htmlentities(base64_decode($breadcrumb_data["page_name"][$this->session->userdata("site_lang")])) : $this->lang->line("all_news"); ?></h1>
+                    <h1 class="text-truncate">
+                        <?= $breadcrumb_data["page_name"]; ?>
+                    </h1>
                 </div>
             </div>
             <div class="col-md-6">
                 <ol class="breadcrumb justify-content-md-end">
-                    <li class="breadcrumb-item">
-                        <a href="<?= base_url('home'); ?>">Home</a>
-                    </li>
 
-
-
-                    <?php $combine_segment = ""; ?>
-                    <?php foreach ($this->uri->segment_array() as $current_index => $current_segment) : ?>
-                        <?php $combine_segment .= ($current_index === 1) ? $current_segment : "/" . $current_segment; ?>
-                        <li class="breadcrumb-item">
-                            <a href="<?= base_url($combine_segment); ?>">
-                                <?php if (!is_numeric($current_segment)) : ?>
-                                    <?= ucfirst($current_segment); ?>
-                                <?php elseif (is_numeric($current_segment) || str_contains($combine_segment, "news-signle")) : ?>
-                                    <?= "This not page this is id #" . ucfirst($current_segment); ?>
-                                <?php elseif (is_numeric($current_segment) || !str_contains($combine_segment, "news-signle")) : ?>
-                                    <?= "THIS IS Page #" . ucfirst($current_segment); ?>
-                                <?php endif; ?>
-                            </a>
+                    <?php foreach ($breadcrumb_data["segment"] as $breadcrumb_segment_name => $breadcrumb_segment_url) : ?>
+                        <li class="breadcrumb-item text-truncate" style="max-width: 256px;">
+                            <a href="<?= $breadcrumb_segment_url; ?>"><?= $breadcrumb_segment_name; ?></a>
                         </li>
                     <?php endforeach; ?>
+
+
+
+
 
 
 

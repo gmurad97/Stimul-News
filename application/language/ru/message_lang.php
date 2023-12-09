@@ -27,3 +27,7 @@ $lang["address"] = "Адрес";
 $lang["phone"] = "Телефон";
 $lang["email_address"] = "Адрес электронной почты";
 $lang["minutes"] = "Минут";
+
+$lang["breadcrumb_home"] = "Главная";
+$lang["breadcrumb_news"] = "Новости";
+$lang["breadcrumb_all_news"] = "Все новости";

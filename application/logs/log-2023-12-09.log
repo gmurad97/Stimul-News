@@ -1,0 +1,27 @@
+ERROR - 2023-12-09 05:20:59 --> Severity: Warning --> Trying to access array offset on value of type bool C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 170
+ERROR - 2023-12-09 05:20:59 --> Severity: Warning --> Trying to access array offset on value of type bool C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 171
+ERROR - 2023-12-09 06:37:48 --> Severity: Warning --> Undefined variable $breadcrumb_category C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 92
+ERROR - 2023-12-09 06:37:48 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 92
+ERROR - 2023-12-09 06:37:48 --> Severity: Warning --> Undefined variable $breadcrumb_category C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 96
+ERROR - 2023-12-09 06:37:48 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 96
+ERROR - 2023-12-09 06:38:23 --> Severity: Warning --> Undefined variable $breadcrumb_category C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 96
+ERROR - 2023-12-09 06:38:23 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 96
+ERROR - 2023-12-09 06:38:23 --> Severity: error --> Exception: Cannot access offset of type string on string C:\OSPanel\domains\stimul.news\application\views\users\includes\Breadcrumb.php 6
+ERROR - 2023-12-09 06:38:38 --> Severity: error --> Exception: Cannot access offset of type string on string C:\OSPanel\domains\stimul.news\application\views\users\includes\Breadcrumb.php 6
+ERROR - 2023-12-09 06:38:42 --> Severity: error --> Exception: Cannot access offset of type string on string C:\OSPanel\domains\stimul.news\application\views\users\includes\Breadcrumb.php 6
+ERROR - 2023-12-09 06:38:58 --> Severity: error --> Exception: Cannot access offset of type string on string C:\OSPanel\domains\stimul.news\application\views\users\includes\Breadcrumb.php 6
+ERROR - 2023-12-09 06:39:29 --> Severity: error --> Exception: Cannot access offset of type string on string C:\OSPanel\domains\stimul.news\application\views\users\includes\Breadcrumb.php 6
+ERROR - 2023-12-09 07:10:37 --> Could not find the language line "breadcrumb_all_news"
+ERROR - 2023-12-09 07:10:37 --> Could not find the language line "breadcrumb_home"
+ERROR - 2023-12-09 07:10:37 --> Could not find the language line "breadcrumb_news"
+ERROR - 2023-12-09 07:11:10 --> Could not find the language line "breadcrumb_all_news"
+ERROR - 2023-12-09 07:11:10 --> Could not find the language line "breadcrumb_home"
+ERROR - 2023-12-09 07:11:10 --> Could not find the language line "breadcrumb_news"
+ERROR - 2023-12-09 07:39:38 --> Severity: error --> Exception: Illegal offset type C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 185
+ERROR - 2023-12-09 07:39:40 --> Severity: error --> Exception: Illegal offset type C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 185
+ERROR - 2023-12-09 07:40:17 --> Severity: error --> Exception: Illegal offset type C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 185
+ERROR - 2023-12-09 08:10:53 --> Could not find the language line "breadcrumb_contacts"
+ERROR - 2023-12-09 08:10:53 --> Could not find the language line "breadcrumb_contacts"
+ERROR - 2023-12-09 08:10:58 --> Could not find the language line "breadcrumb_contacts"
+ERROR - 2023-12-09 08:10:58 --> Could not find the language line "breadcrumb_home"
+ERROR - 2023-12-09 08:10:58 --> Could not find the language line "breadcrumb_contacts"
