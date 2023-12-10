@@ -28,12 +28,12 @@ class ErrorController extends CI_Controller
             $this->output->set_status_header(404);
             $this->load->view("admins/Error404", $data);
         } else {
-            $branding_data_uid = $this->UserModel->table_row_id("branding", "b_uid");
-            $topbar_data_uid = $this->UserModel->table_row_id("topbar", "t_uid");
             $data["user_page_name"] = "Page Not Found";
-            $data["topbar"]["data"] = $this->topbarInfo();
-            $data["topbar"]["options"] = json_decode($this->UserModel->topbar_user_db_get($topbar_data_uid)["t_data"] ?? NULL, FALSE);
-            $data["branding_data"] = json_decode($this->UserModel->branding_user_db_get($branding_data_uid)["b_data"] ?? NULL, FALSE);
+            $data["topbar"] = [
+                "data" => $this->topbarInfo(),
+                "options" => json_decode($this->UserModel->topbar_user_db_get()["t_data"] ?? NULL, FALSE)
+            ];
+            $data["branding_data"] = json_decode($this->UserModel->branding_user_db_get()["b_data"] ?? NULL, FALSE);
             $data["categories_nav_ul"] = $this->UserModel->categories_user_db_get(5);
             $data["news_recent_three"] = $this->UserModel->news_user_db_get(3);
             $data["contacts_data"] = json_decode($this->UserModel->contacts_user_db_get()["c_data"] ?? NULL, FALSE);

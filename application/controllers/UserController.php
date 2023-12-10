@@ -329,7 +329,7 @@ class UserController extends CI_Controller
             'cur_tag_open'     => '<li class="page-item active"><a class="page-link" href="javascript:void(0);">',
             'cur_tag_close'    => '</a></li>',
         ];
-        $config["per_page"] = 2;
+        $config["per_page"] = 9;
         $config["uri_segment"] = 3;
         $config["use_page_numbers"] = TRUE;
         $config["first_url"] = base_url("categories");
