@@ -10,21 +10,11 @@
             </div>
             <div class="col-md-6">
                 <ol class="breadcrumb justify-content-md-end">
-
                     <?php foreach ($breadcrumb_data["segment"] as $breadcrumb_segment_name => $breadcrumb_segment_url) : ?>
                         <li class="breadcrumb-item text-truncate" style="max-width: 256px;">
                             <a href="<?= $breadcrumb_segment_url; ?>"><?= $breadcrumb_segment_name; ?></a>
                         </li>
                     <?php endforeach; ?>
-
-
-
-
-
-
-
-
-
                 </ol>
             </div>
         </div>

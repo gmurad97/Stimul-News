@@ -286,21 +286,14 @@ class UserController extends CI_Controller
         $this->load->view("users/contents/About", $data);
     }
 
-
-
-
-
-
-
-
-
-
-    public function categories() //target
+    public function categories()
     {
         $data["user_page_name"] = "Categories";
         $data["news_list"] = $this->UserModel->news_user_db_get(NULL);
-        $data["topbar"]["data"] = $this->topbarInfo();
-        $data["topbar"]["options"] = json_decode($this->UserModel->topbar_user_db_get()["t_data"] ?? NULL, FALSE);
+        $data["topbar"] = [
+            "data" => $this->topbarInfo(),
+            "options" => json_decode($this->UserModel->topbar_user_db_get()["t_data"] ?? NULL, FALSE)
+        ];
         $data["branding_data"] = json_decode($this->UserModel->branding_user_db_get()["b_data"] ?? NULL, FALSE);
         $data["categories_nav_ul"] = $this->UserModel->categories_user_db_get(5);
         $data["slider_list"] = $this->UserModel->slider_user_db_get();
@@ -309,16 +302,13 @@ class UserController extends CI_Controller
         $data["about_data"] = $this->UserModel->about_user_db_get();
         $data["settings"] = json_decode($this->UserModel->settings_db_get()["s_data"] ?? NULL, FALSE);
         $data["breadcrumb_data"] = [
-            "page_name" => [
-                "en" => base64_encode("Categories"),
-                "ru" => base64_encode("Категории"),
-                "az" => base64_encode("Kateqoriyalar")
+            "page_name" => $this->lang->line("breadcrumb_categories"),
+            "segment" => [
+                $this->lang->line("breadcrumb_home") => base_url("home"),
+                $this->lang->line("breadcrumb_categories") => base_url("categories")
             ],
-            "img_file_name" => "public/users/assets/images/breadcrumb/newsletters_bg.jpg"
+            "img_file_name" => base_url("public/user/assets/images/breadcrumb/travel_bg.jpg")
         ];
-
-
-
         $config = [
             'first_link'       => '<i class="linearicons-arrow-left"></i>',
             'last_link'        => '<i class="linearicons-arrow-right"></i>',
@@ -342,55 +332,18 @@ class UserController extends CI_Controller
         $config["per_page"] = 2;
         $config["uri_segment"] = 3;
         $config["use_page_numbers"] = TRUE;
-
-
-        $current_page = !empty($this->uri->segment(3)) && !is_null($this->uri->segment(3)) && is_numeric($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-
-        $page_offset = ($current_page - 1) * (int)$config["per_page"] < 0 ? 0 : ($current_page - 1) * (int)$config["per_page"];
-
-
-
-        $data["categories_list"] = $this->UserModel->categories_pagination_user_db_get($config["per_page"], $page_offset);
         $config["first_url"] = base_url("categories");
         $config["base_url"] = base_url("categories/page/");
         $config["total_rows"] = $this->UserModel->categories_count_user_db_get();
+        $current_page = $this->uri->segment(3, 0);
+        $page_offset = max(($current_page - 1) * (int)$config["per_page"], 0);
+        $data["categories_list"] = $this->UserModel->categories_pagination_user_db_get($config["per_page"], $page_offset);
         $this->load->library("pagination");
         $this->pagination->initialize($config);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         $this->load->view("users/contents/CategoryList", $data);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public function maintenance() //target
+    public function maintenance()
     {
         $settings = json_decode($this->UserModel->settings_db_get()["s_data"] ?? NULL, FALSE);
         if ($settings->under_construction && !$this->session->userdata("admin_auth")) {

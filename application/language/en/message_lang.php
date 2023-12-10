@@ -27,9 +27,9 @@ $lang["address"] = "Address";
 $lang["phone"] = "Phone";
 $lang["email_address"] = "Email Address";
 $lang["minutes"] = "Minutes";
-
 $lang["breadcrumb_home"] = "Home";
 $lang["breadcrumb_news"] = "News";
 $lang["breadcrumb_all_news"] = "All News";
 $lang["breadcrumb_contacts"] = "Contacts";
 $lang["breadcrumb_about"] = "About Us";
+$lang["breadcrumb_categories"] = "Categories";
