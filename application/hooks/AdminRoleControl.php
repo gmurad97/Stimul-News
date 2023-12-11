@@ -39,6 +39,7 @@ class AdminRoleControl
             "admin/gallery",
             "admin/news",
             "admin/gpt",
+            "admin/api",
             "admin/profile",
             "admin/logout",
         ];
