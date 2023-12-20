@@ -1,6 +1,15 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+/**
+ * AUTHOR:         Murad Gazymagomedov
+ * USERNAME:       GMURAD97 || ASProgerHack
+ * VERSION:        3.1
+ * LOCAL SERVER:   OPENSERVER 5.4.3
+ * SERVER VERSION: APACHE 2.4 + PHP 8.0-8.1 + NGINX 1.23
+ * PHP VERSION:    PHP 8.0
+ **/
+
 class ErrorController extends CI_Controller
 {
     public function __construct()
@@ -9,10 +18,11 @@ class ErrorController extends CI_Controller
         $this->load->model("AdminModel");
         $this->load->model("UserModel");
     }
+
     public function topbarInfo()
     {
         date_default_timezone_set("Asia/Baku");
-        $weather = json_decode(file_get_contents("https://api.weatherapi.com/v1/current.json?key=83de84c69a3749b89c0221349232611&q=Baku&aqi=no"));
+        $weather = json_decode(file_get_contents("https://api.weatherapi.com/v1/current.json?key=78d1f17f9cc84a38915151913232012&q=Baku&aqi=no"));
         return (object) [
             "date" => date("d.m.Y"),
             "time" => date("H:i"),
