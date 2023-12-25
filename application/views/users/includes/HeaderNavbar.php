@@ -51,7 +51,7 @@
                 <span class="ion-android-menu"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav align-items-center">
                     <li>
                         <a href="<?= base_url('home'); ?>" class="nav-link nav_item <?= $this->uri->segment(1) == 'home' || $this->uri->segment(1) == '' ? 'active' : ''; ?>">
                             <?= $this->lang->line("home_navbar"); ?>
@@ -69,21 +69,21 @@
                         </a>
                         <div class="dropdown-menu">
                             <ul>
+                                <li>
+                                    <a href="<?= base_url('categories'); ?>" class="dropdown-item nav-link nav_item <?= $this->uri->segment(1) == 'categories' ? 'active' : ''; ?>">
+                                        <i class="<?= $this->uri->segment(1) == 'categories' ? 'fas fa-circle' : 'far fa-circle'; ?>"></i>
+                                        <span style="font-weight: bold;"><?= $this->lang->line("categories_navbar_all"); ?></span>
+                                    </a>
+                                </li>
                                 <?php foreach ($categories_nav_ul as $category_item) : ?>
                                     <?php $category_name =  htmlentities(base64_decode(json_decode($category_item["c_name"], TRUE)[$this->session->userdata("site_lang")])); ?>
                                     <li>
                                         <a href="<?= base_url('news/' . strtolower(htmlentities(base64_decode(json_decode($category_item["c_name"], TRUE)['en'])))); ?>" class="dropdown-item nav-link nav_item <?= $this->uri->segment(2) == strtolower($category_name) ? 'active' : ''; ?>">
-                                            <i class="far fa-circle"></i>
+                                            <i class="<?= $this->uri->segment(2) == strtolower($category_name) ? 'fas fa-circle' : 'far fa-circle'; ?>"></i>
                                             <?= $category_name; ?>
                                         </a>
                                     </li>
                                 <?php endforeach; ?>
-                                <li>
-                                    <a href="<?= base_url('categories'); ?>" class="dropdown-item nav-link nav_item <?= $this->uri->segment(1) == 'categories' ? 'active' : ''; ?>">
-                                        <i class="fas fa-circle"></i>
-                                        <?= $this->lang->line("categories_navbar_all"); ?>
-                                    </a>
-                                </li>
                             </ul>
                         </div>
                     </li>
@@ -99,8 +99,7 @@
                     </li>
                     <li>
                         <a target="_blank" href="https://github.com/gmurad97" class="nav-link nav_item text-uppercase text-success">
-                            <i class="fab fa-github-alt"></i>
-                            gmurad97
+                            <i class="fab fa-github-alt" style="font-size: 22px;"></i>
                         </a>
                     </li>
                 </ul>

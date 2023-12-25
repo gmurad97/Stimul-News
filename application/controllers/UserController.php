@@ -238,12 +238,11 @@ class UserController extends CI_Controller
             ],
             "img_file_name" => base_url("file_manager/news/" . $data["news_single_data"]["n_preview_img"])
         ];
-
-
-        if (!is_null($data["news_single_data"]))
+        if (!empty($data["news_single_data"])) {
             $this->load->view("users/contents/SingleNews", $data);
-        else
-            redirect(base_url("home"));
+        } else {
+            redirect(base_url("news"));
+        }
     }
 
     public function contacts()
