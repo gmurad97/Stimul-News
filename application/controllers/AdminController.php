@@ -27,7 +27,7 @@ class AdminController extends CI_Controller
     /*=====LOCAL ADMIN CONTROLLER FUNCTION - START=====*/
     protected function SendEmail(array $eTo, string $eSubject, string $eMessage): bool
     {
-        $eFrom = "murad.dev@carsleon.com";
+        $eFrom = "murad.fswd@carsleon.com";
         $eFromName = "STIMUL NEWS";
         $this->email->clear();
         $this->email->from($eFrom, $eFromName);

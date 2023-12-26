@@ -7,7 +7,6 @@ $route["switch-lang/(:any)"]                   = "LanguageSwitcher/SwitchLang/$1
 $route["translate_uri_dashes"]                 = FALSE;
 
 /*==========USER CONTROLLER - START==========*/
-
 $route["subscribe-action"]                     = "UserController/crud_subscribe_action";
 $route["home"]                                 = "UserController/index";
 $route["news"]                                 = "UserController/news_list";
@@ -20,13 +19,10 @@ $route["categories/page/(:num)"]               = "UserController/categories/$1";
 $route["about"]                                = "UserController/about";
 $route["contacts"]                             = "UserController/contacts";
 $route["maintenance"]                          = "UserController/maintenance";
-
+$route["feedback-submit"]                      = "UserController/feedback_submit_action";
 /*==========USER CONTROLLER - ENDED==========*/
 
-
-
 /*==========ADMIN CONTROLLER - START==========*/
-
 $route["admin"]                                = "AdminController/dashboard";
 $route["admin/dashboard"]                      = "AdminController/dashboard";
 

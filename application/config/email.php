@@ -6,12 +6,12 @@ $config["protocol"]    = "smtp";
 $config["smtp_host"]   = "smtp.titan.email";
 $config["smtp_port"]   = 465;
 $config["smtp_crypto"] = "ssl";
-$config["smtp_user"]   = "murad.dev@carsleon.com";
-$config["smtp_pass"]   = "murad.dev123456789!";
+$config["smtp_user"]   = "murad.fswd@carsleon.com";
+$config["smtp_pass"]   = "murad.fswd123456789!";
 /*=====ENDED - IMPORTANT MAIL SETTINGS=====*/
 
 /*=====START - NOT IMPORTANT MAIL SETTINGS=====*/
-$config["useragent"]   = "StimulNewsClient-v3.1";
+$config["useragent"]   = "StimulNewsClient-v3.2";
 $config["wordwrap"]    = TRUE;
 $config["mailtype"]    = "HTML";
 $config["charset"]     = "UTF-8";

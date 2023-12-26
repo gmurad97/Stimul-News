@@ -54,33 +54,6 @@ class UserController extends CI_Controller
         $this->load->view("users/Index", $data);
     }
 
-    public function crud_subscribe_action()
-    {
-        $subscriber_email = $this->input->post("subscriber_email", TRUE);
-        $subscribers_data = $this->UserModel->subscribers_user_db_get();
-        if (filter_var($subscriber_email, FILTER_VALIDATE_EMAIL)) {
-            $existing_subscriber_key = array_search($subscriber_email, array_column($subscribers_data, "s_email"));
-            if ($existing_subscriber_key !== FALSE) {
-                $existing_subscriber = $subscribers_data[$existing_subscriber_key];
-                $data = [
-                    "s_email" => $subscriber_email,
-                    "s_status" => !$existing_subscriber["s_status"],
-                ];
-                $this->UserModel->subscribers_user_db_update($existing_subscriber["s_uid"], $data);
-                redirect(base_url("home"));
-            } else {
-                $data = [
-                    "s_email" => $subscriber_email,
-                    "s_status" => TRUE,
-                ];
-                $this->UserModel->subscribers_user_db_insert($data);
-                redirect(base_url("home"));
-            }
-        } else {
-            redirect(base_url("home"));
-        }
-    }
-
     public function news_list()
     {
         $data["user_page_name"] = "News";
@@ -366,4 +339,39 @@ class UserController extends CI_Controller
         }
     }
     /*=====GLOBAL USERS PAGES - ENDED=====*/
+
+
+
+
+
+    public function crud_subscribe_action()
+    {
+        $subscriber_email = $this->input->post("subscriber_email", TRUE);
+        $subscribers_data = $this->UserModel->subscribers_user_db_get();
+        if (filter_var($subscriber_email, FILTER_VALIDATE_EMAIL)) {
+            $existing_subscriber_key = array_search($subscriber_email, array_column($subscribers_data, "s_email"));
+            if ($existing_subscriber_key !== FALSE) {
+                $existing_subscriber = $subscribers_data[$existing_subscriber_key];
+                $data = [
+                    "s_email" => $subscriber_email,
+                    "s_status" => !$existing_subscriber["s_status"],
+                ];
+                $this->UserModel->subscribers_user_db_update($existing_subscriber["s_uid"], $data);
+                redirect(base_url("home"));
+            } else {
+                $data = [
+                    "s_email" => $subscriber_email,
+                    "s_status" => TRUE,
+                ];
+                $this->UserModel->subscribers_user_db_insert($data);
+                redirect(base_url("home"));
+            }
+        } else {
+            redirect(base_url("home"));
+        }
+    }
+
+    public function feedback_submit_action(){
+        $varka = $this->input->post("",TRUE);
+    }
 }
