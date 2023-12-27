@@ -78,6 +78,7 @@
             <div class="col-md-10">
                 <div class="field_form">
                     <form action="<?= base_url('feedback-submit'); ?>" method="POST" enctype="application/x-www-form-urlencoded">
+                        <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>">
                         <div class="row">
                             <div class="form-group col-md-4">
                                 <label for="feedback_first_name_label">

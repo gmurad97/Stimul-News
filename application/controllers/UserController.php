@@ -371,7 +371,27 @@ class UserController extends CI_Controller
         }
     }
 
-    public function feedback_submit_action(){
-        $varka = $this->input->post("",TRUE);
+    public function feedback_submit_action()
+    {
+        $feedback_first_name = $this->input->post("feedback_first_name", TRUE);
+        $feedback_last_name  = $this->input->post("feedback_last_name", TRUE);
+        $feedback_email      = $this->input->post("feedback_email", TRUE);
+        $feedback_message    = $this->input->post("feedback_message", TRUE);
+
+        if (!empty($feedback_first_name) && !empty($feedback_last_name) && !empty($feedback_email) && !empty($feedback_message)) {
+            
+            $data = [
+                "f_first_name" => $feedback_first_name,
+                "f_last_name"  => $feedback_last_name,
+                "f_email"      => $feedback_email,
+                "f_message"    => $feedback_message,
+                "f_date"       => date("d.m.Y"),
+                "f_time"       => date("H:i:s")
+            ];
+            $this->UserModel->feedback_db_insert($data);
+            redirect(base_url("contacts"));
+        } else {
+            redirect(base_url("contacts"));
+        }
     }
 }

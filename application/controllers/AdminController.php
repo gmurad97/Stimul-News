@@ -515,12 +515,13 @@ class AdminController extends CI_Controller
     }
     /*=====GLOBAL ADMIN FUNCTION - ENDED=====*/
 
-    /*=====DASHBOARD - START=====*/
+    /*=====DASHBOARD - START=====----------------------------------*/
     public function dashboard()
     {
         $data["admin_page_name"] = "Dashboard";
         $data["crypto_price"] = $this->CryptoPrice(3);
         $data["fiat_price"] = $this->FiatPrice(["AZN", "RUB", "EUR"]);
+        $data["feedback_data"] = $this->AdminModel->feedback_admin_db_get();
         $this->load->view("admins/Dashboard", $data);
     }
     /*=====DASHBOARD - ENDED=====*/

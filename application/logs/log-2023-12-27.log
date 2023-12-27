@@ -1,0 +1,102 @@
+ERROR - 2023-12-27 07:21:04 --> Severity: Warning --> Undefined variable $partners_data_item C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 120
+ERROR - 2023-12-27 07:21:04 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 120
+ERROR - 2023-12-27 07:21:04 --> Severity: Warning --> Undefined variable $partners_data_item C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 123
+ERROR - 2023-12-27 07:21:04 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 123
+ERROR - 2023-12-27 20:28:49 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 203
+ERROR - 2023-12-27 20:28:49 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 203
+ERROR - 2023-12-27 20:28:49 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 204
+ERROR - 2023-12-27 20:28:49 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 204
+ERROR - 2023-12-27 20:28:49 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 210
+ERROR - 2023-12-27 20:28:49 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 212
+ERROR - 2023-12-27 20:28:50 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 203
+ERROR - 2023-12-27 20:28:50 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 203
+ERROR - 2023-12-27 20:28:50 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 204
+ERROR - 2023-12-27 20:28:50 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 204
+ERROR - 2023-12-27 20:28:50 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 210
+ERROR - 2023-12-27 20:28:50 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 212
+ERROR - 2023-12-27 20:28:51 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 203
+ERROR - 2023-12-27 20:28:51 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 203
+ERROR - 2023-12-27 20:28:51 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 204
+ERROR - 2023-12-27 20:28:51 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 204
+ERROR - 2023-12-27 20:28:51 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 210
+ERROR - 2023-12-27 20:28:51 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 212
+ERROR - 2023-12-27 20:28:51 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 203
+ERROR - 2023-12-27 20:28:51 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 203
+ERROR - 2023-12-27 20:28:51 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 204
+ERROR - 2023-12-27 20:28:51 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 204
+ERROR - 2023-12-27 20:28:51 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 210
+ERROR - 2023-12-27 20:28:51 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 212
+ERROR - 2023-12-27 20:29:09 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 203
+ERROR - 2023-12-27 20:29:09 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 203
+ERROR - 2023-12-27 20:29:09 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 204
+ERROR - 2023-12-27 20:29:09 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 204
+ERROR - 2023-12-27 20:29:09 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 210
+ERROR - 2023-12-27 20:29:09 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 212
+ERROR - 2023-12-27 20:36:08 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 203
+ERROR - 2023-12-27 20:36:08 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 203
+ERROR - 2023-12-27 20:36:08 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 204
+ERROR - 2023-12-27 20:36:08 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 204
+ERROR - 2023-12-27 20:36:08 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 210
+ERROR - 2023-12-27 20:36:08 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 212
+ERROR - 2023-12-27 20:36:40 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 203
+ERROR - 2023-12-27 20:36:40 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 203
+ERROR - 2023-12-27 20:36:40 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 204
+ERROR - 2023-12-27 20:36:40 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 204
+ERROR - 2023-12-27 20:36:40 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 210
+ERROR - 2023-12-27 20:36:40 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 212
+ERROR - 2023-12-27 20:36:41 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 203
+ERROR - 2023-12-27 20:36:41 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 203
+ERROR - 2023-12-27 20:36:41 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 204
+ERROR - 2023-12-27 20:36:41 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 204
+ERROR - 2023-12-27 20:36:41 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 210
+ERROR - 2023-12-27 20:36:41 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 212
+ERROR - 2023-12-27 20:36:42 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 203
+ERROR - 2023-12-27 20:36:42 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 203
+ERROR - 2023-12-27 20:36:42 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 204
+ERROR - 2023-12-27 20:36:42 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 204
+ERROR - 2023-12-27 20:36:42 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 210
+ERROR - 2023-12-27 20:36:42 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 212
+ERROR - 2023-12-27 20:36:43 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 203
+ERROR - 2023-12-27 20:36:43 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 203
+ERROR - 2023-12-27 20:36:43 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 204
+ERROR - 2023-12-27 20:36:43 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 204
+ERROR - 2023-12-27 20:36:43 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 210
+ERROR - 2023-12-27 20:36:43 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 212
+ERROR - 2023-12-27 20:36:43 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 203
+ERROR - 2023-12-27 20:36:43 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 203
+ERROR - 2023-12-27 20:36:43 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 204
+ERROR - 2023-12-27 20:36:43 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 204
+ERROR - 2023-12-27 20:36:43 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 210
+ERROR - 2023-12-27 20:36:43 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\controllers\UserController.php 212
+ERROR - 2023-12-27 21:58:37 --> Severity: Warning --> Undefined variable $partners_data_item C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 120
+ERROR - 2023-12-27 21:58:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 120
+ERROR - 2023-12-27 21:58:37 --> Severity: Warning --> Undefined variable $partners_data_item C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 123
+ERROR - 2023-12-27 21:58:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 123
+ERROR - 2023-12-27 21:58:37 --> Severity: Warning --> Undefined variable $partners_data_item C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 120
+ERROR - 2023-12-27 21:58:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 120
+ERROR - 2023-12-27 21:58:37 --> Severity: Warning --> Undefined variable $partners_data_item C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 123
+ERROR - 2023-12-27 21:58:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 123
+ERROR - 2023-12-27 21:59:11 --> Severity: Warning --> Undefined variable $partners_data_item C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 120
+ERROR - 2023-12-27 21:59:11 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 120
+ERROR - 2023-12-27 21:59:11 --> Severity: Warning --> Undefined variable $partners_data_item C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 123
+ERROR - 2023-12-27 21:59:11 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 123
+ERROR - 2023-12-27 21:59:11 --> Severity: Warning --> Undefined variable $partners_data_item C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 120
+ERROR - 2023-12-27 21:59:11 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 120
+ERROR - 2023-12-27 21:59:11 --> Severity: Warning --> Undefined variable $partners_data_item C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 123
+ERROR - 2023-12-27 21:59:11 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 123
+ERROR - 2023-12-27 21:59:19 --> Severity: Warning --> Undefined variable $partners_data_item C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 120
+ERROR - 2023-12-27 21:59:19 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 120
+ERROR - 2023-12-27 21:59:19 --> Severity: Warning --> Undefined variable $partners_data_item C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 123
+ERROR - 2023-12-27 21:59:19 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 123
+ERROR - 2023-12-27 21:59:19 --> Severity: Warning --> Undefined variable $partners_data_item C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 120
+ERROR - 2023-12-27 21:59:19 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 120
+ERROR - 2023-12-27 21:59:19 --> Severity: Warning --> Undefined variable $partners_data_item C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 123
+ERROR - 2023-12-27 21:59:19 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 123
+ERROR - 2023-12-27 21:59:43 --> Severity: Warning --> Undefined variable $partners_data_item C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 120
+ERROR - 2023-12-27 21:59:43 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 120
+ERROR - 2023-12-27 21:59:43 --> Severity: Warning --> Undefined variable $partners_data_item C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 123
+ERROR - 2023-12-27 21:59:43 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 123
+ERROR - 2023-12-27 21:59:43 --> Severity: Warning --> Undefined variable $partners_data_item C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 120
+ERROR - 2023-12-27 21:59:43 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 120
+ERROR - 2023-12-27 21:59:43 --> Severity: Warning --> Undefined variable $partners_data_item C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 123
+ERROR - 2023-12-27 21:59:43 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 123

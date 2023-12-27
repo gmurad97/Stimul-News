@@ -360,5 +360,25 @@ class AdminModel extends CI_Model
     }
     /*ABOUT MODEL - ENDED*/
 
+    /*FEEDBACK MODEL - START*/
+    public function feedback_admin_db_get($id = NULL)
+    {
+        if (is_null($id)) {
+            return $this->db->order_by("f_uid", "DESC")->get("feedback")->result_array();
+        } else {
+            return $this->db->where("f_uid", $id)->get("feedback")->row_array();
+        }
+    }
+
+    public function feedback_admin_db_delete($id = NULL)
+    {
+        if (is_null($id)) {
+            $this->db->empty_table("feedback");
+        } else {
+            $this->db->where("f_uid", $id)->delete("feedback");
+        }
+    }
+    /*FEEDBACK MODEL - ENDED*/
+
     /*==========CRUD MODEL - ENDED==========*/
 }

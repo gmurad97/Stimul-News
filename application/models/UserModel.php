@@ -174,5 +174,10 @@ class UserModel extends CI_Model
             ->get("settings", 1)
             ->row_array();
     }
+
+    public function feedback_db_insert($data)
+    {
+        $this->db->insert("feedback", $data);
+    }
     /*==========CRUD MODEL - ENDED==========*/
 }
