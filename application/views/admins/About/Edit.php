@@ -1,4 +1,4 @@
-<?php $this->load->view("admins/includes/HeadScripts"); ?>
+/<?php $this->load->view("admins/includes/HeadScripts"); ?>
 <?php $this->load->view("admins/includes/Navbar"); ?>
 <?php $this->load->view("admins/includes/Sidebar"); ?>
 <div class="card bg-edit border-edit bg-opacity-5">
@@ -8,10 +8,6 @@
             About Edit
         </div>
         <div>
-            <button type="button" class="btn btn-outline-danger btn-sm rounded-2" data-bs-toggle="modal" data-bs-target="#danger_modal">
-                <i class="bi bi-trash me-1"></i>
-                Remove
-            </button>
             <button type="submit" form="crud_form" class="btn btn-warning btn-sm rounded-2">
                 <i class="bi bi-pencil-square me-1"></i>
                 Edit
@@ -157,6 +153,14 @@
                 </div>
             </ul>
         </form>
+    </div>
+    <div class="card-footer border-warning fw-bold d-flex flex-row justify-content-start align-items-center">
+        <div>
+            <button type="submit" form="crud_form" class="btn btn-warning btn-sm rounded-2">
+                <i class="bi bi-pencil-square me-1"></i>
+                Edit
+            </button>
+        </div>
     </div>
     <div class="card-arrow">
         <div class="card-arrow-top-left"></div>

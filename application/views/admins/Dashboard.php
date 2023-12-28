@@ -76,7 +76,15 @@
         <div class="card bg-list border-list bg-opacity-5 mb-3">
             <div class="card-body">
                 <div class="d-flex fw-bold small mb-3">
-                    <span class="flex-grow-1 text-info text-uppercase">Feedback List</span>
+                    <span class="flex-grow-1 text-info text-uppercase">
+                        Feedback List
+                    </span>
+                    <span>
+                        <a href="javascript:void(0);" class="nav-link theme-danger p-0" data-link="<?= base_url('admin/partners-delete/') . $partners_data_item["p_uid"]; ?>" data-bs-toggle="modal" data-bs-target="#danger_modal">
+                            <i class=" bi bi-trash fs-5"></i>
+                            Clear All Feedback
+                        </a>
+                    </span>
                 </div>
                 <div class="text-opacity-50 text-truncate">
                     <table class="table table-hover text-nowrap w-100" id="feedback-datatable">
@@ -90,6 +98,14 @@
                             </tr>
                         </thead>
                         <tbody>
+
+
+
+
+
+
+
+
                             <?php if (!empty($feedback_data)) : ?>
                                 <?php
                                 $id_counter = 1;
@@ -97,11 +113,12 @@
                                 ?>
                                     <tr>
                                         <td><?= $id_counter++; ?></td>
-
-                                        <td><?= $feedback_data_item["f_first_name"]; ?></td>
-
-                                        <td><?= $feedback_data_item["f_last_name"]; ?></td>
-
+                                        <td class="text-truncate" style="max-width: 80px;">
+                                            <?= $feedback_data_item["f_first_name"]; ?>
+                                        </td>
+                                        <td class="text-truncate" style="max-width: 80px;">
+                                            <?= $feedback_data_item["f_last_name"]; ?>
+                                        </td>
                                         <td>
                                             <div class="dflex flex-row">
                                                 <i class="bi bi-calendar text-success"></i>
@@ -111,10 +128,9 @@
                                             </div>
                                         </td>
 
-
                                         <td>
                                             <nav class="nav flex-row">
-                                                <a href="javascript:void(0);" class="nav-link disabled theme-info p-0">
+                                                <a href="javascript:void(0);" class="nav-link theme-info p-0">
                                                     <i class="bi bi-eye fs-5"></i>
                                                 </a>
                                                 <a href="<?= base_url('admin/partners-edit/') . $partners_data_item["p_uid"]; ?>" class="nav-link theme-warning p-0 mx-3">
@@ -125,18 +141,14 @@
                                                 </a>
                                             </nav>
                                         </td>
+
+
+
+
                                     </tr>
                                 <?php endforeach; ?>
                             <?php endif; ?>
                         </tbody>
-
-
-
-
-
-
-
-
                         <tfoot>
                             <tr>
                                 <th>#</th>
@@ -147,6 +159,21 @@
                             </tr>
                         </tfoot>
                     </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     <!--DATA TABLE SCRIPTS & STYLES - START-->
                     <link rel="stylesheet" href="<?= base_url('public/admin/assets/plugins/datatable/css/buttons.bootstrap5.min.css'); ?>">
                     <link rel="stylesheet" href="<?= base_url('public/admin/assets/plugins/datatable/css/dataTables.bootstrap5.min.css'); ?>">
