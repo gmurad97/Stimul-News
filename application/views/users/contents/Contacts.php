@@ -76,6 +76,30 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md-10">
+                <?php if ($this->session->flashdata("notify_user")) : ?>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            const preLoader = document.querySelector("#preloader");
+                            if (preloader) {
+                                const mutationObserver = new MutationObserver(function() {
+                                    if (window.getComputedStyle(preloader).getPropertyValue("display") === "none") {
+                                        mutationObserver.disconnect();
+                                        Swal.fire({
+                                            title: "<?= htmlentities($this->session->flashdata("notify_user")["header"]); ?>",
+                                            text: "<?= htmlentities($this->session->flashdata("notify_user")["message"]); ?>",
+                                            icon: "<?= htmlentities($this->session->flashdata("notify_user")["icon"]); ?>",
+                                            confirmButtonText: "Okey",
+                                            confirmButtonColor: "#FF324D"
+                                        });
+                                    }
+                                });
+                                mutationObserver.observe(preLoader, {
+                                    attributes: true
+                                });
+                            }
+                        });
+                    </script>
+                <?php endif; ?>
                 <div class="field_form">
                     <form action="<?= base_url('feedback-submit'); ?>" method="POST" enctype="application/x-www-form-urlencoded">
                         <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>">
@@ -99,7 +123,7 @@
                                     <?= $this->lang->line("email"); ?>
                                     <span class="required">*</span>
                                 </label>
-                                <input required type="text" name="feedback_email" class="form-control" id="feedback_email_label" placeholder="<?= $this->lang->line('enter_email'); ?>">
+                                <input required type="email" name="feedback_email" class="form-control" id="feedback_email_label" placeholder="<?= $this->lang->line('enter_email'); ?>">
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="feedback_message_label">

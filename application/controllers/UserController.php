@@ -2,9 +2,9 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
- * AUTHOR:         Murad Gazymagomedov
- * USERNAME:       GMURAD97 || ASProgerHack
- * VERSION:        3.1
+ * AUTHOR:         MURAD GAZYMAGOMEDOV
+ * USERNAME:       GMURAD97
+ * VERSION:        3.2
  * LOCAL SERVER:   OPENSERVER 5.4.3
  * SERVER VERSION: APACHE 2.4 + PHP 8.0-8.1 + NGINX 1.23
  * PHP VERSION:    PHP 8.0
@@ -18,7 +18,7 @@ class UserController extends CI_Controller
         $this->load->model("UserModel");
     }
 
-    /*==========LOCAL USER CONTROLLER FUNCTION - START==========*/
+    /*==========FUNCTION & ACTION - START==========*/
     public function topbarInfo()
     {
         date_default_timezone_set("Asia/Baku");
@@ -29,10 +29,91 @@ class UserController extends CI_Controller
             "weather" => $weather->current->temp_c
         ];
     }
-    /*==========LOCAL USER CONTROLLER FUNCTION - ENDED==========*/
+
+    public function crud_subscribe_action()
+    {
+        $subscriber_email = filter_var($this->input->post("subscriber_email", TRUE), FILTER_VALIDATE_EMAIL);
+        $subscribers_data = $this->UserModel->subscribers_user_db_get();
+        if (!empty($subscriber_email) && $subscriber_email !== FALSE) {
+            $existing_subscriber_key = array_search($subscriber_email, array_column($subscribers_data, "s_email"));
+            if ($existing_subscriber_key !== FALSE) {
+                $existing_subscriber = $subscribers_data[$existing_subscriber_key];
+                $data = [
+                    "s_email" => $subscriber_email,
+                    "s_status" => !$existing_subscriber["s_status"],
+                ];
+                $this->UserModel->subscribers_user_db_update($existing_subscriber["s_uid"], $data);
+                if (!$existing_subscriber["s_status"]) {
+                    $this->session->set_flashdata("notify_user", [
+                        "header" => "Success!",
+                        "message" => "You have successfully subscribed to our news.",
+                        "icon" => "success"
+                    ]);
+                } else {
+                    $this->session->set_flashdata("notify_user", [
+                        "header" => "Success!",
+                        "message" => "You have successfully unsubscribed from our news.",
+                        "icon" => "success"
+                    ]);
+                }
+                redirect(base_url("home"));
+            } else {
+                $data = [
+                    "s_email" => $subscriber_email,
+                    "s_status" => TRUE,
+                ];
+                $this->UserModel->subscribers_user_db_insert($data);
+                $this->session->set_flashdata("notify_user", [
+                    "header" => "Success!",
+                    "message" => "You have successfully subscribed to our news.",
+                    "icon" => "success"
+                ]);
+                redirect(base_url("home"));
+            }
+        } else {
+            $this->session->set_flashdata("notify_user", [
+                "header" => "Error!",
+                "message" => "The provided email is incorrect.",
+                "icon" => "error"
+            ]);
+            redirect(base_url("home"));
+        }
+    }
+
+    public function feedback_submit_action()
+    {
+        $feedback_first_name = $this->input->post("feedback_first_name", TRUE);
+        $feedback_last_name  = $this->input->post("feedback_last_name", TRUE);
+        $feedback_email      = filter_var($this->input->post("feedback_email", TRUE), FILTER_VALIDATE_EMAIL);
+        $feedback_message    = $this->input->post("feedback_message", TRUE);
+        if (!empty($feedback_first_name) && !empty($feedback_last_name) && !empty($feedback_email) && !empty($feedback_message) && $feedback_email !== FALSE) {
+            $data = [
+                "f_first_name" => $feedback_first_name,
+                "f_last_name"  => $feedback_last_name,
+                "f_email"      => $feedback_email,
+                "f_message"    => $feedback_message,
+                "f_date"       => date("d.m.Y"),
+                "f_time"       => date("H:i:s")
+            ];
+            $this->UserModel->feedback_db_insert($data);
+            $this->session->set_flashdata("notify_user", [
+                "header" => "Success!",
+                "message" => "Feedback successfully sent.",
+                "icon" => "success"
+            ]);
+            redirect(base_url("contacts"));
+        } else {
+            $this->session->set_flashdata("notify_user", [
+                "header" => "Error!",
+                "message" => "Please fill in all fields.",
+                "icon" => "error"
+            ]);
+            redirect(base_url("contacts"));
+        }
+    }
+    /*==========FUNCTION & ACTION - START==========*/
 
     /*==========GLOBAL USERS PAGES - START==========*/
-
     public function index()
     {
         $data["user_page_name"] = "Home";
@@ -339,59 +420,4 @@ class UserController extends CI_Controller
         }
     }
     /*=====GLOBAL USERS PAGES - ENDED=====*/
-
-
-
-
-
-    public function crud_subscribe_action()
-    {
-        $subscriber_email = $this->input->post("subscriber_email", TRUE);
-        $subscribers_data = $this->UserModel->subscribers_user_db_get();
-        if (filter_var($subscriber_email, FILTER_VALIDATE_EMAIL)) {
-            $existing_subscriber_key = array_search($subscriber_email, array_column($subscribers_data, "s_email"));
-            if ($existing_subscriber_key !== FALSE) {
-                $existing_subscriber = $subscribers_data[$existing_subscriber_key];
-                $data = [
-                    "s_email" => $subscriber_email,
-                    "s_status" => !$existing_subscriber["s_status"],
-                ];
-                $this->UserModel->subscribers_user_db_update($existing_subscriber["s_uid"], $data);
-                redirect(base_url("home"));
-            } else {
-                $data = [
-                    "s_email" => $subscriber_email,
-                    "s_status" => TRUE,
-                ];
-                $this->UserModel->subscribers_user_db_insert($data);
-                redirect(base_url("home"));
-            }
-        } else {
-            redirect(base_url("home"));
-        }
-    }
-
-    public function feedback_submit_action()
-    {
-        $feedback_first_name = $this->input->post("feedback_first_name", TRUE);
-        $feedback_last_name  = $this->input->post("feedback_last_name", TRUE);
-        $feedback_email      = $this->input->post("feedback_email", TRUE);
-        $feedback_message    = $this->input->post("feedback_message", TRUE);
-
-        if (!empty($feedback_first_name) && !empty($feedback_last_name) && !empty($feedback_email) && !empty($feedback_message)) {
-            
-            $data = [
-                "f_first_name" => $feedback_first_name,
-                "f_last_name"  => $feedback_last_name,
-                "f_email"      => $feedback_email,
-                "f_message"    => $feedback_message,
-                "f_date"       => date("d.m.Y"),
-                "f_time"       => date("H:i:s")
-            ];
-            $this->UserModel->feedback_db_insert($data);
-            redirect(base_url("contacts"));
-        } else {
-            redirect(base_url("contacts"));
-        }
-    }
 }

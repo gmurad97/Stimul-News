@@ -13,10 +13,34 @@
                 </p>
             </div>
             <div class="col-lg-6 col-md-6">
+                <?php if ($this->session->flashdata("notify_user")) : ?>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            const preLoader = document.querySelector("#preloader");
+                            if (preloader) {
+                                const mutationObserver = new MutationObserver(function() {
+                                    if (window.getComputedStyle(preloader).getPropertyValue("display") === "none") {
+                                        mutationObserver.disconnect();
+                                        Swal.fire({
+                                            title: "<?= htmlentities($this->session->flashdata("notify_user")["header"]); ?>",
+                                            text: "<?= htmlentities($this->session->flashdata("notify_user")["message"]); ?>",
+                                            icon: "<?= htmlentities($this->session->flashdata("notify_user")["icon"]); ?>",
+                                            confirmButtonText: "Okey",
+                                            confirmButtonColor: "#FF324D"
+                                        });
+                                    }
+                                });
+                                mutationObserver.observe(preLoader, {
+                                    attributes: true
+                                });
+                            }
+                        });
+                    </script>
+                <?php endif; ?>
                 <div class="newsletter_form input_tran_white">
                     <form action="<?= base_url('subscribe-action'); ?>" method="POST" enctype="application/x-www-form-urlencoded">
                         <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>">
-                        <input name="subscriber_email" type="text" class="form-control form-control-sm rounded-input" placeholder="<?= $this->lang->line("subscriber_placeholder"); ?>">
+                        <input name="subscriber_email" type="email" class="form-control form-control-sm rounded-input" placeholder="<?= $this->lang->line("subscriber_placeholder"); ?>">
                         <button type="submit" class="btn btn-default btn-radius btn-sm"><?= $this->lang->line("subscribe"); ?></button>
                     </form>
                 </div>

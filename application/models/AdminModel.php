@@ -361,21 +361,24 @@ class AdminModel extends CI_Model
     /*ABOUT MODEL - ENDED*/
 
     /*FEEDBACK MODEL - START*/
+    private const FEEDBACK_TABLE_NAME = "feedback";
+    private const FEEDBACK_ID_NAME = "f_uid";
+
     public function feedback_admin_db_get($id = NULL)
     {
         if (is_null($id)) {
-            return $this->db->order_by("f_uid", "DESC")->get("feedback")->result_array();
+            return $this->db->order_by(self::FEEDBACK_ID_NAME, "DESC")->get(self::FEEDBACK_TABLE_NAME)->result_array();
         } else {
-            return $this->db->where("f_uid", $id)->get("feedback")->row_array();
+            return $this->db->where(self::FEEDBACK_ID_NAME, $id)->get(self::FEEDBACK_TABLE_NAME)->row_array();
         }
     }
 
     public function feedback_admin_db_delete($id = NULL)
     {
         if (is_null($id)) {
-            $this->db->empty_table("feedback");
+            $this->db->empty_table(self::FEEDBACK_TABLE_NAME);
         } else {
-            $this->db->where("f_uid", $id)->delete("feedback");
+            $this->db->where(self::FEEDBACK_ID_NAME, $id)->delete(self::FEEDBACK_TABLE_NAME);
         }
     }
     /*FEEDBACK MODEL - ENDED*/

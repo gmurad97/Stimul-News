@@ -9,6 +9,7 @@
 <script src="<?= base_url('public/user/assets/js/jquery.parallax-scroll.js'); ?>"></script>
 <script src="<?= base_url('public/user/assets/js/jquery.dd.min.js'); ?>"></script>
 <script src="<?= base_url('public/user/assets/js/jquery.fitvids.js'); ?>"></script>
+<script src="<?= base_url('public/user/assets/js/sweetalert2.js'); ?>"></script>
 <script src="<?= base_url('public/user/assets/js/scripts.js'); ?>"></script>
 </body>
 
