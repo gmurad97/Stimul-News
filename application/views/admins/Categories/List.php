@@ -133,6 +133,14 @@
         </script>
         <!--DATA TABLE SCRIPTS & STYLES - ENDED-->
     </div>
+    <div class="card-footer border-list fw-bold d-flex flex-row justify-content-start align-items-center">
+        <div>
+            <a href="<?= base_url('admin/categories-create'); ?>" class="btn btn-outline-success btn-sm rounded-2">
+                <i class="bi bi-plus-circle me-1"></i>
+                Create
+            </a>
+        </div>
+    </div>
     <div class="card-arrow">
         <div class="card-arrow-top-left"></div>
         <div class="card-arrow-top-right"></div>

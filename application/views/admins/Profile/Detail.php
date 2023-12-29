@@ -107,6 +107,14 @@
             </div>
         </div>
     </div>
+    <div class="card-footer border-list fw-bold d-flex flex-row justify-content-start align-items-center">
+        <div>
+            <a href="<?= base_url('admin/profile-list'); ?>" class="btn btn-outline-info btn-sm rounded-2">
+                <i class="bi bi-list-nested me-1"></i>
+                List
+            </a>
+        </div>
+    </div>
     <div class="card-arrow">
         <div class="card-arrow-top-left"></div>
         <div class="card-arrow-top-right"></div>

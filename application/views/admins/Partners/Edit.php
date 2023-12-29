@@ -2,7 +2,7 @@
 <?php $this->load->view("admins/includes/Navbar"); ?>
 <?php $this->load->view("admins/includes/Sidebar"); ?>
 <div class="card bg-edit border-edit bg-opacity-5">
-    <div class="card-header fw-bold d-flex flex-row justify-content-between align-items-center">
+    <div class="card-header border-edit fw-bold d-flex flex-row justify-content-between align-items-center">
         <div class="h5 text-warning text-uppercase text-header-shadow m-0">
             <i class="bi bi-people me-1"></i>
             Partners Edit
@@ -82,6 +82,14 @@
                 </li>
             </ul>
         </form>
+    </div>
+    <div class="card-footer border-edit fw-bold d-flex flex-row justify-content-start align-items-center">
+        <div>
+            <button type="submit" form="crud_form" class="btn btn-warning btn-sm rounded-2">
+                <i class="bi bi-pencil-square me-1"></i>
+                Edit
+            </button>
+        </div>
     </div>
     <div class="card-arrow">
         <div class="card-arrow-top-left"></div>

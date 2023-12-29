@@ -2,9 +2,9 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
- * AUTHOR:         Murad Gazymagomedov
- * USERNAME:       GMURAD97 || ASProgerHack
- * VERSION:        3.1
+ * AUTHOR:         MURAD GAZYMAGOMEDOV
+ * USERNAME:       GMURAD97
+ * VERSION:        3.2
  * LOCAL SERVER:   OPENSERVER 5.4.3
  * SERVER VERSION: APACHE 2.4 + PHP 8.0-8.1 + NGINX 1.23
  * PHP VERSION:    PHP 8.0

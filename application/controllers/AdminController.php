@@ -2,9 +2,9 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
- * AUTHOR:         Murad Gazymagomedov
- * USERNAME:       GMURAD97 || ASProgerHack
- * VERSION:        3.1
+ * AUTHOR:         MURAD GAZYMAGOMEDOV
+ * USERNAME:       GMURAD97
+ * VERSION:        3.2
  * LOCAL SERVER:   OPENSERVER 5.4.3
  * SERVER VERSION: APACHE 2.4 + PHP 8.0-8.1 + NGINX 1.23
  * PHP VERSION:    PHP 8.0
@@ -77,7 +77,7 @@ class AdminController extends CI_Controller
     protected function CryptoPrice($cryptoLimit)
     {
         $curl_crypto_price = curl_init("https://api.binance.com/api/v3/ticker/price");
-        curl_setopt($curl_crypto_price, CURLOPT_USERAGENT, "StimulNewsClient-v3.1");
+        curl_setopt($curl_crypto_price, CURLOPT_USERAGENT, "StimulNewsClient-v3.2");
         curl_setopt($curl_crypto_price, CURLOPT_RETURNTRANSFER, TRUE);
         $response_result = array_values(array_filter(json_decode(curl_exec($curl_crypto_price), FALSE), function ($cryptoPair) {
             if (str_ends_with($cryptoPair->symbol, "USDT")) {
@@ -91,7 +91,7 @@ class AdminController extends CI_Controller
     protected function FiatPrice(array $currencyFiat)
     {
         $curl_fiat_price = curl_init("https://openexchangerates.org/api/latest.json?app_id=3d8598199b6d48e6a6900cda5bcea889&symbols=" . join(",", $currencyFiat));
-        curl_setopt($curl_fiat_price, CURLOPT_USERAGENT, "StimulNewsClient-v3.1");
+        curl_setopt($curl_fiat_price, CURLOPT_USERAGENT, "StimulNewsClient-v3.2");
         curl_setopt($curl_fiat_price, CURLOPT_RETURNTRANSFER, TRUE);
         $response_result = curl_exec($curl_fiat_price);
         curl_close($curl_fiat_price);
@@ -515,7 +515,7 @@ class AdminController extends CI_Controller
     }
     /*=====GLOBAL ADMIN FUNCTION - ENDED=====*/
 
-    /*=====DASHBOARD - START=====----------------------------------*/
+    /*=====DASHBOARD - START=====*/
     public function dashboard()
     {
         $data["admin_page_name"] = "Dashboard";
@@ -523,6 +523,37 @@ class AdminController extends CI_Controller
         $data["fiat_price"] = $this->FiatPrice(["AZN", "RUB", "EUR"]);
         $data["feedback_data"] = $this->AdminModel->feedback_admin_db_get();
         $this->load->view("admins/Dashboard", $data);
+    }
+
+    public function feedback_detail($id)
+    {
+        $data["admin_page_name"] = "Feedback Detail";
+        $data["feedback_data"] = $this->AdminModel->feedback_admin_db_get($id);
+        $this->load->view("admins/FeedbackDetail", $data);
+    }
+
+    public function feedback_delete($id)
+    {
+        $this->AdminModel->feedback_admin_db_delete($id);
+        $this->AlertFlashData(
+            "success",
+            "crud_alert",
+            "Success!",
+            "The feedback has been successfully removed."
+        );
+        redirect($_SERVER["HTTP_REFERER"]);
+    }
+
+    public function feedback_clear_action()
+    {
+        $this->AdminModel->feedback_admin_db_delete();
+        $this->AlertFlashData(
+            "success",
+            "crud_alert",
+            "Success!",
+            "The feedbacks has been successfully cleared."
+        );
+        redirect($_SERVER["HTTP_REFERER"]);
     }
     /*=====DASHBOARD - ENDED=====*/
 
@@ -542,7 +573,7 @@ class AdminController extends CI_Controller
             "stream" => false
         ];
         $curl_api_gpt = curl_init("https://chatg.io/wp-json/mwai-ui/v1/chats/submit");
-        curl_setopt($curl_api_gpt, CURLOPT_USERAGENT, "StimulNewsClient-v2.1");
+        curl_setopt($curl_api_gpt, CURLOPT_USERAGENT, "StimulNewsClient-v3.2");
         curl_setopt($curl_api_gpt, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt(
             $curl_api_gpt,

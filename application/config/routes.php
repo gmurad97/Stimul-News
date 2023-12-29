@@ -25,6 +25,9 @@ $route["feedback-submit"]                      = "UserController/feedback_submit
 /*==========ADMIN CONTROLLER - START==========*/
 $route["admin"]                                = "AdminController/dashboard";
 $route["admin/dashboard"]                      = "AdminController/dashboard";
+$route["admin/feedback-detail/(.*)"]           = "AdminController/feedback_detail/$1";
+$route["admin/feedback-delete/(.*)"]           = "AdminController/feedback_delete/$1";
+$route["admin/feedback-clear"]                 = "AdminController/feedback_clear_action";
 
 /*AUTH & REG ROUTES - START*/
 $route["admin/auth"]                           = "AdminController/login";

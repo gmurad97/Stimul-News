@@ -34,6 +34,18 @@
     border-color: rgba(78, 156, 255, 1) !important;
 }
 
+.card-footer.border-create {
+    border-color: rgba(16, 172, 132, 1) !important;
+}
+
+.card-footer.border-edit {
+    border-color: rgba(254, 202, 87, 1) !important;
+}
+
+.card-footer.border-list {
+    border-color: rgba(78, 156, 255, 1) !important;
+}
+
 .text-header-shadow {
     text-shadow: 3px 3px 6px #000000;
 }

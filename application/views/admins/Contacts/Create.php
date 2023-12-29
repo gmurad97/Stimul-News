@@ -223,6 +223,14 @@
             </ul>
         </form>
     </div>
+    <div class="card-footer border-create fw-bold d-flex flex-row justify-content-start align-items-center">
+        <div>
+            <button type="submit" form="crud_form" class="btn btn-success btn-sm rounded-2">
+                <i class="bi bi-plus-circle me-1"></i>
+                Create
+            </button>
+        </div>
+    </div>
     <div class="card-arrow">
         <div class="card-arrow-top-left"></div>
         <div class="card-arrow-top-right"></div>

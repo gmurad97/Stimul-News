@@ -17,14 +17,14 @@
                 <i class="bi bi-list-nested me-1"></i>
                 News List
             </a>
-            <a href="<?= base_url('admin/news-edit/') . $news_data["n_uid"]; ?>" class="btn btn-outline-warning btn-sm rounded-2">
-                <i class="bi bi-pencil-square me-1"></i>
-                Edit
-            </a>
-            <button type="button" class="btn btn-danger btn-sm rounded-2" data-bs-toggle="modal" data-bs-target="#danger_modal">
+            <button type="button" class="btn btn-outline-danger btn-sm rounded-2" data-bs-toggle="modal" data-bs-target="#danger_modal">
                 <i class="bi bi-trash me-1"></i>
                 Remove
             </button>
+            <a href="<?= base_url('admin/news-edit/') . $news_data["n_uid"]; ?>" class="btn btn-warning btn-sm rounded-2">
+                <i class="bi bi-pencil-square me-1"></i>
+                Edit
+            </a>
         </div>
     </div>
     <div class="card-body">
@@ -160,6 +160,22 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="card-footer border-list fw-bold d-flex flex-row justify-content-start align-items-center">
+        <div>
+            <a href="<?= base_url('admin/news-list'); ?>" class="btn btn-outline-info btn-sm rounded-2">
+                <i class="bi bi-list-nested me-1"></i>
+                News List
+            </a>
+            <button type="button" class="btn btn-outline-danger btn-sm rounded-2" data-bs-toggle="modal" data-bs-target="#danger_modal">
+                <i class="bi bi-trash me-1"></i>
+                Remove
+            </button>
+            <a href="<?= base_url('admin/news-edit/') . $news_data["n_uid"]; ?>" class="btn btn-warning btn-sm rounded-2">
+                <i class="bi bi-pencil-square me-1"></i>
+                Edit
+            </a>
         </div>
     </div>
     <div class="card-arrow">

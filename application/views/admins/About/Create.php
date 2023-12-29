@@ -1,4 +1,4 @@
-/<?php $this->load->view("admins/includes/HeadScripts"); ?>
+<?php $this->load->view("admins/includes/HeadScripts"); ?>
 <?php $this->load->view("admins/includes/Navbar"); ?>
 <?php $this->load->view("admins/includes/Sidebar"); ?>
 <div class="card bg-create border-create bg-opacity-10">
@@ -108,7 +108,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="about_copyright_ru_label" class="mb-2">Copyright</label>
-                                <input required name="about_copyright_ru" type="text" class="form-control form-control-sm" id="about_copyright_ru" placeholder="Stimul News">
+                                <input required name="about_copyright_ru" type="text" class="form-control form-control-sm" id="about_copyright_ru_label" placeholder="Stimul News">
                             </div>
                         </div>
                     </div>
@@ -141,7 +141,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="about_copyright_az_label" class="mb-2">Copyright</label>
-                                <input required name="about_copyright_az" type="text" class="form-control form-control-sm" id="about_copyright_az" placeholder="Stimul News">
+                                <input required name="about_copyright_az" type="text" class="form-control form-control-sm" id="about_copyright_az_label" placeholder="Stimul News">
                             </div>
                         </div>
                     </div>
@@ -149,7 +149,7 @@
             </ul>
         </form>
     </div>
-    <div class="card-footer border-success fw-bold d-flex flex-row justify-content-start align-items-center">
+    <div class="card-footer border-create fw-bold d-flex flex-row justify-content-start align-items-center">
         <div>
             <button type="submit" form="crud_form" class="btn btn-sm btn-success rounded-2">
                 <i class="bi bi-plus-circle me-1"></i>

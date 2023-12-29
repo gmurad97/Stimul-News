@@ -194,6 +194,21 @@ $s_type = $slider_info->slider_type == "slider_news" ? TRUE : FALSE;
             <?php endif; ?>
         </div>
     </div>
+    <div class="card-footer border-edit fw-bold d-flex flex-row justify-content-start align-items-center">
+        <div>
+            <?php if ($s_type == FALSE) : ?>
+                <button type="submit" form="slider_custom_form" class="btn btn-warning btn-sm rounded-2">
+                    <i class="bi bi-pencil-square me-1"></i>
+                    Edit Custom
+                </button>
+            <?php else : ?>
+                <button type="submit" form="slider_news_form" class="btn btn-warning btn-sm rounded-2">
+                    <i class="bi bi-pencil-square me-1"></i>
+                    Edit News
+                </button>
+            <?php endif; ?>
+        </div>
+    </div>
     <div class="card-arrow">
         <div class="card-arrow-top-left"></div>
         <div class="card-arrow-top-right"></div>

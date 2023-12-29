@@ -69,21 +69,29 @@
         </div>
     </div>
 </div>
-
-
 <div class="row">
     <div class="col-md-12">
         <div class="card bg-list border-list bg-opacity-5 mb-3">
             <div class="card-body">
+                <?php if ($this->session->flashdata("crud_alert")) : ?>
+                    <div class="alert alert-<?= $this->session->flashdata('crud_alert')['alert_type']; ?> alert-dismissable fade show p-3" style="<?= $this->session->flashdata('crud_alert')['alert_bg_color']; ?>">
+                        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+                        <p class="d-flex flex-row justify-content-start align-items-center mb-0">
+                            <i class="<?= $this->session->flashdata('crud_alert')['alert_icon']; ?> fs-5 me-2"></i>
+                            <strong class="fw-bold me-2"><?= $this->session->flashdata('crud_alert')['alert_short_message']; ?> </strong>
+                            <?= $this->session->flashdata('crud_alert')['alert_long_message']; ?>
+                        </p>
+                    </div>
+                <?php endif; ?>
                 <div class="d-flex fw-bold small mb-3">
                     <span class="flex-grow-1 text-info text-uppercase">
                         Feedback List
                     </span>
                     <span>
-                        <a href="javascript:void(0);" class="nav-link theme-danger p-0" data-link="<?= base_url('admin/partners-delete/') . $partners_data_item["p_uid"]; ?>" data-bs-toggle="modal" data-bs-target="#danger_modal">
-                            <i class=" bi bi-trash fs-5"></i>
+                        <button type="button" class="btn btn-outline-danger btn-sm rounded-2 fw-bold" data-bs-toggle="modal" data-bs-target="#danger_modal_feedbacks_clear">
+                            <i class="bi bi-trash me-1 fs-5"></i>
                             Clear All Feedback
-                        </a>
+                        </button>
                     </span>
                 </div>
                 <div class="text-opacity-50 text-truncate">
@@ -98,14 +106,6 @@
                             </tr>
                         </thead>
                         <tbody>
-
-
-
-
-
-
-
-
                             <?php if (!empty($feedback_data)) : ?>
                                 <?php
                                 $id_counter = 1;
@@ -127,24 +127,19 @@
                                                 <?= $feedback_data_item["f_time"]; ?>
                                             </div>
                                         </td>
-
                                         <td>
                                             <nav class="nav flex-row">
-                                                <a href="javascript:void(0);" class="nav-link theme-info p-0">
+                                                <a href="<?= base_url('admin/feedback-detail/' . $feedback_data_item["f_uid"]); ?>" class="nav-link theme-info p-0">
                                                     <i class="bi bi-eye fs-5"></i>
                                                 </a>
-                                                <a href="<?= base_url('admin/partners-edit/') . $partners_data_item["p_uid"]; ?>" class="nav-link theme-warning p-0 mx-3">
+                                                <a href="javascript:void(0);" class="nav-link disabled theme-warning p-0 mx-3">
                                                     <i class="bi bi-pencil-square fs-5"></i>
                                                 </a>
-                                                <a href="javascript:void(0);" class="nav-link theme-danger p-0" data-link="<?= base_url('admin/partners-delete/') . $partners_data_item["p_uid"]; ?>" data-bs-toggle="modal" data-bs-target="#danger_modal">
+                                                <a href="javascript:void(0);" class="nav-link theme-danger p-0" data-link="<?= base_url('admin/feedback-delete/' . $feedback_data_item["f_uid"]); ?>" data-bs-toggle="modal" data-bs-target="#danger_modal_feedback_delete">
                                                     <i class=" bi bi-trash fs-5"></i>
                                                 </a>
                                             </nav>
                                         </td>
-
-
-
-
                                     </tr>
                                 <?php endforeach; ?>
                             <?php endif; ?>
@@ -159,21 +154,6 @@
                             </tr>
                         </tfoot>
                     </table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     <!--DATA TABLE SCRIPTS & STYLES - START-->
                     <link rel="stylesheet" href="<?= base_url('public/admin/assets/plugins/datatable/css/buttons.bootstrap5.min.css'); ?>">
                     <link rel="stylesheet" href="<?= base_url('public/admin/assets/plugins/datatable/css/dataTables.bootstrap5.min.css'); ?>">
@@ -223,4 +203,36 @@
         </div>
     </div>
 </div>
+<div class="modal fade text-center" id="danger_modal_feedbacks_clear">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content rounded">
+            <div class="modal-body py-3">
+                <p class="h5 text-danger">Do you really want to clear the feedbacks?</p>
+            </div>
+            <div class="modal-footer py-1">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a href="<?= base_url('admin/feedback-clear'); ?>" class="btn btn-outline-danger">Remove</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade text-center" id="danger_modal_feedback_delete">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content rounded">
+            <div class="modal-body py-3">
+                <p class="h5 text-danger">Do you really want to delete the feedback?</p>
+            </div>
+            <div class="modal-footer py-1">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a href="javascript:void(0);" class="btn btn-outline-danger" id="danger_modal_feedback_link">Remove</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).on("focus", "[data-link]", function() {
+        var link = $(this).data("link");
+        $("#danger_modal_feedback_link").attr("href", link);
+    });
+</script>
 <?php $this->load->view("admins/includes/FooterScripts"); ?>

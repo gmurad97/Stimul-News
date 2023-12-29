@@ -12,7 +12,7 @@
                 <i class="bi bi-list-nested me-1"></i>
                 List
             </a>
-            <button type="submit" form="crud_form" class="btn btn-outline-warning btn-sm rounded-2">
+            <button type="submit" form="crud_form" class="btn btn-warning btn-sm rounded-2">
                 <i class="bi bi-pencil-square me-1"></i>
                 Edit
             </button>
@@ -50,6 +50,14 @@
                 </li>
             </ul>
         </form>
+    </div>
+    <div class="card-footer border-edit fw-bold d-flex flex-row justify-content-start align-items-center">
+        <div>
+            <button type="submit" form="crud_form" class="btn btn-warning btn-sm rounded-2">
+                <i class="bi bi-pencil-square me-1"></i>
+                Edit
+            </button>
+        </div>
     </div>
     <div class="card-arrow">
         <div class="card-arrow-top-left"></div>

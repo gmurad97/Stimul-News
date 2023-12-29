@@ -21,13 +21,13 @@
                 <textarea class="form-control" id="admin_message_request" rows="3" style="resize: none;" placeholder="Enter your request to receive a response."></textarea>
             </div>
         </div>
-        <div class="row mt-3">
-            <div class="col-md-12">
-                <button type="button" id="search_btn" class="btn btn-block btn-outline-success d-flex flex-row justify-content-center align-items-center">
-                    Request
-                    <i class="spinner-border spinner-border-sm d-none ms-2" id="search_loader"></i>
-                </button>
-            </div>
+    </div>
+    <div class="card-footer border-create fw-bold d-flex flex-row justify-content-start align-items-center">
+        <div>
+            <button type="button" id="search_btn" class="btn btn-block btn-success d-flex flex-row justify-content-center align-items-center">
+                Request
+                <i class="spinner-border spinner-border-sm d-none ms-2" id="search_loader"></i>
+            </button>
         </div>
     </div>
     <script>
@@ -37,7 +37,8 @@
         const search_loader = document.querySelector("#search_loader");
         search_loader.classList.replace("d-flex", "d-none");
         search_btn.addEventListener("click", function() {
-            const query = encodeURIComponent((admin_message_request.value).trim());
+            let preQuery = encodeURIComponent((admin_message_request.value).trim());
+            const query = preQuery.replace(/[^a-zA-Z ]/g, "");
             const api_url = `http://stimul.news/admin/api/gpt/${query}`;
             search_loader.classList.replace("d-none", "d-flex");
             fetch(api_url, {
