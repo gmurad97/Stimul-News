@@ -72,6 +72,18 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card bg-list border-list bg-opacity-5 mb-3">
+            <div class="card-header border-list fw-bold d-flex flex-row justify-content-between align-items-center">
+                <div class="h5 text-info text-uppercase text-header-shadow m-0">
+                    <i class="bi bi-bricks"></i>
+                    Feedback List
+                </div>
+                <div>
+                    <button type="button" class="btn btn-outline-danger btn-sm rounded-2 fw-bold" data-bs-toggle="modal" data-bs-target="#danger_modal_feedbacks_clear">
+                        <i class="bi bi-trash me-1 fs-5"></i>
+                        Clear Feedbacks
+                    </button>
+                </div>
+            </div>
             <div class="card-body">
                 <?php if ($this->session->flashdata("crud_alert")) : ?>
                     <div class="alert alert-<?= $this->session->flashdata('crud_alert')['alert_type']; ?> alert-dismissable fade show p-3" style="<?= $this->session->flashdata('crud_alert')['alert_bg_color']; ?>">
@@ -83,17 +95,6 @@
                         </p>
                     </div>
                 <?php endif; ?>
-                <div class="d-flex fw-bold small mb-3">
-                    <span class="flex-grow-1 text-info text-uppercase">
-                        Feedback List
-                    </span>
-                    <span>
-                        <button type="button" class="btn btn-outline-danger btn-sm rounded-2 fw-bold" data-bs-toggle="modal" data-bs-target="#danger_modal_feedbacks_clear">
-                            <i class="bi bi-trash me-1 fs-5"></i>
-                            Clear All Feedback
-                        </button>
-                    </span>
-                </div>
                 <div class="text-opacity-50 text-truncate">
                     <table class="table table-hover text-nowrap w-100" id="feedback-datatable">
                         <thead>
@@ -192,6 +193,14 @@
                         });
                     </script>
                     <!--DATA TABLE SCRIPTS & STYLES - ENDED-->
+                </div>
+            </div>
+            <div class="card-footer border-list fw-bold d-flex flex-row justify-content-start align-items-center">
+                <div>
+                    <button type="button" class="btn btn-outline-danger btn-sm rounded-2 fw-bold" data-bs-toggle="modal" data-bs-target="#danger_modal_feedbacks_clear">
+                        <i class="bi bi-trash me-1 fs-5"></i>
+                        Clear Feedbacks
+                    </button>
                 </div>
             </div>
             <div class="card-arrow">

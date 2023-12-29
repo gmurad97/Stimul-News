@@ -8,10 +8,6 @@
             Settings Create
         </div>
         <div>
-            <button type="submit" form="crud_form" class="btn btn-warning btn-sm rounded-2">
-                <i class="bi bi-pencil-square me-1"></i>
-                Edit
-            </button>
             <button type="button" class="btn btn-outline-danger btn-sm rounded-2" data-bs-toggle="modal" data-bs-target="#danger_modal">
                 <i class="bi bi-trash me-1"></i>
                 Remove
@@ -20,6 +16,10 @@
                 <i class="bi bi-database-down me-1"></i>
                 Dump DB
             </a>
+            <button type="submit" form="crud_form" class="btn btn-warning btn-sm rounded-2">
+                <i class="bi bi-pencil-square me-1"></i>
+                Edit
+            </button>
         </div>
     </div>
     <div class="card-body">

@@ -233,7 +233,7 @@
                     <span class="menu-icon">
                         <i class="bi bi-card-image <?= MenuState($segment_name, 'gallery', 'fa-fade'); ?>"></i>
                     </span>
-                    <span class="menu-text">Image Storage</span>
+                    <span class="menu-text">Gallery</span>
                     <span class="menu-caret">
                         <b class="caret"></b>
                     </span>

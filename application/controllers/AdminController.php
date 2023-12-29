@@ -566,6 +566,7 @@ class AdminController extends CI_Controller
 
     public function ai_gpt_action($query)
     {
+        $query = base64_decode($query);
         $json_data = [
             "id" => null,
             "botId" => "default",

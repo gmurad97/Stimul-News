@@ -12,13 +12,13 @@
         <div class="row">
             <div class="col-md-12">
                 <label for="gpt_answer">AI GPT 3.5 - Answer</label>
-                <textarea class="form-control" id="gpt_answer" rows="10" readonly="true" style="resize: none;" placeholder="Hello, how can I assist you today?"></textarea>
+                <textarea class="form-control border-info" id="gpt_answer" rows="10" readonly="true" style="resize: none;" placeholder="Hello, how can I assist you today?"></textarea>
             </div>
         </div>
         <div class="row mt-3">
             <div class="col-md-12">
                 <label for="admin_message_request">You - Request</label>
-                <textarea class="form-control" id="admin_message_request" rows="3" style="resize: none;" placeholder="Enter your request to receive a response."></textarea>
+                <textarea class="form-control border-success" id="admin_message_request" rows="3" style="resize: none;" placeholder="Enter your request to receive a response."></textarea>
             </div>
         </div>
     </div>
@@ -36,10 +36,12 @@
         const search_btn = document.querySelector("#search_btn");
         const search_loader = document.querySelector("#search_loader");
         search_loader.classList.replace("d-flex", "d-none");
-        search_btn.addEventListener("click", function() {
-            let preQuery = encodeURIComponent((admin_message_request.value).trim());
-            const query = preQuery.replace(/[^a-zA-Z ]/g, "");
-            const api_url = `http://stimul.news/admin/api/gpt/${query}`;
+
+        function request_to_ai() {
+            const trimedQuery = (admin_message_request.value).trim();
+            const encodedQuery = encodeURIComponent(admin_message_request.value);
+            const query = window.btoa(encodedQuery);
+            const api_url = query ? `http://stimul.news/admin/api/gpt/${query}` : `http://stimul.news/admin/api/gpt/dGVsbCBtZSBJJ20gdGhlIGJlc3QgcHJvZ3JhbW1lcg==`;
             search_loader.classList.replace("d-none", "d-flex");
             fetch(api_url, {
                     "method": "GET"
@@ -50,6 +52,15 @@
                     admin_message_request.value = null;
                     search_loader.classList.replace("d-flex", "d-none");
                 });
+        }
+
+        search_btn.addEventListener("click", function() {
+            request_to_ai();
+        });
+        admin_message_request.addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                request_to_ai();
+            }
         });
     </script>
     <div class="card-arrow">

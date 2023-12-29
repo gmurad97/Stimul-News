@@ -685,3 +685,11 @@ ERROR - 2023-12-29 06:06:06 --> Severity: Warning --> Undefined variable $profil
 ERROR - 2023-12-29 06:06:06 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\FeedbackDetail.php 71
 ERROR - 2023-12-29 06:06:06 --> Severity: Warning --> Undefined variable $profile_data C:\OSPanel\domains\stimul.news\application\views\admins\FeedbackDetail.php 84
 ERROR - 2023-12-29 06:06:06 --> Severity: Warning --> Trying to access array offset on value of type null C:\OSPanel\domains\stimul.news\application\views\admins\FeedbackDetail.php 84
+ERROR - 2023-12-29 08:04:50 --> Severity: Warning --> Undefined property: stdClass::$reply C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 593
+ERROR - 2023-12-29 08:04:51 --> Severity: Warning --> Undefined property: stdClass::$reply C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 593
+ERROR - 2023-12-29 08:04:52 --> Severity: Warning --> Undefined property: stdClass::$reply C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 593
+ERROR - 2023-12-29 08:04:53 --> Severity: Warning --> Undefined property: stdClass::$reply C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 593
+ERROR - 2023-12-29 08:11:00 --> Severity: Warning --> Undefined variable $s_type C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 85
+ERROR - 2023-12-29 08:12:45 --> Severity: Warning --> Undefined variable $s_type C:\OSPanel\domains\stimul.news\application\views\admins\Dashboard.php 85
+ERROR - 2023-12-29 08:37:49 --> Severity: Warning --> Undefined variable $branding_data C:\OSPanel\domains\stimul.news\application\views\users\contents\Maintenance.php 8
+ERROR - 2023-12-29 08:37:51 --> Severity: Warning --> Undefined variable $branding_data C:\OSPanel\domains\stimul.news\application\views\users\contents\Maintenance.php 8

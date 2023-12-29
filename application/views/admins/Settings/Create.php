@@ -8,14 +8,14 @@
             Settings Create
         </div>
         <div>
-            <button type="submit" form="crud_form" class="btn btn-sm btn-success rounded-2">
-                <i class="bi bi-plus-circle me-1"></i>
-                Create
-            </button>
             <a href="<?= base_url('admin/settings-dump-db'); ?>" class="btn btn-sm btn-outline-success rounded-2">
                 <i class="bi bi-database-down me-1"></i>
                 Dump DB
             </a>
+            <button type="submit" form="crud_form" class="btn btn-sm btn-success rounded-2">
+                <i class="bi bi-plus-circle me-1"></i>
+                Create
+            </button>
         </div>
     </div>
     <div class="card-body">

@@ -20,6 +20,30 @@
                     <h1 class="text-center">Sign In</h1>
                     <div class="text-inverse text-opacity-50 text-center mb-4">
                         For your protection, please verify your identity.
+                        <table class="table table-hover">
+                            <thead class="text-success">
+                                <tr>
+                                    <td>Role</td>
+                                    <td>Username</td>
+                                    <td>Email</td>
+                                    <td>Password</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Admin</td>
+                                    <td>gmurad97</td>
+                                    <td>murad.dev@bk.ru</td>
+                                    <td>123</td>
+                                </tr>
+                                <tr>
+                                    <td>Redactor</td>
+                                    <td>rza.talibov</td>
+                                    <td>rza.t@code.edu.az</td>
+                                    <td>123</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                     <?php if ($this->session->flashdata("crud_alert")) : ?>
                         <div class="alert alert-<?= $this->session->flashdata('crud_alert')['alert_type']; ?> alert-dismissable fade show p-3" style="<?= $this->session->flashdata('crud_alert')['alert_bg_color']; ?>">
