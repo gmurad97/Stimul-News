@@ -90,7 +90,7 @@ class AdminController extends CI_Controller
 
     protected function FiatPrice(array $currencyFiat)
     {
-        $curl_fiat_price = curl_init("https://openexchangerates.org/api/latest.json?app_id=3d8598199b6d48e6a6900cda5bcea889&symbols=" . join(",", $currencyFiat));
+        $curl_fiat_price = curl_init("https://openexchangerates.org/api/latest.json?app_id=9e30be8a6f2c4dd182a0453d144a0a02&symbols=" . join(",", $currencyFiat));
         curl_setopt($curl_fiat_price, CURLOPT_USERAGENT, "StimulNewsClient-v3.2");
         curl_setopt($curl_fiat_price, CURLOPT_RETURNTRANSFER, TRUE);
         $response_result = curl_exec($curl_fiat_price);

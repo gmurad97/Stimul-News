@@ -15,12 +15,12 @@
             <?php foreach ($categories_list as $category_item) : ?>
                 <?php $category_item_name = json_decode($category_item["c_name"], TRUE); ?>
                 <div class="col-md-4 mb-4">
-                    <div class="service_box">
-                        <a href="<?= base_url('news/' . strtolower(htmlentities(base64_decode($category_item_name['en'])))); ?>">
+                    <a href="<?= base_url('news/' . strtolower(htmlentities(base64_decode($category_item_name['en'])))); ?>">
+                        <div data-tilt class="service_box">
                             <img src="<?= base_url('file_manager/categories/' . $category_item['c_img']); ?>">
                             <span class="lable"><?= htmlentities(base64_decode($category_item_name[$this->session->userdata("site_lang")])); ?></span>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
                 </div>
             <?php endforeach; ?>
         </div>

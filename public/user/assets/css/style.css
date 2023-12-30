@@ -1,12 +1,3 @@
-/**
- * AUTHOR:         Murad Gazymagomedov
- * USERNAME:       GMURAD97 || ASProgerHack
- * VERSION:        3.1
- * LOCAL SERVER:   OPENSERVER 5.4.3
- * SERVER VERSION: APACHE 2.4 + PHP 8.0-8.1 + NGINX 1.23
- * PHP VERSION:    PHP 8.0
- **/
-
 /*=============================================================
     CSS INDEX
     =============================
@@ -2949,6 +2940,7 @@ header.vertical_menu .navbar-collapse .navbar-nav {
 .service_box {
 	position: relative;
 	overflow: hidden;
+	border-radius: 6px;
 }
 
 .service_box .lable {

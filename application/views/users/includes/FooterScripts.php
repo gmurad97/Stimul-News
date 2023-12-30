@@ -1,4 +1,3 @@
-<script src="<?= base_url('public/user/assets/js/jquery-1.12.4.min.js'); ?>"></script>
 <script src="<?= base_url('public/user/assets/bootstrap/js/bootstrap.min.js'); ?>"></script>
 <script src="<?= base_url('public/user/assets/owlcarousel/js/owl.carousel.min.js'); ?>"></script>
 <script src="<?= base_url('public/user/assets/js/magnific-popup.min.js'); ?>"></script>
@@ -10,6 +9,7 @@
 <script src="<?= base_url('public/user/assets/js/jquery.dd.min.js'); ?>"></script>
 <script src="<?= base_url('public/user/assets/js/jquery.fitvids.js'); ?>"></script>
 <script src="<?= base_url('public/user/assets/js/sweetalert2.js'); ?>"></script>
+<script src="<?= base_url('public/user/assets/js/tilt.jquery.min.js'); ?>"></script>
 <script src="<?= base_url('public/user/assets/js/scripts.js'); ?>"></script>
 </body>
 

@@ -33,3 +33,4 @@ if ($settings->under_construction && !$this->session->userdata("admin_auth")) {
 </head>
 
 <body>
+    <script src="<?= base_url('public/user/assets/js/jquery-1.12.4.min.js'); ?>"></script>
