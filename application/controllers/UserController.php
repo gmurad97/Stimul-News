@@ -189,6 +189,10 @@ class UserController extends CI_Controller
         $data["news_list"] = $this->UserModel->news_pagination_user_db_get($config["per_page"], $page_offset);
         $this->load->library("pagination");
         $this->pagination->initialize($config);
+        $total_pages = ceil((int)$config["total_rows"] / (int)$config["per_page"]);
+        if ($current_page > $total_pages) {
+            redirect(base_url("news"));
+        }
         $this->load->view("users/contents/NewsList", $data);
     }
 
@@ -260,6 +264,10 @@ class UserController extends CI_Controller
         $data["news_list"] = $this->UserModel->news_pagination_user_db_get($config["per_page"], $page_offset, $uid_category_name);
         $this->load->library("pagination");
         $this->pagination->initialize($config);
+        $total_pages = ceil((int)$config["total_rows"] / (int)$config["per_page"]);
+        if ($current_page > $total_pages) {
+            redirect(base_url("news"));
+        }
         $this->load->view("users/contents/NewsList", $data);
     }
 
