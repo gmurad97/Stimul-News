@@ -415,6 +415,10 @@ class UserController extends CI_Controller
         $data["categories_list"] = $this->UserModel->categories_pagination_user_db_get($config["per_page"], $page_offset);
         $this->load->library("pagination");
         $this->pagination->initialize($config);
+        $total_pages = ceil((int)$config["total_rows"] / (int)$config["per_page"]);
+        if ($current_page > $total_pages) {
+            redirect(base_url("categories"));
+        }
         $this->load->view("users/contents/CategoryList", $data);
     }
 
