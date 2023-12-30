@@ -1,4 +1,4 @@
-<div class="section breadcrumb_section background_bg overlay_bg_80 page_title_light" data-img-src="<?= $breadcrumb_data['img_file_name']; ?>">
+<div class="section breadcrumb_section background_bg overlay_bg_80 page_title_light" data-img-src="<?= $breadcrumb_data['img_file_name']; ?>" style="background-attachment:fixed;">
     <div class="container">
         <div class="row d-flex flex-row align-items-center">
             <div class="col-md-6">

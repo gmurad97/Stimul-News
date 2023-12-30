@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-md-12">
                 <label for="gpt_answer">AI GPT 3.5 - Answer</label>
-                <textarea class="form-control border-info" id="gpt_answer" rows="10" readonly="true" style="resize: none;" placeholder="Hello, how can I assist you today?"></textarea>
+                <pre class="form-control border-info" id="gpt_answer" style="width: 100%; height:250px; white-space: pre-wrap; overflow-wrap: anywhere;">Hello, how can I assist you today?</pre>
             </div>
         </div>
         <div class="row mt-3">
@@ -59,6 +59,7 @@
         });
         admin_message_request.addEventListener("keydown", function(event) {
             if (event.key === "Enter") {
+                event.preventDefault();
                 request_to_ai();
             }
         });
