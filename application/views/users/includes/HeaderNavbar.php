@@ -26,12 +26,20 @@
                         </ul>
                     </div>
                     <div class="col-md-5">
+
+
+                    <style>
+                                    .cokc{
+                                        position: static;
+                                        width: 500px;
+                                    }
+                                </style>
                         <div class="d-flex align-items-center justify-content-center justify-content-md-end">
                             <div class="lng_dropdown ml-2">
                                 <select onchange="javascript:window.location.href = '<?= base_url(); ?>switch-lang/' + this.value;" name="countries" class="custome_select">
-                                    <option value="en" <?= $this->session->userdata("site_lang") == "en" ? "selected" : ""; ?>>English</option>
-                                    <option value="az" <?= $this->session->userdata("site_lang") == "az" ? "selected" : ""; ?>>Azerbaijan</option>
-                                    <option value="ru" <?= $this->session->userdata("site_lang") == "ru" ? "selected" : ""; ?>>Russian</option>
+                                    <option value="en" <?= $this->session->userdata("site_lang") == "en" ? "selected" : ""; ?> data-image="<?= base_url('public/user/assets/images/flags/en.svg'); ?>" data-image-css="cokc">English</option>
+                                    <option value="az" <?= $this->session->userdata("site_lang") == "az" ? "selected" : ""; ?> data-image="<?= base_url('public/user/assets/images/flags/az.svg'); ?>">Azerbaijan</option>
+                                    <option value="ru" <?= $this->session->userdata("site_lang") == "ru" ? "selected" : ""; ?> data-image="<?= base_url('public/user/assets/images/flags/ru.svg'); ?>">Russian</option>
                                 </select>
                             </div>
                         </div>

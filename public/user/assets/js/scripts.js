@@ -1,9 +1,3 @@
-/*===================================
-Author       : GMURAD97
-Template Name: Stimul News - Personal Blog & Magazine HTML Template
-Version      : 5.6.7
-===================================*/
-
 /*===================================*
 00. PAGE JS
 *===================================*/

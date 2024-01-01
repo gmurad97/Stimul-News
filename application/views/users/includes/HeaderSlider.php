@@ -1,6 +1,6 @@
 <?php if (!empty($slider_list) && !is_null($slider_list)) : ?>
     <div class="banner_section staggered-animation-wrap slide_medium">
-        <div class="carousel_slider owl-carousel owl-theme nav_style1" data-autoplay="true" data-autoplay-timeout="3072" data-autoplay-hover-pause="true" data-smart-speed="1536" data-loop="true" data-items="1" data-dots="false" data-nav="true">
+        <div class="carousel_slider owl-carousel owl-theme nav_style1" data-animate-in="fadeIn" data-animate-out="fadeOut" data-autoplay="true" data-autoplay-timeout="3072" data-autoplay-hover-pause="true" data-smart-speed="1536" data-loop="true" data-items="1" data-dots="false" data-nav="true">
             <?php foreach ($slider_list as $slider_item) : ?>
                 <?php $slider_data = json_decode($slider_item["s_data"], TRUE); ?>
                 <?php if ($slider_data["slider_type"] == "slider_custom" && $slider_item["s_status"]) : ?>
