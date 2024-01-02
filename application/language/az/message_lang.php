@@ -44,3 +44,7 @@ $lang["enter_last_name"] = "Soyadı daxil edin";
 $lang["enter_email"] = "E-poçtu daxil edin";
 $lang["enter_message"] = "Mesajı daxil edin";
 $lang["send_message"] = "Mesaj göndər";
+$lang["english"] = "İngilis";
+$lang["azerbaijani"] = "Azərbaycan";
+$lang["russian"] = "Rus";
+$lang["baku"] = "Bakı";

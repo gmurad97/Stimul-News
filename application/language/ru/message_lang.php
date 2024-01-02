@@ -44,3 +44,7 @@ $lang["enter_last_name"] = "Введите фамилию";
 $lang["enter_email"] = "Введите эл. почту";
 $lang["enter_message"] = "Введите сообщение";
 $lang["send_message"] = "Отправить сообщение";
+$lang["english"] = "Английский";
+$lang["azerbaijani"] = "Азербайджанский";
+$lang["russian"] = "Русский";
+$lang["baku"] = "Баку";

@@ -445,6 +445,8 @@
 	if ($(".custome_select").length > 0) {
 		$(document).on('ready', function () {
 			$(".custome_select").msDropdown();
+			$(".ddTitle .ddlabel").css("margin-left", "24px");
+			$(".ddChild .ddlabel").css("margin-left", "24px");
 		});
 	}
 

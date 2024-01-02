@@ -7,39 +7,31 @@
                         <ul class="header_list text-center text-md-left">
                             <?php if ($topbar["options"]->topbar_date) : ?>
                                 <li>
-                                    <i class="far fa-calendar-alt"></i>
+                                    <i class="far fa-calendar-alt" style="color: #FF5733;"></i>
                                     <span><?= $topbar["data"]->date; ?></span>
                                 </li>
                             <?php endif; ?>
                             <?php if ($topbar["options"]->topbar_time) : ?>
                                 <li>
-                                    <i class="far fa-clock"></i>
+                                    <i class="far fa-clock" style="color: #00FFFF;"></i>
                                     <span><?= $topbar["data"]->time; ?></span>
                                 </li>
                             <?php endif; ?>
                             <?php if ($topbar["options"]->topbar_weather) : ?>
                                 <li>
-                                    <i class="fas fa-cloud-sun-rain"></i>
-                                    <span><?= $topbar["data"]->weather; ?>℃ Baku</span>
+                                    <i class="fas fa-cloud-sun-rain" style="color: #FFD700;"></i>
+                                    <span><?= $topbar["data"]->weather; ?>℃ <?= $this->lang->line("baku"); ?></span>
                                 </li>
                             <?php endif; ?>
                         </ul>
                     </div>
                     <div class="col-md-5">
-
-
-                    <style>
-                                    .cokc{
-                                        position: static;
-                                        width: 500px;
-                                    }
-                                </style>
                         <div class="d-flex align-items-center justify-content-center justify-content-md-end">
                             <div class="lng_dropdown ml-2">
                                 <select onchange="javascript:window.location.href = '<?= base_url(); ?>switch-lang/' + this.value;" name="countries" class="custome_select">
-                                    <option value="en" <?= $this->session->userdata("site_lang") == "en" ? "selected" : ""; ?> data-image="<?= base_url('public/user/assets/images/flags/en.svg'); ?>" data-image-css="cokc">English</option>
-                                    <option value="az" <?= $this->session->userdata("site_lang") == "az" ? "selected" : ""; ?> data-image="<?= base_url('public/user/assets/images/flags/az.svg'); ?>">Azerbaijan</option>
-                                    <option value="ru" <?= $this->session->userdata("site_lang") == "ru" ? "selected" : ""; ?> data-image="<?= base_url('public/user/assets/images/flags/ru.svg'); ?>">Russian</option>
+                                    <option value="en" <?= $this->session->userdata("site_lang") == "en" ? "selected" : ""; ?> data-image="<?= base_url('public/user/assets/images/flags/en.svg'); ?>"><?= $this->lang->line("english"); ?></option>
+                                    <option value="az" <?= $this->session->userdata("site_lang") == "az" ? "selected" : ""; ?> data-image="<?= base_url('public/user/assets/images/flags/az.svg'); ?>"><?= $this->lang->line("azerbaijani"); ?></option>
+                                    <option value="ru" <?= $this->session->userdata("site_lang") == "ru" ? "selected" : ""; ?> data-image="<?= base_url('public/user/assets/images/flags/ru.svg'); ?>"><?= $this->lang->line("russian"); ?></option>
                                 </select>
                             </div>
                         </div>

@@ -44,3 +44,7 @@ $lang["enter_last_name"] = "Enter Last Name";
 $lang["enter_email"] = "Enter Email";
 $lang["enter_message"] = "Enter Message";
 $lang["send_message"] = "Send Message";
+$lang["english"] = "English";
+$lang["azerbaijani"] = "Azerbaijani";
+$lang["russian"] = "Russian";
+$lang["baku"] = "Baku";
