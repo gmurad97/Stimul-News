@@ -34,3 +34,21 @@ if ($settings->under_construction && !$this->session->userdata("admin_auth")) {
 
 <body>
     <script src="<?= base_url('public/user/assets/js/jquery-1.12.4.min.js'); ?>"></script>
+    <?php if ($settings->snow_mode) : ?>
+        <script src="<?= base_url('public/user/assets/js/snowflakes.min.js'); ?>"></script>
+        <script>
+            new Snowflakes({
+                color: "rgb(64, 115, 158)",
+                count: 128,
+                minOpacity: 0.32,
+                maxOpacity: 0.96,
+                minSize: 16,
+                maxSize: 32,
+                rotation: true,
+                speed: 1,
+                wind: true,
+                zIndex: 9999,
+                autoResize: true
+            });
+        </script>
+    <?php endif; ?>

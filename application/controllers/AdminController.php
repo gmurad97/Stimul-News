@@ -2373,9 +2373,11 @@ class AdminController extends CI_Controller
         if ($settings_db_row == -1) {
             $under_construction = $this->input->post("under_construction", TRUE);
             $dark_mode_cms      = $this->input->post("dark_mode_cms", TRUE);
+            $snow_mode          = $this->input->post("snow_mode", TRUE);
             $decoded_json_data = [
                 "under_construction" => str_contains($under_construction, "on") ? TRUE : FALSE,
-                "dark_mode_cms" => str_contains($dark_mode_cms, "on") ? TRUE : FALSE
+                "dark_mode_cms" => str_contains($dark_mode_cms, "on") ? TRUE : FALSE,
+                "snow_mode" => str_contains($snow_mode, "on") ? TRUE : FALSE
             ];
             $encoded_json_data = json_encode($decoded_json_data);
             $data = [
@@ -2415,9 +2417,11 @@ class AdminController extends CI_Controller
         } else {
             $under_construction = $this->input->post("under_construction", TRUE);
             $dark_mode_cms      = $this->input->post("dark_mode_cms", TRUE);
+            $snow_mode          = $this->input->post("snow_mode", TRUE);
             $decoded_json_data = [
                 "under_construction" => str_contains($under_construction, "on") ? TRUE : FALSE,
-                "dark_mode_cms" => str_contains($dark_mode_cms, "on") ? TRUE : FALSE
+                "dark_mode_cms" => str_contains($dark_mode_cms, "on") ? TRUE : FALSE,
+                "snow_mode" => str_contains($snow_mode, "on") ? TRUE : FALSE
             ];
             $encoded_json_data = json_encode($decoded_json_data);
             $data = [

@@ -54,6 +54,17 @@
                         </div>
                     </div>
                 </li>
+                <li class="list-group-item">
+                    <div class="d-flex flex-row justify-content-between align-items-center">
+                        <label for="snow_mode_label">
+                            <i class="fa-regular fa-snowflake text-success me-1"></i>
+                            Snow Mode
+                        </label>
+                        <div class="form-check form-switch">
+                            <input name="snow_mode" type="checkbox" class="form-check-input" id="snow_mode_label">
+                        </div>
+                    </div>
+                </li>
             </ul>
         </form>
     </div>
