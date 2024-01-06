@@ -99,7 +99,7 @@
                     </li>
                     <li>
                         <a target="_blank" href="https://github.com/gmurad97" class="nav-link nav_item text-uppercase text-success">
-                            <i class="fab fa-github-alt" style="font-size: 22px;"></i>
+                            <i class="fab fa-github-alt fa-spin" style="font-size: 22px;"></i>
                         </a>
                     </li>
                 </ul>

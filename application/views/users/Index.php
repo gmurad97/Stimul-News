@@ -15,12 +15,12 @@
                             <?php if ($category_item["c_status"]) : ?>
                                 <?php $category_name = json_decode($category_item["c_name"], TRUE); ?>
                                 <div class="item">
-                                    <div class="service_box">
-                                        <a href="<?= strtolower(base_url('news/' . htmlentities(base64_decode($category_name["en"])))); ?>">
+                                    <a href="<?= strtolower(base_url('news/' . htmlentities(base64_decode($category_name["en"])))); ?>">
+                                        <div class="service_box">
                                             <img src="<?= base_url('file_manager/categories/') . $category_item["c_img"]; ?>" alt="<?= htmlentities(base64_decode($category_name[$this->session->userdata("site_lang")])); ?>">
                                             <span class="lable"><?= htmlentities(base64_decode($category_name[$this->session->userdata("site_lang")])); ?></span>
-                                        </a>
-                                    </div>
+                                        </div>
+                                    </a>
                                 </div>
                             <?php endif; ?>
                         <?php endforeach; ?>
