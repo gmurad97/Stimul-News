@@ -27,14 +27,14 @@ class AdminController extends CI_Controller
     /*=====LOCAL ADMIN CONTROLLER FUNCTION - START=====*/
     protected function SendEmail(array $eTo, string $eSubject, string $eMessage): bool
     {
-        $eFrom = "murad.fswd@carsleon.com";
-        $eFromName = "STIMUL NEWS";
+
         $this->email->clear();
         $this->email->from($eFrom, $eFromName);
         $this->email->to($eTo);
         $this->email->subject($eSubject);
         $this->email->message($eMessage);
-        return $this->email->send();
+        $this->email->send(FALSE);
+        return $this->email->print_debugger();
     }
 
     protected function AlertFlashData(string $alertType, string $alertName, string $alertShortMessage, string $alertLongMessage): void
@@ -102,6 +102,8 @@ class AdminController extends CI_Controller
     /*=====GLOBAL ADMIN FUNCTION - START=====*/
     public function login()
     {
+
+
         $this->load->helper("captcha");
         $captcha_cfg = [
             "img_path" => "./file_manager/system/captcha/",

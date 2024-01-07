@@ -3,11 +3,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 /*=====START - IMPORTANT MAIL SETTINGS=====*/
 $config["protocol"]    = "smtp";
-$config["smtp_host"]   = "smtp.titan.email";
+$config["smtp_host"]   = "smtp.mail.com";
 $config["smtp_port"]   = 465;
 $config["smtp_crypto"] = "ssl";
-$config["smtp_user"]   = "murad.fswd@carsleon.com";
-$config["smtp_pass"]   = "murad.fswd123456789!";
+$config["smtp_user"]   = "-----------";
+$config["smtp_pass"]   = "-----------------";
 /*=====ENDED - IMPORTANT MAIL SETTINGS=====*/
 
 /*=====START - NOT IMPORTANT MAIL SETTINGS=====*/

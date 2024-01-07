@@ -1,14 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-/*
-| -------------------------------------------------------------------
-| MIME TYPES
-| -------------------------------------------------------------------
-| This file contains an array of mime types. It is used by the
-| Upload class to help identify allowed file types.
-|
-*/
 return array(
 	'hqx'	=>	array('application/mac-binhex40', 'application/mac-binhex', 'application/x-binhex40', 'application/x-mac-binhex40'),
 	'cpt'	=>	'application/mac-compactpro',
@@ -53,7 +45,7 @@ return array(
 	'sit'	=>	'application/x-stuffit',
 	'tar'	=>	'application/x-tar',
 	'tgz'	=>	array('application/x-tar', 'application/x-gzip-compressed'),
-	'z'	=>	'application/x-compress',
+	'z'		=>	'application/x-compress',
 	'xhtml'	=>	'application/xhtml+xml',
 	'xht'	=>	'application/xhtml+xml',
 	'zip'	=>	array('application/x-zip', 'application/zip', 'application/x-zip-compressed', 'application/s-compressed', 'multipart/x-zip'),
