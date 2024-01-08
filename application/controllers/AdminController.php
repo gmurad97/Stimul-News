@@ -2,12 +2,19 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
- * AUTHOR:         MURAD GAZYMAGOMEDOV
- * USERNAME:       GMURAD97
- * VERSION:        3.2
- * LOCAL SERVER:   OPENSERVER 5.4.3
- * SERVER VERSION: APACHE 2.4 + PHP 8.0-8.1 + NGINX 1.23
- * PHP VERSION:    PHP 8.0
+ * ╔╗
+ * ╠╠═ Author: Murad Gazymagomedov
+ * ╠╠═ Username: gmurad97
+ * ╠╠═ Version: 3.3
+ * ║║
+ * ╠╠═ Open Server Panel 5.4.3 Specs
+ * ╠╠╠══ Modules
+ * ╠╠╠╠═══ Http: Apache_2.4-PHP_8.0-8.1+Nginx_1.23
+ * ╠╠╠╠═══ PHP: PHP_8.0
+ * ╠╠╠╠═══ MySQL / MariaDB: MySQL-8.0-Win10
+ * ╠╠╠══ Mail
+ * ╠╠╠╠═══ Way to send e-mail: Send mail through a remote SMTP server
+ * ╚╝
  **/
 
 class AdminController extends CI_Controller
@@ -24,17 +31,17 @@ class AdminController extends CI_Controller
         $this->load->vars($data);
     }
 
-    /*=====LOCAL ADMIN CONTROLLER FUNCTION - START=====*/
+    /*======[ADMIN CONTROLLER FUNCTIONS - START]======*/
     protected function SendEmail(array $eTo, string $eSubject, string $eMessage): bool
     {
-
+        $eFrom = "stimul.news@bk.ru";
+        $eFromName = "Stimul News";
         $this->email->clear();
         $this->email->from($eFrom, $eFromName);
         $this->email->to($eTo);
         $this->email->subject($eSubject);
         $this->email->message($eMessage);
-        $this->email->send(FALSE);
-        return $this->email->print_debugger();
+        return $this->email->send();
     }
 
     protected function AlertFlashData(string $alertType, string $alertName, string $alertShortMessage, string $alertLongMessage): void
@@ -77,7 +84,7 @@ class AdminController extends CI_Controller
     protected function CryptoPrice($cryptoLimit)
     {
         $curl_crypto_price = curl_init("https://api.binance.com/api/v3/ticker/price");
-        curl_setopt($curl_crypto_price, CURLOPT_USERAGENT, "StimulNewsClient-v3.2");
+        curl_setopt($curl_crypto_price, CURLOPT_USERAGENT, "StimulNewsClient-v3.3");
         curl_setopt($curl_crypto_price, CURLOPT_RETURNTRANSFER, TRUE);
         $response_result = array_values(array_filter(json_decode(curl_exec($curl_crypto_price), FALSE), function ($cryptoPair) {
             if (str_ends_with($cryptoPair->symbol, "USDT")) {
@@ -90,20 +97,22 @@ class AdminController extends CI_Controller
 
     protected function FiatPrice(array $currencyFiat)
     {
-        $curl_fiat_price = curl_init("https://openexchangerates.org/api/latest.json?app_id=9e30be8a6f2c4dd182a0453d144a0a02&symbols=" . join(",", $currencyFiat));
-        curl_setopt($curl_fiat_price, CURLOPT_USERAGENT, "StimulNewsClient-v3.2");
+        $curl_fiat_price = curl_init("https://openexchangerates.org/api/latest.json?app_id=93d0c44fe44e46cf8a83a507e735a817&symbols=" . join(",", $currencyFiat));
+        curl_setopt($curl_fiat_price, CURLOPT_USERAGENT, "StimulNewsClient-v3.3");
         curl_setopt($curl_fiat_price, CURLOPT_RETURNTRANSFER, TRUE);
         $response_result = curl_exec($curl_fiat_price);
         curl_close($curl_fiat_price);
         return json_decode($response_result, TRUE)["rates"];
     }
-    /*=====LOCAL ADMIN CONTROLLER FUNCTION - ENDED=====*/
+    /*======[ADMIN CONTROLLER FUNCTIONS - ENDED]======*/
 
-    /*=====GLOBAL ADMIN FUNCTION - START=====*/
+
+
+
+
+    /*======[LOGIN, REGISTER, PROFILE - START]======*/
     public function login()
     {
-
-
         $this->load->helper("captcha");
         $captcha_cfg = [
             "img_path" => "./file_manager/system/captcha/",
@@ -515,7 +524,23 @@ class AdminController extends CI_Controller
             redirect(base_url("admin/profile-list"));
         }
     }
-    /*=====GLOBAL ADMIN FUNCTION - ENDED=====*/
+    /*======[LOGIN, REGISTER, PROFILE - ENDED]======*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /*=====DASHBOARD - START=====*/
     public function dashboard()

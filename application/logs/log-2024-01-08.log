@@ -1,0 +1,2 @@
+ERROR - 2024-01-08 02:47:56 --> Severity: error --> Exception: AdminController::SendEmail(): Return value must be of type bool, none returned C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 38
+ERROR - 2024-01-08 02:48:04 --> Severity: error --> Exception: AdminController::SendEmail(): Return value must be of type bool, none returned C:\OSPanel\domains\stimul.news\application\controllers\AdminController.php 38
