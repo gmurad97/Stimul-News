@@ -502,18 +502,28 @@ class AdminController extends CI_Controller
     {
         if ($this->isAdmin) {
             $current_profile_data     = $this->AdminModel->profile_admin_db_get($id);
-            $current_profile_img_path = "./file_manager/system/admin/" . $current_profile_data["a_img"];
-            if (!is_dir($current_profile_img_path) && file_exists($current_profile_img_path)) {
-                unlink($current_profile_img_path);
+            if ($current_profile_data["a_role"] != "999") {
+                $current_profile_img_path = "./file_manager/system/admin/" . $current_profile_data["a_img"];
+                if (!is_dir($current_profile_img_path) && file_exists($current_profile_img_path)) {
+                    unlink($current_profile_img_path);
+                }
+                $this->AdminModel->profile_admin_db_delete($id);
+                $this->AlertFlashData(
+                    "success",
+                    "crud_alert",
+                    "Success!",
+                    "The profile has been successfully edited."
+                );
+                redirect(base_url("admin/profile-list"));
+            } else {
+                $this->AlertFlashData(
+                    "warning",
+                    "crud_alert",
+                    "Warning!",
+                    "This profile cannot be deleted."
+                );
+                redirect(base_url("admin/profile-list"));
             }
-            $this->AdminModel->profile_admin_db_delete($id);
-            $this->AlertFlashData(
-                "success",
-                "crud_alert",
-                "Success!",
-                "The profile has been successfully edited."
-            );
-            redirect(base_url("admin/profile-list"));
         } else {
             $this->AlertFlashData(
                 "warning",

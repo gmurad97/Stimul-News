@@ -2,12 +2,19 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
- * AUTHOR:         MURAD GAZYMAGOMEDOV
- * USERNAME:       GMURAD97
- * VERSION:        3.2
- * LOCAL SERVER:   OPENSERVER 5.4.3
- * SERVER VERSION: APACHE 2.4 + PHP 8.0-8.1 + NGINX 1.23
- * PHP VERSION:    PHP 8.0
+ * ╔╗
+ * ╠╠═ Author: Murad Gazymagomedov
+ * ╠╠═ Username: gmurad97
+ * ╠╠═ Version: 3.3
+ * ║║
+ * ╠╠═ Open Server Panel 5.4.3 Specs
+ * ╠╠╠══ Modules
+ * ╠╠╠╠═══ Http: Apache_2.4-PHP_8.0-8.1+Nginx_1.23
+ * ╠╠╠╠═══ PHP: PHP_8.0
+ * ╠╠╠╠═══ MySQL / MariaDB: MySQL-8.0-Win10
+ * ╠╠╠══ Mail
+ * ╠╠╠╠═══ Way to send e-mail: Send mail through a remote SMTP server
+ * ╚╝
  **/
 
 class UserController extends CI_Controller
@@ -18,11 +25,11 @@ class UserController extends CI_Controller
         $this->load->model("UserModel");
     }
 
-    /*==========FUNCTION & ACTION - START==========*/
+    /*========[FUNCTIONS & ACTIONS - START]========*/
     public function topbarInfo()
     {
         date_default_timezone_set("Asia/Baku");
-        $weather = json_decode(file_get_contents("https://api.weatherapi.com/v1/current.json?key=a4c0afb9a3244f219ad30006233012&q=Baku&aqi=no"));
+        $weather = json_decode(file_get_contents("https://api.weatherapi.com/v1/current.json?key=029fb0aeb2b9484a8b440601240801&q=Baku&aqi=no"));
         return (object) [
             "date" => date("d.m.Y"),
             "time" => date("H:i"),
@@ -111,7 +118,17 @@ class UserController extends CI_Controller
             redirect(base_url("contacts"));
         }
     }
-    /*==========FUNCTION & ACTION - START==========*/
+    /*========[FUNCTIONS & ACTIONS - ENDED]========*/
+
+
+
+
+
+
+
+
+
+
 
     /*==========GLOBAL USERS PAGES - START==========*/
     public function index()
@@ -185,14 +202,28 @@ class UserController extends CI_Controller
         $config["uri_segment"] = 3;
         $config["use_page_numbers"] = TRUE;
         $current_page = $this->uri->segment(3, 0);
-        $page_offset = max(($current_page - 1) * (int)$config["per_page"], 0);
-        $data["news_list"] = $this->UserModel->news_pagination_user_db_get($config["per_page"], $page_offset);
-        $this->load->library("pagination");
-        $this->pagination->initialize($config);
+
+
+
         $total_pages = ceil((int)$config["total_rows"] / (int)$config["per_page"]);
-        if ($current_page > $total_pages) {
+
+
+
+
+
+
+
+        if ($current_page < 1 || $current_page > $total_pages) {
             redirect(base_url("news"));
         }
+
+        $page_offset = max(($current_page - 1) * (int)$config["per_page"], 0);
+        $data["news_list"] = $this->UserModel->news_pagination_user_db_get($config["per_page"], $page_offset);
+
+
+        $this->load->library("pagination");
+        $this->pagination->initialize($config);
+
         $this->load->view("users/contents/NewsList", $data);
     }
 

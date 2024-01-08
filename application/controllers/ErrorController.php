@@ -2,12 +2,19 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
- * AUTHOR:         MURAD GAZYMAGOMEDOV
- * USERNAME:       GMURAD97
- * VERSION:        3.2
- * LOCAL SERVER:   OPENSERVER 5.4.3
- * SERVER VERSION: APACHE 2.4 + PHP 8.0-8.1 + NGINX 1.23
- * PHP VERSION:    PHP 8.0
+ * ╔╗
+ * ╠╠═ Author: Murad Gazymagomedov
+ * ╠╠═ Username: gmurad97
+ * ╠╠═ Version: 3.3
+ * ║║
+ * ╠╠═ Open Server Panel 5.4.3 Specs
+ * ╠╠╠══ Modules
+ * ╠╠╠╠═══ Http: Apache_2.4-PHP_8.0-8.1+Nginx_1.23
+ * ╠╠╠╠═══ PHP: PHP_8.0
+ * ╠╠╠╠═══ MySQL / MariaDB: MySQL-8.0-Win10
+ * ╠╠╠══ Mail
+ * ╠╠╠╠═══ Way to send e-mail: Send mail through a remote SMTP server
+ * ╚╝
  **/
 
 class ErrorController extends CI_Controller
@@ -15,14 +22,14 @@ class ErrorController extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model("AdminModel");
-        $this->load->model("UserModel");
+        $this->load->model("AdminModel"); //For Admin Pages Error404
+        $this->load->model("UserModel"); //For User Pages Error404
     }
 
     public function topbarInfo()
     {
         date_default_timezone_set("Asia/Baku");
-        $weather = json_decode(file_get_contents("https://api.weatherapi.com/v1/current.json?key=a4c0afb9a3244f219ad30006233012&q=Baku&aqi=no"));
+        $weather = json_decode(file_get_contents("https://api.weatherapi.com/v1/current.json?key=029fb0aeb2b9484a8b440601240801&q=Baku&aqi=no"));
         return (object) [
             "date" => date("d.m.Y"),
             "time" => date("H:i"),

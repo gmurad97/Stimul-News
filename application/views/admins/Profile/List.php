@@ -109,7 +109,7 @@
                                 </a>
 
 
-                                <a href="javascript:void(0);" class="nav-link <?= $global_is_admin ? '' : 'disabled'; ?> theme-danger p-0" data-link="<?= base_url('admin/profile-delete/') . $profile_data["a_uid"]; ?>" data-bs-toggle="modal" data-bs-target="#danger_modal">
+                                <a href="javascript:void(0);" class="nav-link <?= $global_is_admin && $profile_data["a_role"] != '999' ? '' : 'disabled'; ?> theme-danger p-0" data-link="<?= base_url('admin/profile-delete/') . $profile_data["a_uid"]; ?>" data-bs-toggle="modal" data-bs-target="#danger_modal">
                                     <i class="bi bi-trash fs-5"></i>
                                 </a>
 

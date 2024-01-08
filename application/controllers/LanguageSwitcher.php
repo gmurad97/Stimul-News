@@ -2,12 +2,19 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
- * AUTHOR:         MURAD GAZYMAGOMEDOV
- * USERNAME:       GMURAD97
- * VERSION:        3.2
- * LOCAL SERVER:   OPENSERVER 5.4.3
- * SERVER VERSION: APACHE 2.4 + PHP 8.0-8.1 + NGINX 1.23
- * PHP VERSION:    PHP 8.0
+ * ╔╗
+ * ╠╠═ Author: Murad Gazymagomedov
+ * ╠╠═ Username: gmurad97
+ * ╠╠═ Version: 3.3
+ * ║║
+ * ╠╠═ Open Server Panel 5.4.3 Specs
+ * ╠╠╠══ Modules
+ * ╠╠╠╠═══ Http: Apache_2.4-PHP_8.0-8.1+Nginx_1.23
+ * ╠╠╠╠═══ PHP: PHP_8.0
+ * ╠╠╠╠═══ MySQL / MariaDB: MySQL-8.0-Win10
+ * ╠╠╠══ Mail
+ * ╠╠╠╠═══ Way to send e-mail: Send mail through a remote SMTP server
+ * ╚╝
  **/
 
 class LanguageSwitcher extends CI_Controller
