@@ -80,10 +80,10 @@
 ,{"type":"table","name":"slider","database":"stimul_news_db","data":
 [
 {"s_uid":"1","s_data":"{\"slider_img\": \"edc2739ac98ebf3936a195fbfb8bfee0.jpg\", \"slider_text\": {\"az\": \"UWF6xLFtyZloyZltbcmZZG92IE11cmFk\", \"en\": \"R2F6eW1hZ29tZWRvdiBNdXJhZA==\", \"ru\": \"0JPQsNC30YvQvNCw0LPQvtC80LzQtdC00L7QsiDQnNGD0YDQsNC0\"}, \"slider_type\": \"slider_custom\", \"slider_text_link\": \"aHR0cHM6Ly9naXRodWIuY29tL2dtdXJhZDk3\", \"slider_text_color\": \"IzlkNGQxOQ==\"}","s_status":"1"},
-{"s_uid":"2","s_data":"{\"slider_uid\": \"25\", \"slider_type\": \"slider_news\"}","s_status":"1"},
-{"s_uid":"3","s_data":"{\"slider_uid\": \"27\", \"slider_type\": \"slider_news\"}","s_status":"1"},
-{"s_uid":"4","s_data":"{\"slider_uid\": \"28\", \"slider_type\": \"slider_news\"}","s_status":"1"},
-{"s_uid":"5","s_data":"{\"slider_uid\": \"29\", \"slider_type\": \"slider_news\"}","s_status":"1"}
+{"s_uid":"2","s_data":"{\"slider_uid\": \"1\", \"slider_type\": \"slider_news\"}","s_status":"1"},
+{"s_uid":"3","s_data":"{\"slider_uid\": \"2\", \"slider_type\": \"slider_news\"}","s_status":"1"},
+{"s_uid":"4","s_data":"{\"slider_uid\": \"3\", \"slider_type\": \"slider_news\"}","s_status":"1"},
+{"s_uid":"5","s_data":"{\"slider_uid\": \"4\", \"slider_type\": \"slider_news\"}","s_status":"1"}
 ]
 }
 ,{"type":"table","name":"subscribers","database":"stimul_news_db","data":

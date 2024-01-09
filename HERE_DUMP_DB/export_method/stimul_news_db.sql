@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Янв 09 2024 г., 08:34
+-- Время создания: Янв 10 2024 г., 00:17
 -- Версия сервера: 8.0.30
 -- Версия PHP: 8.0.22
 
@@ -275,10 +275,10 @@ CREATE TABLE `slider` (
 
 INSERT INTO `slider` (`s_uid`, `s_data`, `s_status`) VALUES
 (1, '{\"slider_img\": \"edc2739ac98ebf3936a195fbfb8bfee0.jpg\", \"slider_text\": {\"az\": \"UWF6xLFtyZloyZltbcmZZG92IE11cmFk\", \"en\": \"R2F6eW1hZ29tZWRvdiBNdXJhZA==\", \"ru\": \"0JPQsNC30YvQvNCw0LPQvtC80LzQtdC00L7QsiDQnNGD0YDQsNC0\"}, \"slider_type\": \"slider_custom\", \"slider_text_link\": \"aHR0cHM6Ly9naXRodWIuY29tL2dtdXJhZDk3\", \"slider_text_color\": \"IzlkNGQxOQ==\"}', 1),
-(2, '{\"slider_uid\": \"25\", \"slider_type\": \"slider_news\"}', 1),
-(3, '{\"slider_uid\": \"27\", \"slider_type\": \"slider_news\"}', 1),
-(4, '{\"slider_uid\": \"28\", \"slider_type\": \"slider_news\"}', 1),
-(5, '{\"slider_uid\": \"29\", \"slider_type\": \"slider_news\"}', 1);
+(2, '{\"slider_uid\": \"1\", \"slider_type\": \"slider_news\"}', 1),
+(3, '{\"slider_uid\": \"2\", \"slider_type\": \"slider_news\"}', 1),
+(4, '{\"slider_uid\": \"3\", \"slider_type\": \"slider_news\"}', 1),
+(5, '{\"slider_uid\": \"4\", \"slider_type\": \"slider_news\"}', 1);
 
 -- --------------------------------------------------------
 
