@@ -98,23 +98,15 @@
                         </td>
                         <td>
                             <nav class="nav flex-row">
-
                                 <a href="<?= base_url('admin/profile-detail/') . $profile_data['a_uid']; ?>" class="nav-link <?= $global_is_admin || $isCurrentUser ? '' : 'disabled'; ?> theme-info p-0 me-3">
                                     <i class="bi bi-eye fs-5"></i>
                                 </a>
-
-
                                 <a href="<?= base_url('admin/profile-edit/') . $profile_data["a_uid"]; ?>" class="nav-link <?= $global_is_admin || $isCurrentUser ? '' : 'disabled'; ?> theme-warning p-0 me-3">
                                     <i class="bi bi-pencil-square fs-5"></i>
                                 </a>
-
-
                                 <a href="javascript:void(0);" class="nav-link <?= $global_is_admin && $profile_data["a_role"] != '999' ? '' : 'disabled'; ?> theme-danger p-0" data-link="<?= base_url('admin/profile-delete/') . $profile_data["a_uid"]; ?>" data-bs-toggle="modal" data-bs-target="#danger_modal">
                                     <i class="bi bi-trash fs-5"></i>
                                 </a>
-
-
-
                             </nav>
                         </td>
                     </tr>

@@ -25,7 +25,7 @@ class UserController extends CI_Controller
         $this->load->model("UserModel");
     }
 
-    /*========[FUNCTIONS & ACTIONS - START]========*/
+    /*================[FUNCTIONS & ACTIONS - START]================*/
     public function topbarInfo()
     {
         date_default_timezone_set("Asia/Baku");
@@ -118,19 +118,9 @@ class UserController extends CI_Controller
             redirect(base_url("contacts"));
         }
     }
-    /*========[FUNCTIONS & ACTIONS - ENDED]========*/
+    /*================[FUNCTIONS & ACTIONS - ENDED]================*/
 
-
-
-
-
-
-
-
-
-
-
-    /*==========GLOBAL USERS PAGES - START==========*/
+    /*================[GLOBAL USER PAGES - START]================*/
     public function index()
     {
         $data["user_page_name"] = "Home";
@@ -202,28 +192,14 @@ class UserController extends CI_Controller
         $config["uri_segment"] = 3;
         $config["use_page_numbers"] = TRUE;
         $current_page = $this->uri->segment(3, 0);
-
-
-
         $total_pages = ceil((int)$config["total_rows"] / (int)$config["per_page"]);
-
-
-
-
-
-
-
-        if ($current_page < 1 || $current_page > $total_pages) {
+        if ($current_page > $total_pages) {
             redirect(base_url("news"));
         }
-
         $page_offset = max(($current_page - 1) * (int)$config["per_page"], 0);
         $data["news_list"] = $this->UserModel->news_pagination_user_db_get($config["per_page"], $page_offset);
-
-
         $this->load->library("pagination");
         $this->pagination->initialize($config);
-
         $this->load->view("users/contents/NewsList", $data);
     }
 
@@ -291,14 +267,14 @@ class UserController extends CI_Controller
         $config["uri_segment"] = 4;
         $config["use_page_numbers"] = TRUE;
         $current_page = $this->uri->segment(4, 0);
-        $page_offset = max(($current_page - 1) * (int)$config["per_page"], 0);
-        $data["news_list"] = $this->UserModel->news_pagination_user_db_get($config["per_page"], $page_offset, $uid_category_name);
-        $this->load->library("pagination");
-        $this->pagination->initialize($config);
         $total_pages = ceil((int)$config["total_rows"] / (int)$config["per_page"]);
         if ($current_page > $total_pages) {
             redirect(base_url("news"));
         }
+        $page_offset = max(($current_page - 1) * (int)$config["per_page"], 0);
+        $data["news_list"] = $this->UserModel->news_pagination_user_db_get($config["per_page"], $page_offset, $uid_category_name);
+        $this->load->library("pagination");
+        $this->pagination->initialize($config);
         $this->load->view("users/contents/NewsList", $data);
     }
 
@@ -442,18 +418,18 @@ class UserController extends CI_Controller
         $config["base_url"] = base_url("categories/page/");
         $config["total_rows"] = $this->UserModel->categories_count_user_db_get();
         $current_page = $this->uri->segment(3, 0);
-        $page_offset = max(($current_page - 1) * (int)$config["per_page"], 0);
-        $data["categories_list"] = $this->UserModel->categories_pagination_user_db_get($config["per_page"], $page_offset);
-        $this->load->library("pagination");
-        $this->pagination->initialize($config);
         $total_pages = ceil((int)$config["total_rows"] / (int)$config["per_page"]);
         if ($current_page > $total_pages) {
             redirect(base_url("categories"));
         }
+        $page_offset = max(($current_page - 1) * (int)$config["per_page"], 0);
+        $data["categories_list"] = $this->UserModel->categories_pagination_user_db_get($config["per_page"], $page_offset);
+        $this->load->library("pagination");
+        $this->pagination->initialize($config);
         $this->load->view("users/contents/CategoryList", $data);
     }
 
-    public function maintenance()
+    function maintenance()
     {
         $settings = json_decode($this->UserModel->settings_db_get()["s_data"] ?? NULL, FALSE);
         if ($settings->under_construction && !$this->session->userdata("admin_auth")) {
@@ -462,5 +438,5 @@ class UserController extends CI_Controller
             redirect(base_url("home"));
         }
     }
-    /*=====GLOBAL USERS PAGES - ENDED=====*/
+    /*================[GLOBAL USER PAGES - ENDED]================*/
 }

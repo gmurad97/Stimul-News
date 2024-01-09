@@ -31,7 +31,7 @@ class AdminController extends CI_Controller
         $this->load->vars($data);
     }
 
-    /*======[ADMIN CONTROLLER FUNCTIONS - START]======*/
+    /*================[ADMIN CONTROLLER FUNCTIONS - START]================*/
     protected function SendEmail(array $eTo, string $eSubject, string $eMessage): bool
     {
         $eFrom = "stimul.news@bk.ru";
@@ -104,13 +104,9 @@ class AdminController extends CI_Controller
         curl_close($curl_fiat_price);
         return json_decode($response_result, TRUE)["rates"];
     }
-    /*======[ADMIN CONTROLLER FUNCTIONS - ENDED]======*/
+    /*================[ADMIN CONTROLLER FUNCTIONS - ENDED]================*/
 
-
-
-
-
-    /*======[LOGIN, REGISTER, PROFILE - START]======*/
+    /*================[LOGIN & REGISTER & PROFILE - START]================*/
     public function login()
     {
         $this->load->helper("captcha");
@@ -325,6 +321,9 @@ class AdminController extends CI_Controller
         if ($this->isAdmin || $id == $this->session->userdata("admin_auth")["admin_uid"]) {
             $data["admin_page_name"] = "Profile Detail";
             $data["profile_data"] = $this->AdminModel->profile_admin_db_get($id);
+            if (empty($data["profile_data"])) {
+                redirect(base_url("admin/profile-list"));
+            }
             $this->load->view("admins/Profile/Detail", $data);
         } else {
             $this->AlertFlashData(
@@ -342,6 +341,9 @@ class AdminController extends CI_Controller
         if ($this->isAdmin || $id == $this->session->userdata("admin_auth")["admin_uid"]) {
             $data["admin_page_name"] = "Profile Edit";
             $data["profile_data"] = $this->AdminModel->profile_admin_db_get($id);
+            if (empty($data["profile_data"])) {
+                redirect(base_url("admin/profile-list"));
+            }
             $this->load->view("admins/Profile/Edit", $data);
         } else {
             $this->AlertFlashData(
@@ -357,8 +359,11 @@ class AdminController extends CI_Controller
     public function crud_profile_edit_action($id)
     {
         if ($this->isAdmin || $id == $this->session->userdata("admin_auth")["admin_uid"]) {
-            $current_profile_data      = $this->AdminModel->profile_admin_db_get($id);
-            $current_profile_img_path  = "./file_manager/system/admin/" . $current_profile_data["a_img"];
+            $current_profile_data = $this->AdminModel->profile_admin_db_get($id);
+            if (empty($current_profile_data)) {
+                redirect(base_url("admin/profile-list"));
+            }
+            $current_profile_img_path = "./file_manager/system/admin/" . $current_profile_data["a_img"];
             $profile_name             = $this->input->post("profile_name", TRUE);
             $profile_surname          = $this->input->post("profile_surname", TRUE);
             $profile_email            = $this->input->post("profile_email", TRUE);
@@ -502,6 +507,9 @@ class AdminController extends CI_Controller
     {
         if ($this->isAdmin) {
             $current_profile_data     = $this->AdminModel->profile_admin_db_get($id);
+            if (empty($current_profile_data)) {
+                redirect(base_url("admin/profile-list"));
+            }
             if ($current_profile_data["a_role"] != "999") {
                 $current_profile_img_path = "./file_manager/system/admin/" . $current_profile_data["a_img"];
                 if (!is_dir($current_profile_img_path) && file_exists($current_profile_img_path)) {
@@ -534,25 +542,9 @@ class AdminController extends CI_Controller
             redirect(base_url("admin/profile-list"));
         }
     }
-    /*======[LOGIN, REGISTER, PROFILE - ENDED]======*/
+    /*================[LOGIN & REGISTER & PROFILE - ENDED]================*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*=====DASHBOARD - START=====*/
+    /*================[DASHBOARD - START]================*/
     public function dashboard()
     {
         $data["admin_page_name"] = "Dashboard";
@@ -566,11 +558,18 @@ class AdminController extends CI_Controller
     {
         $data["admin_page_name"] = "Feedback Detail";
         $data["feedback_data"] = $this->AdminModel->feedback_admin_db_get($id);
+        if (empty($data["feedback_data"])) {
+            redirect(base_url("admin/dashboard"));
+        }
         $this->load->view("admins/FeedbackDetail", $data);
     }
 
     public function feedback_delete($id)
     {
+        $target_feedback = $this->AdminModel->feedback_admin_db_get($id);
+        if (empty($target_feedback)) {
+            redirect(base_url("admin/dashboard"));
+        }
         $this->AdminModel->feedback_admin_db_delete($id);
         $this->AlertFlashData(
             "success",
@@ -578,7 +577,7 @@ class AdminController extends CI_Controller
             "Success!",
             "The feedback has been successfully removed."
         );
-        redirect($_SERVER["HTTP_REFERER"]);
+        redirect(base_url("admin/dashboard"));
     }
 
     public function feedback_clear_action()
@@ -592,9 +591,9 @@ class AdminController extends CI_Controller
         );
         redirect($_SERVER["HTTP_REFERER"]);
     }
-    /*=====DASHBOARD - ENDED=====*/
+    /*================[DASHBOARD - ENDED]================*/
 
-    /*=====AI GPT - START=====*/
+    /*================[AI GPT - START]================*/
     public function ai_gpt()
     {
         $data["admin_page_name"] = "AI GPT 3.5";
@@ -611,7 +610,7 @@ class AdminController extends CI_Controller
             "stream" => false
         ];
         $curl_api_gpt = curl_init("https://chatg.io/wp-json/mwai-ui/v1/chats/submit");
-        curl_setopt($curl_api_gpt, CURLOPT_USERAGENT, "StimulNewsClient-v3.2");
+        curl_setopt($curl_api_gpt, CURLOPT_USERAGENT, "StimulNewsClient-v3.3");
         curl_setopt($curl_api_gpt, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt(
             $curl_api_gpt,
@@ -629,9 +628,9 @@ class AdminController extends CI_Controller
         curl_close($curl_api_gpt);
         print_r(json_decode($gpt_response, FALSE)->reply);
     }
-    /*=====AI GPT - ENDED=====*/
+    /*================[AI GPT - ENDED]================*/
 
-    /*=====TOPBAR CRUD - START=====*/
+    /*================[TOPBAR CRUD - START]================*/
     public function crud_topbar_create()
     {
         $topbar_db_row = $this->AdminModel->table_row_id("topbar", "t_uid");
@@ -729,9 +728,9 @@ class AdminController extends CI_Controller
         );
         redirect(base_url("admin/topbar-create"));
     }
-    /*=====TOPBAR CRUD - ENDED=====*/
+    /*================[TOPBAR CRUD - ENDED]================*/
 
-    /*=====BRANDING CRUD - START=====*/
+    /*================[BRANDING CRUD - START]================*/
     public function crud_branding_create()
     {
         $branding_db_row = $this->AdminModel->table_row_id("branding", "b_uid");
@@ -925,9 +924,9 @@ class AdminController extends CI_Controller
         );
         redirect(base_url("admin/branding-create"));
     }
-    /*=====BRANDING CRUD - ENDED=====*/
+    /*================[BRANDING CRUD - ENDED]================*/
 
-    /*=====PARTNERS CRUD - START=====*/
+    /*================[PARTNERS CRUD - START]================*/
     public function crud_partners_create()
     {
         $data["admin_page_name"] = "Partners Create";
@@ -992,12 +991,18 @@ class AdminController extends CI_Controller
     {
         $data["admin_page_name"] = "Partners Edit";
         $data["partner_data"] = $this->AdminModel->partners_admin_db_get($id);
+        if (empty($data["partner_data"])) {
+            redirect(base_url("admin/partners-list"));
+        }
         $this->load->view("admins/Partners/Edit", $data);
     }
 
     public function crud_partners_edit_action($id)
     {
         $old_partner_data = $this->AdminModel->partners_admin_db_get($id);
+        if (empty($old_partner_data)) {
+            redirect(base_url("admin/partners-list"));
+        }
         $partner_img_path = "./file_manager/partners/" . $old_partner_data["p_img"];
         $partner_link   = filter_var($this->input->post("partner_link",   TRUE), FILTER_SANITIZE_URL);
         $partner_title  = $this->input->post("partner_title",  TRUE);
@@ -1065,6 +1070,9 @@ class AdminController extends CI_Controller
     public function crud_partners_delete($id)
     {
         $partner_data = $this->AdminModel->partners_admin_db_get($id);
+        if (empty($partner_data)) {
+            redirect(base_url("admin/partners-list"));
+        }
         $partner_img_path = "./file_manager/partners/" . $partner_data["p_img"];
         if (!is_dir($partner_img_path) && file_exists($partner_img_path)) {
             unlink($partner_img_path);
@@ -1078,9 +1086,9 @@ class AdminController extends CI_Controller
         );
         redirect(base_url("admin/partners-list"));
     }
-    /*=====PARTNERS CRUD - ENDED=====*/
+    /*================[PARTNERS CRUD - ENDED]================*/
 
-    /*=====CATEGORIES CRUD - START=====*/
+    /*================[CATEGORIES CRUD - START]================*/
     public function crud_categories_create()
     {
         $data["admin_page_name"] = "Categories Create";
@@ -1152,12 +1160,18 @@ class AdminController extends CI_Controller
     {
         $data["admin_page_name"] = "Categories Edit";
         $data["category_data"] = $this->AdminModel->categories_admin_db_get($id);
+        if (empty($data["category_data"])) {
+            redirect(base_url("admin/categories-list"));
+        }
         $this->load->view("admins/Categories/Edit", $data);
     }
 
     public function crud_categories_edit_action($id)
     {
         $old_category_data = $this->AdminModel->categories_admin_db_get($id);
+        if (empty($old_category_data)) {
+            redirect(base_url("admin/categories-list"));
+        }
         $category_img_path = "./file_manager/categories/" . $old_category_data["c_img"];
         $category_en_name  = $this->input->post("category_en_name", TRUE);
         $category_ru_name  = $this->input->post("category_ru_name", TRUE);
@@ -1237,6 +1251,9 @@ class AdminController extends CI_Controller
     public function crud_categories_delete($id)
     {
         $category_data = $this->AdminModel->categories_admin_db_get($id);
+        if (empty($category_data)) {
+            redirect(base_url("admin/categories-list"));
+        }
         $category_img_path = "./file_manager/categories/" . $category_data["c_img"];
         if (!is_dir($category_img_path) && file_exists($category_img_path)) {
             unlink($category_img_path);
@@ -1250,9 +1267,9 @@ class AdminController extends CI_Controller
         );
         redirect(base_url("admin/categories-list"));
     }
-    /*=====CATEGORIES CRUD - ENDED=====*/
+    /*================[CATEGORIES CRUD - ENDED]================*/
 
-    /*=====NEWS CRUD - START=====*/
+    /*================[NEWS CRUD - START]================*/
     public function crud_news_create()
     {
         $data["admin_page_name"] = "News Create";
@@ -1386,6 +1403,9 @@ class AdminController extends CI_Controller
     {
         $data["admin_page_name"] = "News Detail";
         $data["news_data"] = $this->AdminModel->news_admin_db_get($id);
+        if (empty($data["news_data"])) {
+            redirect(base_url("admin/news-list"));
+        }
         $this->load->view("admins/News/Detail", $data);
     }
 
@@ -1393,6 +1413,9 @@ class AdminController extends CI_Controller
     {
         $data["admin_page_name"] = "News Edit";
         $data["news_data"] = $this->AdminModel->news_admin_db_get($id);
+        if (empty($data["news_data"])) {
+            redirect(base_url("admin/news-list"));
+        }
         $data["categories_list"] = $this->AdminModel->categories_admin_db_get_results();
         $this->load->view("admins/News/Edit", $data);
     }
@@ -1400,6 +1423,9 @@ class AdminController extends CI_Controller
     public function crud_news_edit_action($id)
     {
         $old_news_data = $this->AdminModel->news_admin_db_get($id);
+        if (empty($old_news_data)) {
+            redirect(base_url("admin/news-list"));
+        }
         $news_img_path = "./file_manager/news/" . $old_news_data["n_preview_img"];
         $news_title_en             = $this->input->post("news_title_en", TRUE);
         $news_title_ru             = $this->input->post("news_title_ru", TRUE);
@@ -1543,6 +1569,9 @@ class AdminController extends CI_Controller
     public function crud_news_delete($id)
     {
         $news_data = $this->AdminModel->news_admin_db_get($id);
+        if (empty($news_data)) {
+            redirect(base_url("admin/news-list"));
+        }
         $news_img_path = "./file_manager/news/" . $news_data["n_preview_img"];
         if (!is_dir($news_img_path) && file_exists($news_img_path)) {
             unlink($news_img_path);
@@ -1556,9 +1585,9 @@ class AdminController extends CI_Controller
         );
         redirect(base_url("admin/news-list"));
     }
-    /*=====NEWS CRUD - ENDED=====*/
+    /*================[NEWS CRUD - ENDED]================*/
 
-    /*=====SUBSCRIBERS CRUD - START=====*/
+    /*================[SUBSCRIBERS CRUD - START]================*/
     public function crud_subscribers_create()
     {
         $data["admin_page_name"] = "Subscribers Create";
@@ -1597,11 +1626,18 @@ class AdminController extends CI_Controller
     {
         $data["admin_page_name"] = "Subscribers Edit";
         $data["subscriber_data"] = $this->AdminModel->subscribers_admin_db_get($id);
+        if (empty($data["subscriber_data"])) {
+            redirect(base_url("admin/subscribers-list"));
+        }
         $this->load->view("admins/Subscribers/Edit", $data);
     }
 
     public function crud_subscribers_edit_action($id)
     {
+        $subscriber_old_data = $this->AdminModel->subscribers_admin_db_get($id);
+        if (empty($subscriber_old_data)) {
+            redirect(base_url("admin/subscribers-list"));
+        }
         $subscriber_email = $this->input->post("subscriber_email", TRUE);
         $subscriber_status = $this->input->post("subscriber_status", TRUE);
         if (!empty($subscriber_email)) {
@@ -1637,6 +1673,10 @@ class AdminController extends CI_Controller
 
     public function crud_subscribers_delete($id)
     {
+        $subscriber_data = $this->AdminModel->subscribers_admin_db_get($id);
+        if (empty($subscriber_data)) {
+            redirect(base_url("admin/subscribers-list"));
+        }
         $this->AdminModel->subscribers_admin_db_delete($id);
         $this->AlertFlashData(
             "success",
@@ -1646,9 +1686,9 @@ class AdminController extends CI_Controller
         );
         redirect(base_url("admin/subscribers-list"));
     }
-    /*=====SUBSCRIBERS CRUD - ENDED=====*/
+    /*================[SUBSCRIBERS CRUD - ENDED]================*/
 
-    /*=====SLIDER CRUD - START=====*/
+    /*================[SLIDER CRUD - START]================*/
     public function crud_slider_create()
     {
         $data["admin_page_name"] = "Slider Create";
@@ -1761,12 +1801,18 @@ class AdminController extends CI_Controller
     {
         $data["admin_page_name"] = "Slider Edit";
         $data["slider_data"] = $this->AdminModel->slider_admin_db_get($id);
+        if (empty($data["slider_data"])) {
+            redirect(base_url("admin/slider-list"));
+        }
         $this->load->view("admins/Slider/Edit", $data);
     }
 
     public function crud_slider_edit_action($id)
     {
         $slider_data = json_decode($this->AdminModel->slider_admin_db_get($id)["s_data"], TRUE);
+        if (empty($slider_data)) {
+            redirect(base_url("admin/slider-list"));
+        }
         $slider_type = $slider_data["slider_type"];
         if ($slider_type === "slider_news") {
             $slider_news_uid    = $this->input->post("slider_news_uid", TRUE);
@@ -1891,6 +1937,9 @@ class AdminController extends CI_Controller
     public function crud_slider_delete($id)
     {
         $slider_data = json_decode($this->AdminModel->slider_admin_db_get($id)["s_data"], TRUE);
+        if (empty($slider_data)) {
+            redirect(base_url("admin/slider-list"));
+        }
         if (!($slider_data["slider_type"] == "slider_news")) {
             $slider_img_path = "./file_manager/slider/" . $slider_data["slider_img"];
             if (!is_dir($slider_img_path) && file_exists($slider_img_path)) {
@@ -1915,9 +1964,9 @@ class AdminController extends CI_Controller
             redirect(base_url("admin/slider-list"));
         }
     }
-    /*=====SLIDER CRUD - ENDED=====*/
+    /*================[SLIDER CRUD - ENDED]================*/
 
-    /*=====CONTACTS CRUD - START=====*/
+    /*================[CONTACTS CRUD - START]================*/
     public function crud_contacts_create()
     {
         $contacts_db_row = $this->AdminModel->table_row_id("contacts", "c_uid");
@@ -2145,9 +2194,9 @@ class AdminController extends CI_Controller
         );
         redirect(base_url("admin/contacts-create"));
     }
-    /*=====CONTACTS CRUD - ENDED=====*/
+    /*================[CONTACTS CRUD - ENDED]================*/
 
-    /*=====GALLERY CRUD - START=====*/
+    /*================[GALLERY CRUD - START]================*/
     public function crud_gallery_create()
     {
         $data["admin_page_name"] = "Gallery Create";
@@ -2206,6 +2255,9 @@ class AdminController extends CI_Controller
             redirect(base_url("admin/gallery-list"));
         }
         $gallery_data = $this->AdminModel->gallery_admin_db_get($id);
+        if (empty($gallery_data)) {
+            redirect(base_url("admin/gallery-list"));
+        }
         $gallery_img_path = "./file_manager/gallery/" . $gallery_data["g_img"];
         if (!is_dir($gallery_img_path) && file_exists($gallery_img_path)) {
             unlink($gallery_img_path);
@@ -2219,9 +2271,9 @@ class AdminController extends CI_Controller
         );
         redirect(base_url("admin/gallery-list"));
     }
-    /*=====GALLERY CRUD - ENDED=====*/
+    /*================[GALLERY CRUD - ENDED]================*/
 
-    /*=====ABOUT CRUD - ENDED=====*/
+    /*================[ABOUT CRUD - START]================*/
     public function crud_about_create()
     {
         $about_db_row = $this->AdminModel->table_row_id("about", "a_uid");
@@ -2389,9 +2441,9 @@ class AdminController extends CI_Controller
         );
         redirect(base_url("admin/about-create"));
     }
-    /*=====ABOUT CRUD - ENDED=====*/
+    /*================[ABOUT CRUD - ENDED]================*/
 
-    /*=====SETTINGS CRUD - START=====*/
+    /*================[SETTINGS CRUD - START]================*/
     public function crud_settings_create()
     {
         $settings_db_row = $this->AdminModel->table_row_id("settings", "s_uid");
@@ -2520,5 +2572,5 @@ class AdminController extends CI_Controller
             redirect($_SERVER["HTTP_REFERER"]);
         }
     }
-    /*=====SETTINGS CRUD - ENDED=====*/
+    /*================[SETTINGS CRUD - ENDED]================*/
 }

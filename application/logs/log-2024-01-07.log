@@ -1,2 +1,0 @@
-ERROR - 2024-01-07 08:41:49 --> Severity: Warning --> stream_socket_enable_crypto(): SSL: Удаленный хост принудительно разорвал существующее подключение C:\OSPanel\domains\stimul.news\system\libraries\Email.php 2098
-ERROR - 2024-01-07 08:42:41 --> Severity: Warning --> stream_socket_enable_crypto(): SSL: Удаленный хост принудительно разорвал существующее подключение C:\OSPanel\domains\stimul.news\system\libraries\Email.php 2098

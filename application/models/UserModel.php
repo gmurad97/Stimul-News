@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class UserModel extends CI_Model
 {
-    /*==========GLOBAL MODEL - START==========*/
+    /*================[USER MODEL FUNCTIONS - START]================*/
     public function table_row_id($tableName, $idName)
     {
         $rows_count = $this->db->count_all_results($tableName, TRUE);
@@ -15,9 +15,9 @@ class UserModel extends CI_Model
             return -1;
         }
     }
-    /*==========GLOBAL MODEL - ENDED==========*/
+    /*================[USER MODEL FUNCTIONS - ENDED]================*/
 
-    /*==========CRUD MODEL - START==========*/
+    /*================[USER MODEL CRUD - START]================*/
     public function topbar_user_db_get()
     {
         return $this->db
@@ -179,5 +179,5 @@ class UserModel extends CI_Model
     {
         $this->db->insert("feedback", $data);
     }
-    /*==========CRUD MODEL - ENDED==========*/
+    /*================[USER MODEL CRUD - ENDED]================*/
 }
