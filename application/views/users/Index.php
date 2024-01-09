@@ -176,7 +176,7 @@
                             <?php if ($partners_item['p_status']) : ?>
                                 <div class="item">
                                     <div class="instafeed_box">
-                                        <a title="<?= $partners_item['p_title']; ?>" href="<?= $partners_item['p_link']; ?>">
+                                        <a target="_blank" title="<?= $partners_item['p_title']; ?>" href="<?= $partners_item['p_link']; ?>">
                                             <img height="128" src="<?= base_url('file_manager/partners/' . $partners_item['p_img']); ?>" alt="<?= $partners_item['p_title']; ?>">
                                         </a>
                                     </div>
