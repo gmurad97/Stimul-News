@@ -18,4 +18,3 @@
 
 ## Authors
 
-- [@gmurad97](https://www.github.com/gmurad97)
