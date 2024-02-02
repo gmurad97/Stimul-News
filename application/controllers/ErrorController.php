@@ -29,7 +29,7 @@ class ErrorController extends CI_Controller
     public function topbarInfo()
     {
         date_default_timezone_set("Asia/Baku");
-        $weather = json_decode(file_get_contents("https://api.weatherapi.com/v1/current.json?key=029fb0aeb2b9484a8b440601240801&q=Baku&aqi=no"));
+        $weather = json_decode(file_get_contents("https://api.weatherapi.com/v1/current.json?key=cb366c9147854d51a5a34813240202&q=Baku&aqi=no"));
         return (object) [
             "date" => date("d.m.Y"),
             "time" => date("H:i"),

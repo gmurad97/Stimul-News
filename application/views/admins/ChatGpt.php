@@ -5,13 +5,13 @@
     <div class="card-header border-create fw-bold d-flex flex-row justify-content-between align-items-center">
         <div class="h5 text-uppercase text-success text-header-shadow m-0">
             <i class="bi bi-robot me-1"></i>
-            AI GPT 3.5
+            AI GPT 4 TURBO
         </div>
     </div>
     <div class="card-body">
         <div class="row">
             <div class="col-md-12">
-                <label for="gpt_answer">AI GPT 3.5 - Answer</label>
+                <label for="gpt_answer">AI GPT 4 TURBO - Answer</label>
                 <pre class="form-control border-info" id="gpt_answer" style="width: 100%; height:250px; white-space: pre-wrap; overflow-wrap: anywhere;">Hello, how can I assist you today?</pre>
             </div>
         </div>

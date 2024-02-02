@@ -34,7 +34,7 @@ class AdminController extends CI_Controller
     /*================[ADMIN CONTROLLER FUNCTIONS - START]================*/
     protected function SendEmail(array $eTo, string $eSubject, string $eMessage): bool
     {
-        $eFrom = "stimul.news@bk.ru";
+        $eFrom = "murad.dev@carsleon.com";
         $eFromName = "Stimul News";
         $this->email->clear();
         $this->email->from($eFrom, $eFromName);
@@ -97,7 +97,7 @@ class AdminController extends CI_Controller
 
     protected function FiatPrice(array $currencyFiat)
     {
-        $curl_fiat_price = curl_init("https://openexchangerates.org/api/latest.json?app_id=93d0c44fe44e46cf8a83a507e735a817&symbols=" . join(",", $currencyFiat));
+        $curl_fiat_price = curl_init("https://openexchangerates.org/api/latest.json?app_id=b7f2a8f2f2b34901bc8807fbeeaffd2c&symbols=" . join(",", $currencyFiat));
         curl_setopt($curl_fiat_price, CURLOPT_USERAGENT, "StimulNewsClient-v3.3");
         curl_setopt($curl_fiat_price, CURLOPT_RETURNTRANSFER, TRUE);
         $response_result = curl_exec($curl_fiat_price);
@@ -604,29 +604,43 @@ class AdminController extends CI_Controller
     {
         $query = base64_decode($query);
         $json_data = [
-            "id" => null,
-            "botId" => "default",
-            "newMessage" => $query,
-            "stream" => false
+            "conversation_id" => "7d83b8b8-473e-78f1-327b-18d67a845c5",
+            "action" => "_ask",
+            "model" => "gpt-4-turbo",
+            "jailbreak" => "default",
+            "meta" => [
+                "id" => "7330826784249429774",
+                "content" => [
+                    "conversation" => [],
+                    "internet_access" => false,
+                    "content_type" => "text",
+                    "parts" => [
+                        [
+                            "content" => $query,
+                            "role" => "user"
+                        ]
+                    ]
+                ]
+            ]
         ];
-        $curl_api_gpt = curl_init("https://chatg.io/wp-json/mwai-ui/v1/chats/submit");
+        $curl_api_gpt = curl_init("https://leingpt.ru/backend-api/v2/conversation");
         curl_setopt($curl_api_gpt, CURLOPT_USERAGENT, "StimulNewsClient-v3.3");
         curl_setopt($curl_api_gpt, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt(
             $curl_api_gpt,
             CURLOPT_HTTPHEADER,
             [
-                "Referer:https://chatg.io/chat/",
-                "Accept: text/event-stream",
-                "Content-Type: application/json"
+                "accept: text/event-stream",
+                "content-type: application/json",
+                "Referer: https://leingpt.ru/chat/"
             ]
         );
-        curl_setopt($curl_api_gpt, CURLOPT_POST, 1);
+        curl_setopt($curl_api_gpt, CURLOPT_POST, TRUE);
         curl_setopt($curl_api_gpt, CURLOPT_POSTFIELDS, json_encode($json_data));
         curl_setopt($curl_api_gpt, CURLOPT_TIMEOUT, 60);
-        $gpt_response = curl_exec($curl_api_gpt);
+        $gpt_response_answer = curl_exec($curl_api_gpt);
         curl_close($curl_api_gpt);
-        print_r(json_decode($gpt_response, FALSE)->reply);
+        print_r($gpt_response_answer);
     }
     /*================[AI GPT - ENDED]================*/
 

@@ -272,7 +272,7 @@
                     <span class="menu-icon">
                         <i class="bi bi-robot <?= MenuState($segment_name, 'gpt', 'fa-fade'); ?>"></i>
                     </span>
-                    <span class="menu-text">AI GPT 3.5</span>
+                    <span class="menu-text">AI GPT 4 TURBO</span>
                 </a>
             </div>
             <!--=====CHAT GPT 4F - ENDED=====-->

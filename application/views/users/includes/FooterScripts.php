@@ -10,7 +10,7 @@
 <script src="<?= base_url('public/user/assets/js/jquery.fitvids.js'); ?>"></script>
 <script src="<?= base_url('public/user/assets/js/sweetalert2.js'); ?>"></script>
 <script src="<?= base_url('public/user/assets/js/tilt.jquery.min.js'); ?>"></script>
-<script src="https://cdn.userway.org/widget.js" data-account="1BsLUANCqJ"></script>
+<script src="https://cdn.userway.org/widget.js" data-account="WwKi14n0VI"></script>
 <script src="<?= base_url('public/user/assets/js/scripts.js'); ?>"></script>
 </body>
 
